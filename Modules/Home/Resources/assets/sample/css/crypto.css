@@ -1,0 +1,172 @@
+
+
+.crypto {
+    height: 0px;
+    padding-bottom: 66%;
+    background-color: rgba(0,0,0,0.3);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    color:#F5F5F5;
+}
+
+
+.crypto-lg {
+    padding-bottom: 75%;
+}
+
+.crypto-news-box-caption {
+    font-family: MillerTextBold;
+    padding: 10px;
+    font-size: 23px;
+    height: 55%;
+    width: 100%;
+    color:#fff;
+}
+
+.crypto-second-image-caption {
+    position: absolute;
+    bottom: 20%;
+    padding-left: 10px;
+    width: 20%;
+    font-size: 23px;
+    color:#fff;
+    font-family: MillerTextBold;
+}
+
+.crypto-md {
+    border-bottom: solid 8px #f2b01b;
+}
+
+.crypto-sm {
+    position: relative;
+    width: 330px;
+    height: 390px;
+    padding:10px;
+}
+
+.crypto-sm-img {
+    width: 100%;
+    height:210px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.crypto-text-bottom {
+    /*position: absolute;*/
+    bottom:-10px;
+    font-family: MillerTextRoman;
+    color:#555555;
+    font-size:14px;
+
+}
+.crypto-text-bottom-sm {
+
+    font-family: MillerTextRoman;
+    color:#555555;
+    font-size:14px;
+    padding-top: 25%;
+}
+.crypto-title {
+    font-family: MillerTextBold;
+    font-size: 22px;
+    height: 120px;
+    color:#F5F5F5;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.crypto-first-title {
+    font-family: MillerTextBold;
+    font-size: 28px;
+    height: 120px;
+    padding-top: 15px;
+    color:#F5F5F5;
+}
+
+.crypto-sm-title {
+    background-color: #ffffff;
+    position: absolute;
+    width: auto;
+    max-width: 80%;
+    top:60%;
+    right: 5px;
+    font-size: 1.4em;
+    font-family: MillerTextBold;
+    padding: 5px;
+    white-space:normal;
+    height: 120px;
+    padding-bottom: 10px;
+
+}
+
+.crypto-sm-top {
+    font-size: 2em;
+    color: #844dff;
+    font-family: HelveticaNeueBold;
+    font-weight: bolder;
+    display: flex;
+}
+
+.crypto-top-line {
+    width: calc(100% - 0.75em);
+    border-bottom:solid 1px #844dff;
+    position: absolute;
+    top:0.8em;
+    z-index: 1;
+}
+
+.crypto-slider {
+    overflow:hidden; width: 100%; height: 420px; overflow-x: scroll; white-space: nowrap;
+}
+
+
+.crypto-slider ::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+    border-color: #844dff;
+}
+.crypto-slider ::-webkit-scrollbar-thumb {
+
+    border-color: #844dff;
+}
+.crypto-card-slider-slide-img {
+    width: 100%;
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.crypto-card-slider-slide-caption {
+    font-family: MillerTextBold;
+    width: 65%;
+    height: 100%;
+    font-size: 33px;
+    text-align: left;
+    z-index: 2;
+    position: absolute;
+}
+
+.crypto-paper-card {
+    height: 100px;
+    border-radius: 10px;
+}
+
+.crypto-wide-section {
+    height: 300px;
+    padding: 30px;
+}
+
+.crypto-slider-controls{
+    left:30px;
+    margin-bottom:20px;
+}
+
+.crypto-card-slider-controls {
+    display: flex;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    z-index: 5;
+    padding: 20px;
+}

@@ -1,0 +1,141 @@
+
+
+.last-min {
+    height: 0px;
+    padding-bottom: 66%;
+    background-color: rgba(0,0,0,0.3);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: relative;
+}
+
+
+.last-min-lg {
+    padding-bottom: 75%;
+}
+
+.last-min-md {
+
+    border-bottom: solid 8px red;
+}
+
+.last-min-sm {
+    position: relative;
+    width: 280px;
+    height: 350px;
+    padding:10px;
+}
+
+.last-min-sm-img {
+    width: 100%;
+    /*height:210px;*/
+    height:178px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.last-min-text-bottom {
+    position: absolute;
+    bottom:-10px;
+    font-family: MillerTextRoman;
+    color:#555555;
+    font-size:14px;
+
+}
+.last-min-text-bottom-sm {
+
+    font-family: MillerTextRoman;
+    color:#555555;
+    padding-top: 10px;
+    font-size:14px;
+
+}
+
+.small-last-min-bottom {
+    bottom: 32px;
+}
+
+.last-min-title {
+    font-family: MillerTextBold;
+    font-size: 22px;
+    height: 120px;
+    padding-top: 15px;
+    line-height: 1.2em;
+}
+
+.last-min-sm-title {
+    background-color: #ffffff;
+    position: absolute;
+    width: auto;
+    max-width: 80%;
+    top:60%;
+    right: 5px;
+    font-size: 18px;
+    font-family: MillerTextBold;
+    padding: 5px;
+    white-space:normal;
+    height: 120px;
+    padding-bottom: 10px;
+
+}
+
+.last-min-sm-top {
+    font-size: 2em;
+    color:red;
+    font-family: HelveticaNeueBold;
+    font-weight: bolder;
+    display: flex;
+}
+
+.last-min-caption {
+    font-family: MillerTextBold;
+    width: 100%;
+    height: 100%;
+    font-size: 2em;
+    padding: 50px;
+    padding-top:35%;
+    z-index: 20;
+    color: white;
+    text-align: center;
+    position: absolute;
+    line-height: 1.2em;
+}
+
+.last-min-bottom-sm {
+
+    font-family: MillerTextRoman;
+    color:#555555;
+    padding-top: 10px;
+    font-size:14px;
+    position: absolute;
+    bottom: 10%;
+    text-align: center;
+    left: 35%;
+}
+
+
+
+.last-min-top-line {
+    width: calc(100% - 0.75em);
+    border-bottom:solid 1px red;
+    position: absolute;
+    top:35px;
+    z-index: 1;
+}
+
+.last-min-slider {
+    overflow:hidden; width: 100%; height: 420px; overflow-x: scroll; white-space: nowrap;
+}
+
+
+.last-min-slider ::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+    border-color: red;
+}
+.last-min-slider ::-webkit-scrollbar-thumb {
+
+    border-color: red;
+    background-color: red;
+}

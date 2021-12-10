@@ -1,0 +1,45 @@
+
+.most-red {
+    padding: 30px;
+}
+
+.most-red-image {
+    width: 100%;
+    height: 140px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.most-red-text {
+    font-family: MillerTextBold;
+    width: 100%;
+    font-size: 25px;
+    color: #FFFFFF;
+    margin-top: 15px;
+    padding-right: 10px;
+    position: relative;
+    min-height: 100px;
+}
+
+.most-red-index {
+    position: absolute;
+    top: -45px;
+    left: -40px;
+    height: 100%;
+    font-size: 120px;
+    font-weight: bolder;
+    font-family: HelveticaNeueBold;
+    color: rgba(255, 255, 255, 0.1)
+}
+
+.most-red-bottom {
+
+    padding-right: 10px;
+    width: 100%;
+    color: #AAAAAA;
+    font-size: 14px;
+    height: 20px;
+    font-family: MillerTextRoman;
+
+}

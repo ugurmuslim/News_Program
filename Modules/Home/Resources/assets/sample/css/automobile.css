@@ -1,0 +1,143 @@
+
+
+.automobile {
+    height: 0px;
+    padding-bottom: 66%;
+    background-color: rgba(0,0,0,0.3);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    color:#F5F5F5;
+}
+
+
+.automobile-lg {
+    padding-bottom: 75%;
+}
+
+.automobile-md {
+    border-bottom: solid 8px #717171;
+}
+
+.automobile-sm {
+    position: relative;
+    width: 330px;
+    height: 390px;
+    padding:10px;
+}
+
+.automobile-sm-img {
+    width: 100%;
+    height:210px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.automobile-text-bottom {
+    /*position: absolute;*/
+    bottom:-10px;
+    font-family: MillerTextRoman;
+    color:#555555;
+    font-size:14px;
+
+}
+.automobile-text-bottom-sm {
+
+    font-family: MillerTextRoman;
+    color:#555555;
+    padding-top: 10px;
+    font-size:14px;
+
+}
+.automobile-title {
+    font-family: MillerTextBold;
+    font-size: 22px;
+    height: 120px;
+    color:#F5F5F5;
+    padding-top: 30px;
+    padding-bottom: 10px;
+}
+
+.automobile-sm-title {
+    background-color: #ffffff;
+    position: absolute;
+    width: auto;
+    max-width: 80%;
+    top:60%;
+    right: 5px;
+    font-size: 1.4em;
+    font-family: MillerTextBold;
+    padding: 5px;
+    white-space:normal;
+    height: 120px;
+    padding-bottom: 10px;
+
+}
+
+.automobile-sm-top {
+    font-size: 2em;
+    color: #844dff;
+    font-family: HelveticaNeueBold;
+    font-weight: bolder;
+    display: flex;
+}
+
+.automobile-top-line {
+    width: calc(100% - 0.75em);
+    border-bottom:solid 1px #844dff;
+    position: absolute;
+    top:0.8em;
+    z-index: 1;
+}
+
+.automobile-slider {
+    overflow:hidden; width: 100%; height: 420px; overflow-x: scroll; white-space: nowrap;
+}
+
+
+.automobile-slider ::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+    border-color: #844dff;
+}
+.automobile-slider ::-webkit-scrollbar-thumb {
+
+    border-color: #844dff;
+}
+.automobile-card-slider-slide-img {
+    width: 100%;
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.automobile-card-slider-slide-caption {
+    font-family: MillerTextBold;
+    width: 65%;
+    height: 100%;
+    font-size: 33px;
+    text-align: left;
+    padding: 30px;
+    padding-top:5%;
+    z-index: 2;
+    position: absolute;
+}
+
+.automobile-paper-card {
+    height: 100px;
+    border-radius: 10px;
+}
+
+.automobile-card-slider-controls {
+    display: flex;
+    position: absolute;
+    bottom: 15px;
+    left: 15px;
+    z-index: 5;
+    padding: 20px;
+}
+
+.automobile-slider-controls{
+    left:30px;
+    margin-bottom:20px;
+}

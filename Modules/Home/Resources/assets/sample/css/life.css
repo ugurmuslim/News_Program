@@ -1,0 +1,167 @@
+.life-starsign-icon {
+    height: 0px;
+    width: 100%;
+    border-radius: 100%;
+    background-color: #f2b01b;
+}
+
+
+
+.life {
+    height: 0px;
+    padding-bottom: 66%;
+    background-color: rgba(0,0,0,0.3);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.life-news-box-caption {
+    font-family: MillerTextRoman;
+    padding: 10px 20px;
+    font-size: 17px;
+    height: 55%;
+    width: 100%;
+    color:#000;
+}
+
+.life-lg {
+    padding-bottom: 75%;
+}
+
+.life-md {
+
+    border-bottom: solid 8px #f2b01b;
+}
+
+.life-sm {
+    position: relative;
+    width: 330px;
+    height: 390px;
+    padding:10px;
+}
+
+.life-sm-img {
+    width: 100%;
+    height:210px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.life-text-bottom {
+    /*position: absolute;*/
+    bottom:-10px;
+    font-family: MillerTextRoman;
+    color:#555555;
+    font-size:14px;
+
+}
+.life-text-bottom-sm {
+
+    font-family: MillerTextRoman;
+    color:#555555;
+    padding-top: 10px;
+    font-size:14px;
+
+}
+.life-title {
+    font-family: MillerTextBold;
+    font-size: 22px;
+    height: 120px;
+    padding-top: 30px;
+}
+
+.life-second-image-caption {
+    padding-top: 60%;
+    padding-left: 10px;
+    width: 60%;
+    font-size: 23px;
+    height: 55%;
+    color:#fff;
+    font-family: MillerTextBold;
+    line-height: 30px;
+}
+
+
+.life-sm-title {
+    background-color: #ffffff;
+    position: absolute;
+    width: auto;
+    max-width: 80%;
+    top:60%;
+    right: 5px;
+    font-size: 1.4em;
+    font-family: MillerTextBold;
+    padding: 5px;
+    white-space:normal;
+    height: 120px;
+    padding-bottom: 10px;
+
+}
+
+.life-sm-top {
+    font-size: 2em;
+    color: #f2b01b;
+    font-family: HelveticaNeueBold;
+    font-weight: bolder;
+    display: flex;
+}
+
+.life-top-line {
+    width: calc(100% - 0.75em);
+    border-bottom:solid 1px #f2b01b;
+    position: absolute;
+    top:0.8em;
+    z-index: 1;
+}
+
+.life-slider {
+    overflow:hidden; width: 100%; height: 420px; overflow-x: scroll; white-space: nowrap;
+}
+
+
+.life-slider ::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+    border-color: #f2b01b;
+}
+.life-slider ::-webkit-scrollbar-thumb {
+
+    border-color: #f2b01b;
+}
+.life-card-slider-slide-img {
+    width: 100%;
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.life-card-slider-slide-caption {
+    font-family: MillerTextBold;
+    width: 85%;
+    height: 30%;
+    font-size: 1em;
+    text-align: left;
+    padding: 30px;
+    bottom:10%;
+    z-index: 20;
+    position: absolute;
+}
+
+.life-paper-card {
+    height: 100px;
+    border-radius: 10px;
+
+}
+
+
+.life-slider-controls {
+    top: 20px;
+}
+
+
+@media screen and (max-width: 1700px) {
+    .life-card-slider-slide-caption {
+        height: 35%;
+    }
+}

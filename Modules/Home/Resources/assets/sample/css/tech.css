@@ -1,0 +1,169 @@
+
+.tech {
+    height: 0px;
+    padding-bottom: 66%;
+    background-color: rgba(0, 0, 0, 0.3);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+
+.tech-lg {
+    padding-bottom: 75%;
+}
+
+.tech-md {
+
+    border-bottom: solid 8px #844dff;
+}
+
+.tech-sm {
+    position: relative;
+    width: 330px;
+    height: 390px;
+    padding: 10px;
+}
+
+.tech-sm-img {
+    width: 100%;
+    height: 210px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.tech-text-bottom {
+    /*position: absolute;*/
+    bottom: -10px;
+    font-family: MillerTextRoman;
+    color: #555555;
+    font-size: 14px;
+
+}
+
+.tech-text-bottom-sm {
+
+    font-family: MillerTextRoman;
+    color: #555555;
+    padding-top: 10px;
+    font-size: 14px;
+
+}
+
+.tech-title {
+    font-family: MillerTextBold;
+    font-size: 22px;
+    height: 120px;
+    padding-top: 30px;
+}
+
+.tech-sm-title {
+    background-color: #ffffff;
+    position: absolute;
+    width: auto;
+    max-width: 80%;
+    top: 60%;
+    right: 5px;
+    font-size: 1.4em;
+    font-family: MillerTextBold;
+    padding: 5px;
+    white-space: normal;
+    height: 120px;
+    padding-bottom: 10px;
+
+}
+
+.tech-sm-top {
+    font-size: 2em;
+    color: #844dff;
+    font-family: HelveticaNeueBold;
+    font-weight: bolder;
+    display: flex;
+}
+
+.tech-top-line {
+    width: calc(100% - 0.75em);
+    border-bottom: solid 1px #844dff;
+    position: absolute;
+    top: 0.8em;
+    z-index: 1;
+}
+
+.tech-slider {
+    overflow: hidden;
+    width: 100%;
+    height: 420px;
+    overflow-x: scroll;
+    white-space: nowrap;
+}
+
+
+.tech-slider ::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+    border-color: #844dff;
+}
+
+.tech-slider ::-webkit-scrollbar-thumb {
+
+    border-color: #844dff;
+}
+
+.tech-card-slider-slide-img {
+    width: 100%;
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.tech-card-slider-slide-caption {
+    font-family: MillerTextBold;
+    width: 55%;
+    height: 100%;
+    font-size: 1em;
+    text-align: left;
+    padding: 30px;
+    padding-top: 18%;
+    z-index: 2;
+    position: absolute;
+}
+
+.tech-paper-card {
+    height: 100px;
+    border-radius: 10px;
+}
+
+.tech-slider-controls {
+    left: 30px;
+    margin-bottom: 20px;
+}
+
+.tech-box {
+
+}
+
+.tech-news-box-caption {
+    font-family: MillerTextBold;
+    padding: 10px;
+    font-size: 23px;
+    height: 55%;
+    width: 100%;
+    color: #f5f5f5;
+}
+
+.tech-news-box-image {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 45%;
+    width: 100%;
+}
+
+@media screen and (max-width: 850px) {
+
+    .tech-card-slider-slide-caption {
+        width: 70%;
+    }
+}

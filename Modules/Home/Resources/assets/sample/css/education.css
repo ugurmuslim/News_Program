@@ -1,0 +1,127 @@
+
+
+.education {
+    height: 0px;
+    padding-bottom: 66%;
+    background-color: rgba(0,0,0,0.3);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+
+.education-lg {
+    padding-bottom: 75%;
+}
+
+.education-md {
+
+}
+
+.education-sm {
+    position: relative;
+    width: 330px;
+    height: 390px;
+    padding:10px;
+}
+
+.education-sm-img {
+    width: 100%;
+    height:210px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.education-text-bottom {
+    /*position: absolute;*/
+    bottom:-10px;
+    font-family: MillerTextRoman;
+    color:#555555;
+    font-size:14px;
+
+}
+.education-text-bottom-sm {
+
+    font-family: MillerTextRoman;
+    color:#555555;
+    padding-top: 10px;
+    font-size:14px;
+
+}
+.education-title {
+    font-family: MillerTextBold;
+    font-size: 22px;
+    height: 120px;
+    padding-top: 30px;
+}
+
+.education-sm-title {
+    background-color: #ffffff;
+    position: absolute;
+    width: auto;
+    max-width: 80%;
+    top:60%;
+    right: 5px;
+    font-size: 1.4em;
+    font-family: MillerTextBold;
+    padding: 5px;
+    white-space:normal;
+    height: 120px;
+    padding-bottom: 10px;
+
+}
+
+.education-sm-top {
+    font-size: 2em;
+    color: #844dff;
+    font-family: HelveticaNeueBold;
+    font-weight: bolder;
+    display: flex;
+}
+
+.education-top-line {
+    width: calc(100% - 0.75em);
+    border-bottom:solid 1px #844dff;
+    position: absolute;
+    top:0.8em;
+    z-index: 1;
+}
+
+.education-slider {
+    overflow:hidden; width: 100%; height: 420px; overflow-x: scroll; white-space: nowrap;
+}
+
+
+.education-slider ::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+    border-color: #844dff;
+}
+.education-slider ::-webkit-scrollbar-thumb {
+
+    border-color: #844dff;
+}
+.education-card-slider-slide-img {
+    width: 100%;
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.education-card-slider-slide-caption {
+    font-family: MillerTextBold;
+    width: 75%;
+    height: 100%;
+    font-size: 26px;
+    text-align: left;
+    padding: 30px;
+    padding-top:30%;
+    z-index: 20;
+    position: absolute;
+}
+
+.education-paper-card {
+    height: 100px;
+    border-radius: 10px;
+
+}

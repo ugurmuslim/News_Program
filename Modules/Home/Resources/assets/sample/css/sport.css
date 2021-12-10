@@ -1,0 +1,138 @@
+
+
+.sport {
+    height: 0px;
+    padding-bottom: 66%;
+    background-color: rgba(0,0,0,0.3);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+
+.sport-lg {
+    padding-bottom: 75%;
+}
+
+.sport-md {
+
+    border-bottom: solid 8px #1a67f1;
+}
+
+.sport-sm {
+    position: relative;
+    width: 330px;
+    height: 390px;
+    padding:10px;
+}
+
+.sport-sm-img {
+    width: 100%;
+    height:210px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.sport-text-bottom {
+    position: absolute;
+    bottom:-10px;
+    font-family: MillerTextRoman;
+    color:#555555;
+    font-size:14px;
+
+}
+.sport-text-bottom-sm {
+
+    font-family: MillerTextRoman;
+    color:#555555;
+    padding-top: 10px;
+    font-size:14px;
+
+}
+.sport-title {
+    font-family: MillerTextBold;
+    font-size: 28px;
+    height: 120px;
+    padding-top: 15px;
+
+}
+
+.sport-sm-title {
+    background-color: #ffffff;
+    position: absolute;
+    width: auto;
+    max-width: 80%;
+    top:60%;
+    right: 5px;
+    font-size: 1.4em;
+    font-family: MillerTextBold;
+    padding: 5px;
+    white-space:normal;
+    height: 120px;
+    padding-bottom: 10px;
+
+}
+
+.sport-sm-top {
+    font-size: 2em;
+    color: #1a67f1;
+    font-family: HelveticaNeueBold;
+    font-weight: bolder;
+    display: flex;
+}
+
+.sport-top-line {
+    width: calc(100% - 0.75em);
+    border-bottom:solid 1px #1a67f1;
+    position: absolute;
+    top:0.8em;
+    z-index: 1;
+}
+
+.sport-slider {
+    overflow:hidden; width: 100%; height: 420px; overflow-x: scroll; white-space: nowrap;
+}
+
+
+.sport-slider ::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+    border-color: #1a67f1;
+}
+.sport-slider ::-webkit-scrollbar-thumb {
+
+    border-color: #1a67f1;
+}
+.sport-card-slider-slide-img {
+    width: 100%;
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.sport-card-slider-slide-caption {
+    font-family: MillerTextBold;
+    width: 55%;
+    height: 100%;
+    font-size: 1em;
+    text-align: left;
+    padding: 30px;
+    padding-top:25%;
+    z-index: 20;
+    position: absolute;
+}
+
+.sport-card-slider-controls {
+    display: flex;
+    position: absolute;
+    bottom: 15px;
+    left: 30px;
+    z-index: 5;
+}
+
+
+.sport-paper-card {
+    height: 100px;
+    border-radius: 10px;
+
+}

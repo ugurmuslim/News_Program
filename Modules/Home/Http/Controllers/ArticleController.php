@@ -1,0 +1,175 @@
+<?php
+
+namespace Modules\Home\Http\Controllers;
+
+use App\Parafesor\Constants\ArticleStatus;
+use App\Parafesor\Constants\ArticleTypes;
+use App\Parafesor\Constants\CacheConst;
+use Facade\FlareClient\Http\Exceptions\NotFound;
+use Illuminate\Contracts\Support\Renderable;
+use Illuminate\Http\Request;
+use Illuminate\Routing\Controller;
+use Illuminate\Support\Facades\Cache;
+use Modules\Admin\Entities\Article;
+use Modules\Admin\Entities\ArticleType;
+use Modules\Admin\Entities\StockTube;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+
+class ArticleController extends Controller
+{
+    /**
+     * Display a listing of the resource.
+     *
+     * @return Renderable
+     */
+    public function index($type)
+    {
+        $articleType = ArticleType::where('title', $type)->first();
+
+        if (!$articleType) {
+            abort(404);
+        }
+        $articles = [];
+        $articles[$type] = Article::where('status', ArticleStatus::PUBLISHED)
+            ->where('article_type_id', $articleType->id)
+            ->limit(30)
+            ->get();
+
+        if ($articleType->id == ArticleTypes::SonDakika) {
+            $articles[$type] = Article::where('status', ArticleStatus::PUBLISHED)
+                ->orderBy('id', 'DESC')
+                ->limit(30)
+                ->get();
+        }
+
+        if ($articleType->id == ArticleTypes::EnCokOkunanlar) {
+            $articles[$type] = Article::where('status', ArticleStatus::PUBLISHED)
+                ->where('article_type_id', '!=', ArticleTypes::KoseYazilari)
+                ->where('article_type_id', '!=', ArticleTypes::Twitter)
+                ->where('article_type_id', '!=', ArticleTypes::BorsaTube)
+                ->orderBy('read', 'DESC')
+                ->limit(32)
+                ->get();
+        }
+
+        if ($articleType->id == ArticleTypes::BorsaTube) {
+            $articles[$type]["Normal"] = StockTube::where('status', ArticleStatus::PUBLISHED)
+                ->where('channel', 0)
+                ->limit(32)
+                ->get();
+
+            $articles[$type]["ShowCase"] = StockTube::where('status', ArticleStatus::PUBLISHED)
+                ->limit(1)
+                ->get();
+
+            $articles[$type]["Channel"] = StockTube::where('status', ArticleStatus::PUBLISHED)
+                ->where('channel', 1)
+                ->limit(9)
+                ->get();
+        }
+
+        $currencies['Crypto'] = Cache::get(CacheConst::CURRENCIES . 'CRYPTO');
+        $currencies['Fiat'] = Cache::get(CacheConst::CURRENCIES . 'FIAT');
+
+        return view($articleType->page_path)
+            ->with('articles', $articles)
+            ->with('currencies', $currencies);
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return Renderable
+     */
+    public function create()
+    {
+        return view('home::create');
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param Request $request
+     *
+     * @return Renderable
+     */
+    public function store(Request $request)
+    {
+        //
+    }
+
+    public function imageDimensions($typeId)
+    {
+        $articleType = ArticleType::find($typeId);
+
+        if (!$articleType) {
+            return \Illuminate\Support\Facades\Response::json([ "error" => "Kategori bulunamadı" ]);
+        }
+
+        $array = json_decode($articleType->image_dimensions, true);
+
+        return \Illuminate\Support\Facades\Response::json($array);
+
+
+    }
+
+    /**
+     * Show the specified resource.
+     *
+     * @param int $id
+     *
+     * @return Renderable
+     */
+    public function show($slug)
+    {
+        $article = Article::where('slug', $slug)->first();
+
+        if (!$article) {
+            abort(404);
+        }
+
+        $article->read = $article->read + 1;
+        $article->save();
+
+        return view('home::Article.show')
+            ->with('article', $article);
+
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param int $id
+     *
+     * @return Renderable
+     */
+    public function edit($id)
+    {
+        return view('home::edit');
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param Request $request
+     * @param int     $id
+     *
+     * @return Renderable
+     */
+    public function update(Request $request, $id)
+    {
+        //
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param int $id
+     *
+     * @return Renderable
+     */
+    public function destroy($id)
+    {
+        //
+    }
+}

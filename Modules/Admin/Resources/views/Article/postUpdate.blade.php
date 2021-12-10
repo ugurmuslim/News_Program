@@ -1,0 +1,619 @@
+@extends('admin::layouts.master')
+@section('extra_plugins')
+    <script src="https://cdn.tiny.cloud/1/m0ee96ow3fu0fkmv687ilbm1ktuhlc0ogehbycr9qvqmjy89/tinymce/5/tinymce.min.js"
+            referrerpolicy="origin"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.6/cropper.css"
+          integrity="sha256-jKV9n9bkk/CTP8zbtEtnKaKf+ehRovOYeKoyfthwbC8=" crossorigin="anonymous"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.6/cropper.js"
+            integrity="sha256-CgvH7sz3tHhkiVKh05kSUgG97YtzYNnWt6OXcmYzqHY=" crossorigin="anonymous"></script>
+@endsection
+@section('style')
+    <style type="text/css">
+        img {
+            display: block;
+            max-width: 100%;
+        }
+
+        .preview {
+            overflow: hidden;
+            width: 160px;
+            height: 160px;
+            margin: 10px;
+            border: 1px solid red;
+        }
+
+        .modal-lg {
+            max-width: 1000px !important;
+        }
+    </style>
+@endsection
+
+
+@section('content')
+
+    <div class="wrapper">
+
+        <div class="content-wrapper">
+            <div class="content-header">
+                <div class="container-fluid">
+
+                    <div class="row mb-2">
+                        <div class="col-sm-6">
+                            <h1 class="m-0">Makaleler</h1>
+                        </div><!-- /.col -->
+
+                        <div class="col-sm-6">
+                            <ol class="breadcrumb float-sm-right">
+                                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                                <li class="breadcrumb-item active">Makaleler</li>
+                            </ol>
+                        </div><!-- /.col -->
+                    </div><!-- /.row -->
+                </div><!-- /.container-fluid -->
+            </div>
+            <!-- /.content-header -->
+
+            <!-- Main content -->
+            <section class="content">
+                <div class="container-fluid">
+                    @if(!isset($article))
+                        <form id="form" method="post" data-parsley-validate
+                              action={{route('article.store')}} enctype="multipart/form-data">
+                            @csrf
+                            <div class="row row-sm">
+
+                                <input name="ArticleId" type="number" class="form-control"
+                                       placeholder="Lorem ipsum dolor"
+                                       value="{{isset($article) ? $article->id : null}}"
+                                       maxlength="200" autocomplete="off" hidden/>
+
+                                <div class="col-md-9 row align-content-start">
+                                    <div class="col-12">
+                                        <label class="form-text">Başlık</label>
+                                        <input name="Title" type="text" class="form-control"
+                                               placeholder="Lorem ipsum dolor"
+                                               id="articleTitle"
+                                               value="{{isset($article) ? $article->title : ""}}"
+                                               required="required" maxlength="200" autocomplete="off"/>
+                                    </div>
+
+                                    <div class="col-12 hr"></div>
+                                    <div class="col-12">
+                                        <label class="form-text">Kategori</label>
+                                        <select class="form-control" name="ArticleTypeId" required="required"
+                                                id="category">
+                                            @if(isset($article))
+                                                <option
+                                                    value="{{$article->article_type_id}}">{{$article->articleType->title}}</option>
+                                            @endif
+                                            @foreach($articleTypes as $type)
+                                                <option value={{$type->id}}>{{$type->title }}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+
+                                    <div class="col-12 form-group">
+                                        <div class="col-6 mt-3">
+                                            <div class="row">
+                                                <div class="col-md-3">
+                                                    <button type="button" class="btn btn-default text-bold border-dark"
+                                                            id="headerDrawing"
+                                                            value="HeaderSlider">Header Slider
+                                                    </button>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <button type="button"
+                                                            class="btn btn-default text-bold border-dark placementDrawing"
+                                                            value="MainSlider">Ana Slider
+                                                    </button>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <button type="button"
+                                                            class="btn btn-default text-bold border-dark placementDrawing"
+                                                            value="SecondSlider" id="SecondSlider"
+                                                            style="{{isset($article) ? ($article->articleType->title == "Gündem" ? "" : "display:none") : ""}}">
+                                                        İkinci Slider
+                                                    </button>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <button type="button"
+                                                            class="btn btn-default text-bold border-dark placementDrawing"
+                                                            value="Normal" style="background-color: red">Normal
+                                                    </button>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-12 mt-3">
+                                                        <div class="col-md-3">
+                                                            <button type="button"
+                                                                    class="btn btn-default text-bold border-dark "
+                                                                    id="persistentDrawing"
+                                                                    value="0">Kalıcı
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <input type="text" value="Normal" name="PlacementSection" id="PlacementSection"
+                                           hidden>
+
+                                    <input type="number" value="0" name="PersistentSection" id="PersistentSection"
+                                           hidden>
+
+                                    <input type="number" value="0" name="HeaderSection" id="HeaderSection" hidden>
+                                    <div class="col-12 hr"></div>
+                                    <div class="col-12">
+                                        <label class="form-text">Özet</label>
+                                        <textarea name="Description" class="form-control" rows="5" autocomplete="off"
+                                                  id="articleSummary"
+                                                  maxlength="500"
+                                                  required="required">{!! isset($article) ? $article->summary : "" !!}</textarea>
+                                    </div>
+
+                                    <div class="col-12 hr"></div>
+                                    <div class="form-group">
+                                        <div class="col-12">
+                                            <div class="col-12">
+                                                <label style="color: black;">Resim</label>
+                                                <br>
+                                                {{--<input type="file" name="image" />
+            --}}                                    {{--<input type="file" name="select_file" id="articleImage">--}}
+                                                <input type="file" name="image"
+                                                       class="image" {{isset($article) && $article->image_path ? "" : "required"}}>
+                                                <input type="text" name="image1" class="image" id="croppedImage"
+                                                       value="{{old('image1')}}" hidden>
+
+                                                <div class="modal fade" id="modal" tabindex="-1" role="dialog"
+                                                     aria-labelledby="modalLabel" aria-hidden="true">
+                                                    <div class="modal-dialog modal-lg" role="document">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <h5 class="modal-title" id="modalLabel">Parafesor
+                                                                    Image</h5>
+                                                                <button type="button" class="close" data-dismiss="modal"
+                                                                        aria-label="Close">
+                                                                    <span aria-hidden="true">×</span>
+                                                                </button>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                                <div class="img-container">
+                                                                    <div class="row">
+                                                                        <div class="col-md-8">
+                                                                            <img id="image"
+                                                                                 src="https://avatars0.githubusercontent.com/u/3456749">
+                                                                        </div>
+                                                                        <div class="col-md-4">
+                                                                            <div class="preview"></div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                                <button type="button" class="btn btn-secondary"
+                                                                        data-dismiss="modal">Cancel
+                                                                </button>
+                                                                <button type="button" class="btn btn-primary" id="crop">
+                                                                    Crop
+                                                                </button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="col-12 hr"></div>
+                                    <div style="display: none;">
+                                <textarea name="BodyCheck" id="textareaHidden" hidden>
+    {{isset($article) ? $article->old_body : ""}}
+  </textarea>
+                                    </div>
+
+                                    <div class="col-md-12 hr"></div>
+                                    <div class="col-md-12 form-group">
+                                        <label class="form-text">Seo Başlık</label>
+                                        <input name="SeoTitle" type="text" class="form-control"
+                                               placeholder="Lorem ipsum dolor sit amet" maxlength="200"
+                                               value="{{isset($article) ? $article->seo_title : ""}}"
+                                               autocomplete="off"/>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3 row align-content-start">
+
+                                    <div class="col-md-12 hr d-lg-none"></div>
+
+
+                                    <div class="col-md-12 hr"></div>
+                                    <div class="col-md-12 form-group">
+                                        <label class="form-text">Seo Açıklama</label>
+                                        <textarea name="SeoDescription" type="text" rows="4" class="form-control"
+                                                  placeholder="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum enim mi, laoreet sed ultrices vitae, dapibus vitae arcu. Praesent non massa lobortis, pharetra tortor ut, fermentum magna."
+                                                  maxlength="1000"
+                                                  required="required"
+                                                  autocomplete="off">{{isset($article) ? $article->seo_description : old('SeoDescription')}}</textarea>
+                                    </div>
+
+                                    <div class="col-md-12 hr"></div>
+                                    <div class="col-md-12 form-group">
+                                        <label class="form-text">Seo Anahtar Kelimeler</label>
+                                        <input name="SeoKeywords" type="text" class="form-control"
+                                               placeholder="Lorem,ipsum,dolor,sit,amet" maxlength="1000"
+                                               autocomplete="off"
+                                               required="required"
+                                               value="{{isset($article) ? $article->seo_keywords :  old('SeoKeywords') }}"
+                                        />
+                                    </div>
+
+                                    <div class="col-12 hr"></div>
+                                    <div class="col-md-12 form-group">
+                                        <label class="form-text">Tarih</label>
+                                        <input name="ArticleDate" asp-format="{0:yyyy-MM-dd}" type="text"
+                                               class="form-control date"
+                                               value="{{\Carbon\Carbon::now()}}"
+                                               placeholder="yyyy-mm-dd" autocomplete="off" required="required"/>
+                                    </div>
+
+                                    <div class="col-12 hr"></div>
+                                    <div class="col-md-12 form-group">
+                                        <label class="form-text">Başlangıç Tarihi</label>
+                                        <input asp-for="StartedOn" asp-format="{0:yyyy-MM-dd}" type="text"
+                                               class="form-control date"
+                                               value="{{\Carbon\Carbon::now()}}"
+                                               placeholder="yyyy-mm-dd" autocomplete="off"/>
+                                    </div>
+
+                                    <div class="col-12 hr"></div>
+                                    <div class="col-md-12 form-group">
+                                        <label class="form-text">Bitiş Tarihi</label>
+                                        <input asp-for="EndOn" asp-format="{0:yyyy-MM-dd}" type="text"
+                                               class="form-control date"
+                                               value="{{\Carbon\Carbon::now()->add(2,"hours")}}"
+                                               placeholder="yyyy-mm-dd" autocomplete="off"/>
+                                    </div>
+
+
+                                    <input type="hidden" name="_token" id="token" value="{{ csrf_token() }}">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12 hr"></div>
+                                <div class="col-6">
+                                    <div class="col-12">
+                                        <label class="form-text">İçerik</label>
+                                    </div>
+                                    <textarea id="textarea2" style="width: 100%; height: 80%" disabled>
+    {{isset($article) ? $article->old_body : ""}}
+  </textarea>
+                                </div>
+                                <div class="col-6">
+                                    <div class="col-12">
+                                        <label class="form-text">İçerik</label>
+                                    </div>
+                                    <textarea name=Body id="textarea">
+    {{isset($article) ? $article->body : ""}}
+
+  </textarea>
+                                </div>
+
+                            </div>
+
+                            <div class="row">
+                                <button type="submit" class="btn btn-success">Kaydet</button>
+                            </div>
+                        </form>
+                    @else
+                        <form id="form" method="post" data-parsley-validate
+                              action={{route('article.store')}} enctype="multipart/form-data">
+                            @csrf
+                            <div class="row row-sm">
+
+                                <input name="ArticleId" type="number" class="form-control"
+                                       placeholder="Lorem ipsum dolor"
+                                       value="{{isset($article) ? $article->id : null}}"
+                                       maxlength="200" autocomplete="off" hidden/>
+
+                                <div class="col-md-6 row align-content-start">
+                                    <div class="col-12">
+                                        <label class="form-text">Başlık</label>
+                                        <input type="text" class="form-control"
+                                               placeholder="Lorem ipsum dolor"
+                                               id="articleTitle"
+                                               value="{{isset($article) ? $article->title : ""}}"
+                                               disabled/>
+                                    </div>
+
+                                    <div class="col-12 hr"></div>
+                                    <div class="col-12">
+                                        <label class="form-text">Kategori</label>
+                                        <select class="form-control" required="required"
+                                                id="category" disabled>
+                                            @if(isset($article))
+                                                <option
+                                                    value="{{$article->article_type_id}}">{{$article->articleType->title}}</option>
+                                            @endif
+                                            @foreach($articleTypes as $type)
+                                                <option value={{$type->id}}>{{$type->title }}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+
+
+                                    <div class="col-12 hr" style="margin-top: 150px;"></div>
+                                    <div class="col-12">
+                                        <label class="form-text">Özet</label>
+                                        <textarea class="form-control" rows="5" autocomplete="off"
+                                                  id="articleSummary"
+                                                  maxlength="500"
+                                                  disabled>{!! isset($article) ? $article->summary : "" !!}</textarea>
+                                    </div>
+
+                                    <div class="col-12 hr"></div>
+                                    <div class="form-group">
+                                        <div class="col-12">
+                                            <div class="col-12">
+                                                <label style="color: black;">Resim</label>
+                                                <br>
+
+                                                @if(isset($article) && $article->image_path)
+                                                    <div class="mt-5" style="max-width: 400px ">
+                                                        <img src="{{asset($article->image_path)}}" alt=""
+                                                             id="savedImage">
+                                                    </div>
+                                                @endif
+
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="col-md-12 form-group">
+                                        <input type="text"
+                                               value="{{isset($article) ? $article->seo_title : ""}}"
+                                               hidden>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6 row align-content-start">
+                                    <div class="col-12">
+                                        <label class="form-text">Başlık</label>
+                                        <input name="Title" type="text" class="form-control"
+                                               placeholder="Lorem ipsum dolor"
+                                               id="articleTitle"
+                                               required="required" maxlength="200" autocomplete="off"/>
+                                    </div>
+
+                                    <div class="col-12 hr"></div>
+                                    <div class="col-12">
+                                        <label class="form-text">Kategori</label>
+                                        <select class="form-control" name="ArticleTypeId" required="required"
+                                                id="category">
+                                            @if(isset($article))
+                                                <option
+                                                    value="{{$article->article_type_id}}">{{$article->articleType->title}}</option>
+                                            @endif
+                                            @foreach($articleTypes as $type)
+                                                <option value={{$type->id}}>{{$type->title }}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+
+                                    <div class="col-12 form-group">
+                                        <div class="col-6 mt-3">
+                                            <div class="row">
+                                                <div class="col-md-3">
+                                                    <button type="button" class="btn btn-default text-bold border-dark"
+                                                            id="headerDrawing"
+                                                            value="HeaderSlider">Header Slider
+                                                    </button>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <button type="button"
+                                                            class="btn btn-default text-bold border-dark placementDrawing"
+                                                            value="MainSlider">Ana Slider
+                                                    </button>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <button type="button"
+                                                            class="btn btn-default text-bold border-dark placementDrawing"
+                                                            value="SecondSlider" id="SecondSlider"
+                                                            style="{{isset($article) ? ($article->articleType->title == "Gündem" ? "" : "display:none") : ""}}">
+                                                        İkinci Slider
+                                                    </button>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <button type="button"
+                                                            class="btn btn-default text-bold border-dark placementDrawing"
+                                                            value="Normal" style="background-color: red">Normal
+                                                    </button>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-12 mt-3">
+                                                        <div class="col-md-3">
+                                                            <button type="button"
+                                                                    class="btn btn-default text-bold border-dark "
+                                                                    id="persistentDrawing"
+                                                                    value="0">Kalıcı
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <input type="text" value="Normal" name="PlacementSection" id="PlacementSection"
+                                           hidden>
+
+                                    <input type="number" value="0" name="PersistentSection" id="PersistentSection"
+                                           hidden>
+
+                                    <input type="number" value="0" name="HeaderSection" id="HeaderSection" hidden>
+                                    <div class="col-12 hr"></div>
+                                    <div class="col-12">
+                                        <label class="form-text">Özet</label>
+                                        <textarea name="Description" class="form-control" rows="5" autocomplete="off"
+                                                  id="articleSummary"
+                                                  maxlength="500"
+                                                  required="required"></textarea>
+                                    </div>
+
+                                    <div class="col-12 hr"></div>
+                                    <div class="form-group">
+                                        <div class="col-12">
+                                            <div class="col-12">
+                                                <label style="color: black;">Resim</label>
+                                                <br>
+                                                {{--<input type="file" name="image" />
+            --}}                                    {{--<input type="file" name="select_file" id="articleImage">--}}
+                                                <input type="file" name="image"
+                                                       class="image" {{isset($article) && $article->image_path ? "" : "required"}}>
+                                                <input type="text" name="image1" class="image" id="croppedImage"
+                                                       value="{{old('image1')}}" hidden>
+                                                <input type="checkbox" name="sameImage"> Aynı Resim Kullanılsın mı?
+
+
+                                                <div class="modal fade" id="modal" tabindex="-1" role="dialog"
+                                                     aria-labelledby="modalLabel" aria-hidden="true">
+                                                    <div class="modal-dialog modal-lg" role="document">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <h5 class="modal-title" id="modalLabel">Parafesor
+                                                                    Image</h5>
+                                                                <button type="button" class="close" data-dismiss="modal"
+                                                                        aria-label="Close">
+                                                                    <span aria-hidden="true">×</span>
+                                                                </button>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                                <div class="img-container">
+                                                                    <div class="row">
+                                                                        <div class="col-md-8">
+                                                                            <img id="image"
+                                                                                 src="https://avatars0.githubusercontent.com/u/3456749">
+                                                                        </div>
+                                                                        <div class="col-md-4">
+                                                                            <div class="preview"></div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                                <button type="button" class="btn btn-secondary"
+                                                                        data-dismiss="modal">Cancel
+                                                                </button>
+                                                                <button type="button" class="btn btn-primary" id="crop">
+                                                                    Crop
+                                                                </button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="col-12 hr"></div>
+                                    <div style="display: none;">
+                                <textarea name="BodyCheck" id="textareaHidden" hidden>
+    {{isset($article) ? $article->old_body : ""}}
+  </textarea>
+                                    </div>
+                                    <input type="hidden" name="_token" id="token" value="{{ csrf_token() }}">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12 hr"></div>
+                                <div class="col-6">
+                                    <div class="col-12">
+                                        <label class="form-text">İçerik</label>
+                                    </div>
+                                    <textarea id="textarea2" style="width: 100%; height: 80%" disabled>
+    {{isset($article) ? $article->old_body : ""}}
+  </textarea>
+                                </div>
+                                <div class="col-6">
+                                    <div class="col-12">
+                                        <label class="form-text">İçerik</label>
+                                    </div>
+                                    <textarea name=Body id="textarea">
+    {{isset($article) ? $article->body : ""}}
+
+  </textarea>
+                                </div>
+
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6 form-group">
+                                    <label class="form-text">Seo Başlık</label>
+                                    <input name="SeoTitle" type="text" class="form-control"
+                                           placeholder="Lorem ipsum dolor sit amet" maxlength="200"
+                                           value="{{isset($article) ? $article->seo_title : ""}}"
+                                           autocomplete="off"/>
+                                </div>
+
+                                <div class="col-md-6 form-group">
+                                    <label class="form-text">Seo Açıklama</label>
+                                    <textarea name="SeoDescription" type="text" rows="4" class="form-control"
+                                              placeholder="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum enim mi, laoreet sed ultrices vitae, dapibus vitae arcu. Praesent non massa lobortis, pharetra tortor ut, fermentum magna."
+                                              maxlength="1000"
+                                              required="required"
+                                              autocomplete="off">{{isset($article) ? $article->seo_description : old('SeoDescription')}}</textarea>
+                                </div>
+
+                                <div class="col-md-3 form-group">
+                                    <label class="form-text">Seo Anahtar Kelimeler</label>
+                                    <input name="SeoKeywords" type="text" class="form-control"
+                                           placeholder="Lorem,ipsum,dolor,sit,amet" maxlength="1000"
+                                           autocomplete="off"
+                                           required="required"
+                                           value="{{isset($article) ? $article->seo_keywords :  old('SeoKeywords') }}"
+                                    />
+                                </div>
+
+                                <div class="col-md-3 form-group">
+                                    <label class="form-text">Tarih</label>
+                                    <input name="ArticleDate" asp-format="{0:yyyy-MM-dd}" type="text"
+                                           class="form-control date"
+                                           value="{{\Carbon\Carbon::now()}}"
+                                           placeholder="yyyy-mm-dd" autocomplete="off" required="required"/>
+                                </div>
+
+                                <div class="col-md-3 form-group">
+                                    <label class="form-text">Başlangıç Tarihi</label>
+                                    <input asp-for="StartedOn" asp-format="{0:yyyy-MM-dd}" type="text"
+                                           class="form-control date"
+                                           value="{{\Carbon\Carbon::now()}}"
+                                           placeholder="yyyy-mm-dd" autocomplete="off"/>
+                                </div>
+
+                                <div class="col-md-3 form-group">
+                                    <label class="form-text">Bitiş Tarihi</label>
+                                    <input asp-for="EndOn" asp-format="{0:yyyy-MM-dd}" type="text"
+                                           class="form-control date"
+                                           value="{{\Carbon\Carbon::now()->add(2,"hours")}}"
+                                           placeholder="yyyy-mm-dd" autocomplete="off"/>
+                                </div>
+
+                            </div>
+                            @endif
+                            <div class="row mt-3">
+                                <button type="submit" class="btn btn-success">Kaydet</button>
+                            </div>
+                        </form>
+                        <button class="btn btn-danger float-right" id="previewButton">Önizleme</button>
+
+
+                </div>
+            </section>
+        </div>
+    </div>
+@endsection
+@section('extra_scripts')
+    @include('admin::partials._postUpdate_javascript')
+@endsection
