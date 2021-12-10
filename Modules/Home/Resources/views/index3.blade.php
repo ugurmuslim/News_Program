@@ -21,10 +21,10 @@
                 <div class="section-title">GÜNDEM</div>
                 <div class="d-none d-md-block section-right"><a
                         href="{{route("home_article.index",['type' => 'Gündem'])}}">Tüm
-                        Gündem Haberlerini Gör11</a></div>
+                        Gündem Haberlerini Gör</a></div>
             </div>
             <div class=" d-sm-block d-md-none section-right-sm text-danger"><a
-                    href="{{route("home_article.index",['type' => 'Gündem'])}}">Tüm Gündem Haberlerini Gör11</a></div>
+                    href="{{route("home_article.index",['type' => 'Gündem'])}}">Tüm Gündem Haberlerini Gör</a></div>
 
             <div class="row">
                 <div class="col-xl-18">
