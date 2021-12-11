@@ -42,7 +42,7 @@
                         </div>
                     </div>
                 </div>
-                <div style="width: 20%; text-align: center"><a href="{{route('home.index')}}">
+                <div style="width: 20%; text-align: center"><a href="{{route('home.indextest')}}">
                         <div class="header-logo-big"></div>
                     </a>
                 </div>
