@@ -14,8 +14,8 @@
 
         </div>
     </div>
-
-    <section id="section-gundem" class="bg-light-grey">
+@include('home::sections.gundem')
+   {{-- <section id="section-gundem" class="bg-light-grey">
         <div class="container">
             <div class="section-header d-flex text-danger border-danger">
                 <div class="section-title">GÜNDEM</div>
@@ -156,7 +156,7 @@
                                             </div>
 
                                             <div class="col-6">
-                                                {{--                                                <span style="{{$fiat->change > 0 ? "color:green" : "color:red"}}">{{ \Illuminate\Support\Str::limit($fiat->change, 5, $end='') }}%</span>--}}
+                                                --}}{{--                                                <span style="{{$fiat->change > 0 ? "color:green" : "color:red"}}">{{ \Illuminate\Support\Str::limit($fiat->change, 5, $end='') }}%</span>--}}{{--
                                             </div>
                                             <div class="col-6">
                                             <span
@@ -194,7 +194,7 @@
             </div>
 
         </div>
-    </section>
+    </section>--}}
 
 
     <section id="section-borsa-tube" class="bg-dark-grey">

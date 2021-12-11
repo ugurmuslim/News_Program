@@ -5,6 +5,7 @@ namespace Modules\Home\Http\Controllers;
 use App\Parafesor\Constants\ArticleStatus;
 use App\Parafesor\Constants\ArticleTypes;
 use App\Parafesor\Constants\CacheConst;
+use App\Parafesor\Constants\CategorySectionTypes;
 use Facade\FlareClient\Http\Exceptions\NotFound;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
@@ -29,6 +30,14 @@ class ArticleController extends Controller
         if (!$articleType) {
             abort(404);
         }
+
+        $articles = [];
+        $articles[$articleType->title][CategorySectionTypes::MAIN_SLIDER] = Cache::get(CacheConst::ARTICLE . $articleType->title . ":" . CategorySectionTypes::MAIN_SLIDER);
+        $articles[$articleType->title][CategorySectionTypes::NORMAL] = Cache::get(CacheConst::ARTICLE . $articleType->title . ":" . CategorySectionTypes::NORMAL);
+        $articles[$articleType->title][CategorySectionTypes::SECOND_SLIDER] = Cache::get(CacheConst::ARTICLE . $articleType->title . ":" . CategorySectionTypes::SECOND_SLIDER);
+        $articles[$articleType->title][CategorySectionTypes::CHANNEL] = Cache::get(CacheConst::ARTICLE . $articleType->title . ":" . CategorySectionTypes::CHANNEL);
+        $articles[$articleType->title][CategorySectionTypes::PERSISTENT] = Cache::get(CacheConst::ARTICLE . $articleType->title . ":" . CategorySectionTypes::PERSISTENT);
+
         $articles = [];
         $articles[$type] = Article::where('status', ArticleStatus::PUBLISHED)
             ->where('article_type_id', $articleType->id)
@@ -53,7 +62,7 @@ class ArticleController extends Controller
         }
 
         if ($articleType->id == ArticleTypes::BorsaTube) {
-            $articles[$type]["Normal"] = StockTube::where('status', ArticleStatus::PUBLISHED)
+             $articles[$type]["Normal"] = StockTube::where('status', ArticleStatus::PUBLISHED)
                 ->where('channel', 0)
                 ->limit(32)
                 ->get();
