@@ -5,7 +5,9 @@
 
     @include('home::sections.gundem')
     <div class="row">
-    @foreach($articlesDB["Gündem"]->slice(6)->take(20) as $article)
+        <div class="container">
+
+        @foreach($articlesDB["Gündem"]->slice(6)->take(20) as $article)
 
         <!-- First Small News of the section -->
             <div class="col-lg-6 col-sm-12 mt-5">
@@ -26,6 +28,7 @@
             <!-- First Small News of the section -->
         @endforeach
 
+    </div>
     </div>
     @include('home::partials._javascript')
 
