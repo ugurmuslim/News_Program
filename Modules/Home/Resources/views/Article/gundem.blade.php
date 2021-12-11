@@ -7,7 +7,7 @@
     <div class="container">
         <div class="row">
 
-        @foreach($articlesDB["Gündem"]->slice(6)->take(20) as $article)
+        @foreach($articlesDB["Gündem"]->slice(4)->take(20) as $article)
 
         <!-- First Small News of the section -->
             <div class="col-lg-6 col-sm-12 mt-5">
@@ -16,7 +16,7 @@
                         <div class="news-card-img-container bg-light-grey">
                             <div style="background: url({{asset($article->image_path)}})" alt=""
                                  class="news-img"></div>
-                            <div class="news-card-img-text">{{$article->title}}</div>
+                            <div class="news-card-img-text"><p>{{$article->title}}</p></div>
                         </div>
                         <div class="news-card-bottom">
                                      <span
