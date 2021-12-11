@@ -2,7 +2,31 @@
 
 @section('content')
     @include('home::partials._header')
-    <section id="section-son-dakika">
+    @include('home::sections.son-dakika')
+    <div class="container">
+    <div class="row">
+    @foreach($articles["Son Dakika"]->slice(8)->take(20) as $article)
+
+        <!-- First Small News of the section -->
+            <div class="col-lg-6 col-sm-12 mt-5">
+                <a href="{{route('article.show',['slug' => $article->slug ])}}">
+                    <div class="card news-card news-card-small ">
+                        <div class="news-card-img-container bg-light-grey">
+                            <div style="background: url({{asset($article->image_path)}})" alt=""
+                                 class="news-img"></div>
+                            <div class="news-card-img-text">{{$article->title}}</div>
+                        </div>
+                        <div class="news-card-bottom">
+                                    <span
+                                        class="text-danger">{{ Carbon\Carbon::parse($article->created_at)->format('d F')}}</span><span> • {{ Carbon\Carbon::parse($article->created_at)->format('H:m')}} • by parafesor</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <!-- First Small News of the section -->
+        @endforeach
+    </div></div>
+    {{--<section id="section-son-dakika">
         <div class="container">
             <div class="section-header d-flex text-red">
                 <div class="section-title">SON DAKİKA</div>
@@ -15,7 +39,7 @@
         </div>
         <div class="container mt-4">
             <div class="row" style="position: relative">
-                {{--@if(isset($articles["Son Dakika"]) && $articles["Son Dakika"]->take(1))
+                --}}{{--@if(isset($articles["Son Dakika"]) && $articles["Son Dakika"]->take(1))
                     <div class="d-sm-block d-lg-none col-md-24  mt-1">
                         <div class="col-24 last-min last-min-lg"
                              style="background-image: url({{asset($articles["Son Dakika"][0]->image_path)}})">
@@ -26,7 +50,7 @@
                             </div>
                         </div>
                     </div>
-                @endif--}}
+                @endif--}}{{--
 
                 @foreach($articles["Son Dakika"]->take(1) as $article)
                     <div class="col-lg-7 col-md-12 mt-1">
@@ -141,7 +165,7 @@
                 @endforeach
             </div>
         </div>
-    </section>
+    </section>--}}
     @include('home::partials._javascript')
 
 @endsection
