@@ -2,7 +2,6 @@
 
 @section('content')
     @include('home::partials._header')
-
     @include('home::sections.gundem')
     <div class="container">
         <div class="row">
