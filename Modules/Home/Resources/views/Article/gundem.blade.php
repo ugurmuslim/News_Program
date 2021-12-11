@@ -4,8 +4,8 @@
     @include('home::partials._header')
 
     @include('home::sections.gundem')
-    <div class="row">
-        <div class="container">
+    <div class="container">
+        <div class="row">
 
         @foreach($articlesDB["Gündem"]->slice(6)->take(20) as $article)
 
