@@ -38,21 +38,21 @@ class ArticleController extends Controller
         $articles[$articleType->title][CategorySectionTypes::CHANNEL] = Cache::get(CacheConst::ARTICLE . $articleType->title . ":" . CategorySectionTypes::CHANNEL);
         $articles[$articleType->title][CategorySectionTypes::PERSISTENT] = Cache::get(CacheConst::ARTICLE . $articleType->title . ":" . CategorySectionTypes::PERSISTENT);
 
-        $articles = [];
-        $articles[$type] = Article::where('status', ArticleStatus::PUBLISHED)
+        $articlesDB = [];
+        $articlesDB[$type] = Article::where('status', ArticleStatus::PUBLISHED)
             ->where('article_type_id', $articleType->id)
             ->limit(30)
             ->get();
 
         if ($articleType->id == ArticleTypes::SonDakika) {
-            $articles[$type] = Article::where('status', ArticleStatus::PUBLISHED)
+            $articlesDB[$type] = Article::where('status', ArticleStatus::PUBLISHED)
                 ->orderBy('id', 'DESC')
                 ->limit(30)
                 ->get();
         }
 
         if ($articleType->id == ArticleTypes::EnCokOkunanlar) {
-            $articles[$type] = Article::where('status', ArticleStatus::PUBLISHED)
+            $articlesDB[$type] = Article::where('status', ArticleStatus::PUBLISHED)
                 ->where('article_type_id', '!=', ArticleTypes::KoseYazilari)
                 ->where('article_type_id', '!=', ArticleTypes::Twitter)
                 ->where('article_type_id', '!=', ArticleTypes::BorsaTube)
@@ -62,16 +62,16 @@ class ArticleController extends Controller
         }
 
         if ($articleType->id == ArticleTypes::BorsaTube) {
-             $articles[$type]["Normal"] = StockTube::where('status', ArticleStatus::PUBLISHED)
+            $articlesDB[$type]["Normal"] = StockTube::where('status', ArticleStatus::PUBLISHED)
                 ->where('channel', 0)
                 ->limit(32)
                 ->get();
 
-            $articles[$type]["ShowCase"] = StockTube::where('status', ArticleStatus::PUBLISHED)
+            $articlesDB[$type]["ShowCase"] = StockTube::where('status', ArticleStatus::PUBLISHED)
                 ->limit(1)
                 ->get();
 
-            $articles[$type]["Channel"] = StockTube::where('status', ArticleStatus::PUBLISHED)
+            $articlesDB[$type]["Channel"] = StockTube::where('status', ArticleStatus::PUBLISHED)
                 ->where('channel', 1)
                 ->limit(9)
                 ->get();
@@ -82,6 +82,7 @@ class ArticleController extends Controller
 
         return view($articleType->page_path)
             ->with('articles', $articles)
+            ->with('articlesDB', $articlesDB)
             ->with('currencies', $currencies);
     }
 
