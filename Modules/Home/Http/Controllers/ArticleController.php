@@ -63,18 +63,10 @@ class ArticleController extends Controller
         }
 
         if ($articleType->id == ArticleTypes::BorsaTube) {
-            $articlesDB[$type]["Normal"] = StockTube::where('status', ArticleStatus::PUBLISHED)
-                ->where('channel', 0)
+            $articlesDB[$type] = StockTube::where('status', ArticleStatus::PUBLISHED)
+                ->where('show_case', CategorySectionTypes::NORMAL)
+                ->orderBy('id', 'DESC')
                 ->limit(32)
-                ->get();
-
-            $articlesDB[$type]["ShowCase"] = StockTube::where('status', ArticleStatus::PUBLISHED)
-                ->limit(1)
-                ->get();
-
-            $articlesDB[$type]["Channel"] = StockTube::where('status', ArticleStatus::PUBLISHED)
-                ->where('channel', 1)
-                ->limit(9)
                 ->get();
         }
 
