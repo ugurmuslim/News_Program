@@ -6,24 +6,22 @@
     <div class="container">
         <div class="row">
         @foreach($articlesDB["Şirket Haberleri"]->slice(6)->take(20) as $article)
-
-            <!-- First Small News of the section -->
-                <div class="col-lg-6 col-sm-12 mt-5">
+                <div class="col-24 col-md-12 col-lg-6 mt-3">
                     <a href="{{route('article.show',['slug' => $article->slug ])}}">
-                        <div class="card news-card news-card-small ">
-                            <div class="news-card-img-container bg-light-grey">
-                                <div style="background: url({{asset($article->image_path)}})" alt=""
-                                     class="news-img"></div>
-                                <div class="news-card-img-text">{{$article->title}}</div>
+                        <div class="card">
+                            <div class="corporate-triangle"></div>
+                            <div class="company-image"
+                                 style="background-image: url({{asset($article->image_path)}}); background-position: left; margin-left: 5%; "></div>
+                            <div class="company-text" style="padding-left: 5%;">
+                                <p>{{$article->summary}}</p>
                             </div>
-                            <div class="news-card-bottom">
-                                    <span
-                                        class="text-danger">{{ Carbon\Carbon::parse($article->created_at)->format('d F')}}</span><span> • {{ Carbon\Carbon::parse($article->created_at)->format('H:m')}} • by parafesor</span>
+                            <div class="company-bottom">
+                          <span
+                              class="text-dark-blue">{{ Carbon\Carbon::parse($article->created_at)->format('d F')}}</span><span> • {{ Carbon\Carbon::parse($article->created_at)->format('H:m')}} • by parafesor</span>
                             </div>
                         </div>
                     </a>
                 </div>
-                <!-- First Small News of the section -->
             @endforeach
         </div>
     </div>
