@@ -14,32 +14,19 @@
 
         </div>
     </div>
-@include('home::sections.gundem')
-@include('home::sections.borsa-tube')
-@include('home::sections.twitter')
-@include('home::sections.sirket-haberleri')
-@include('home::sections.kose-yazilari')
-@include('home::sections.son-dakika')
-@include('home::sections.cok-okunanlar')
-
-
-    {{-- <section id="section-borsa-raporlari">
-         <div class="container">
-             <div class="section-header d-flex">
-                 <div class="section-title">BORSA RAPORLARI</div>
-                 <div class="d-none d-md-block section-right">Tüm Gündem Haberlerini Gör</div>
-             </div>
-         </div>
-     </section>--}}
-
-
-
-
+    @include('home::sections.gundem')
+    @include('home::sections.borsa-tube')
+    @include('home::sections.twitter')
+    @include('home::sections.sirket-haberleri')
+    @include('home::sections.kose-yazilari')
+    @include('home::sections.son-dakika')
+    @include('home::sections.cok-okunanlar')
 
     <section id="section-stil" style="background-color: #ffead5;padding-top: 20px; padding-bottom: 15px;">
 
         <div style="font-family: MillerTextItalic; font-size:56px; padding-left:100px; font-weight: bold">Stil</div>
     </section>
+
     @include('home::sections.spor')
     @include('home::sections.teknoloji')
     @include('home::sections.yasam')
@@ -50,7 +37,14 @@
     @include('home::sections.hisse')
 
     <div class="d-none" id="images"></div>
-
+    {{-- <section id="section-borsa-raporlari">
+         <div class="container">
+             <div class="section-header d-flex">
+                 <div class="section-title">BORSA RAPORLARI</div>
+                 <div class="d-none d-md-block section-right">Tüm Gündem Haberlerini Gör</div>
+             </div>
+         </div>
+     </section>--}}
     <footer>
 
     </footer>
