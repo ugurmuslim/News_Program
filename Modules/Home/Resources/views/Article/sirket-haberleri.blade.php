@@ -5,7 +5,7 @@
     @include('home::sections.sirket-haberleri')
     <div class="container">
         <div class="row">
-        @foreach($articles["Şirket Haberleri"]->slice(6)->take(20) as $article)
+        @foreach($articlesDB["Şirket Haberleri"]->slice(6)->take(20) as $article)
 
             <!-- First Small News of the section -->
                 <div class="col-lg-6 col-sm-12 mt-5">
