@@ -20,7 +20,7 @@
     @include('home::sections.sirket-haberleri')
     @include('home::sections.kose-yazilari')
     @include('home::sections.son-dakika')
-    @include('home::sections.cok-okunanlar')
+    @include('home::sections.en-cok-okunanlar')
 
     <section id="section-stil" style="background-color: #ffead5;padding-top: 20px; padding-bottom: 15px;">
 
