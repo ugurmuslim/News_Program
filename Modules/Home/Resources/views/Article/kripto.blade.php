@@ -5,21 +5,20 @@
     @include('home::sections.kripto')
     <div class="container">
         <div class="row">
-        @foreach($articlesDB["Kripto"]->slice(6)->take(20) as $article)
-
-            <!-- First Small News of the section -->
-                <div class="col-lg-6 col-sm-12 mt-5">
+        @foreach($articlesDB["Kripto"]->slice(7)->take(40) as $article)
+                <div class="col-md-24 col-lg-12 p-4 ">
                     <a href="{{route('article.show',['slug' => $article->slug ])}}">
-                        <div class="card news-card news-card-small ">
-                            <div class="news-card-img-container bg-light-grey">
-                                <div style="background: url({{asset($article->image_path)}})" alt=""
-                                     class="news-img"></div>
-                                <div class="news-card-img-text">{{$article->title}}</div>
+                        <div class="row">
+                            <div class="col-10 bg-orange crypto-wide-section">
+                                <div class="crypto-title" style="color: black;">
+                                    {{ \Illuminate\Support\Str::limit($article->title, 70, $end='...') }}
+                                </div>
+                                <div class="crypto-text-bottom-sm">
+                                    <span>{{ Carbon\Carbon::parse($article->created_at)->format('d F')}} • {{ Carbon\Carbon::parse($article->created_at)->format('H:m')}} • by parafesor</span>
+                                </div>
                             </div>
-                            <div class="news-card-bottom">
-                                    <span
-                                        class="text-danger">{{ Carbon\Carbon::parse($article->created_at)->format('d F')}}</span><span> • {{ Carbon\Carbon::parse($article->created_at)->format('H:m')}} • by parafesor</span>
-                            </div>
+                            <div class="col-14"
+                                 style="background-image: url(https://i4.hurimg.com/i/hurriyet/75/0x0/61821b494e3fe113306aabb2.jpg)"></div>
                         </div>
                     </a>
                 </div>
