@@ -5,7 +5,7 @@
     @include('home::sections.hisse')
     <div class="container">
     <div class="row">
-        @foreach($articlesDB->slice(12)->take(40) as $article)
+        @foreach($articlesDB["Hisse"]->slice(12)->take(40) as $article)
             <div class="col-24 col-md-12 col-lg-6 mt-3">
                 <a href="{{route('article.show',['slug' => $article->slug ])}}">
                     <div class="card">
