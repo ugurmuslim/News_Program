@@ -139,7 +139,7 @@
                 </div>
                 <div class="row">
                     <div class="col-md-4">
-                        <div class="col-md-24 bg-dark-orange mt-4 match" matchTo="internet-second-row">
+                        <div class="col-md-24 bg-dark-orange mt-4">
                             <div class="col-md-24 bg-white h-100 tech-box">
                                 <div class="tech-news-box-image"
                                      style="background-image: url(https://i2.cnnturk.com/i/cnnturk/75/800x400/5f4642f9214ed8165ce5a0ae)"></div>
