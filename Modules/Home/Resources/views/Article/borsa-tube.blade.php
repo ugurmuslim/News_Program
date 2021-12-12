@@ -3,7 +3,7 @@
 @section('content')
     @include('home::partials._header')
     @include('home::sections.borsa-tube')
-    @foreach($articles["Borsa Tube"]["Normal"]->slice(6)->take(20) as $article)
+    @foreach($articles["Borsa Tube"]["Normal"]->take(20) as $article)
         <div class="container">
             <div class="row">
                 <!-- First Small News of the section -->
