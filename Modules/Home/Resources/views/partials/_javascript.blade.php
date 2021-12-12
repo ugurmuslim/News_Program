@@ -179,6 +179,7 @@
         }
     }
 
+
     function keepRatio() {
         let toKeepList = document.getElementsByClassName("keep-ratio");
         for (let k of toKeepList) {
