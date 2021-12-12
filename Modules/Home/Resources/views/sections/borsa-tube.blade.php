@@ -11,7 +11,6 @@
                 Gör</a></div>
 
         <div class="row text-white">
-
             <div class="col-lg-14">
                 <div class="ratio ratio-16x9 mt-2" id="borsaEmbed" ratio="0.55">
                     @foreach($articles["Borsa Tube"][\App\Parafesor\Constants\CategorySectionTypes::MAIN_SLIDER]->take(1) as $article)
@@ -25,7 +24,7 @@
             <div class="col-lg-10  mt-2">
                 <div class="text-danger" style=" height:100%; overflow: hidden">
                     <div matchTo="borsaEmbed" class="match"
-                         style="width: 100%;  overflow: hidden; overflow-y:auto">
+                         style="width: 100%; height: 0%; overflow: hidden; overflow-y:auto">
                         {{--style="width: 100%; height: 0%; overflow: hidden; overflow-y:auto">--}}
                         <div class="row px-3">
                             @foreach($articles["Borsa Tube"][\App\Parafesor\Constants\CategorySectionTypes::NORMAL]->take(8) as $article)
