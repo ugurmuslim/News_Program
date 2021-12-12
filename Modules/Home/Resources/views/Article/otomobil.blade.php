@@ -5,25 +5,24 @@
     @include('home::sections.otomobil')
     <div class="container">
     <div class="row">
-    @foreach($articlesDB["Otomobil"]->slice(6)->take(20) as $article)
-
-        <!-- First Small News of the section -->
-            <div class="col-lg-6 col-sm-12 mt-5">
-                <a href="{{route('article.show',['slug' => $article->slug ])}}">
-                    <div class="card news-card news-card-small ">
-                        <div class="news-card-img-container bg-light-grey">
-                            <div style="background: url({{asset($article->image_path)}})" alt=""
-                                 class="news-img"></div>
-                            <div class="news-card-img-text">{{$article->title}}</div>
-                        </div>
-                        <div class="news-card-bottom">
+    @foreach($articlesDB["Otomobil"]->slice(6)->take(40) as $article)
+                <div class="col-md-8">
+                    <a href="{{route('article.show',['slug' => $article->slug ])}}">
+                        <div class="col-24  bg-dark">
+                            <div class="col-sm-24 ">
+                                <div class="col-24 automobile automobile-md"
+                                     style="background-image: url({{asset($article->image_path)}})"></div>
+                                <div class="automobile-title">{{$article->title}}
+                                    <div class="automobile-text-bottom-sm">
                                     <span
-                                        class="text-danger">{{ Carbon\Carbon::parse($article->created_at)->format('d F')}}</span><span> • {{ Carbon\Carbon::parse($article->created_at)->format('H:m')}} • by parafesor</span>
+                                        class="text-white">{{ Carbon\Carbon::parse($article->created_at)->format('d F')}}</span><span> • {{ Carbon\Carbon::parse($article->created_at)->format('H:m')}} • by parafesor</span>
+                                    </div>
+                                </div>
+
+                            </div>
                         </div>
-                    </div>
-                </a>
-            </div>
-            <!-- First Small News of the section -->
+                    </a>
+                </div>
         @endforeach
 
 
