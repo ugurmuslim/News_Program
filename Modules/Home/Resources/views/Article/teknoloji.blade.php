@@ -5,7 +5,7 @@
     @include('home::sections.teknoloji')
     <div class="container">
         <div class="row">
-            @foreach($articles["Teknoloji"][\App\Parafesor\Constants\CategorySectionTypes::NORMAL]->slice(8)->take(40) as $article)
+            @foreach($articles["Teknoloji"]->slice(8)->take(40) as $article)
                 <div class="col-sm-24 col-md-12 col-lg-8 mt-3">
                     <a href="{{route('article.show',['slug' => $article->slug ])}}">
                         <div class="col-24 tech tech-md"
