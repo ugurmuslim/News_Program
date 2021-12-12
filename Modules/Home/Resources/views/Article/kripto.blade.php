@@ -4,9 +4,9 @@
     @include('home::partials._header')
     @include('home::sections.kripto')
     <div class="container">
-        <div class="row">
+        <div class="row mt-3">
         @foreach($articlesDB["Kripto"]->slice(7)->take(40) as $article)
-                <div class="col-md-6">
+                <div class="col-md-6 mt-3">
                     <a href="{{route('article.show',['slug' => $article->slug ])}}">
                         <div class="col-24  bg-dark">
                             <div class="col-sm-24 ">
