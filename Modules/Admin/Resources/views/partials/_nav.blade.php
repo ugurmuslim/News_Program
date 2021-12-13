@@ -269,6 +269,7 @@
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Bot Performans</p>
                             </a>
+
                         </li>
 
                     </ul>

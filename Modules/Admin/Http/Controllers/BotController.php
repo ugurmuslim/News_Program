@@ -4,6 +4,7 @@
 namespace Modules\Admin\Http\Controllers;
 
 
+use App\Parafesor\Constants\ArticleTypes;
 use Carbon\Carbon;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Routing\Controller;
@@ -24,6 +25,7 @@ class BotController extends Controller
      */
     public function index()
     {
+
         $query = SitesToCrawl::query();
         $articleTypes = ArticleType::all();
         if (Request::input('ArticleTypeId')) {
@@ -41,6 +43,7 @@ class BotController extends Controller
             ->with('articleTypes', $articleTypes);
     }
 
+
     public function botAttributes($botId, $title)
     {
         $articleTypes = ArticleType::all();
@@ -51,6 +54,9 @@ class BotController extends Controller
             ->with('bot', $bot)
             ->with('articleTypes', $articleTypes);
     }
+
+
+
 
     public function updateAttributes($botId, $title)
     {
