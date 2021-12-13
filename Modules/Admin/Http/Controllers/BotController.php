@@ -11,6 +11,7 @@ use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Validator;
 use Modules\Admin\Entities\ArticleType;
 use Modules\Admin\Entities\CrawledArticle;
 use Modules\Admin\Entities\SiteAttributes;
@@ -55,7 +56,36 @@ class BotController extends Controller
             ->with('articleTypes', $articleTypes);
     }
 
+    public function postUpdate()
+    {
+        $articleTypes = ArticleType::all();
+        return view('admin::Bot.postUpdate')
+            ->with('articleTypes', $articleTypes);
+    }
 
+    public function store()
+    {
+        $validator = Validator::make(\Illuminate\Support\Facades\Request::all(), [
+            'Name'          => 'required|string',
+            'ChannelLink'   => 'required|string',
+            'ArticleTypeId' => 'required',
+        ]);
+
+        if ($validator->fails()) {
+            Session::flash('error', $validator->errors());
+            return back()->withInput(Request::all());
+        }
+
+        SitesToCrawl::create([
+            'article_type_id' => ArticleTypes::Youtube,
+            'title'           => Request::input('ChannelLink'),
+            'site_name'       => Request::input('Name'),
+            'status'          => 1,
+        ]);
+
+        Session::flash('success', "Başarı ile yaratıldı");
+        return back();
+    }
 
 
     public function updateAttributes($botId, $title)
@@ -82,25 +112,25 @@ class BotController extends Controller
         return back();
     }
 
-    public function report($date,$compareDate)
+    public function report($date, $compareDate)
     {
 
-        $dateReport = CrawledArticle::whereDate('created_at', new Carbon($date))->select('site_name', DB::raw('count(*) as total'))->groupBy('site_name')->pluck('total','site_name');
+        $dateReport = CrawledArticle::whereDate('created_at', new Carbon($date))->select('site_name', DB::raw('count(*) as total'))->groupBy('site_name')->pluck('total', 'site_name');
 
-        $compareDateReport = CrawledArticle::whereDate('created_at', new Carbon($compareDate))->select('site_name', DB::raw('count(*) as total'))->groupBy('site_name')->pluck( 'total', 'site_name');
+        $compareDateReport = CrawledArticle::whereDate('created_at', new Carbon($compareDate))->select('site_name', DB::raw('count(*) as total'))->groupBy('site_name')->pluck('total', 'site_name');
         $report = [];
 
         $dateFailure = CrawledArticle::whereDate('created_at', new Carbon($date))->whereNull('body')
             ->where('try_number', '>', 0)
             ->select('site_name', DB::raw('count(*) as total'))
             ->groupBy('site_name')
-            ->pluck('total','site_name');
+            ->pluck('total', 'site_name');
 
         $compareDateFailure = CrawledArticle::whereDate('created_at', new Carbon($compareDate))
             ->where('try_number', '>', 0)
             ->select('site_name', DB::raw('count(*) as total'))
             ->groupBy('site_name')
-            ->pluck('total','site_name');
+            ->pluck('total', 'site_name');
 
         foreach ($dateReport as $siteName => $total) {
             $report[$siteName]['total'] = $total;
@@ -110,7 +140,7 @@ class BotController extends Controller
         }
 
         foreach ($compareDateReport as $siteName => $total) {
-            if(!isset($report[$siteName])) {
+            if (!isset($report[$siteName])) {
                 $report[$siteName]['total'] = 0;
                 $report[$siteName]['failure'] = 0;
                 $report[$siteName]['compareTotal'] = $total;

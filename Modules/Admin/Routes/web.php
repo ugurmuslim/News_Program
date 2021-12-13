@@ -128,6 +128,15 @@ Route::prefix('admin')->group(function () {
             ->middleware('auth')
             ->name('bot.attribute');
 
+        Route::get('/postUpdate', [ \Modules\Admin\Http\Controllers\BotController::class, 'postUpdate' ])
+            ->middleware('auth')
+            ->name('bot.postUpdate');
+
+        Route::post('/store', [ \Modules\Admin\Http\Controllers\BotController::class, 'store' ])
+            ->middleware('auth')
+            ->name('bot.store');
+
+
         Route::post('/attribute/{botId}/title/{title}', [ \Modules\Admin\Http\Controllers\BotController::class, 'updateAttributes' ])
             ->middleware('auth')
             ->name('bot.updateAttributes');

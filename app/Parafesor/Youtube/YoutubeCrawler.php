@@ -40,16 +40,21 @@ class YoutubeCrawler
             }
 
             foreach ($videoList['items'] as $video) {
-                CrawledArticle::create([
-                    'news_id' => $video['id']['videoId'],
-                    'article_type_id' => $channelsToCraw->article_type_id,
-                    'title' => $video['snippet']['title'],
-                    'summary' => $video['snippet']['description'],
-                    'original_link' => 'https://www.youtube.com/watch?v=' . $video['id']['videoId'],
-                    'image_path' => $video['snippet']['thumbnails']['high']['url'],
-                    'site_name' => $channelsToCraw->site_name ,
-                    'pub_date' => new Carbon($video['snippet']['publishedAt']),
-                ]);
+                try {
+                    CrawledArticle::create([
+                        'news_id' => $video['id']['videoId'],
+                        'article_type_id' => $channelsToCraw->article_type_id,
+                        'title' => $video['snippet']['title'],
+                        'summary' => $video['snippet']['description'],
+                        'original_link' => 'https://www.youtube.com/watch?v=' . $video['id']['videoId'],
+                        'image_path' => $video['snippet']['thumbnails']['high']['url'],
+                        'site_name' => $channelsToCraw->site_name ,
+                        'pub_date' => new Carbon($video['snippet']['publishedAt']),
+                    ]);
+                } catch (\Exception $e) {
+
+                }
+
             }
         }
     }

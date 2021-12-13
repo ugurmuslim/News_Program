@@ -3,12 +3,13 @@
 @section('content')
     <div class="wrapper">
         <div class="content-wrapper">
-            <div class="row">
+            <div class="row">p
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-header">
                             <h3 class="card-title">Botlar</h3>
                         </div>
+                        <a class="btn btn-success btn-sm float-right" href="{{route('bot.postUpdate'),}}">Yarat</a>
                         <!-- /.card-header -->
                         <div class="card-body">
                             <form id="form" method="get" data-parsley-validate
