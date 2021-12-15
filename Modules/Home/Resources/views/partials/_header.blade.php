@@ -1,3 +1,6 @@
+@php
+$menu = \Modules\Admin\Entities\Menu::orderBy('sort', 'DESC')->get();
+@endphp
 <header>
     <div id="headerTop">
         <div class="row">
@@ -26,8 +29,14 @@
             <div class="row">
                 <div style="width: 40%">
                     <div class="row">
-                        <div class="col-5"></div>
-                        <div class="col-4" style="position: relative; height: 0px; padding-bottom:160px;">
+                        <div class="col-3"></div>
+                        @foreach($menu->take(3) as $m)
+                            <div class="col-7" style="position: relative; height: 0px; padding-bottom:160px;">
+                                <div class="header-link"><a href="{{$m ? $m->url : ""}}">{{$m ? $m->title : ""}}</a>
+                                </div>
+                            </div>
+                        @endforeach
+                        {{--<div class="col-4" style="position: relative; height: 0px; padding-bottom:160px;">
                             <div class="header-link"><a href="{{route('home_article.index',['type' => 'Hisse'])}}">HİSSE
                                     ÖNERİLERİ</a></div>
                         </div>
@@ -39,7 +48,7 @@
                             <div class="header-link"><a
                                     href="{{route('home_article.index',['type' => 'Şirket Haberleri'])}}">ŞİRKET
                                     HABERLERİ</a></div>
-                        </div>
+                        </div>--}}
                     </div>
                 </div>
                 <div style="width: 20%; text-align: center"><a href="{{route('home.indextest')}}">
@@ -48,7 +57,13 @@
                 </div>
                 <div style="width: 40%">
                     <div class="row">
-                        <div class="col-4" style="position: relative; height: 0px; padding-bottom:160px;">
+                        @foreach($menu->slice(3)->take(3) as $m)
+                            <div class="col-7" style="position: relative; height: 0px; padding-bottom:160px;">
+                                <div class="header-link"><a href="{{$m ? $m->url : ""}}">{{$m ? $m->title : ""}}</a>
+                                </div>
+                            </div>
+                        @endforeach
+                       {{-- <div class="col-4" style="position: relative; height: 0px; padding-bottom:160px;">
                             <div class="header-link"><a href="{{route('home_article.index',['type' => 'Gündem'])}}">DOLAR</a>
                             </div>
                         </div>
@@ -66,7 +81,7 @@
                                     <i class="fa fa-bars"></i>
                                 </a>
                             </div>
-                        </div>
+                        </div>--}}
                     </div>
                 </div>
             </div>

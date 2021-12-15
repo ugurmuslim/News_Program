@@ -172,6 +172,20 @@ Route::prefix('admin')->group(function () {
             ->name('editor.log');
     });
 
+    Route::prefix('system')->group(function () {
+        Route::get('/menu', [ \Modules\Admin\Http\Controllers\SystemController::class, 'menuIndex' ])
+            ->middleware('auth')
+            ->name('system.menu.index');
+
+        Route::get('/menu/postUpdate/{id?}', [ \Modules\Admin\Http\Controllers\SystemController::class, 'menuPostUpdate' ])
+            ->middleware('auth')
+            ->name('system.menu.postUpdate');
+
+        Route::post('/menu/postUpdate/{id?}', [ \Modules\Admin\Http\Controllers\SystemController::class, 'menuStore' ])
+            ->middleware('auth')
+            ->name('system.menu.store');
+    });
+
     Route::prefix('system-user')->group(function () {
 
         Route::get('/', [ \Modules\Admin\Http\Controllers\SystemUserController::class, 'index' ])
