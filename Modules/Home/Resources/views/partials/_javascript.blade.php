@@ -173,11 +173,12 @@
     function matchHeight() {
         let matchList = document.getElementsByClassName("match");
         for (let m of matchList) {
-            console.log(m);
+            console.log(m.attributes.matchTo.value);
             let height = document.getElementById(m.attributes.matchTo.value).offsetHeight;
             m.style.height = height + "px";
         }
     }
+
 
     function keepRatio() {
         let toKeepList = document.getElementsByClassName("keep-ratio");

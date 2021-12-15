@@ -42,7 +42,7 @@ class ArticleController extends Controller
         $articlesDB[$type] = Article::where('status', ArticleStatus::PUBLISHED)
             ->where('article_type_id', $articleType->id)
             ->where('show_case', CategorySectionTypes::NORMAL)
-            ->limit(30)
+            ->limit(50)
             ->get();
 
         if ($articleType->id == ArticleTypes::SonDakika) {
@@ -65,6 +65,7 @@ class ArticleController extends Controller
         if ($articleType->id == ArticleTypes::BorsaTube) {
             $articlesDB[$type] = StockTube::where('status', ArticleStatus::PUBLISHED)
                 ->where('show_case', CategorySectionTypes::NORMAL)
+                ->skip(11)
                 ->orderBy('id', 'DESC')
                 ->limit(32)
                 ->get();

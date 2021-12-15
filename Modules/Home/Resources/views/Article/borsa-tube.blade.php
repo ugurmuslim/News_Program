@@ -3,10 +3,11 @@
 @section('content')
     @include('home::partials._header')
     @include('home::sections.borsa-tube')
-    @foreach($articles["Borsa Tube"]["Normal"]->slice(6)->take(20) as $article)
-        <div class="container">
-            <div class="row">
-                <!-- First Small News of the section -->
+    <div class="container">
+        <div class="row">
+        @foreach($articles["Borsa Tube"]["Normal"]->take(20) as $article)
+
+            <!-- First Small News of the section -->
                 <div class="col-lg-6 col-sm-12 mt-5">
                     <a href={{$article->original_link}}">
                             <div class=" card news-card news-card-small ">
@@ -21,12 +22,12 @@
                     </div>
                 </div>
                 </a>
-            </div>
-            <!-- First Small News of the section -->
-            @endforeach
         </div>
-        </div>
+        <!-- First Small News of the section -->
+        @endforeach
+    </div>
+    </div>
 
-        @include('home::partials._javascript')
+    @include('home::partials._javascript')
 
 @endsection

@@ -19,5 +19,6 @@ class ArticleTypes
     const Netkolik = 11;
     const Egitim = 12;
     const EnCokOkunanlar = 13;
+    const Youtube = 16;
 
 }

@@ -21,7 +21,7 @@
                                         <div
                                             style="background: url({{asset($article->image_path)}}); height: 330px;"
                                             alt="{{$article->seoUrl}}" class="news-img"></div>
-                                        <div class="news-card-img-text big-title">{{$article->title}}
+                                        <div class="news-card-img-text big-title"><p>{{$article->title}}</p>
                                         </div>
 
                                     </div>

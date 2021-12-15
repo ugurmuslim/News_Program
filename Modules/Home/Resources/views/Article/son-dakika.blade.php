@@ -5,20 +5,22 @@
     @include('home::sections.son-dakika')
     <div class="container">
         <div class="row">
-        @foreach($articlesDB["Son Dakika"]->slice(8)->take(20) as $article)
+        @foreach($articlesDB["Son Dakika"]->slice(8)->take(40) as $article)
             <!-- First Small News of the section -->
-                <div class="col-lg-6 col-sm-12 mt-5">
+                <div class="last-min-sm d-inline-block" style="position:relative">
                     <a href="{{route('article.show',['slug' => $article->slug ])}}">
-                        <div class="card news-card news-card-small ">
-                            <div class="news-card-img-container bg-light-grey">
-                                <div style="background: url({{asset($article->image_path)}})" alt=""
-                                     class="news-img"></div>
-                                <div class="news-card-img-text">{{$article->title}}</div>
-                            </div>
-                            <div class="news-card-bottom">
-                                    <span
-                                        class="text-danger">{{ Carbon\Carbon::parse($article->created_at)->format('d F')}}</span><span> • {{ Carbon\Carbon::parse($article->created_at)->format('H:m')}} • by parafesor</span>
-                            </div>
+                        <div class="last-min-sm-top"><span class="px-2 bg-white" style="z-index: 999"><i
+                                    class="far fa-clock"></i> {{\Carbon\Carbon::parse($article->created_at)->format('H:d')}}</span>
+                            <div class="last-min-top-line"></div>
+                        </div>
+                        <div class="col-24 last-min-sm-img"
+                             style="background-image: url({{asset($article->image_path)}})">
+                        </div>
+                        <div class="last-min-sm-title small-text"><p>{{$article->title}}</p>
+                        </div>
+                        <div class="last-min-text-bottom small-last-min-bottom">
+                            <span
+                                class="text-danger">{{ Carbon\Carbon::parse($article->created_at)->format('d F')}}</span><span>  {{Carbon\Carbon::parse($article->created_at)->format('H:m')}} • by parafesor</span>
                         </div>
                     </a>
                 </div>

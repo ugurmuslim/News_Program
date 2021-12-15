@@ -34,9 +34,9 @@
             <div class="col-xl-13 mb-5">
                 <div class="row">
                     @foreach($articles["Hisse"][\App\Parafesor\Constants\CategorySectionTypes::MAIN_SLIDER]->take(2) as $article)
-                        <div class="col-lg-12 col-md-24 mt-1 match " matchTo="tech-second-row-anchor">
+                        <div class="col-lg-12 col-md-24 mt-1">
                             <a href="{{route('article.show',['slug'=> $article->slug])}}">
-                                <div class="col-md-24 bg-black h-100 tech-box">
+                                <div class="col-md-24 bg-black h-100 tech-box" style="min-height: 450px;">
 
                                     <div class="tech-news-box-image"
                                          style="background-image: url({{asset($article->image_path)}})"></div>

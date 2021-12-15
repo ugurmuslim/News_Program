@@ -50,7 +50,7 @@ class CrawledArticle extends Model
      * @var array
      */
     protected $casts = [
-        'news_id'         => 'int',
+        'news_id'         => 'string',
         'article_type_id' => 'int',
         'title'           => 'string',
         'summary'         => 'string',

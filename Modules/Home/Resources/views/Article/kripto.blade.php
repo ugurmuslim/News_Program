@@ -4,21 +4,22 @@
     @include('home::partials._header')
     @include('home::sections.kripto')
     <div class="container">
-        <div class="row">
-        @foreach($articlesDB["Kripto"]->slice(6)->take(20) as $article)
-
-            <!-- First Small News of the section -->
-                <div class="col-lg-6 col-sm-12 mt-5">
+        <div class="row mt-3">
+        @foreach($articlesDB["Kripto"]->slice(7)->take(40) as $article)
+                <div class="col-md-6 mt-3">
                     <a href="{{route('article.show',['slug' => $article->slug ])}}">
-                        <div class="card news-card news-card-small ">
-                            <div class="news-card-img-container bg-light-grey">
-                                <div style="background: url({{asset($article->image_path)}})" alt=""
-                                     class="news-img"></div>
-                                <div class="news-card-img-text">{{$article->title}}</div>
-                            </div>
-                            <div class="news-card-bottom">
+                        <div class="col-24  bg-dark">
+                            <div class="col-sm-24 ">
+                                <div class="col-24 crypto crypto-md"
+                                     style="background-image: url({{asset($article->image_path)}})"></div>
+                                <div class="crypto-title">
+                                    {{ \Illuminate\Support\Str::limit($article->title, 70, $end='...') }}
+                                    <div class="crypto-text-bottom-sm">
                                     <span
-                                        class="text-danger">{{ Carbon\Carbon::parse($article->created_at)->format('d F')}}</span><span> • {{ Carbon\Carbon::parse($article->created_at)->format('H:m')}} • by parafesor</span>
+                                        class="text-white">{{ Carbon\Carbon::parse($article->created_at)->format('d F')}}</span><span> • {{ Carbon\Carbon::parse($article->created_at)->format('H:m')}} • by parafesor</span>
+                                    </div>
+                                </div>
+
                             </div>
                         </div>
                     </a>

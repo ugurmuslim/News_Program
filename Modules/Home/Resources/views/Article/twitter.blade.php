@@ -4,10 +4,8 @@
     @include('home::partials._header')
     @include('home::sections.twitter')
     <div class="container">
-
         <div class="row">
-
-            @foreach($articlesDB['Twitter']->slice(3)->take(50) as $article)
+            @foreach($articlesDB['Twitter']->slice(13)->take(50) as $article)
                 <div class="col-12 col-lg-6 mb-3">
                     <a href="https://twitter.com/user/status/{{$article->external_site_id}}">
                         <div class="card tweet-card tweet-card-small bg-white">

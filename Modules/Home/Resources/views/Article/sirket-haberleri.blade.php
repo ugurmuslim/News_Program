@@ -5,7 +5,7 @@
     @include('home::sections.sirket-haberleri')
     <div class="container">
         <div class="row">
-        @foreach($articlesDB["Şirket Haberleri"]->slice(6)->take(20) as $article)
+        @foreach($articlesDB["Şirket Haberleri"]->slice(11)->take(20) as $article)
                 <div class="col-24 col-md-12 col-lg-6 mt-3">
                     <a href="{{route('article.show',['slug' => $article->slug ])}}">
                         <div class="card">

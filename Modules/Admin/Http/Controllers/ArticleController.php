@@ -132,6 +132,7 @@ class ArticleController extends Controller
         $article->article_type_id = $articleType->id;
         $article->status = ArticleStatus::ASSIGNED;
         $article->summary = $news->summary;
+        $article->external_site_id = $news->news_id;
         $article->title = $news->title;
         $article->image_path = $news->image_path;
         $article->article_date = $news->pubDate;
