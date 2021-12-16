@@ -30,7 +30,7 @@ class SystemController extends Controller
      */
     public function menuIndex()
     {
-        $menu = Menu::orderBy('sort', 'DESC')->get();
+        $menu = Menu::orderBy('sort', 'ASC')->get();
         return view('admin::System.Menu.index')
             ->with('menu', $menu);
     }
