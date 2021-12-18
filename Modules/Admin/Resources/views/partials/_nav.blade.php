@@ -132,7 +132,7 @@
 <!-- Main Sidebar Container -->
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="{{route('home.index')}}" target="_blank" class="brand-link">
+    <a href="{{route('home.indextest')}}" target="_blank" class="brand-link">
         <img src="{{asset('modules/home/sample/img/logo-icon.svg')}}" alt="Parafesor Logo"
              class="brand-image img-circle elevation-3"
              style="opacity: .8">
