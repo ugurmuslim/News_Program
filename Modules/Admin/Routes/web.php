@@ -201,4 +201,20 @@ Route::prefix('admin')->group(function () {
             ->name('system_user.store');
 
     });
+
+    Route::prefix('system-company')->group(function () {
+
+        Route::get('/', [ \Modules\Admin\Http\Controllers\CompanyController::class, 'index' ])
+            ->middleware('auth')
+            ->name('system.company.index');
+
+        Route::get('/postUpdate/{id?}', [ \Modules\Admin\Http\Controllers\CompanyController::class, 'postUpdate' ])
+            ->middleware('auth')
+            ->name('system.company.postUpdate');
+
+        Route::post('/postUpdate/{id?}', [ \Modules\Admin\Http\Controllers\CompanyController::class, 'store' ])
+            ->middleware('auth')
+            ->name('system.company.store');
+
+    });
 });

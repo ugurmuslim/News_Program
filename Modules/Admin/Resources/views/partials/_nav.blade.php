@@ -321,6 +321,10 @@
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Kullanıcılar</p>
                             </a>
+                            <a href="{{route('system.company.index')}}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Şirketler</p>
+                            </a>
                             <a href="{{route('system.menu.index')}}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Menu</p>

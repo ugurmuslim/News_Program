@@ -45,7 +45,7 @@
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
                                 <li class="breadcrumb-item"><a href="#">Home</a></li>
-                                <li class="breadcrumb-item active">Makaleler</li>
+                                <li class="breadcrumb-item active">Kullanıcılar</li>
                             </ol>
                         </div><!-- /.col -->
                     </div><!-- /.row -->
@@ -62,7 +62,6 @@
                         @csrf
                         <div class="row row-sm">
                             <input name="UserId" type="number" class="form-control"
-                                   placeholder="Lorem ipsum dolor"
                                    value="{{isset($user) ? $user->id : null}}"
                                    maxlength="200" autocomplete="off" hidden/>
 
@@ -71,7 +70,7 @@
                                 <div class="col-10">
                                     <label class="form-text">İsim</label>
                                     <input name="Name" type="text" class="form-control"
-                                           placeholder="Lorem ipsum dolor"
+                                           placeholder="Kullanıcı İsmi"
                                            id="name"
                                            value="{{isset($user) ? $user->name : ""}}"
                                            required="required" maxlength="200" autocomplete="off"/>
@@ -83,7 +82,7 @@
                                 <div class="col-10">
                                     <label class="form-text">E-mail</label>
                                     <input name="Email" type="text" class="form-control"
-                                           placeholder="Lorem ipsum dolor"
+                                           placeholder="Kullanıcı E-mail"
                                            id="email"
                                            value="{{isset($user) ? $user->email : ""}}"
                                            required="required" maxlength="200" autocomplete="off"/>
@@ -93,7 +92,7 @@
                                 <div class="col-10">
                                     <label class="form-text">Şifre</label>
                                     <input name="Password" type="text" class="form-control"
-                                           placeholder="Lorem ipsum dolor"
+                                           placeholder="Şifre Belirleyin"
                                            id="email"
                                            value=""
                                            maxlength="200" autocomplete="off"/>

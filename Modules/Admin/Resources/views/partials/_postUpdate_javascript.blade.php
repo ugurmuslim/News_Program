@@ -168,6 +168,13 @@
         } else {
             $("#SecondSlider").css("display", "none")
         }
+
+        if(categoryVal == {{\App\Parafesor\Constants\ArticleTypes::SirketHaberleri}}) {
+            $("#companySelect").css("display", "")
+        } else {
+            $("#companySelect").css("display", "none")
+        }
+
         getDimensions(categoryVal)
     })
 
