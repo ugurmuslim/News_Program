@@ -175,6 +175,24 @@
                                                        class="image" {{isset($article) && $article->image_path ? "" : ""}}>
                                                 <input type="text" name="image1" class="image" id="croppedImage"
                                                        value="{{old('image1')}}" hidden>
+                                                <div class="col-12">
+                                                    <label style="color: black;">Resim</label>
+                                                    <br>
+                                                    @if($article->article_type_id == \App\Parafesor\Constants\ArticleTypes::Youtube)
+                                                        <iframe width="560" height="315"
+                                                                src="https://www.youtube.com/embed/{{$article->external_site_id}}"
+                                                                title="YouTube video player" frameborder="0"
+                                                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                                                allowfullscreen></iframe>
+                                                    @endif
+                                                    @if(($article->article_type_id != \App\Parafesor\Constants\ArticleTypes::Youtube) && isset($article) && $article->image_path)
+                                                        <div class="mt-5" style="max-width: 400px ">
+                                                            <img src="{{asset($article->image_path)}}" alt=""
+                                                                 id="savedImage">
+                                                        </div>
+                                                    @endif
+
+                                                </div>
 
                                                 <div class="modal fade" id="modal" tabindex="-1" role="dialog"
                                                      aria-labelledby="modalLabel" aria-hidden="true">
