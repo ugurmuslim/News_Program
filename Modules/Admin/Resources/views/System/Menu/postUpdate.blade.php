@@ -39,13 +39,13 @@
 
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1 class="m-0">Makaleler</h1>
+                            <h1 class="m-0">Menu</h1>
                         </div><!-- /.col -->
 
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
                                 <li class="breadcrumb-item"><a href="#">Home</a></li>
-                                <li class="breadcrumb-item active">Kullanıcılar</li>
+                                <li class="breadcrumb-item active">Menu</li>
                             </ol>
                         </div><!-- /.col -->
                     </div><!-- /.row -->
@@ -58,61 +58,42 @@
                 <div class="container-fluid">
 
                     <form id="form" method="post" data-parsley-validate
-                          action={{route('system_user.store')}} enctype="multipart/form-data">
+                          action={{route('system.menu.store')}} enctype="multipart/form-data">
                         @csrf
                         <div class="row row-sm">
-                            <input name="UserId" type="number" class="form-control"
-                                   value="{{isset($user) ? $user->id : null}}"
-                                   maxlength="200" autocomplete="off" hidden/>
 
+                            <input name="MenuTitleId" type="number" class="form-control"
+                                   placeholder="Lorem ipsum dolor"
+                                   value="{{isset($menuTitle) ? $menuTitle->id : null}}"
+                                   maxlength="200" autocomplete="off" hidden/>
 
                             <div class="col-md-9 row align-content-start">
                                 <div class="col-10">
                                     <label class="form-text">İsim</label>
-                                    <input name="Name" type="text" class="form-control"
-                                           placeholder="Kullanıcı İsmi"
-                                           id="name"
-                                           value="{{isset($user) ? $user->name : ""}}"
+                                    <input name="Title" type="text" class="form-control"
+                                           placeholder="Menu Başlığı"
+                                           id="menuTitle"
+                                           value="{{isset($menuTitle) ? $menuTitle->title : ""}}"
                                            required="required" maxlength="200" autocomplete="off"/>
                                 </div>
 
-                                <div class="col-12 hr"></div>
-
-                                <div class="col-12 hr"></div>
                                 <div class="col-10">
-                                    <label class="form-text">E-mail</label>
-                                    <input name="Email" type="text" class="form-control"
-                                           placeholder="Kullanıcı E-mail"
-                                           id="email"
-                                           value="{{isset($user) ? $user->email : ""}}"
+                                    <label class="form-text">Link</label>
+                                    <input name="Url" type="text" class="form-control"
+                                           placeholder="Menu Url"
+                                           id="Url"
+                                           value="{{isset($menuTitle) ? $menuTitle->url : ""}}"
                                            required="required" maxlength="200" autocomplete="off"/>
-                                </div>
-
-                                <div class="col-12 hr"></div>
-                                <div class="col-10">
-                                    <label class="form-text">Şifre</label>
-                                    <input name="Password" type="text" class="form-control"
-                                           placeholder="Şifre Belirleyin"
-                                           id="email"
-                                           value=""
-                                           maxlength="200" autocomplete="off"/>
                                 </div>
                             </div>
 
                             <div class="col-md-3 row align-content-start">
-
-                                <label class="form-text">Rol</label>
-                                <select class="form-control" name="Role" required="required"
-                                        id="category">
-                                    @if(isset($user))
-                                        <option
-                                            value="{{$user->roles[0]->name}}">{{$user->roles[0]->name}}</option>
-                                    @endif
-                                    @foreach($roles as $role)
-                                        <option value={{$role->name}}>{{$role->name}}</option>
-                                    @endforeach
-
-                                </select>
+                                <label class="form-text">Sıra</label>
+                                <input name="Sort" type="number" class="form-control"
+                                       placeholder="Sıra"
+                                       id="sort"
+                                       value="{{isset($menuTitle) ? $menuTitle->sort : ""}}"
+                                       required="required" maxlength="200" autocomplete="off"/>
                                 <input type="hidden" name="_token" id="token" value="{{ csrf_token() }}">
                             </div>
                         </div>

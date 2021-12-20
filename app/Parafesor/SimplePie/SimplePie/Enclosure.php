@@ -41,6 +41,7 @@
  * @license http://www.opensource.org/licenses/bsd-license.php BSD License
  */
 namespace App\Parafesor\SimplePie\SimplePie;
+use App\Parafesor\SimplePie\SimplePie\Misc as SimplePie_Misc;
 
 /**
  * Handles everything related to enclosures (including Media RSS and iTunes RSS)
@@ -385,7 +386,8 @@ class Enclosure
 	 * Get a single credit
 	 *
 	 * @param int $key
-	 * @return SimplePie_Credit|null
+	 *
+	 * @return Credit|null
 	 */
 	public function get_credit($key = 0)
 	{
@@ -401,7 +403,7 @@ class Enclosure
 	/**
 	 * Get all credits
 	 *
-	 * @return array|null Array of {@see SimplePie_Credit} objects
+	 * @return array|null Array of {@see Credit} objects
 	 */
 	public function get_credits()
 	{

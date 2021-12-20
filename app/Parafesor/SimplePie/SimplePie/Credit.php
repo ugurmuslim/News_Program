@@ -1,4 +1,6 @@
 <?php
+namespace App\Parafesor\SimplePie\SimplePie;
+
 /**
  * SimplePie
  *
@@ -51,7 +53,7 @@
  * @package SimplePie
  * @subpackage API
  */
-class SimplePie_Credit
+class Credit
 {
 	/**
 	 * Credited role

@@ -172,6 +172,20 @@ Route::prefix('admin')->group(function () {
             ->name('editor.log');
     });
 
+    Route::prefix('system')->group(function () {
+        Route::get('/menu', [ \Modules\Admin\Http\Controllers\SystemController::class, 'menuIndex' ])
+            ->middleware('auth')
+            ->name('system.menu.index');
+
+        Route::get('/menu/postUpdate/{id?}', [ \Modules\Admin\Http\Controllers\SystemController::class, 'menuPostUpdate' ])
+            ->middleware('auth')
+            ->name('system.menu.postUpdate');
+
+        Route::post('/menu/postUpdate/{id?}', [ \Modules\Admin\Http\Controllers\SystemController::class, 'menuStore' ])
+            ->middleware('auth')
+            ->name('system.menu.store');
+    });
+
     Route::prefix('system-user')->group(function () {
 
         Route::get('/', [ \Modules\Admin\Http\Controllers\SystemUserController::class, 'index' ])
@@ -185,6 +199,22 @@ Route::prefix('admin')->group(function () {
         Route::post('/postUpdate/{id?}', [ \Modules\Admin\Http\Controllers\SystemUserController::class, 'store' ])
             ->middleware('auth')
             ->name('system_user.store');
+
+    });
+
+    Route::prefix('system-company')->group(function () {
+
+        Route::get('/', [ \Modules\Admin\Http\Controllers\CompanyController::class, 'index' ])
+            ->middleware('auth')
+            ->name('system.company.index');
+
+        Route::get('/postUpdate/{id?}', [ \Modules\Admin\Http\Controllers\CompanyController::class, 'postUpdate' ])
+            ->middleware('auth')
+            ->name('system.company.postUpdate');
+
+        Route::post('/postUpdate/{id?}', [ \Modules\Admin\Http\Controllers\CompanyController::class, 'store' ])
+            ->middleware('auth')
+            ->name('system.company.store');
 
     });
 });

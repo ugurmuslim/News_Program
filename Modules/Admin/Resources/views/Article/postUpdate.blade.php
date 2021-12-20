@@ -56,7 +56,7 @@
             <!-- Main content -->
             <section class="content">
                 <div class="container-fluid">
-                    @if(!isset($article))
+                    @if(!isset($article) || $article->status == \App\Parafesor\Constants\ArticleStatus::PUBLISHED)
                         <form id="form" method="post" data-parsley-validate
                               action={{route('article.store')}} enctype="multipart/form-data">
                             @csrf
@@ -71,7 +71,7 @@
                                     <div class="col-12">
                                         <label class="form-text">Başlık</label>
                                         <input name="Title" type="text" class="form-control"
-                                               placeholder="Lorem ipsum dolor"
+                                               placeholder="Başlık Girin"
                                                id="articleTitle"
                                                value="{{isset($article) ? $article->title : ""}}"
                                                required="required" maxlength="200" autocomplete="off"/>
@@ -88,6 +88,17 @@
                                             @endif
                                             @foreach($articleTypes as $type)
                                                 <option value={{$type->id}}>{{$type->title }}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+
+                                    <div class="col-12" id="companySelect"
+                                         style="display:none; {{isset($article) ? ($article->articleType->id == \App\Parafesor\Constants\ArticleTypes::SirketHaberleri ? "" : "display:none") : ""}}">
+                                        <label class="form-text">Şirket</label>
+                                        <select class="form-control" name="CompanyId" required="required"
+                                                id="category">
+                                            @foreach($companies as $company)
+                                                <option value={{$company->id}}>{{$company->title }}</option>
                                             @endforeach
                                         </select>
                                     </div>
@@ -161,9 +172,27 @@
                                                 {{--<input type="file" name="image" />
             --}}                                    {{--<input type="file" name="select_file" id="articleImage">--}}
                                                 <input type="file" name="image"
-                                                       class="image" {{isset($article) && $article->image_path ? "" : "required"}}>
+                                                       class="image" {{isset($article) && $article->image_path ? "" : ""}}>
                                                 <input type="text" name="image1" class="image" id="croppedImage"
                                                        value="{{old('image1')}}" hidden>
+                                                <div class="col-12">
+                                                    <label style="color: black;">Resim</label>
+                                                    <br>
+                                                    @if($article->article_type_id == \App\Parafesor\Constants\ArticleTypes::Youtube)
+                                                        <iframe width="560" height="315"
+                                                                src="https://www.youtube.com/embed/{{$article->external_site_id}}"
+                                                                title="YouTube video player" frameborder="0"
+                                                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                                                allowfullscreen></iframe>
+                                                    @endif
+                                                    @if(($article->article_type_id != \App\Parafesor\Constants\ArticleTypes::Youtube) && isset($article) && $article->image_path)
+                                                        <div class="mt-5" style="max-width: 400px ">
+                                                            <img src="{{asset($article->image_path)}}" alt=""
+                                                                 id="savedImage">
+                                                        </div>
+                                                    @endif
+
+                                                </div>
 
                                                 <div class="modal fade" id="modal" tabindex="-1" role="dialog"
                                                      aria-labelledby="modalLabel" aria-hidden="true">
@@ -217,9 +246,9 @@
                                     <div class="col-md-12 form-group">
                                         <label class="form-text">Seo Başlık</label>
                                         <input name="SeoTitle" type="text" class="form-control"
-                                               placeholder="Lorem ipsum dolor sit amet" maxlength="200"
+                                               placeholder="Seo Başlık Girin" maxlength="200"
                                                value="{{isset($article) ? $article->seo_title : ""}}"
-                                               autocomplete="off"/>
+                                               autocomplete="off" required/>
                                     </div>
                                 </div>
 
@@ -232,7 +261,7 @@
                                     <div class="col-md-12 form-group">
                                         <label class="form-text">Seo Açıklama</label>
                                         <textarea name="SeoDescription" type="text" rows="4" class="form-control"
-                                                  placeholder="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum enim mi, laoreet sed ultrices vitae, dapibus vitae arcu. Praesent non massa lobortis, pharetra tortor ut, fermentum magna."
+                                                  placeholder="Seo için Açıklama Girin"
                                                   maxlength="1000"
                                                   required="required"
                                                   autocomplete="off">{{isset($article) ? $article->seo_description : old('SeoDescription')}}</textarea>
@@ -242,7 +271,7 @@
                                     <div class="col-md-12 form-group">
                                         <label class="form-text">Seo Anahtar Kelimeler</label>
                                         <input name="SeoKeywords" type="text" class="form-control"
-                                               placeholder="Lorem,ipsum,dolor,sit,amet" maxlength="1000"
+                                               placeholder="Virgül ile ayrarak anahtar keline girin" maxlength="1000"
                                                autocomplete="off"
                                                required="required"
                                                value="{{isset($article) ? $article->seo_keywords :  old('SeoKeywords') }}"
@@ -282,14 +311,14 @@
                             </div>
                             <div class="row">
                                 <div class="col-12 hr"></div>
-                                <div class="col-6">
+                                {{--<div class="col-6">
                                     <div class="col-12">
                                         <label class="form-text">İçerik</label>
                                     </div>
                                     <textarea id="textarea2" style="width: 100%; height: 80%" disabled>
     {{isset($article) ? $article->old_body : ""}}
   </textarea>
-                                </div>
+                                </div>--}}
                                 <div class="col-6">
                                     <div class="col-12">
                                         <label class="form-text">İçerik</label>
@@ -302,7 +331,7 @@
 
                             </div>
 
-                            <div class="row">
+                            <div class="row mt-3">
                                 <button type="submit" class="btn btn-success">Kaydet</button>
                             </div>
                         </form>
@@ -321,7 +350,7 @@
                                     <div class="col-12">
                                         <label class="form-text">Başlık</label>
                                         <input type="text" class="form-control"
-                                               placeholder="Lorem ipsum dolor"
+                                               placeholder="Başlık Girin"
                                                id="articleTitle"
                                                value="{{isset($article) ? $article->title : ""}}"
                                                disabled/>
@@ -388,7 +417,7 @@
                                     <div class="col-12">
                                         <label class="form-text">Başlık</label>
                                         <input name="Title" type="text" class="form-control"
-                                               placeholder="Lorem ipsum dolor"
+                                               placeholder="Başlık Girin"
                                                id="articleTitle"
                                                required="required" maxlength="200" autocomplete="off"/>
                                     </div>
@@ -558,9 +587,9 @@
                                 <div class="col-md-6 form-group">
                                     <label class="form-text">Seo Başlık</label>
                                     <input name="SeoTitle" type="text" class="form-control"
-                                           placeholder="Lorem ipsum dolor sit amet" maxlength="200"
+                                           placeholder="Seo Başlık Girin" maxlength="200"
                                            value="{{isset($article) ? $article->seo_title : ""}}"
-                                           autocomplete="off"/>
+                                           autocomplete="off" required/>
                                 </div>
 
                                 <div class="col-md-6 form-group">
@@ -607,12 +636,15 @@
                                 </div>
 
                             </div>
+                            <div class="row mt-3">
+                                <button type="submit" class="btn btn-success mt-5">Kaydet</button>
+                            </div>
                             @endif
                             <div class="row mt-3">
-                                <button type="submit" class="btn btn-success">Kaydet</button>
+                            <button class="btn btn-danger" id="previewButton">Önizleme</button>
                             </div>
+
                         </form>
-                        <button class="btn btn-danger float-right" id="previewButton">Önizleme</button>
 
 
                 </div>
@@ -622,4 +654,18 @@
 @endsection
 @section('extra_scripts')
     @include('admin::partials._postUpdate_javascript')
+    <script>
+        $(".placementDrawing").on("click", function () {
+            $('.placementDrawing').each(function () {
+                $(this).removeClass("activated");
+                $(this).css("background-color", "");
+            })
+            $(this).addClass("activated");
+            $("#PlacementSection").attr("value", $(this).attr("value"));
+            $(this).css("background-color", "red");
+
+        });
+
+
+    </script>
 @endsection

@@ -4,6 +4,7 @@ namespace Modules\Admin\Http\Controllers;
 
 use App\Models\User;
 use App\Parafesor\Constants\ArticleStatus;
+use App\Parafesor\Constants\ArticleTypes;
 use App\Parafesor\Helper\ArticleHelper;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Routing\Controller;
@@ -15,6 +16,7 @@ use Illuminate\Support\Facades\Validator;
 use Intervention\Image\Facades\Image;
 use Modules\Admin\Entities\Article;
 use Modules\Admin\Entities\ArticleType;
+use Modules\Admin\Entities\Company;
 use Modules\Admin\Entities\CrawledArticle;
 use Modules\Admin\Entities\SitesToCrawl;
 
@@ -156,7 +158,7 @@ class ArticleController extends Controller
      */
     public function postUpdate($id = null)
     {
-
+        $companies = Company::all();
         $articleTypes = ArticleType::all();
         if ($id) {
             $article = Article::find($id);
@@ -164,10 +166,12 @@ class ArticleController extends Controller
                 abort(404);
             }
             return view('admin::Article.postUpdate')->with('articleTypes', $articleTypes)
+                ->with("companies", $companies)
                 ->with("article", $article);
         }
 
-        return view('admin::Article.postUpdate')->with('articleTypes', $articleTypes);
+        return view('admin::Article.postUpdate')->with('articleTypes', $articleTypes)
+            ->with("companies", $companies);
     }
 
     /**
@@ -206,27 +210,35 @@ class ArticleController extends Controller
                 return back()->withInput(Request::all());
             }
         }
+        $articleType = ArticleType::find(Request::input('ArticleTypeId'));
 
-        if(!Request::hasFile('sameImage') && !Request::hasFile('image')) {
+        if (!Request::hasFile('sameImage') && !Request::hasFile('image') && $articleType->id != ArticleTypes::SirketHaberleri) {
             Session::flash('error', "Görsel seçmediniz halihazırdaki görseli de kullanmayacaksınız");
             return back()->withInput(Request::all());
         }
 
-        $articleType = ArticleType::find(Request::input('ArticleTypeId'));
         $imageDimensions = json_decode($articleType->image_dimensions, true);
-        if (Request::hasFile('image')) {
-            $image_parts = explode(";base64,", Request::input('image1'));
-            $image_type_aux = explode("image/", $image_parts[0]);
-            $image_type = $image_type_aux[1];
-            $image_base64 = base64_decode($image_parts[1]);
-            $file = "images/" . uniqid() . '.png';
+        if ($articleType->id != ArticleTypes::SirketHaberleri) {
+            if (Request::hasFile('image')) {
+                $image_parts = explode(";base64,", Request::input('image1'));
+                $image_type_aux = explode("image/", $image_parts[0]);
+                $image_type = $image_type_aux[1];
+                $image_base64 = base64_decode($image_parts[1]);
+                $file = "images/" . uniqid() . '.png';
 
-            if (Request::input('PlacementSection')) {
-                Image::make($image_base64)->resize($imageDimensions[Request::input('PlacementSection')]['width'], $imageDimensions[Request::input('PlacementSection')]['height'])->save($file);
+                if (Request::input('PlacementSection')) {
+                    Image::make($image_base64)->resize($imageDimensions[Request::input('PlacementSection')]['width'], $imageDimensions[Request::input('PlacementSection')]['height'])->save($file);
+                }
+
+                $article->image_path = $file;
             }
-
-            $article->image_path = $file;
         }
+
+        if ($articleType->id == ArticleTypes::SirketHaberleri) {
+            $company = Company::find(Request::input('CompanyId'));
+            $article->image_path = $company->image_path;
+        }
+
         $article->title = Request::input('Title');
         $article->body = Request::input('Body');
         $article->status = ArticleStatus::PUBLISHED;
@@ -245,7 +257,7 @@ class ArticleController extends Controller
         $article->save();
 
 
-        ArticleHelper::updateCache([$articleType->id]);
+        ArticleHelper::updateCache([ $articleType->id ]);
 
         Session::flash('success', "Başarı ile yaratıldı");
         return back();

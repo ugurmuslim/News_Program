@@ -132,7 +132,7 @@
 <!-- Main Sidebar Container -->
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="{{route('home.index')}}" target="_blank" class="brand-link">
+    <a href="{{route('home.indextest')}}" target="_blank" class="brand-link">
         <img src="{{asset('modules/home/sample/img/logo-icon.svg')}}" alt="Parafesor Logo"
              class="brand-image img-circle elevation-3"
              style="opacity: .8">
@@ -320,6 +320,14 @@
                             <a href="{{route('system_user.index')}}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Kullanıcılar</p>
+                            </a>
+                            <a href="{{route('system.company.index')}}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Şirketler</p>
+                            </a>
+                            <a href="{{route('system.menu.index')}}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Menu</p>
                             </a>
                         </li>
 

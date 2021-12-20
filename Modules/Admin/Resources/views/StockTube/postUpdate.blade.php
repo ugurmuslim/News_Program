@@ -77,7 +77,7 @@
                                 <div class="col-12">
                                     <label class="form-text">Başlık</label>
                                     <input name="Title" type="text" class="form-control"
-                                           placeholder="Lorem ipsum dolor"
+                                           placeholder="Başlık Girin"
                                            id="articleTitle"
                                            value="{{isset($article) ? $article->title : ""}}"
                                            required="required" maxlength="200" autocomplete="off"/>
@@ -96,7 +96,8 @@
                                             <input type="text" name="image1" class="image" id="croppedImage" hidden>
 
                                             @if(isset($article) && $article->image_path)
-                                                <div class="mt-5" style="{{$article->channel ?  "max-width: 100px;" : "max-width: 400px;" }} ">
+                                                <div class="mt-5"
+                                                     style="{{$article->channel ?  "max-width: 100px;" : "max-width: 400px;" }} ">
                                                     <img src="{{asset($article->image_path)}}" alt="">
                                                 </div>
                                             @endif
@@ -144,7 +145,7 @@
                                 <div class="col-12">
                                     <label class="form-text">Link</label>
                                     <input name="originalLink" type="text" class="form-control"
-                                           placeholder="Lorem ipsum dolor"
+                                           placeholder="Youtube Linki Girin"
                                            id="articleTitle"
                                            value="{{isset($article) ? $article->original_link : ""}}"
                                            required="required" maxlength="200" autocomplete="off"/>
@@ -177,9 +178,10 @@
                                 <input type="hidden" name="_token" id="token" value="{{ csrf_token() }}">
                             </div>
                         </div>
-                        <button type="submit" class="btn btn-success">Kaydet</button>
+                        <div class="row mt-3">
+                            <button type="submit" class="btn btn-success">Kaydet</button>
+                        </div>
                     </form>
-                    <button class="btn btn-danger float-right" id="previewButton">Önizleme</button>
 
                 </div>
             </section>
