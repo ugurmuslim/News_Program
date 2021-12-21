@@ -1,6 +1,3 @@
-@php
-$menu = \Modules\Admin\Entities\Menu::orderBy('sort', 'DESC')->get();
-@endphp
 <header>
     <div id="headerTop">
         <div class="row">
@@ -12,79 +9,59 @@ $menu = \Modules\Admin\Entities\Menu::orderBy('sort', 'DESC')->get();
                     <i class="fab fa-youtube" aria-hidden="true"></i>
                 </div>
 
-                <li style="float: right; margin-left: 18px; " >
+                <li style="float: right; margin-left: 18px; ">
                     <input type="text" class="search-input" placeholder="Haberlerde ara">
                     <i class="fa fa-search search-icon" aria-hidden="true"></i>
                 </li>
                 <li class="float-right" style="float: right; margin-left: 18px;">
                     <input type="text" class="search-input" placeholder="Hisse Kodu / hisse adı ara"
-                           style="width: 150px;">
+                        style="width: 150px;">
                     <i class="fa fa-search search-icon" aria-hidden="true"></i>
                 </li>
             </ul>
         </div>
     </div>
     <div id="headerMain">
-        <div class="container" style="max-width: 70%">
-            <div class="row">
-                <div style="width: 40%">
-                    <div class="row">
-                        <div class="col-3"></div>
-                        @foreach($menu->take(3) as $m)
-                            <div class="col-7" style="position: relative; height: 0px; padding-bottom:160px;">
-                                <div class="header-link"><a href="{{$m ? $m->url : ""}}">{{$m ? $m->title : ""}}</a>
-                                </div>
-                            </div>
-                        @endforeach
-                        {{--<div class="col-4" style="position: relative; height: 0px; padding-bottom:160px;">
-                            <div class="header-link"><a href="{{route('home_article.index',['type' => 'Hisse'])}}">HİSSE
-                                    ÖNERİLERİ</a></div>
-                        </div>
-                        <div class="col-11" style="position: relative; height: 0px; padding-bottom:160px;">
-                            <div class="header-link"><a href="{{route('home_article.index',['type' => 'Borsa Tube'])}}">BORSA
-                                    TUBE</a></div>
-                        </div>
-                        <div class="col-4" style="position: relative; height: 0px; padding-bottom:160px;">
-                            <div class="header-link"><a
-                                    href="{{route('home_article.index',['type' => 'Şirket Haberleri'])}}">ŞİRKET
-                                    HABERLERİ</a></div>
-                        </div>--}}
-                    </div>
-                </div>
-                <div style="width: 20%; text-align: center"><a href="{{route('home.indextest')}}">
-                        <div class="header-logo-big"></div>
-                    </a>
-                </div>
-                <div style="width: 40%">
-                    <div class="row">
-                        @foreach($menu->slice(3)->take(3) as $m)
-                            <div class="col-7" style="position: relative; height: 0px; padding-bottom:160px;">
-                                <div class="header-link"><a href="{{$m ? $m->url : ""}}">{{$m ? $m->title : ""}}</a>
-                                </div>
-                            </div>
-                        @endforeach
-                       {{-- <div class="col-4" style="position: relative; height: 0px; padding-bottom:160px;">
-                            <div class="header-link"><a href="{{route('home_article.index',['type' => 'Gündem'])}}">DOLAR</a>
-                            </div>
-                        </div>
-                        <div class="col-11" style="position: relative; height: 0px; padding-bottom:160px;">
-                            <div class="header-link"><a href="{{route('home_article.index',['type' => 'Gündem'])}}">ALTIN</a>
-                            </div>
-                        </div>
-                        <div class="col-4" style="position: relative; height: 0px; padding-bottom:160px;">
-                            <div class="header-link"><a
-                                    href="{{route('home_article.index',['type' => 'Gündem'])}}">COIN</a></div>
-                        </div>
-                        <div class="col-5" style="position: relative; height: 0px; padding-bottom:160px;">
-                            <div class="header-link">
-                                <a href="javascript:void(0);" class="icon" onclick="myFunction()">
-                                    <i class="fa fa-bars"></i>
-                                </a>
-                            </div>
-                        </div>--}}
-                    </div>
-                </div>
-            </div>
+        <div class="container header__nav__contanier--desktop">
+            <a href="{{ route('home.indextest') }}" class="header__nav__link">
+                Dolar
+            </a>
+            <a href="{{ route('home.indextest') }}" class="header__nav__link">
+                Euro
+            </a>
+            <a href="{{ route('home.indextest') }}" class="header__nav__link">
+                Borsa
+            </a>
+
+            <a href="{{ route('home.indextest') }}" class="header__nav__logo">
+                <img src="{{ URL::asset('modules/home/sample/img/logo-icon.svg') }}" alt="Header Logo" width="150"
+                    height="150">
+            </a>
+
+            <a href="{{ route('home.indextest') }}" class="header__nav__link">
+                Dolar
+            </a>
+            <a href="{{ route('home.indextest') }}" class="header__nav__link">
+                Eğitim
+            </a>
+            <a href="{{ route('home.indextest') }}" class="header__nav__link">
+                Otomobil
+            </a>
+        </div>
+        <div class="container header__nav__contanier--mobile">
+            <svg xmlns="http://www.w3.org/2000/svg" style="width: 24; height: 24;" fill="none" viewBox="0 0 24 24"
+                stroke="black">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+            <a href="{{ route('home.indextest') }}" class="header__nav__logo">
+                <img src="{{ URL::asset('modules/home/sample/img/logo-dark.svg') }}" alt="Header Logo" width="226"
+                    height="54">
+            </a>
+            <svg xmlns="http://www.w3.org/2000/svg" style="width: 24; height: 24;" fill="none" viewBox="0 0 24 24"
+                stroke="black">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+            </svg>
         </div>
     </div>
 
@@ -157,7 +134,8 @@ $menu = \Modules\Admin\Entities\Menu::orderBy('sort', 'DESC')->get();
                         <div class="col-md-24 bg-dark-orange mt-4">
                             <div class="col-md-24 bg-white h-100 tech-box">
                                 <div class="tech-news-box-image"
-                                     style="background-image: url(https://i2.cnnturk.com/i/cnnturk/75/800x400/5f4642f9214ed8165ce5a0ae)"></div>
+                                    style="background-image: url(https://i2.cnnturk.com/i/cnnturk/75/800x400/5f4642f9214ed8165ce5a0ae)">
+                                </div>
                                 <div class="tech-news-box-caption" style="color:black;">
                                     dwadasdsad
                                     <div class="tech-text-bottom-sm text-white">
@@ -172,7 +150,8 @@ $menu = \Modules\Admin\Entities\Menu::orderBy('sort', 'DESC')->get();
                         <div class="col-md-24 bg-dark-orange mt-4">
                             <div class="col-md-24 bg-white h-100 tech-box">
                                 <div class="tech-news-box-image"
-                                     style="background-image: url(https://i2.cnnturk.com/i/cnnturk/75/800x400/5f4642f9214ed8165ce5a0ae)"></div>
+                                    style="background-image: url(https://i2.cnnturk.com/i/cnnturk/75/800x400/5f4642f9214ed8165ce5a0ae)">
+                                </div>
                                 <div class="tech-news-box-caption" style="color:black;">
                                     dwadasdsad
                                     <div class="tech-text-bottom-sm text-white">
@@ -184,10 +163,11 @@ $menu = \Modules\Admin\Entities\Menu::orderBy('sort', 'DESC')->get();
                     </div>
 
                     <div class="col-md-8">
-                        <div class="col-md-24 bg-dark-orange mt-4" >
+                        <div class="col-md-24 bg-dark-orange mt-4">
                             <div class="col-md-24 bg-white h-100 tech-box">
                                 <div class="tech-news-box-image"
-                                     style="background-image: url(https://i2.cnnturk.com/i/cnnturk/75/800x400/5f4642f9214ed8165ce5a0ae)"></div>
+                                    style="background-image: url(https://i2.cnnturk.com/i/cnnturk/75/800x400/5f4642f9214ed8165ce5a0ae)">
+                                </div>
                                 <div class="tech-news-box-caption" style="color:black;">
                                     dwadasdsad
                                     <div class="tech-text-bottom-sm text-white">
@@ -216,22 +196,24 @@ $menu = \Modules\Admin\Entities\Menu::orderBy('sort', 'DESC')->get();
     </div>
     <div id="headerBar">
         <div class="container" id="headerBarContainer">
-            <div class="headerBarLink"><img src="{{asset('modules/home/sample/img/hepsi-parafesorde.png')}}"
-                                            style="max-width: 175px;" alt="">
+            <div class="headerBarLink"><img src="{{ asset('modules/home/sample/img/hepsi-parafesorde.png') }}"
+                    style="max-width: 175px;" alt="">
                 <div class="headerBarLink"><a href="https://www.bloomberght.com/" target="_blank">Bloomberg HT</div>
                 </a>
-                <div class="headerBarLink"><a href="https://www.borsagundem.com/" target="_blank">Borsa Gündem</a></div>
+                <div class="headerBarLink"><a href="https://www.borsagundem.com/" target="_blank">Borsa Gündem</a>
+                </div>
                 <div class="headerBarLink"><a href="https://hisse.net/" target="_blank">Hisse.net</a></div>
                 <div class="headerBarLink"><a href="https://kanalfinans.com/" target="_blank">Kanal Finans</a></div>
-                <div class="headerBarLink"><a href="https://www.borsamatik.com.tr/" target="_blank">Borsamatik</a></div>
+                <div class="headerBarLink"><a href="https://www.borsamatik.com.tr/" target="_blank">Borsamatik</a>
+                </div>
                 <div class="headerBarLink"><a href="https://www.borsatek.com/" target="_blank">Borsatek</a></div>
                 <div class="headerBarLink"><a href="https://businessht.bloomberght.com/" target="_blank">BusinessHT</a>
                 </div>
-                <div class="headerBarLink"><a href="https://www.marketwatch.com/" target="_blank">Market Watch</a></div>
+                <div class="headerBarLink"><a href="https://www.marketwatch.com/" target="_blank">Market Watch</a>
+                </div>
                 <div class="headerBarLink"><a href="https://edition.cnn.com/business" target="_blank">CNN Business</a>
                 </div>
             </div>
         </div>
     </div>
 </header>
-
