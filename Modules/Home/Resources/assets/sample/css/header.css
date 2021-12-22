@@ -1,0 +1,198 @@
+.header__top {
+    display: flex;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.header__top .search__input__contanier {
+    display: flex;
+    align-items: center;
+    flex-basis: 300px;
+}
+
+.header__top .search__input {
+    outline: none;
+    border-width: 0 0 1px;
+    border-color: #a2a2a2;
+    background-color: #e5e5e5;
+    font-size: 12px;
+    width: 100%;
+}
+
+.header__top .search__input:focus {
+    border-color: #212121;
+}
+
+.header__top .search__icon {
+    font-size: 14px;
+    color: #a2a2a2;
+    flex: none;
+}
+
+.header__top .social-icons {
+    display: initial;
+    color: #a2a2a2;
+}
+
+.header__middle {
+    background-color: #f5f5f5;
+}
+
+.header__middle .header__nav__contanier--desktop {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 10px;
+    position: relative;
+}
+.header__middle .header__nav__contanier--desktop .menu__button {
+    outline: none;
+    border: none;
+    background-color: transparent;
+}
+
+.header__middle .header__nav__contanier--desktop .menu__button:focus {
+    border: solid rgba(0, 0, 0, 0.12) 1px;
+    -webkit-box-shadow: 0px 0px 11px 3px rgba(0, 0, 0, 0.12);
+    box-shadow: 0px 0px 11px 3px rgba(0, 0, 0, 0.12);
+}
+
+.header__middle .header__nav__contanier--mobile {
+    display: none;
+}
+
+.header__middle .header__nav__link {
+    font-size: 14px;
+    font-weight: 100;
+    color: rgb(33, 37, 41);
+    line-height: 21px;
+    font-family: MontserratBold;
+}
+
+.header__middle .nav__menu__container {
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    top: 100%;
+    z-index: 4;
+    background-color: #242424;
+    display: none;
+}
+
+.header__middle .nav__menu__container--left {
+    flex: 1;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    gap: 20px;
+}
+
+.header__middle .nav__menu__container--right {
+    flex: none;
+    background-color: #ffead5;
+    padding: 15px;
+    padding-right: 50px;
+}
+
+.header__middle .nav__menu__container--right .title__container {
+    border-bottom: solid black 1px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.header__middle .nav__menu__container--right .title {
+    font-family: MillerTextItalic;
+    font-size: 50px;
+    font-weight: bold;
+}
+
+.header__middle .nav__menu__container--right .list__container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    padding-left: 30px;
+}
+
+.header__middle .nav__menu__container--right .list__item {
+}
+
+.header__middle .nav__menu__container .nav__menu__item.--bottom-line {
+    border-bottom: solid rgb(200, 200, 200) 1px;
+}
+
+.header__middle .nav__menu__container .nav__menu__item {
+    display: flex;
+    flex-direction: column;
+}
+
+.header__middle .nav__menu__container .nav__menu__item .title {
+    padding: 5px;
+    margin: 0px;
+    font-size: 16px;
+    font-weight: 600;
+    color: rgb(230, 230, 230);
+}
+
+.header__middle .nav__menu__container .nav__menu__item .sub-title {
+    padding: 5px;
+    margin: 0px;
+    font-size: 14px;
+    font-weight: 500;
+    color: rgb(220, 220, 220);
+}
+
+.header__bottom {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.header__bottom .nav__text__container {
+    margin-left: 25px;
+    flex: 1;
+    flex-basis: 300px;
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    white-space: nowrap;
+    overflow-x: auto;
+}
+
+.header__bottom .nav__text {
+    color: #f5f5f5;
+    padding: 25px 0px;
+    font-family: "HelveticaNeue";
+    font-size: 0.9em;
+}
+
+@media screen and (max-width: 768px) {
+    .header__top .search__input__contanier {
+        flex: 1;
+        flex-basis: 300px;
+    }
+
+    .header__top .social-icons {
+        display: none;
+    }
+
+    .header__middle .header__nav__contanier--desktop {
+        display: none;
+    }
+
+    .header__middle .header__nav__contanier--mobile {
+        height: 80px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+}
+
+@media screen and (max-width: 425px) {
+    .header__bottom .nav__text__container {
+        margin-left: 0px;
+    }
+}
