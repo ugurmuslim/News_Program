@@ -28,12 +28,13 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule)
     {
         $schedule->command("currency:updater")->everyMinute();
+        $schedule->command("update:mostRead")->everyMinute();
+        $schedule->command("necessaryRows:sync")->everyMinute();
         $schedule->command("feed:parser")->hourly();
         $schedule->command("youtube:crawl")->hourly();
         $schedule->command("article:cache")->everyMinute();
         $schedule->command("twitter:scrape")->everyFifteenMinutes();
-        $schedule->command("update:mostRead")->everyMinute();
-        $schedule->command("necessaryRows:sync")->everyMinute();
+
         // $schedule->command('inspire')->hourly();
     }
 
