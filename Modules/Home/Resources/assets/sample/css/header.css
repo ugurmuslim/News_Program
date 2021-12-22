@@ -43,6 +43,7 @@
 
 .header__middle .nav__contanier--desktop {
     display: flex;
+    position: relative;
 }
 
 .header__middle .nav__contanier--desktop .nav__list {
