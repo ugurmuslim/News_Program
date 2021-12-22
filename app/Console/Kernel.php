@@ -32,7 +32,7 @@ class Kernel extends ConsoleKernel
         $schedule->command("article:cache")->everyMinute();
         $schedule->command("twitter:scrape")->everyFifteenMinutes();
         $schedule->command("update:mostRead")->everyMinute();
-        $schedule->command("necessaryRows:sync")->everySixHours();
+        $schedule->command("necessaryRows:sync")->everyMinute();
         // $schedule->command('inspire')->hourly();
     }
 
