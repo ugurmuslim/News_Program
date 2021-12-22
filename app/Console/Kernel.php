@@ -29,6 +29,7 @@ class Kernel extends ConsoleKernel
     {
         $schedule->command("currency:updater")->everyMinute();
         $schedule->command("feed:parser")->hourly();
+        $schedule->command("youtube:crawl")->hourly();
         $schedule->command("article:cache")->everyMinute();
         $schedule->command("twitter:scrape")->everyFifteenMinutes();
         $schedule->command("update:mostRead")->everyMinute();
