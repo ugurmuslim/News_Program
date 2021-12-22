@@ -227,7 +227,7 @@ class ArticleController extends Controller
                 $file = "images/" . uniqid() . '.png';
 
                 if (Request::input('PlacementSection')) {
-                    Image::make($image_base64)->resize($imageDimensions[Request::input('PlacementSection')]['width'], $imageDimensions[Request::input('PlacementSection')]['height'])->save($file);
+                    Image::make($image_base64)->encode('webp', 90)->resize($imageDimensions[Request::input('PlacementSection')]['width'], $imageDimensions[Request::input('PlacementSection')]['height'])->save($file);
                 }
 
                 $article->image_path = $file;
