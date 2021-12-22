@@ -14,12 +14,8 @@
 
             <div class="col-lg-14">
                 <div class="ratio ratio-16x9 mt-2" id="borsaEmbed" ratio="0.55">
-                    @foreach($articles["Borsa Tube"][\App\Parafesor\Constants\CategorySectionTypes::MAIN_SLIDER]->take(1) as $article)
-                        <a href="{{$article->original_link}}">
-                            <div
-                                style="background-image: url({{asset($article->image_path)}})"></div>
-                        </a>
-                    @endforeach
+                    <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
+
                 </div>
             </div>
             <div class="col-lg-10  mt-2">
