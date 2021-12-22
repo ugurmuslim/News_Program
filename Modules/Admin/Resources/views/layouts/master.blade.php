@@ -38,7 +38,7 @@
 @yield('style')
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="preloader flex-column justify-content-center align-items-center">
-    <img class="animation__shake" src="" alt="Parafesor" height="60" width="60">
+    <img  class="animation__shake" src="{{asset('modules/home/sample/img/logo-icon.svg')}}" alt="Parafesor" height="60" width="60">
 </div>
 
 @include('admin::partials._nav')
