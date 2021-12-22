@@ -4,6 +4,7 @@
 namespace App\Parafesor\FeedParser;
 
 
+use App\Parafesor\Constants\ArticleTypes;
 use App\Parafesor\SimplePie\SimplePie;
 use App\Parafesor\SimplePie\SimplePie\Item;
 use Carbon\Carbon;
@@ -17,7 +18,8 @@ class FeedParserHelper
     public static function parseFeed()
     {
 
-        $sites = SitesToCrawl::where('status', true)->get();
+        $sites = SitesToCrawl::where('status', true)
+            ->where('article_type_id','!=', ArticleTypes::KoseYazilari)->get();
         foreach ($sites as $site) {
             $feed = new SimplePie();
             $feed->cache = false;
