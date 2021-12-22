@@ -212,7 +212,7 @@ class ArticleController extends Controller
         }
         $articleType = ArticleType::find(Request::input('ArticleTypeId'));
 
-        if (!Request::input('sameImage') && !Request::hasFile('image') && $articleType->id != ArticleTypes::SirketHaberleri) {
+        if (!Request::input('sameImage') && Request::input('savedImage') &&  !Request::hasFile('image') && $articleType->id != ArticleTypes::SirketHaberleri) {
             Session::flash('error', "Görsel seçmediniz halihazırdaki görseli de kullanmayacaksınız");
             return back()->withInput(Request::all());
         }
