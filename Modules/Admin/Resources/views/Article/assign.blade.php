@@ -41,8 +41,8 @@
                                 <div class="col-12">
                                     <label class="form-text">Kategori</label>
                                     <select class="form-control" name="ArticleTypeId" required="required" id="category">
-                                            <option
-                                                value="{{$news->articleType->id}}">{{$news->articleType->title}}</option>
+                                        <option
+                                            value="{{$news->articleType->id}}">{{$news->articleType->title}}</option>
                                         @foreach($articleTypes as $type)
                                             <option value={{$type->id}}>{{$type->title }}</option>
                                         @endforeach
@@ -53,7 +53,8 @@
                                     <label class="form-text">Açıklama</label>
                                     <textarea name="Description" class="form-control" rows="5" autocomplete="off"
                                               maxlength="500"
-                                              required="required" disabled>{!!  \Illuminate\Support\Str::limit($news->summary, 795, $end='...') !!}</textarea>
+                                              required="required"
+                                              disabled>{!!  \Illuminate\Support\Str::limit($news->summary, 795, $end='...') !!}</textarea>
                                 </div>
 
                                 <div class="col-12 hr"></div>
@@ -61,9 +62,15 @@
                                     <div class="col-12">
                                         <label class="form-text">İçerik</label>
                                     </div>
-                                    <textarea name=Body id="textarea">
+                                    @if(isset($news) && $news->body)
+                                        <textarea name=Body id="textarea">
                      {!! strip_tags($news->body, '<p><img><script>') !!}
-            </textarea>
+                                    </textarea>
+                                    @endif
+                                        @if(isset($news) && !$news->body)
+                                        <iframe src="{{$news->original_link}}" style="width: 100%;  height:600px;"
+                                                title="news"></iframe>
+                                    @endif
                                 </div>
 
 
