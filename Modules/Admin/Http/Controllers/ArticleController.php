@@ -224,7 +224,7 @@ class ArticleController extends Controller
                 $image_type_aux = explode("image/", $image_parts[0]);
                 $image_type = $image_type_aux[1];
                 $image_base64 = base64_decode($image_parts[1]);
-                $file = "images/" . uniqid() . '.png';
+                $file = "images/" . uniqid() . '.webp';
 
                 if (Request::input('PlacementSection')) {
                     Image::make($image_base64)->encode('webp', 90)->resize($imageDimensions[Request::input('PlacementSection')]['width'], $imageDimensions[Request::input('PlacementSection')]['height'])->save($file);
