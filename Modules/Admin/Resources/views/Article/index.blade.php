@@ -29,14 +29,28 @@
                                         <label class="form-text">Kategori</label>
                                         <select class="form-control" name="ArticleTypeId" required="required"
                                                 id="category">
+                                            @if(request()->query('SiteName'))
+                                                <option
+                                                    value="{{request()->query('SiteName')}}">{{request()->query('SiteName')}}</option>
+                                            @endif
+
+                                            @foreach($articleTypes as $type)
+                                                    <option value={{$type->id}}>{{$type->title }}</option>
+                                                @endforeach
+
+                                        </select>
+
+                                        <label class="form-text">Site</label>
+                                        <select class="form-control" name="ArticleTypeId" required="required"
+                                                id="category">
                                             @if(request()->query('ArticleTypeId'))
                                                 <option
                                                     value="{{request()->query('ArticleTypeId')}}">{{\Modules\Admin\Entities\ArticleType::find(request()->query('ArticleTypeId'))->title}}</option>
                                             @endif
 
                                             @foreach($articleTypes as $type)
-                                                    <option value={{$type->id}}>{{$type->title }}</option>
-                                                @endforeach
+                                                <option value={{$type->id}}>{{$type->title }}</option>
+                                            @endforeach
 
                                         </select>
                                     </div>

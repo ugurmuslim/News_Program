@@ -292,7 +292,7 @@
                                     <div class="col-md-12 form-group">
                                         <label class="form-text">Başlangıç Tarihi</label>
                                         <input asp-for="StartedOn" asp-format="{0:yyyy-MM-dd}" type="text"
-                                               class="form-control date"
+                                               class="form-control date" name="StartedOn"
                                                value="{{\Carbon\Carbon::now()}}"
                                                placeholder="yyyy-mm-dd" autocomplete="off"/>
                                     </div>
@@ -301,7 +301,7 @@
                                     <div class="col-md-12 form-group">
                                         <label class="form-text">Bitiş Tarihi</label>
                                         <input asp-for="EndOn" asp-format="{0:yyyy-MM-dd}" type="text"
-                                               class="form-control date"
+                                               class="form-control date" name="EndOn"
                                                value="{{\Carbon\Carbon::now()->add(2,"days")}}"
                                                placeholder="yyyy-mm-dd" autocomplete="off"/>
                                     </div>
@@ -627,7 +627,7 @@
                                 <div class="col-md-3 form-group">
                                     <label class="form-text">Başlangıç Tarihi</label>
                                     <input asp-for="StartedOn" asp-format="{0:yyyy-MM-dd}" type="text"
-                                           class="form-control date"
+                                           class="form-control date" name="StartedOn"
                                            value="{{isset($article) ? $article->start_date : \Carbon\Carbon::now()}}"
                                            placeholder="yyyy-mm-dd" autocomplete="off"/>
                                 </div>
@@ -635,7 +635,7 @@
                                 <div class="col-md-3 form-group">
                                     <label class="form-text">Bitiş Tarihi</label>
                                     <input asp-for="EndOn" asp-format="{0:yyyy-MM-dd}" type="text"
-                                           class="form-control date"
+                                           class="form-control date" name="EndOn"
                                            value="{{isset($article) ? $article->end_date : \Carbon\Carbon::now()->add(2,"days")}}"
                                            placeholder="yyyy-mm-dd" autocomplete="off"/>
                                 </div>

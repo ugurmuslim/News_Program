@@ -29,8 +29,7 @@ class ArticleController extends Controller
      */
     public function index()
     {
-        $sitesToCrawl = SitesToCrawl::orderBy('id', 'ASC')->get();
-
+        $sites = SitesToCrawl::select('site_name')->groupBy('site_name')->get();
         $articleTypeId = Request::input('ArticleTypeId');
         $status = Request::input('status');
         $database = Request::input('database');
@@ -47,7 +46,6 @@ class ArticleController extends Controller
             $query = $query->where('status', $status);
         }
 
-        $query = $query->orderBy('created_at', 'DESC');
 
         if ($editorId && $database == "maria" && ( Request::input('editor') != 'all' )) {
             $query = $query->where('editor_id', $editorId);
@@ -61,11 +59,12 @@ class ArticleController extends Controller
             $query = $query->where('article_type_id', $articleTypeId);
         }
 
+        $query->orderBy('created_at','DESC');
         $newsAll = $query->paginate(15);
-
         $articleTypes = ArticleType::all();
 
         return view('admin::Article.index')
+            ->with('sites', $sites)
             ->with('newsAll', $newsAll)
             ->with('articleTypes', $articleTypes);
     }
@@ -238,7 +237,6 @@ class ArticleController extends Controller
             $company = Company::find(Request::input('CompanyId'));
             $article->image_path = $company->image_path;
         }
-
         $article->title = Request::input('Title');
         $article->body = Request::input('Body');
         $article->status = ArticleStatus::PUBLISHED;
