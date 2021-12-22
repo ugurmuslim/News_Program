@@ -1,27 +1,25 @@
 <header>
-    <div id="headerTop">
-        <div class="row">
-            <ul style="list-style: none">
-                <div class="social-icons" style="float: right; margin-left: 18px;">
+    <div style="background-color: #e5e5e5;">
+        <div class="container">
+            <div class="header__top">
+                <div class="search__input__contanier">
+                    <input class="search__input" type="text" placeholder="Haberlerde ara">
+                    <i class="fa fa-search search__icon" aria-hidden="true"></i>
+                </div>
+                <div class="search__input__contanier">
+                    <input class="search__input" type="text" placeholder="Hisse Kodu / Hisse Adı ara">
+                    <i class="fa fa-search search__icon" aria-hidden="true"></i>
+                </div>
+                <div class="social-icons">
                     <i class="fab fa-facebook-square" aria-hidden="true"></i>
                     <i class="fab fa-instagram" aria-hidden="true"></i>
                     <i class="fab fa-twitter" aria-hidden="true"></i>
                     <i class="fab fa-youtube" aria-hidden="true"></i>
                 </div>
-
-                <li style="float: right; margin-left: 18px; ">
-                    <input type="text" class="search-input" placeholder="Haberlerde ara">
-                    <i class="fa fa-search search-icon" aria-hidden="true"></i>
-                </li>
-                <li class="float-right" style="float: right; margin-left: 18px;">
-                    <input type="text" class="search-input" placeholder="Hisse Kodu / hisse adı ara"
-                        style="width: 150px;">
-                    <i class="fa fa-search search-icon" aria-hidden="true"></i>
-                </li>
-            </ul>
+            </div>
         </div>
     </div>
-    <div id="headerMain">
+    <div class="header__middle">
         <div class="container header__nav__contanier--desktop">
             <a href="{{ route('home.indextest') }}" class="header__nav__link">
                 Dolar
@@ -39,7 +37,7 @@
             </a>
 
             <a href="{{ route('home.indextest') }}" class="header__nav__link">
-                Dolar
+                Teknoloji
             </a>
             <a href="{{ route('home.indextest') }}" class="header__nav__link">
                 Eğitim
@@ -47,9 +45,78 @@
             <a href="{{ route('home.indextest') }}" class="header__nav__link">
                 Otomobil
             </a>
+
+            <button id="large-nav-menu-button" class="menu__button" onclick="toggleLargeNavMenu(event)">
+                <svg xmlns="http://www.w3.org/2000/svg"
+                    style="width: 44px; height: 44px; padding: 5px; pointer-events: none;" fill="none"
+                    viewBox="0 0 24 24" stroke="black">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+            </button>
+
+            <div id="large-nav-menu" class="nav__menu__container">
+                <div class="nav__menu__container--left">
+                    <div class="nav__menu__item --bottom-line">
+                        <p class="title">BORSA TUBE</p>
+                        <p class="title">TWITTER</p>
+                        <p class="title">ŞİRKET HABERLERİ</p>
+                        <p class="title">KÖŞE YAZILARI</p>
+                        <p class="title">EĞİTİM</p>
+                    </div>
+                    <div class="nav__menu__item --bottom-line">
+                        <p class="title">SON DAKİKA</p>
+                        <p class="title">HİSSE ÖNERİLERİ</p>
+                        <p class="sub-title">Hisse Raporları</p>
+                        <p class="sub-title">Aracı Kurum Tavsiyeleri</p>
+                    </div>
+                    <div class="nav__menu__item --bottom-line">
+                        <p class="title">EN ÇOK OKUNANLAR</p>
+                        <p class="title">HALKA ARZ</p>
+                        <p class="sub-title">Bitcoin</p>
+                        <p class="sub-title">Ethereum</p>
+                        <p class="sub-title">Litecoin</p>
+                    </div>
+                    <div class="nav__menu__item --bottom-line">
+                        <p class="sub-title">Sterlin</p>
+                        <p class="sub-title">Yen</p>
+                        <p class="sub-title">Dolar</p>
+                        <p class="sub-title">Euro</p>
+                        <p class="sub-title">Türk Lirası</p>
+                    </div>
+                    <div class="nav__menu__item --bottom-line">
+                        <p class="sub-title">Bist</p>
+                        <p class="sub-title">Viop</p>
+                        <p class="sub-title">Faiz</p>
+                        <p class="sub-title">Altın</p>
+                        <p class="sub-title">Gümüş</p>
+                        <p class="sub-title">Petrol</p>
+                    </div>
+                    <div class="nav__menu__item">
+                        <p class="sub-title">Bist</p>
+                        <p class="sub-title">Viop</p>
+                        <p class="sub-title">Faiz</p>
+                        <p class="sub-title">Altın</p>
+                        <p class="sub-title">Gümüş</p>
+                        <p class="sub-title">Petrol</p>
+                    </div>
+                </div>
+                <div class="nav__menu__container--right">
+                    <div class="title__container">
+                        <span class="title">Stil</span>
+                    </div>
+                    <div class="list__container">
+                        <a href="/#" class="list__item">Spor</a>
+                        <a href="/#" class="list__item">Teknoloji</a>
+                        <a href="/#" class="list__item">Yaşam</a>
+                        <a href="/#" class="list__item">Netkolik</a>
+                        <a href="/#" class="list__item">Otomobil</a>
+                        <a href="/#" class="list__item">Köşe Yazıları</a>
+                    </div>
+                </div>
+            </div>
         </div>
         <div class="container header__nav__contanier--mobile">
-            <svg xmlns="http://www.w3.org/2000/svg" style="width: 24; height: 24;" fill="none" viewBox="0 0 24 24"
+            <svg xmlns="http://www.w3.org/2000/svg" style="width: 24px; height: 24px;" fill="none" viewBox="0 0 24 24"
                 stroke="black">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
             </svg>
@@ -64,154 +131,21 @@
             </svg>
         </div>
     </div>
-
-    <div id="large-screen-menu" class="large-screen-menu" style="display:none;">
-        <div class="row">
-            <div class="col-md-20">
-                <div class="row mt-5" style="padding-left: 10px;">
-                    <div class="col-md-4">
-                        <p class="large-screen-menu-headers">BORSA</p>
-                        <div style="border:1px solid white"></div>
-                        <ul class="large-screen-menu-lists">
-                            <li>Borsa Tube</li>
-                            <li>Twitter</li>
-                            <li>Şirket Haberleri</li>
-                            <li>Köşe Yazıları</li>
-                            <li>Eğitim</li>
-                        </ul>
-                    </div>
-                    <div class="col-md-20">
-                        <p class="large-screen-menu-headers">RAPORLAR</p>
-                        <div style="border:1px solid white"></div>
-                        <div class="row mt-1" style="color: white;">
-                            <div class="col-md-5">
-                                <p class="large-screen-menu-headers">BORSA RAPORLARI</p>
-                                <ul class="large-screen-menu-lists">
-                                    <li>Bist</li>
-                                    <li>Viop</li>
-                                    <li>Hisse Öneriler</li>
-                                    <li>Faiz</li>
-                                </ul>
-                            </div>
-                            <div class="col-md-5">
-                                <p class="large-screen-menu-headers">DÖVİZ</p>
-                                <ul class="large-screen-menu-lists">
-                                    <li>Sterlin</li>
-                                    <li>Yen</li>
-                                    <li>Dolar</li>
-                                    <li>Euro</li>
-                                </ul>
-                            </div>
-                            <div class="col-md-5">
-                                <p class="large-screen-menu-headers">COIN</p>
-                                <ul class="large-screen-menu-lists">
-                                    <li>Bitcoin</li>
-                                    <li>Ethereum</li>
-                                    <li>Litecoin</li>
-                                </ul>
-                            </div>
-                            <div class="col-md-5">
-                                <p class="large-screen-menu-headers">EMTIA</p>
-                                <ul class="large-screen-menu-lists">
-                                    <li>Altın</li>
-                                    <li>Gümüş</li>
-                                    <li>Petrol</li>
-                                </ul>
-                            </div>
-                            <div class="col-md-4">
-                                <p class="large-screen-menu-headers">PARITE</p>
-                                <ul class="large-screen-menu-lists">
-                                    <li>EUR/USD</li>
-                                    <li>GBP/USD</li>
-                                    <li>USD/JPY</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-4">
-                        <div class="col-md-24 bg-dark-orange mt-4">
-                            <div class="col-md-24 bg-white h-100 tech-box">
-                                <div class="tech-news-box-image"
-                                    style="background-image: url(https://i2.cnnturk.com/i/cnnturk/75/800x400/5f4642f9214ed8165ce5a0ae)">
-                                </div>
-                                <div class="tech-news-box-caption" style="color:black;">
-                                    dwadasdsad
-                                    <div class="tech-text-bottom-sm text-white">
-                                        <span class=""></span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-12">
-                        <div class="col-md-24 bg-dark-orange mt-4">
-                            <div class="col-md-24 bg-white h-100 tech-box">
-                                <div class="tech-news-box-image"
-                                    style="background-image: url(https://i2.cnnturk.com/i/cnnturk/75/800x400/5f4642f9214ed8165ce5a0ae)">
-                                </div>
-                                <div class="tech-news-box-caption" style="color:black;">
-                                    dwadasdsad
-                                    <div class="tech-text-bottom-sm text-white">
-                                        <span class=""></span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-8">
-                        <div class="col-md-24 bg-dark-orange mt-4">
-                            <div class="col-md-24 bg-white h-100 tech-box">
-                                <div class="tech-news-box-image"
-                                    style="background-image: url(https://i2.cnnturk.com/i/cnnturk/75/800x400/5f4642f9214ed8165ce5a0ae)">
-                                </div>
-                                <div class="tech-news-box-caption" style="color:black;">
-                                    dwadasdsad
-                                    <div class="tech-text-bottom-sm text-white">
-                                        <span class=""></span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4" style="background-color: #ffead5">
-                <div style="font-family: MillerTextItalic;  font-size:50px;  font-weight: bold">Stil
-                </div>
-                <div style="border:1px solid black"></div>
-                <ul class="large-screen-menu-lists" style="color: black; float: right;">
-                    <li>Spor</li>
-                    <li>Teknoloji</li>
-                    <li>Yaşam</li>
-                    <li>Netkolik</li>
-                    <li>Otomobil</li>
-                    <li>Köşe Yazıları</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-    <div id="headerBar">
-        <div class="container" id="headerBarContainer">
-            <div class="headerBarLink"><img src="{{ asset('modules/home/sample/img/hepsi-parafesorde.png') }}"
-                    style="max-width: 175px;" alt="">
-                <div class="headerBarLink"><a href="https://www.bloomberght.com/" target="_blank">Bloomberg HT</div>
-                </a>
-                <div class="headerBarLink"><a href="https://www.borsagundem.com/" target="_blank">Borsa Gündem</a>
-                </div>
-                <div class="headerBarLink"><a href="https://hisse.net/" target="_blank">Hisse.net</a></div>
-                <div class="headerBarLink"><a href="https://kanalfinans.com/" target="_blank">Kanal Finans</a></div>
-                <div class="headerBarLink"><a href="https://www.borsamatik.com.tr/" target="_blank">Borsamatik</a>
-                </div>
-                <div class="headerBarLink"><a href="https://www.borsatek.com/" target="_blank">Borsatek</a></div>
-                <div class="headerBarLink"><a href="https://businessht.bloomberght.com/" target="_blank">BusinessHT</a>
-                </div>
-                <div class="headerBarLink"><a href="https://www.marketwatch.com/" target="_blank">Market Watch</a>
-                </div>
-                <div class="headerBarLink"><a href="https://edition.cnn.com/business" target="_blank">CNN Business</a>
+    <div style="background-color: #242424;">
+        <div class="container">
+            <div class="header__bottom">
+                <img style="flex: none;" src="{{ asset('modules/home/sample/img/hepsi-parafesorde.png') }}" alt=""
+                    width="175" height="55">
+                <div class="nav__text__container">
+                    <a class="nav__text" href="https://www.bloomberght.com/" target="_blank">Bloomberg HT</a>
+                    <a class="nav__text" href="https://www.borsagundem.com/" target="_blank">Borsa Gündem</a>
+                    <a class="nav__text" href="https://hisse.net/" target="_blank">Hisse.net</a>
+                    <a class="nav__text" href="https://kanalfinans.com/" target="_blank">Kanal Finans</a>
+                    <a class="nav__text" href="https://www.borsamatik.com.tr/" target="_blank">Borsamatik</a>
+                    <a class="nav__text" href="https://www.borsatek.com/" target="_blank">Borsatek</a>
+                    <a class="nav__text" href="https://businessht.bloomberght.com/" target="_blank">BusinessHT</a>
+                    <a class="nav__text" href="https://www.marketwatch.com/" target="_blank">Market Watch</a>
+                    <a class="nav__text" href="https://edition.cnn.com/business" target="_blank">CNN Business</a>
                 </div>
             </div>
         </div>

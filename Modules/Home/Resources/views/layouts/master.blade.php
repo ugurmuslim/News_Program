@@ -13,7 +13,10 @@
     <!-- Bootstrap core CSS -->
     <link href="{{ asset('modules/home/sample/css/bootstrap.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('modules/home/sample/css/main.css') }}" rel="stylesheet" type="text/css" />
+    {{-- Header Resources - Start --}}
     <link href="{{ asset('modules/home/sample/css/header.css') }}" rel="stylesheet" type="text/css" />
+    <script src="{{ asset('modules/home/sample/js/header.js') }}"></script>
+    {{-- Header Resources - End --}}
     <link href="{{ asset('modules/home/sample/css/topSlider.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('modules/home/sample/css/articles.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('modules/home/sample/css/corporate.css') }}" rel="stylesheet" type="text/css" />

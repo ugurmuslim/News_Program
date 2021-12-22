@@ -57,11 +57,6 @@ body {
     font-family: HelveticaNeue;
 }
 
-.container {
-    /*max-width: 1665px;*/
-    max-width: 80%;
-}
-
 ::-webkit-scrollbar {
     width: 5px;
     height: 5px;
@@ -207,11 +202,5 @@ a:hover {
     #mainSliderCaption {
         font-size: 5vw;
         letter-spacing: -1px;
-    }
-}
-
-@media screen and (max-width: 1300px) {
-    .container {
-        max-width: 100%;
     }
 }
