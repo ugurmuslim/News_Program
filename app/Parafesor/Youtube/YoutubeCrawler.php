@@ -25,8 +25,10 @@ class YoutubeCrawler
         $channelsToCrawl = SitesToCrawl::where('article_type_id', ArticleTypes::Youtube)->get();
 
         foreach ($channelsToCrawl as $channelsToCraw) {
-
             $array = explode('channel/', $channelsToCraw->title);
+            if(isset($array[1])) {
+                continue;
+            }
             $channelId = $array[1];
             $Max_Results = 5;
 

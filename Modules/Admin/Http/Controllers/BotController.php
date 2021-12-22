@@ -76,6 +76,12 @@ class BotController extends Controller
             return back()->withInput(Request::all());
         }
 
+        $strings = explode('/',Request::input('ChannelLink'));
+        if(!in_array('channel', $strings)) {
+            Session::flash('error', 'Youtube linkinin içinde channel geçmeli!');
+            return back()->withInput(Request::all());
+        }
+
         SitesToCrawl::create([
             'article_type_id' => ArticleTypes::Youtube,
             'title'           => Request::input('ChannelLink'),

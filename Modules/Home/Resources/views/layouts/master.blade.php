@@ -60,6 +60,8 @@
     @yield('content')
     @yield('extra_scripts')
 
+    <script src="{{asset('modules/home/sample/js/header.js')}}"></script>
+
 </body>
 
 </html>
