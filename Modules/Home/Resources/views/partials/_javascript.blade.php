@@ -1,16 +1,8 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
-        integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
 <script>
-    function myFunction() {
-        var x = document.getElementById("large-screen-menu");
-        if (x.style.display === "block") {
-            x.style.display = "none";
-        } else {
-            x.style.display = "block";
-        }
-    }
     var mainSlider;
 
     $(".mainSliderLeftArrow").on("click", function() {
@@ -49,21 +41,21 @@
                 },
                 type: "GET",
                 async: false,
-                url: "{{url('/')}}/home/sliders",
+                url: "{{ url('/') }}/home/sliders",
                 contentType: false,
                 processData: false,
-                success: function (response) {
+                success: function(response) {
                     var slider = []
                     for (var i = 0; i < response.length; i++) {
                         slider.push({
                             caption: response[i].title,
-                            image: "{{url('/')}}/images/6185315d5bfce.png",
+                            image: "{{ url('/') }}/images/6185315d5bfce.png",
                         });
                     }
                     return slider;
 
                 },
-                error: function (xhr, status, error) {
+                error: function(xhr, status, error) {
                     var err = eval("(" + xhr.responseText + ")");
                     console.log(err.Message);
                 }
@@ -72,7 +64,7 @@
 
 
         async addImages() {
-            this.sliderImages = await $.when(this.insertSliders() ).done(function(response) {
+            this.sliderImages = await $.when(this.insertSliders()).done(function(response) {
                 return response
             })
             let imagesContainer = document.getElementById("images");
@@ -90,7 +82,7 @@
             this.center.innerHTML = toAdd;
             this.center.children[0].classList.remove("d-none")
             this.center.innerHTML += `<div class="redFilterOverlay"><div id="mainSliderCaption"><p>
-            <a href="{{url('/')}}/home/article/${this.sliderImages[this.currentImage].slug}">${this.sliderImages[0].caption}</a></p>
+            <a href="{{ url('/') }}/home/article/${this.sliderImages[this.currentImage].slug}">${this.sliderImages[0].caption}</a></p>
             <div class="slider-text-bottom">
                                     <span
                                         class="text-white ">${this.sliderImages[this.currentImage].createdAt}</span><span> • ${this.sliderImages[this.currentImage].createdAtTime} • parafesor</span>
@@ -116,7 +108,8 @@
                 }
             })
             this.center.childNodes.forEach(i => {
-                if (i.classList.contains("d-none") == false && i.classList.contains("redFilterOverlay") == false) {
+                if (i.classList.contains("d-none") == false && i.classList.contains("redFilterOverlay") ==
+                    false) {
                     if (i.classList.contains("d-none") == false) {
                         i.classList.add("d-none");
 
@@ -144,7 +137,7 @@
             document.getElementById("mainSliderCaption").classList.add("fade-in-caption");
             document.getElementById("mainSliderCaption").innerText = this.sliderImages[this.currentImage].caption;
             document.getElementById("mainSliderCaption").innerHTML = `<p>
-            <a href="{{url('/')}}/home/article/${this.sliderImages[this.currentImage].slug}" style="text-decoration: none">${this.sliderImages[this.currentImage].caption}</a>
+            <a href="{{ url('/') }}/home/article/${this.sliderImages[this.currentImage].slug}" style="text-decoration: none">${this.sliderImages[this.currentImage].caption}</a>
             <div class="slider-text-bottom">
                                     <span
                                         class="text-white ">${this.sliderImages[this.currentImage].createdAt}</span><span> • ${this.sliderImages[this.currentImage].createdAtTime} • parafesor</span>
@@ -219,11 +212,11 @@
                 this.controlSlider(s, "next")
                 s.children[2].children.forEach(c => {
                     if (c.attributes.direction.value == "next") {
-                        c.addEventListener("click", function () {
+                        c.addEventListener("click", function() {
                             cardSlider.controlSlider(s, "next")
                         })
                     } else if (c.attributes.direction.value == "previous") {
-                        c.addEventListener("click", function () {
+                        c.addEventListener("click", function() {
                             cardSlider.controlSlider(s, "previous")
                         })
                     }
@@ -259,6 +252,4 @@
     runResizeEvents()
     let cs = new CardSlider()
     cs.configureSliders()
-
-
 </script>
