@@ -168,7 +168,7 @@ class ArticleHelper
         $articles = CrawledArticle::where('article_type_id', ArticleTypes::KoseYazilari)
             ->where('assigned', 0)
             ->get();
-        dd($articles);
+
         try {
             foreach ($articles as $article) {
                 $body = preg_replace('/<script\b[^>]*>(.*?)<\/script>/is', "", strip_tags($article->body));
@@ -176,7 +176,7 @@ class ArticleHelper
                 $articleInMain = Article::where('article_type_id', 3)
                     ->where('original_link', $article->link)
                     ->first();
-
+                dd($articleInMain);
                 if ($articleInMain) {
                     continue;
                 }
