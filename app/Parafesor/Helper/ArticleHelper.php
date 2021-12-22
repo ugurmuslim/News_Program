@@ -174,9 +174,9 @@ class ArticleHelper
                 $body = preg_replace('/<script\b[^>]*>(.*?)<\/script>/is', "", strip_tags($article->body));
 
                 $articleInMain = Article::where('article_type_id', 3)
-                    ->where('original_link', $article->link)
+                    ->where('original_link', $article->original_link)
                     ->first();
-                dd($articleInMain);
+
                 if ($articleInMain) {
                     continue;
                 }
