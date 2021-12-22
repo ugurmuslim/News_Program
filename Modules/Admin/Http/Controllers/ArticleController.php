@@ -137,6 +137,7 @@ class ArticleController extends Controller
         $article->title = $news->title;
         $article->image_path = $news->image_path;
         $article->article_date = $news->pubDate;
+        $article->article_date = $news->pubDate;
         $article->sort = 100;
         $article->save();
 
