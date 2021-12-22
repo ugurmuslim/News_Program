@@ -115,17 +115,18 @@
                                                 <div class="col-md-3">
                                                     <button type="button"
                                                             class="btn btn-default text-bold border-dark placementDrawing"
-                                                            value="MainSlider">Kategori Slider
-                                                    </button>
-                                                </div>
-                                                <div class="col-md-3">
-                                                    <button type="button"
-                                                            class="btn btn-default text-bold border-dark placementDrawing"
                                                             value="SecondSlider" id="SecondSlider"
                                                             style="{{isset($article) ? ($article->articleType->title == "Gündem" ? "" : "display:none") : ""}}">
                                                         Gündem Birinci
                                                     </button>
                                                 </div>
+                                                <div class="col-md-3">
+                                                    <button type="button"
+                                                            class="btn btn-default text-bold border-dark placementDrawing"
+                                                            value="MainSlider">Kategori Slider
+                                                    </button>
+                                                </div>
+
                                                 <div class="col-md-3">
                                                     <button type="button"
                                                             class="btn btn-default text-bold border-dark placementDrawing"
