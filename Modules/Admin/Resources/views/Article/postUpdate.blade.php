@@ -569,9 +569,13 @@
                                     <div class="col-12">
                                         <label class="form-text">İçerik</label>
                                     </div>
+                                    @if(isset($article) && $article->body)
                                     <textarea id="textarea2" style="width: 100%; height: 80%" disabled>
     {{isset($article) ? $article->old_body : ""}}
   </textarea>
+                                    @else
+                                        <iframe src="{{$article->original_link}}" style="width: 100%;  height:90%;" title="news"></iframe>
+                                    @endif
                                 </div>
                                 <div class="col-6">
                                     <div class="col-12">
