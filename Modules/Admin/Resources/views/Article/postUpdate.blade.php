@@ -95,7 +95,7 @@
                                     <div class="col-12" id="companySelect"
                                          style="display:none; {{isset($article) ? ($article->articleType->id == \App\Parafesor\Constants\ArticleTypes::SirketHaberleri ? "" : "display:none") : ""}}">
                                         <label class="form-text">Şirket</label>
-                                        <select class="form-control" name="CompanyId" required="required"
+                                        <select class="form-control" name="CompanyId"
                                                 id="category">
                                             @foreach($companies as $company)
                                                 <option value={{$company->id}}>{{$company->title }}</option>
