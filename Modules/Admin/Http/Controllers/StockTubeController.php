@@ -96,15 +96,15 @@ class StockTubeController extends Controller
             $imageDimensions = json_decode($articleType->image_dimensions, true);
 
             if (Request::input('isShowCase') == 0) {
-                Image::make($image_base64)->resize($imageDimensions['Normal']['width'], $imageDimensions['Normal']['height'])->save($file);
+                Image::make($image_base64)->encode('webp', 90)->resize($imageDimensions['Normal']['width'], $imageDimensions['Normal']['height'])->save($file);
             }
 
             if (Request::input('isShowCase') == 1) {
-                Image::make($image_base64)->resize($imageDimensions['Slider']['width'], $imageDimensions['Slider']['height'])->save($file);
+                Image::make($image_base64)->encode('webp', 90)->resize($imageDimensions['Slider']['width'], $imageDimensions['Slider']['height'])->save($file);
             }
 
             if (Request::input('isShowCase') == 2) {
-                Image::make($image_base64)->resize($imageDimensions['Logo']['width'], $imageDimensions['Logo']['height'])->save($file);
+                Image::make($image_base64)->encode('webp', 90)->resize($imageDimensions['Logo']['width'], $imageDimensions['Logo']['height'])->save($file);
             }
 
             $article->image_path = $file;
