@@ -8,7 +8,6 @@ use App\Parafesor\Constants\ArticleTypes;
 use App\Parafesor\SimplePie\SimplePie;
 use App\Parafesor\SimplePie\SimplePie\Item;
 use Carbon\Carbon;
-use Illuminate\Support\Facades\DB;
 use Modules\Admin\Entities\Article;
 use Modules\Admin\Entities\CrawledArticle;
 use Modules\Admin\Entities\SitesToCrawl;
