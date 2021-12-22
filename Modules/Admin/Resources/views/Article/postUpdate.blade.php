@@ -115,7 +115,7 @@
                                                 <div class="col-md-3">
                                                     <button type="button"
                                                             class="btn btn-default text-bold border-dark placementDrawing"
-                                                            value="MainSlider">Ana Slider
+                                                            value="MainSlider">Kategori Slider
                                                     </button>
                                                 </div>
                                                 <div class="col-md-3">
@@ -123,7 +123,7 @@
                                                             class="btn btn-default text-bold border-dark placementDrawing"
                                                             value="SecondSlider" id="SecondSlider"
                                                             style="{{isset($article) ? ($article->articleType->title == "Gündem" ? "" : "display:none") : ""}}">
-                                                        İkinci Slider
+                                                        Gündem Birinci
                                                     </button>
                                                 </div>
                                                 <div class="col-md-3">
