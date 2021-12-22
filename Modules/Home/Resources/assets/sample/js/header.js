@@ -9,10 +9,10 @@ function toggleLargeNavMenu(e) {
 
 function toggleDrawerNav(e) {
     const drawerNav = document.getElementById("drawer-nav");
-    if (drawerNav?.style?.display === "none") drawerNav.style.display = "block";
-    else if (drawerNav?.style?.display === "block")
+    if (drawerNav?.style?.display === "none") drawerNav.style.display = "flex";
+    else if (drawerNav?.style?.display === "flex")
         drawerNav.style.display = "none";
-    else drawerNav.style.display = "block";
+    else drawerNav.style.display = "flex";
 }
 
 function deactivateLargeNavMenu(event) {
