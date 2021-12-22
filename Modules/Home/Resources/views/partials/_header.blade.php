@@ -1,5 +1,5 @@
 @php
-$menu = \Modules\Admin\Entities\Menu::orderBy('sort', 'DESC')->get();
+$menu = \Modules\Admin\Entities\Menu::orderBy('sort', 'ASC')->get();
 @endphp
 <header>
     <div id="headerTop">
