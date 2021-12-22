@@ -55,7 +55,7 @@ Ut commodo metus ut faucibus ornare. Maecenas ullamcorper dolor tempor placerat 
 
         foreach ($articleTypes as $articleType) {
             $dimensions = json_decode($articleType->image_dimensions, true);
-            if($articleType->id == ArticleTypes::Twitter) {
+            if ($articleType->id == ArticleTypes::Twitter) {
                 continue;
             }
             foreach ($dimensions as $dimension => $d) {
@@ -70,7 +70,7 @@ Ut commodo metus ut faucibus ornare. Maecenas ullamcorper dolor tempor placerat 
                             'show_case'       => $dimension,
                             'header_slider'   => 1,
                             'image_path'      => "https://fakeimg.pl/" . $d['width'] . "x" . $d['height'] . "/?text=" . $articleType->titlec,
-                            'persistent'      => (bool) mt_rand(0, 1),
+                            'persistent'      => (bool)mt_rand(0, 1),
                             'summary'         => $title,
                             'editor_id'       => 1,
                             'slug'            => str_slug(strip_tags($title, "-")),
@@ -79,11 +79,13 @@ Ut commodo metus ut faucibus ornare. Maecenas ullamcorper dolor tempor placerat 
                             'sort'            => 1,
                             'seo_keywords'    => 'keyword',
                             'article_date'    => Carbon::now(),
+                            'start_date'      => Carbon::now(),
+                            'end_date'        => Carbon::now()->add(2, 'days'),
                         ]);
-                    $i++;
+                        $i++;
                     }
                 } else {
-                    if($dimension == 'SecondSlider') {
+                    if ($dimension == 'SecondSlider') {
                         $string = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut facilisis convallis tristique. Sed blandit augue nulla, id congue lacus sagittis id. ';
                     }
                     Article::create([
@@ -103,6 +105,8 @@ Ut commodo metus ut faucibus ornare. Maecenas ullamcorper dolor tempor placerat 
                         'sort'            => 1,
                         'seo_keywords'    => 'keyword',
                         'article_date'    => Carbon::now(),
+                        'start_date'      => Carbon::now(),
+                        'end_date'        => Carbon::now()->add(2, 'days'),
                     ]);
                 }
             }

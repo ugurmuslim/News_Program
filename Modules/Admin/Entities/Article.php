@@ -34,6 +34,8 @@ use Illuminate\Database\Eloquent\Relations\HasOne;
  * @property Carbon  $article_date
  * @property Carbon  $show_case
  * @property Carbon  $site_name
+ * @property Carbon  $start_date
+ * @property Carbon  $end_date
  * @property Carbon  $created_at
  * @property Carbon  $updated_at
  * @package Models
@@ -72,6 +74,8 @@ class Article extends Model
         'site_name',
         'original_link',
         'header_slider',
+        'start_date',
+        'end_date',
     ];
 
     /**
@@ -100,6 +104,8 @@ class Article extends Model
         'show_case'        => 'string',
         'site_name'        => 'string',
         'article_date'     => 'date',
+        'start_date'     => 'date',
+        'end_date'     => 'date',
     ];
 
 

@@ -41,7 +41,8 @@ class CreateTableArticles extends Migration
             $table->string('site_name')->nullable();
             $table->boolean('header_slider')->nullable()->default(0);
             $table->timestamp('article_date')->nullable();
-            $table->string('article_show_date')->nullable();
+            $table->timestamp('start_date')->nullable();
+            $table->timestamp('end_date')->nullable();
             $table->timestamps();
         });
     }

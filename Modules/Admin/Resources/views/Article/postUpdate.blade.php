@@ -302,7 +302,7 @@
                                         <label class="form-text">Bitiş Tarihi</label>
                                         <input asp-for="EndOn" asp-format="{0:yyyy-MM-dd}" type="text"
                                                class="form-control date"
-                                               value="{{\Carbon\Carbon::now()->add(2,"hours")}}"
+                                               value="{{\Carbon\Carbon::now()->add(2,"days")}}"
                                                placeholder="yyyy-mm-dd" autocomplete="off"/>
                                     </div>
 
@@ -616,7 +616,7 @@
                                     <label class="form-text">Tarih</label>
                                     <input name="ArticleDate" asp-format="{0:yyyy-MM-dd}" type="text"
                                            class="form-control date"
-                                           value="{{\Carbon\Carbon::now()}}"
+                                           value="{{isset($article) ? $article->article_date : \Carbon\Carbon::now()}}"
                                            placeholder="yyyy-mm-dd" autocomplete="off" required="required"/>
                                 </div>
 
@@ -624,7 +624,7 @@
                                     <label class="form-text">Başlangıç Tarihi</label>
                                     <input asp-for="StartedOn" asp-format="{0:yyyy-MM-dd}" type="text"
                                            class="form-control date"
-                                           value="{{\Carbon\Carbon::now()}}"
+                                           value="{{isset($article) ? $article->start_date : \Carbon\Carbon::now()}}"
                                            placeholder="yyyy-mm-dd" autocomplete="off"/>
                                 </div>
 
@@ -632,7 +632,7 @@
                                     <label class="form-text">Bitiş Tarihi</label>
                                     <input asp-for="EndOn" asp-format="{0:yyyy-MM-dd}" type="text"
                                            class="form-control date"
-                                           value="{{\Carbon\Carbon::now()->add(2,"hours")}}"
+                                           value="{{isset($article) ? $article->end_date : \Carbon\Carbon::now()->add(2,"days")}}"
                                            placeholder="yyyy-mm-dd" autocomplete="off"/>
                                 </div>
 

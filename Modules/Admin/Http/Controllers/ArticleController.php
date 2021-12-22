@@ -247,6 +247,8 @@ class ArticleController extends Controller
         $article->header_slider = Request::input('HeaderSection');
         $article->persistent = Request::input('PersistentSection');
         $article->summary = Request::input('Description');
+        $article->start_date = Request::input('StartedOn');
+        $article->end_date = Request::input('EndOn');
         $article->editor_id = Auth::user()->id;
         $article->slug = str_slug(Request::input('Title'), "-");;
         $article->seo_title = Request::input('SeoTitle');

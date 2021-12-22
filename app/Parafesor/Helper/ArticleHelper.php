@@ -23,10 +23,11 @@ class ArticleHelper
     {
         foreach ($articleTypes as $type) {
             $articleType = ArticleType::find($type);
-
             $articlesByType = Article::where('articles.status', ArticleStatus::PUBLISHED)
                 ->where('article_type_id', $articleType->id)
                 ->where('persistent', 0)
+                ->where('start_date','<', Carbon::now())
+                ->where('end_date','>', Carbon::now())
                 ->where('show_case', CategorySectionTypes::NORMAL)
                 ->orderby('articles.article_date', 'DESC')
                 ->limit(15)
@@ -35,6 +36,8 @@ class ArticleHelper
             $articlesMainSlider = Article::where('articles.status', ArticleStatus::PUBLISHED)
                 ->where('article_type_id', $articleType->id)
                 ->where('show_case', '=', CategorySectionTypes::MAIN_SLIDER)
+                ->where('start_date','<', Carbon::now())
+                ->where('end_date','>', Carbon::now())
                 ->orderby('articles.article_date', 'DESC')
                 ->limit(4)
                 ->get();
@@ -42,6 +45,8 @@ class ArticleHelper
             $articlesSecondSlider = Article::where('articles.status', ArticleStatus::PUBLISHED)
                 ->where('article_type_id', $articleType->id)
                 ->where('show_case', '=', CategorySectionTypes::SECOND_SLIDER)
+                ->where('start_date','<', Carbon::now())
+                ->where('end_date','>', Carbon::now())
                 ->orderby('articles.article_date', 'DESC')
                 ->limit(4)
                 ->get();
@@ -49,6 +54,8 @@ class ArticleHelper
             $articlesPersistent = Article::where('articles.status', ArticleStatus::PUBLISHED)
                 ->where('article_type_id', $articleType->id)
                 ->where('persistent', '=', 1)
+                ->where('start_date','<', Carbon::now())
+                ->where('end_date','>', Carbon::now())
                 ->orderby('articles.article_date', 'DESC')
                 ->limit(1)
                 ->get();
@@ -93,6 +100,8 @@ class ArticleHelper
             ->where('articles.article_type_id', '!=', ArticleTypes::KoseYazilari)
             ->where('articles.article_type_id', '!=', ArticleTypes::BorsaTube)
             ->where('articles.article_type_id', '!=', ArticleTypes::SirketHaberleri)
+            ->where('start_date','<', Carbon::now())
+            ->where('end_date','>', Carbon::now())
             ->orderby('articles.created_at', 'DESC')
             ->limit(7)
             ->get();
@@ -110,6 +119,8 @@ class ArticleHelper
             ->where('article_type_id', '!=', ArticleTypes::Twitter)
             ->where('article_type_id', '!=', ArticleTypes::KoseYazilari)
             ->where('article_type_id', '!=', ArticleTypes::SirketHaberleri)
+            ->where('start_date','<', Carbon::now())
+            ->where('end_date','>', Carbon::now())
             ->orderBy('read', 'DESC')
             ->limit(8)
             ->get();
