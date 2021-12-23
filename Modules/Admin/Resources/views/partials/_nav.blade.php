@@ -251,32 +251,32 @@
                     </ul>
                 </li>
                 @can('assign articles')
-                <li class="nav-item">
-                    <a href="#" class="nav-link">
-                        <i class="nav-icon fas fa-tachometer-alt"></i>
-                        <p>
-                            Bot Raporları
-                            <i class="right fas fa-angle-left"></i>
-                        </p>
-                    </a>
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a href="{{route('bot.index')}}" class="nav-link">
-                                <i class="nav-icon fas fa-tree"></i>
-                                <p>
-                                    Genel Rapor
-                                </p>
-                            </a>
-                            <a href="{{route('bot.report', [\Carbon\Carbon::now()->format('Y-m-d'),\Carbon\Carbon::yesterday()->format('Y-m-d')])}}"
-                               class="nav-link active">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Bot Performans</p>
-                            </a>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon fas fa-tachometer-alt"></i>
+                            <p>
+                                Bot Raporları
+                                <i class="right fas fa-angle-left"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="{{route('bot.index')}}" class="nav-link">
+                                    <i class="nav-icon fas fa-tree"></i>
+                                    <p>
+                                        Genel Rapor
+                                    </p>
+                                </a>
+                                <a href="{{route('bot.report', [\Carbon\Carbon::now()->format('Y-m-d'),\Carbon\Carbon::yesterday()->format('Y-m-d')])}}"
+                                   class="nav-link active">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Bot Performans</p>
+                                </a>
 
-                        </li>
+                            </li>
 
-                    </ul>
-                </li>
+                        </ul>
+                    </li>
                 @endcan
 
 
@@ -306,17 +306,17 @@
                         </ul>
                     </li>
                 @endcan
-                @can('assign articles')
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">
-                            <i class="nav-icon fas fa-tachometer-alt"></i>
-                            <p>
-                                Sistem
-                                <i class="right fas fa-angle-left"></i>
-                            </p>
-                        </a>
-                        <ul class="nav nav-treeview">
-                            <li class="nav-item">
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-tachometer-alt"></i>
+                        <p>
+                            Sistem
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            @can('assign articles')
                                 <a href="{{route('articleType.index')}}" class="nav-link">
                                     <i class="nav-icon fas fa-tree"></i>
                                     <p>
@@ -327,18 +327,19 @@
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>Kullanıcılar</p>
                                 </a>
-                                <a href="{{route('system.company.index')}}" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Şirketler</p>
-                                </a>
                                 <a href="{{route('system.menu.index')}}" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>Menu</p>
                                 </a>
-                            </li>
-                        </ul>
-                    </li>
-                @endcan
+                            @endcan
+                            <a href="{{route('system.company.index')}}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Şirketler</p>
+                            </a>
+
+                        </li>
+                    </ul>
+                </li>
             </ul>
         </nav>
         <!-- /.sidebar-menu -->
