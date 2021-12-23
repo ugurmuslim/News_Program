@@ -5,14 +5,13 @@ namespace Modules\Home\Http\Controllers;
 use App\Parafesor\Altinkaynak\Altinkaynak;
 use App\Parafesor\Constants\CacheConst;
 use App\Parafesor\Constants\CategorySectionTypes;
-use App\Parafesor\SimplePie\SimplePie;
-use App\Parafesor\SimplePie\SimplePie\Item;
 use Carbon\Carbon;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Response;
+use Jenssegers\Date\Date;
 use Modules\Admin\Entities\Article;
 use Modules\Admin\Entities\ArticleType;
 
@@ -51,7 +50,6 @@ class HomeController extends Controller
      */
     public function indexTest()
     {
-
         $sliders = Cache::get(CacheConst::ARTICLE . 'Slider');
 
         $articleTypes = ArticleType::all();

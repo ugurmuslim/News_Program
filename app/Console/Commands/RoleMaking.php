@@ -40,9 +40,9 @@ class RoleMaking extends Command
      */
     public function handle()
     {
-        $roleEditor = Role::create(['name' => 'Editor']);
-        $roleAssigner = Role::create(['name' => 'Assigner']);
-        $roleAdmin = Role::create(['name' => 'Admin']);
+        $roleEditor = Role::create(['name' => 'Yazar']);
+        $roleAssigner = Role::create(['name' => 'Editor']);
+        $roleAdmin = Role::create(['name' => 'Yönetici']);
 
         $permissionEditor = Permission::create(['name' => 'edit articles']);
         $permissionEditor2 = Permission::create(['name' => 'create articles']);

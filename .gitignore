@@ -17,3 +17,4 @@ docker-compose.yml
 public/images
 public/modules
 storage/*.log
+composer.lock
