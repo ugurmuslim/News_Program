@@ -76,7 +76,7 @@ class ArticleController extends Controller
      */
     public function assign($id)
     {
-        $editors = User::role('Editor')->get();
+        $editors = User::role('Yazar')->get();
         $news = CrawledArticle::find($id);
         $articleTypes = ArticleType::all();
         return view('admin::Article.assign')
@@ -109,7 +109,7 @@ class ArticleController extends Controller
             Session::flash('error', "Editor bulunamadı!");
             return back();
         }
-        if (!$editor->hasRole('Editor')) {
+        if (!$editor->hasRole('Yazar')) {
             Session::flash('error', "Rol bulunamadı!");
             return back();
         }

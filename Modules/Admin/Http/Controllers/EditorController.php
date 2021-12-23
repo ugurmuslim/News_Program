@@ -63,7 +63,7 @@ class EditorController extends Controller
         ->where('article_type_id','!=',ArticleTypes::Twitter);
 
         $editorId = Auth::user()->id;
-        $editors = User::role('Editor')->get();
+        $editors = User::role('Yazar')->get();
 
         $query = $query->orderBy('created_at', 'DESC');
 
