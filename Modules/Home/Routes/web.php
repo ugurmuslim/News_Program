@@ -16,6 +16,9 @@ use Illuminate\Support\Facades\DB;
 use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
 
+Route::get('/', 'HomeController@indexTest')
+    ->name('home.indextest');
+
 Route::prefix('home')->group(function() {
     Route::get('/sample', 'HomeController@index')
     ->name('home.index');
