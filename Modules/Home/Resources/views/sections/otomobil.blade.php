@@ -70,8 +70,7 @@
                                 <div class="col-24 automobile automobile-md"
                                     style="background-image: url({{ asset($article->image_path) }})"></div>
                                 <div class="automobile-title">
-                                    <div class="multilineEllipsis" multilineEllipsisMax="100">{{ $article->title }}
-                                    </div>
+                                    <p>{{ $article->title }}</p>
                                     <div class="automobile-text-bottom">
                                         <span
                                             class="text-white">{{ Date::parse($article->created_at)->format('j F') }}</span><span>
@@ -79,14 +78,13 @@
                                             parafesor</span>
                                     </div>
                                 </div>
-
                             </div>
                         </div>
                     </a>
                 </div>
             @endforeach
         </div>
-        <div class="row mt-5">
+        <div class="row mt-5 mb-5">
             @foreach ($otomobilArticlesBelow as $article)
                 <div class="col-md-8">
                     <a href="{{ route('article.show', ['slug' => $article->slug]) }}">
@@ -94,7 +92,7 @@
                             <div class="col-sm-24 ">
                                 <div class="col-24 automobile automobile-md"
                                     style="background-image: url({{ asset($article->image_path) }})"></div>
-                                <div class="automobile-title">{{ $article->title }}
+                                <div class="automobile-title"><p>{{ $article->title }}</p>
                                     <div class="automobile-text-bottom-sm">
                                         <span
                                             class="text-white">{{ Date::parse($article->created_at)->format('j F') }}</span><span>
