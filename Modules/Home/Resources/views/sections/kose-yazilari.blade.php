@@ -19,7 +19,7 @@
                             <div class="article-image"
                                  style="background-image: url({{$article->image_path}})"></div>
                             <div class="article-text">
-                                <div class="article-text-title">{{$article->title}}</div>
+                                <div class="article-text-title"><p>{{$article->title}}</p></div>
                                 <div class="article-text-body">
                                     <p>{{ $article->body }}</p>
                                 </div>
