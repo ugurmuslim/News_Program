@@ -31,7 +31,12 @@ $menu = \Modules\Admin\Entities\Menu::orderBy('sort', 'ASC')->get();
             </a>
 
             <div class="nav__list">
-                <a href="{{ route('home.indextest') }}" class="nav__link">
+                @foreach($menu as $m)
+                    <a href="{{$m->url}}" class="nav__link">
+                        {{$m->title}}
+                    </a>
+                @endforeach
+               {{-- <a href="{{ route('home.indextest') }}" class="nav__link">
                     Dolar
                 </a>
                 <a href="{{ route('home.indextest') }}" class="nav__link">
@@ -48,7 +53,7 @@ $menu = \Modules\Admin\Entities\Menu::orderBy('sort', 'ASC')->get();
                 </a>
                 <a href="{{ route('home.indextest') }}" class="nav__link">
                     Otomobil
-                </a>
+                </a>--}}
 
             </div>
 

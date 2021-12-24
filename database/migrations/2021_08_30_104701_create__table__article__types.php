@@ -30,6 +30,6 @@ class CreateTableArticleTypes extends Migration
      */
     public function down()
     {
-//        Schema::dropIfExists('article_types');
+        Schema::dropIfExists('article_types');
     }
 }

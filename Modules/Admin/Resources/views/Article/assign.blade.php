@@ -48,6 +48,18 @@
                                         @endforeach
                                     </select>
                                 </div>
+
+                                <div class="col-12" id="companySelect"
+                                     style="{{isset($news) ? ($news->articleType->id == \App\Parafesor\Constants\ArticleTypes::SirketHaberleri ? "" : "display:none") : ""}}">
+                                    <label class="form-text">Şirket</label>
+                                    <select class="form-control" name="CompanyId"
+                                            id="company">
+                                        <option value="">Sirket Seçiniz</option>
+                                        @foreach($companies as $company)
+                                            <option value={{$company->id}}>{{$company->title }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
                                 <div class="col-12 hr"></div>
                                 <div class="col-12">
                                     <label class="form-text">Açıklama</label>
@@ -108,6 +120,7 @@
     </div>
 @endsection
 @section('extra_scripts')
+    @include('admin::partials._postUpdate_javascript')
     <script>
         tinymce.init({
             selector: '#textarea',

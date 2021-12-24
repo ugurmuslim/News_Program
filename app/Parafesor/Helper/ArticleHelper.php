@@ -200,7 +200,6 @@ class ArticleHelper
                     'status'          => ArticleStatus::PUBLISHED,
                     'image_path'      => $article->image_path,
                     'article_date'    => $article->pub_date,
-                    'language_id'     => 'TR',
                     'show_case'       => CategorySectionTypes::NORMAL,
                     'start_date'      => Carbon::now(),
                     'end_date'        => Carbon::now()->add(1, 'day'),

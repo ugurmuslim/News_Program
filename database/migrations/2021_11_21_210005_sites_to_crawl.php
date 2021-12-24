@@ -32,9 +32,6 @@ class SitesToCrawl extends Migration
 public
 function down()
 {
-    Schema::table('sites_to_crawl', function (Blueprint $table) {
         Schema::dropIfExists('sites_to_crawl');
-
-    });
 }
 }

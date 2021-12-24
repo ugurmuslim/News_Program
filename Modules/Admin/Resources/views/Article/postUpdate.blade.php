@@ -81,7 +81,7 @@
                                     <div class="col-12">
                                         <label class="form-text">Kategori</label>
                                         <select class="form-control" name="ArticleTypeId" required="required"
-                                                id="category">
+                                                id="category" {{isset($article) && $article->assigner_id ? "readonly" : ""}}>
                                             @if(isset($article))
                                                 <option
                                                     value="{{$article->article_type_id}}">{{$article->articleType->title}}</option>
@@ -93,147 +93,154 @@
                                     </div>
 
                                     <div class="col-12" id="companySelect"
-                                         style="display:none; {{isset($article) ? ($article->articleType->id == \App\Parafesor\Constants\ArticleTypes::SirketHaberleri ? "" : "display:none") : ""}}">
+                                         style="{{isset($article) && $article->articleType->id == \App\Parafesor\Constants\ArticleTypes::SirketHaberleri ? "" : "display:none"}}">
                                         <label class="form-text">Şirket</label>
                                         <select class="form-control" name="CompanyId"
-                                                id="category">
+                                                id="company" {{isset($article) && $article->assigner_id ? "readonly" : ""}}>
+                                            @if(isset($article) && $article->company_id)
+                                                <option
+                                                    value="{{$article->company_id}}">{{$article->company->title}}</option>
+                                            @endif
                                             @foreach($companies as $company)
                                                 <option value={{$company->id}}>{{$company->title }}</option>
                                             @endforeach
                                         </select>
                                     </div>
-
-                                    <div class="col-12 form-group">
-                                        <div class="col-6 mt-3">
-                                            <div class="row">
-                                                <div class="col-md-3">
-                                                    <button type="button" class="btn btn-default text-bold border-dark"
-                                                            id="headerDrawing"
-                                                            value="HeaderSlider">Header Slider
-                                                    </button>
-                                                </div>
-                                                <div class="col-md-3">
-                                                    <button type="button"
-                                                            class="btn btn-default text-bold border-dark placementDrawing"
-                                                            value="SecondSlider" id="SecondSlider"
-                                                            style="{{isset($article) ? ($article->articleType->title == "Gündem" ? "" : "display:none") : ""}}">
-                                                        Gündem Birinci
-                                                    </button>
-                                                </div>
-                                                <div class="col-md-3">
-                                                    <button type="button"
-                                                            class="btn btn-default text-bold border-dark placementDrawing"
-                                                            value="MainSlider">Kategori Slider
-                                                    </button>
-                                                </div>
-
-                                                <div class="col-md-3">
-                                                    <button type="button"
-                                                            class="btn btn-default text-bold border-dark placementDrawing"
-                                                            value="Normal" style="background-color: red">Normal
-                                                    </button>
-                                                </div>
+                                        <div class="col-12 form-group">
+                                            <div class="col-6 mt-3">
                                                 <div class="row">
-                                                    <div class="col-md-12 mt-3">
-                                                        <div class="col-md-3">
-                                                            <button type="button"
-                                                                    class="btn btn-default text-bold border-dark "
-                                                                    id="persistentDrawing"
-                                                                    value="0">Kalıcı
-                                                            </button>
+                                                    <div class="col-md-3">
+                                                        <button type="button"
+                                                                class="btn btn-default text-bold border-dark"
+                                                                id="headerDrawing"
+                                                                value="HeaderSlider">Header Slider
+                                                        </button>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <button type="button"
+                                                                class="btn btn-default text-bold border-dark placementDrawing"
+                                                                value="SecondSlider" id="SecondSlider"
+                                                                style="{{isset($article) ? ($article->articleType->title == "Gündem" ? "" : "display:none") : ""}}">
+                                                            Gündem Birinci
+                                                        </button>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <button type="button"
+                                                                class="btn btn-default text-bold border-dark placementDrawing"
+                                                                value="MainSlider">Kategori Slider
+                                                        </button>
+                                                    </div>
+
+                                                    <div class="col-md-3">
+                                                        <button type="button"
+                                                                class="btn btn-default text-bold border-dark placementDrawing"
+                                                                value="Normal" style="background-color: red">Normal
+                                                        </button>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-12 mt-3">
+                                                            <div class="col-md-3">
+                                                                <button type="button"
+                                                                        class="btn btn-default text-bold border-dark "
+                                                                        id="persistentDrawing"
+                                                                        value="0">Kalıcı
+                                                                </button>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
 
-                                    <input type="text" value="Normal" name="PlacementSection" id="PlacementSection"
-                                           hidden>
+                                        <input type="text" value="Normal" name="PlacementSection" id="PlacementSection"
+                                               hidden>
 
-                                    <input type="number" value="0" name="PersistentSection" id="PersistentSection"
-                                           hidden>
+                                        <input type="number" value="0" name="PersistentSection" id="PersistentSection"
+                                               hidden>
 
-                                    <input type="number" value="0" name="HeaderSection" id="HeaderSection" hidden>
-                                    <div class="col-12 hr"></div>
-                                    <div class="col-12">
-                                        <label class="form-text">Özet</label>
-                                        <textarea name="Description" class="form-control" rows="5" autocomplete="off"
-                                                  id="articleSummary"
-                                                  maxlength="500"
-                                                  required="required">{!! isset($article) ? $article->summary : "" !!}</textarea>
-                                    </div>
-
-                                    <div class="col-12 hr"></div>
-                                    <div class="form-group">
+                                        <input type="number" value="0" name="HeaderSection" id="HeaderSection" hidden>
+                                        <div class="col-12 hr"></div>
                                         <div class="col-12">
+                                            <label class="form-text">Özet</label>
+                                            <textarea name="Description" class="form-control" rows="5"
+                                                      autocomplete="off"
+                                                      id="articleSummary"
+                                                      maxlength="500"
+                                                      required="required">{!! isset($article) ? $article->summary : "" !!}</textarea>
+                                        </div>
+
+                                        <div class="col-12 hr"></div>
+                                        <div class="form-group">
                                             <div class="col-12">
-                                                <label style="color: black;">Resim</label>
-                                                <br>
-                                                {{--<input type="file" name="image" />
-            --}}                                    {{--<input type="file" name="select_file" id="articleImage">--}}
-                                                <input type="file" name="image"
-                                                       class="image" {{isset($article) && $article->image_path ? "" : ""}}>
-                                                <input type="text" name="image1" class="image" id="croppedImage"
-                                                       value="{{old('image1')}}" hidden>
                                                 <div class="col-12">
                                                     <label style="color: black;">Resim</label>
                                                     <br>
-                                                    @if(isset($article) && $article->article_type_id == \App\Parafesor\Constants\ArticleTypes::Youtube)
-                                                        <iframe width="560" height="315"
-                                                                src="https://www.youtube.com/embed/{{$article->external_site_id}}"
-                                                                title="YouTube video player" frameborder="0"
-                                                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                                                allowfullscreen></iframe>
-                                                    @endif
-                                                    @if((isset($article) && $article->article_type_id != \App\Parafesor\Constants\ArticleTypes::Youtube) && $article->image_path)
-                                                        <div class="mt-5" style="max-width: 400px ">
-                                                            <img src="{{asset($article->image_path)}}" alt=""
-                                                                 id="savedImage">
-                                                        </div>
-                                                    @endif
-
-                                                </div>
-
-                                                <div class="modal fade" id="modal" tabindex="-1" role="dialog"
-                                                     aria-labelledby="modalLabel" aria-hidden="true">
-                                                    <div class="modal-dialog modal-lg" role="document">
-                                                        <div class="modal-content">
-                                                            <div class="modal-header">
-                                                                <h5 class="modal-title" id="modalLabel">Parafesor
-                                                                    Image</h5>
-                                                                <button type="button" class="close" data-dismiss="modal"
-                                                                        aria-label="Close">
-                                                                    <span aria-hidden="true">×</span>
-                                                                </button>
+                                                    {{--<input type="file" name="image" />
+                --}}                                    {{--<input type="file" name="select_file" id="articleImage">--}}
+                                                    <input type="file" name="image"
+                                                           class="image" {{isset($article) && $article->image_path ? "" : ""}}>
+                                                    <input type="text" name="image1" class="image" id="croppedImage"
+                                                           value="{{old('image1')}}" hidden>
+                                                    <div class="col-12">
+                                                        <label style="color: black;">Resim</label>
+                                                        <br>
+                                                        @if(isset($article) && $article->article_type_id == \App\Parafesor\Constants\ArticleTypes::Youtube)
+                                                            <iframe width="560" height="315"
+                                                                    src="https://www.youtube.com/embed/{{$article->external_site_id}}"
+                                                                    title="YouTube video player" frameborder="0"
+                                                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                                                    allowfullscreen></iframe>
+                                                        @endif
+                                                        @if((isset($article) && $article->article_type_id != \App\Parafesor\Constants\ArticleTypes::Youtube) && $article->image_path)
+                                                            <div class="mt-5" style="max-width: 400px ">
+                                                                <img src="{{asset($article->image_path)}}" alt=""
+                                                                     id="savedImage">
                                                             </div>
-                                                            <div class="modal-body">
-                                                                <div class="img-container">
-                                                                    <div class="row">
-                                                                        <div class="col-md-8">
-                                                                            <img id="image"
-                                                                                 src="https://avatars0.githubusercontent.com/u/3456749">
-                                                                        </div>
-                                                                        <div class="col-md-4">
-                                                                            <div class="preview"></div>
+                                                        @endif
+
+                                                    </div>
+
+                                                    <div class="modal fade" id="modal" tabindex="-1" role="dialog"
+                                                         aria-labelledby="modalLabel" aria-hidden="true">
+                                                        <div class="modal-dialog modal-lg" role="document">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <h5 class="modal-title" id="modalLabel">Parafesor
+                                                                        Image</h5>
+                                                                    <button type="button" class="close"
+                                                                            data-dismiss="modal"
+                                                                            aria-label="Close">
+                                                                        <span aria-hidden="true">×</span>
+                                                                    </button>
+                                                                </div>
+                                                                <div class="modal-body">
+                                                                    <div class="img-container">
+                                                                        <div class="row">
+                                                                            <div class="col-md-8">
+                                                                                <img id="image"
+                                                                                     src="https://avatars0.githubusercontent.com/u/3456749">
+                                                                            </div>
+                                                                            <div class="col-md-4">
+                                                                                <div class="preview"></div>
+                                                                            </div>
                                                                         </div>
                                                                     </div>
                                                                 </div>
-                                                            </div>
-                                                            <div class="modal-footer">
-                                                                <button type="button" class="btn btn-secondary"
-                                                                        data-dismiss="modal">Cancel
-                                                                </button>
-                                                                <button type="button" class="btn btn-primary" id="crop">
-                                                                    Crop
-                                                                </button>
+                                                                <div class="modal-footer">
+                                                                    <button type="button" class="btn btn-secondary"
+                                                                            data-dismiss="modal">Cancel
+                                                                    </button>
+                                                                    <button type="button" class="btn btn-primary"
+                                                                            id="crop">
+                                                                        Crop
+                                                                    </button>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
 
 
                                     <div class="col-12 hr"></div>
@@ -272,7 +279,8 @@
                                     <div class="col-md-12 form-group">
                                         <label class="form-text">Seo Anahtar Kelimeler</label>
                                         <input name="SeoKeywords" type="text" class="form-control"
-                                               placeholder="Virgül ile ayrarak anahtar keline girin" maxlength="1000"
+                                               placeholder="Virgül ile ayrarak anahtar keline girin"
+                                               maxlength="1000"
                                                autocomplete="off"
                                                required="required"
                                                value="{{isset($article) ? $article->seo_keywords :  old('SeoKeywords') }}"
@@ -388,7 +396,7 @@
                                             <div class="col-12">
                                                 <label style="color: black;">Resim</label>
                                                 <br>
-                                                @if($article->article_type_id == \App\Parafesor\Constants\ArticleTypes::Youtube)
+                                                @if(in_array('www.youtube.com',explode('/',$article->original_link)))
                                                     <iframe width="560" height="315"
                                                             src="https://www.youtube.com/embed/{{$article->external_site_id}}"
                                                             title="YouTube video player" frameborder="0"
@@ -427,7 +435,7 @@
                                     <div class="col-12">
                                         <label class="form-text">Kategori</label>
                                         <select class="form-control" name="ArticleTypeId" required="required"
-                                                id="category">
+                                                id="category" readonly>
                                             @if(isset($article))
                                                 <option
                                                     value="{{$article->article_type_id}}">{{$article->articleType->title}}</option>
@@ -437,6 +445,25 @@
                                             @endforeach
                                         </select>
                                     </div>
+
+
+                                    <div class="col-12" id="companySelect"
+                                         style="{{isset($article) ? ($article->articleType->id == \App\Parafesor\Constants\ArticleTypes::SirketHaberleri ? "" : "display:none") : ""}}">
+                                        <label class="form-text">Şirket</label>
+                                        <select class="form-control" name="CompanyId"
+                                                id="company" readonly>
+                                            @if(isset($article) && $article->company_id)
+                                                <option
+                                                    value="{{$article->company_id}}">{{$article->company->title}}</option>
+                                            @endif
+                                            @foreach($companies as $company)
+                                                <option value={{$company->id}}>{{$company->title }}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                    <input type="number" name="CompanyId"
+                                           value="{{isset($article) && $article->company_id ? $article->company->id : ""}}"
+                                           hidden>
 
                                     <div class="col-12 form-group">
                                         <div class="col-6 mt-3">
@@ -570,11 +597,12 @@
                                         <label class="form-text">İçerik</label>
                                     </div>
                                     @if(isset($article) && $article->body)
-                                    <textarea id="textarea2" style="width: 100%; height: 80%" disabled>
+                                        <textarea id="textarea2" style="width: 100%; height: 80%" disabled>
     {{isset($article) ? $article->old_body : ""}}
   </textarea>
                                     @else
-                                        <iframe src="{{$article->original_link}}" style="width: 100%;  height:90%;" title="news"></iframe>
+                                        <iframe src="{{$article->original_link}}" style="width: 100%;  height:90%;"
+                                                title="news"></iframe>
                                     @endif
                                 </div>
                                 <div class="col-6">
@@ -646,7 +674,7 @@
                             </div>
                             @endif
                             <div class="row mt-3">
-                            <button class="btn btn-danger" id="previewButton">Önizleme</button>
+                                <button class="btn btn-danger" id="previewButton">Önizleme</button>
                             </div>
 
                         </form>

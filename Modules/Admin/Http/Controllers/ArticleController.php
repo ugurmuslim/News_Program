@@ -59,7 +59,7 @@ class ArticleController extends Controller
             $query = $query->where('article_type_id', $articleTypeId);
         }
 
-        $query->orderBy('created_at','DESC');
+        $query->orderBy('created_at', 'DESC');
         $newsAll = $query->paginate(15);
         $articleTypes = ArticleType::all();
 
@@ -77,18 +77,20 @@ class ArticleController extends Controller
     public function assign($id)
     {
         $editors = User::role('Yazar')->get();
+        $companies = Company::all();
         $news = CrawledArticle::find($id);
         $articleTypes = ArticleType::all();
         return view('admin::Article.assign')
             ->with('news', $news)
             ->with('editors', $editors)
+            ->with('companies', $companies)
             ->with('articleTypes', $articleTypes);
     }
 
     /**
      * Display a listing of the resource.
      *
-     * @return Renderable
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function assignStore($id)
     {
@@ -117,26 +119,34 @@ class ArticleController extends Controller
         $news = CrawledArticle::find($id);
 
         $articleType = ArticleType::find(Request::input("ArticleTypeId"));
+        $company = Company::find(Request::input('CompanyId'));
 
+        $image = $company ? $company->image_path : $news->image_path;
         if (!$articleType) {
             Session::flash('error', "Haber tipi bulunamadı!");
             return back();
+        }
+
+        if ($articleType->id == ArticleTypes::SirketHaberleri && !Request::input('CompanyId')) {
+            Session::flash('error', "Şirket Seçmeniz lazım!!");
+            return back();
+
         }
         $body = trim(preg_replace('/<script\b[^>]*>(.*?)<\/script>/is', "", strip_tags($news->body, '<p><script>')));
 
         $article = new Article();
         $article->old_body = $news->body;
         $article->editor_id = $editorId;
-        $article->language_id = 'TR';
+        $article->assigner_id = Auth::user()->id;
         $article->original_link = $news->original_link;
         $article->site_name = $news->site_name;
         $article->article_type_id = $articleType->id;
+        $article->company_id = Request::input('CompanyId');
         $article->status = ArticleStatus::ASSIGNED;
         $article->summary = $news->summary;
         $article->external_site_id = $news->news_id;
         $article->title = $news->title;
-        $article->image_path = $news->image_path;
-        $article->article_date = $news->pubDate;
+        $article->image_path = $image;
         $article->article_date = $news->pubDate;
         $article->sort = 100;
         $article->save();
@@ -144,7 +154,8 @@ class ArticleController extends Controller
         $news->assigned = true;
         $news->save();
 
-        return $this->index();
+        Session::flash('success', "Haber Başarı ile devredildi");
+        return redirect()->route('article.index');
 
     }
 
@@ -212,7 +223,7 @@ class ArticleController extends Controller
         }
         $articleType = ArticleType::find(Request::input('ArticleTypeId'));
 
-        if (!Request::input('sameImage') && Request::input('savedImage') &&  !Request::hasFile('image') && $articleType->id != ArticleTypes::SirketHaberleri) {
+        if (!Request::input('sameImage') && Request::input('savedImage') && !Request::hasFile('image') && $articleType->id != ArticleTypes::SirketHaberleri) {
             Session::flash('error', "Görsel seçmediniz halihazırdaki görseli de kullanmayacaksınız");
             return back()->withInput(Request::all());
         }

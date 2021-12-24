@@ -56,12 +56,12 @@ class RoleMaking extends Command
         $user1->assignRole('Editor');
 
         $user2 = User::find(2);
-        $user2->assignRole('Admin');
+        $user2->assignRole('Yönetici');
 
 
         $user5 = User::find(5);
 
-        $user5->assignRole('Assigner');
+        $user5->assignRole('Editor');
 
     }
 }

@@ -15,14 +15,15 @@ use Illuminate\Database\Eloquent\Relations\HasOne;
  * @property string  $id
  * @property string  $original_link
  * @property string  $title
- * @property string  $language_id
  * @property string  $status
  * @property int     $article_type_id
+ * @property int     $company_id
  * @property string  $summary
  * @property string  $image_path
  * @property string  $body
  * @property string  $old_body
  * @property int     $editor_id
+ * @property int     $assigner_id
  * @property float   $sort
  * @property int     $read
  * @property string  $slug
@@ -51,16 +52,17 @@ class Article extends Model
      */
     protected $fillable = [
         'title',
-        'language_id',
         'summary',
         'status',
         'article_type_id',
+        'company_id',
         'external_source_user_id',
         'external_site_id',
         'header',
         'body',
         'persistent',
         'editor_id',
+        'assigner_id',
         'sort',
         'image_path',
         'seo_url',
@@ -85,15 +87,15 @@ class Article extends Model
      */
     protected $casts = [
         'title'            => 'string',
-        'language_id'      => 'string',
         'status'           => 'string',
         'article_type_id'  => 'string',
         'header'           => 'string',
         'body'             => 'string',
-        'old_body'             => 'string',
+        'old_body'         => 'string',
         'editor_id'        => 'int',
+        'assigner_id'      => 'int',
         'header_slider'    => 'int',
-        'persistent'    => 'int',
+        'persistent'       => 'int',
         'sort'             => 'float',
         'external_site_id' => 'string',
         'image_path'       => 'string',
@@ -104,8 +106,8 @@ class Article extends Model
         'show_case'        => 'string',
         'site_name'        => 'string',
         'article_date'     => 'date',
-        'start_date'     => 'date',
-        'end_date'     => 'date',
+        'start_date'       => 'date',
+        'end_date'         => 'date',
     ];
 
 
@@ -124,8 +126,18 @@ class Article extends Model
         return $this->hasOne(User::class, 'id', 'editor_id');
     }
 
+    public function assigner()
+    {
+        return $this->hasOne(User::class, 'id', 'assigner _id');
+    }
+
     public function articleType()
     {
         return $this->hasOne(ArticleType::class, 'id', 'article_type_id');
+    }
+
+    public function company()
+    {
+        return $this->hasOne(Company::class, 'id', 'company_id');
     }
 }

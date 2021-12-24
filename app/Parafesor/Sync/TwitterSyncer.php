@@ -68,7 +68,6 @@ class TwitterSyncer
                     'external_source_user_id' => $externalUser->id,
                     'external_site_id'        => $jsonData['raw_data']['id_str'],
                     'article_date'            => $jsonData['raw_data']['created_at'],
-                    'language_id'             => 'TR',
                 ]);
                 unlink($tweetFolder . '/' . $tweet);
             } catch (\Exception $e) {
