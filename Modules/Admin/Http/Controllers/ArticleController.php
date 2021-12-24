@@ -204,7 +204,7 @@ class ArticleController extends Controller
         $validator = Validator::make(\Illuminate\Support\Facades\Request::all(), [
             'Title'    => 'required|string',
             'Body'     => 'required|string',
-            'SeoTitle' => 'required|max:40|min:1',
+            'SeoTitle' => 'required|max:155|min:1',
         ]);
 
         if ($validator->fails()) {
