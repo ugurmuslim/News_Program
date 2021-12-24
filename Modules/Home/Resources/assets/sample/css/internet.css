@@ -55,7 +55,7 @@
     font-family: MillerTextBold;
     font-size: 22px;
     height: 120px;
-    padding-top: 30px;
+    padding-top: 10px;
     padding-bottom: 10px;
     position: relative;
 }
@@ -124,6 +124,19 @@
     z-index: 20;
     position: relative;
 }
+
+.internet-card-caption {
+    font-family: MillerTextBold;
+    width: 60%;
+    height: 100%;
+    font-size: 1em;
+    text-align: left;
+    padding: 0;
+    padding-top:20%;
+    z-index: 20;
+    position: relative;
+}
+
 
 .internet-card-slider-controls {
     display: flex;

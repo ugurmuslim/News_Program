@@ -165,6 +165,10 @@ a:hover {
 .tech-news-box-caption p,
 .tech-title p,
 .article-text-title p,
+.internet-card-slider-slide-caption p,
+.internet-card-caption p,
+.internet-news-box-caption p,
+.internet-title p,
 .life-title p {
     display: -webkit-box;
     -webkit-line-clamp: 3;
@@ -175,6 +179,7 @@ a:hover {
 .news-card-body p,
 .company-text p,
 .tech-news-box-caption p,
+.internet-card-caption p,
 #mainSliderCaption p {
     -webkit-line-clamp: 4 !important;
 }
@@ -185,6 +190,7 @@ a:hover {
 }
 .news-card-slider-slide-caption p,
 .life-card-slider-slide-caption p,
+.internet-card-slider-slide-caption p,
 .article-text-title p
 {
     -webkit-line-clamp: 2 !important;

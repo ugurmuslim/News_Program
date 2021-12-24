@@ -28,9 +28,9 @@
                                     </div>
 
                                     <div class="internet-card-slider-slide-caption big-title">
-                                        <div style="background-color: #fe6845; padding: 20px 0px 20px 10px;">
-                                            {{ \Illuminate\Support\Str::limit($article->title, 65, $end='...') }}
-                                        </div>
+                                        <p style="background-color: #fe6845;">
+                                            {{ $article->title }}
+                                        </p>
                                     </div>
                                 </div>
                             </div>
@@ -70,12 +70,10 @@
                             <div class="news-card-slider-container">
                                 <div class="news-card-slider-slide">
                                     <div class="sport-card-slider-slide-img "
-                                         style="background-image: url(https://cdn.sporx.com/img/59/2021/20210805_2_49495353_67675352.jpg)">
+                                         style="background-image: url({{$article->image_path}})">
                                         <div class="orangeOverlay90"></div>
 
-                                        <div class="sport-card-slider-slide-caption">Kadro değeri 14 milyon euroyu
-                                            aşan
-                                            takımların mücadelesi
+                                        <div class="internet-card-caption"><p>{{$article->title}}</p>
                                             <div class=" sport-text-bottom-sm">
 
                                                 <span class="">23 Ocak • 14:35 • parafesor</span>
@@ -101,7 +99,7 @@
                                 <div class="tech-news-box-image"
                                      style="background-image: url({{asset($article->image_path)}})"></div>
                                 <div class="internet-news-box-caption">
-                                    {{$article->title}}
+                                   <p>{{$article->title}}</p>
                                     <div class="tech-text-bottom-sm">
                                         <span class="">{{ Date::parse($article->created_at)->format('j F')}} • {{ Carbon\Carbon::parse($article->created_at)->format('H:m')}} • parafesor</span>
                                     </div>
@@ -121,9 +119,7 @@
                                         <div class="col-24 internet internet-md"
                                              style="background-image: url({{asset($article->image_path)}})"></div>
                                         <div class="internet-title">
-                                            <div class="multilineEllipsis"
-                                                 multilineEllipsisMax="100">{{$article->title}}
-                                            </div>
+                                            <p>{{$article->title}}</p>
                                             <div class="card-bottom-date">
                                         <span
                                             class="text-dark-orange">{{ Date::parse($article->created_at)->format('j F')}}</span><span> • {{ Carbon\Carbon::parse($article->created_at)->format('H:m')}} • parafesor</span>
@@ -147,8 +143,7 @@
                                 <div class="col-24 internet internet-md"
                                      style="background-image: url({{asset($article->image_path)}})"></div>
                                 <div class="internet-title">
-                                    <div class="multilineEllipsis" multilineEllipsisMax="100">{{$article->title}}
-                                    </div>
+                                    <p>{{$article->title}}</p>
                                     <div class="card-bottom-date">
                                     <span
                                         class="text-dark-orange">{{Date::parse($article->created_at)->format('j F')}}</span><span> • {{ Carbon\Carbon::parse($article->created_at)->format('H:m')}} • parafesor</span>
