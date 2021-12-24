@@ -56,7 +56,7 @@
                     $otomobilArticlesFooterRight = $articles['Otomobil'][\App\Parafesor\Constants\CategorySectionTypes::NORMAL]->take(4)->take(1);
                 } else {
                     $otomobilArticles = $articles['Otomobil'][\App\Parafesor\Constants\CategorySectionTypes::NORMAL]->take(1);
-                
+
                     $otomobilArticlesBelow = $articles['Otomobil'][\App\Parafesor\Constants\CategorySectionTypes::NORMAL]->slice(1)->take(3);
                     $otomobilArticlesFooterLeft = $articles['Otomobil'][\App\Parafesor\Constants\CategorySectionTypes::NORMAL]->slice(4)->take(1);
                     $otomobilArticlesFooterRight = $articles['Otomobil'][\App\Parafesor\Constants\CategorySectionTypes::NORMAL]->take(5)->take(1);
@@ -115,7 +115,7 @@
                     <div class="row">
 
                         <div class="col-14 bg-secondary" style="padding: 0 3% 0 3%">
-                            <div class="automobile-title">{{ $article->title }}
+                            <div class="automobile-title"><p>{{ $article->title }}</p>
                             </div>
                             <div class="automobile-text-bottom-sm">
                                 <span
@@ -135,7 +135,7 @@
                         <div class="col-10" style="background-image: url({{ asset($article->image_path) }})">
                         </div>
                         <div class="col-14 bg-secondary" style="padding: 0 3% 0 3%">
-                            <div class="automobile-title">{{ $article->title }}
+                            <div class="automobile-title"><p><{{ $article->title }}</p>
                             </div>
                             <div class="automobile-text-bottom-sm">
                                 <span

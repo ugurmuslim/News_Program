@@ -160,6 +160,7 @@ a:hover {
 .life-card-slider-slide-caption p,
 .life-second-image-caption p,
 .life-news-box-caption p,
+.automobile-title p,
 .life-title p {
     display: -webkit-box;
     -webkit-line-clamp: 3;
