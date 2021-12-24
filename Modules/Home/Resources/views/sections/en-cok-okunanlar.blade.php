@@ -23,7 +23,7 @@
                             </div>
                             <div class="most-red-bottom">
                                    <span
-                                   >{{ Carbon\Carbon::parse($article->created_at)->format('d F')}}</span> • <span>{{Carbon\Carbon::parse($article->created_at)->format('H:m')}} • by parafesor</span>
+                                   >{{ Carbon\Carbon::parse($article->created_at)->format('d F')}}</span> • <span>{{Carbon\Carbon::parse($article->created_at)->format('H:m')}} • parafesor</span>
                             </div>
                         </div>
                     </a>

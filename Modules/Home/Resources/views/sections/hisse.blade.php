@@ -46,7 +46,7 @@
                                             {{ \Illuminate\Support\Str::limit($article->summary, 100, $end='...') }}
                                         </div>
                                         <div class="share-recommendation-text-bottom-sm text-white">
-                                            <span class="">23 Ocak</span><span> • 14:35 • by parafesor</span>
+                                            <span class="">23 Ocak</span><span> • 14:35 • parafesor</span>
                                         </div>
                                     </div>
                                 </div>
@@ -85,7 +85,7 @@
                                     </div>
                                     <div class="share-recommendation-news-text-bottom">
                                <span
-                                   style="color: #A2A2A2">{{ Carbon\Carbon::parse($article->created_at)->format('d F')}}</span><span> • {{ Carbon\Carbon::parse($article->created_at)->format('H:m')}} • by parafesor</span>
+                                   style="color: #A2A2A2">{{ Carbon\Carbon::parse($article->created_at)->format('d F')}}</span><span> • {{ Carbon\Carbon::parse($article->created_at)->format('H:m')}} • parafesor</span>
                                     </div>
                                 </div>
                             </a>
@@ -114,7 +114,7 @@
                                 </div>
                                 <div class="share-recommendation-bottom mt-3">
                           <span
-                              class="text-black">{{ Carbon\Carbon::parse($article->created_at)->format('d F')}}</span><span> • {{ Carbon\Carbon::parse($article->created_at)->format('H:m')}} • by parafesor</span>
+                              class="text-black">{{ Carbon\Carbon::parse($article->created_at)->format('d F')}}</span><span> • {{ Carbon\Carbon::parse($article->created_at)->format('H:m')}} • parafesor</span>
                                 </div>
                             </div>
                         </div>

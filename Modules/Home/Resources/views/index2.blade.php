@@ -60,7 +60,7 @@
                                     </div>
                                     <div class="news-card-bottom">
                                     <span
-                                        class="text-danger">{{ Carbon\Carbon::parse($articles["Gündem"][0]->created_at)->format('d F')}}</span><span> • {{ Carbon\Carbon::parse($articles["Gündem"][0]->created_at)->format('H:m')}} • by parafesor</span>
+                                        class="text-danger">{{ Carbon\Carbon::parse($articles["Gündem"][0]->created_at)->format('d F')}}</span><span> • {{ Carbon\Carbon::parse($articles["Gündem"][0]->created_at)->format('H:m')}} • parafesor</span>
                                     </div>
                                 </div>
                             </a>
@@ -100,7 +100,7 @@
                                 </div>
                                 <div class="news-card-bottom">
                                     <span
-                                        class="text-danger">{{ Carbon\Carbon::parse($article->created_at)->format('d F')}}</span><span> • {{ Carbon\Carbon::parse($article->created_at)->format('H:m')}} • by parafesor</span>
+                                        class="text-danger">{{ Carbon\Carbon::parse($article->created_at)->format('d F')}}</span><span> • {{ Carbon\Carbon::parse($article->created_at)->format('H:m')}} • parafesor</span>
                                 </div>
                             </div>
                         </div>
@@ -364,7 +364,7 @@
                                 </div>
                                 <div class="corporate-news-text-bottom">
                                <span
-                                   class="text-danger">{{ Carbon\Carbon::parse($article->created_at)->format('d F')}}</span><span> • {{ Carbon\Carbon::parse($article->created_at)->format('H:m')}} • by parafesor</span>
+                                   class="text-danger">{{ Carbon\Carbon::parse($article->created_at)->format('d F')}}</span><span> • {{ Carbon\Carbon::parse($article->created_at)->format('H:m')}} • parafesor</span>
                                 </div>
                             </div>
                         </div>
@@ -384,7 +384,7 @@
                         Haberin devam metni gelecek kısımlarda. 2021 haberleri Migros tanıtım sayfası...
                     </div>
                     <div class="company-bottom">
-                        <span class="text-danger">23 Ocak</span><span> • 14:35 • by parafesor</span>
+                        <span class="text-danger">23 Ocak</span><span> • 14:35 • parafesor</span>
                     </div>
                 </div>
             </div>
@@ -397,7 +397,7 @@
                         Haberin devam metni gelecek kısımlarda. 2021 haberleri Migros tanıtım sayfası...
                     </div>
                     <div class="company-bottom">
-                        <span class="text-danger">23 Ocak</span><span> • 14:35 • by parafesor</span>
+                        <span class="text-danger">23 Ocak</span><span> • 14:35 • parafesor</span>
                     </div>
                 </div>
             </div>
@@ -410,7 +410,7 @@
                         Haberin devam metni gelecek kısımlarda. 2021 haberleri Migros tanıtım sayfası...
                     </div>
                     <div class="company-bottom">
-                        <span class="text-danger">23 Ocak</span><span> • 14:35 • by parafesor</span>
+                        <span class="text-danger">23 Ocak</span><span> • 14:35 • parafesor</span>
                     </div>
                 </div>
             </div>
@@ -423,7 +423,7 @@
                         Haberin devam metni gelecek kısımlarda. 2021 haberleri Migros tanıtım sayfası...
                     </div>
                     <div class="company-bottom">
-                        <span class="text-danger">23 Ocak</span><span> • 14:35 • by parafesor</span>
+                        <span class="text-danger">23 Ocak</span><span> • 14:35 • parafesor</span>
                     </div>
                 </div>
             </div>
@@ -436,7 +436,7 @@
                         Haberin devam metni gelecek kısımlarda. 2021 haberleri Migros tanıtım sayfası...
                     </div>
                     <div class="company-bottom">
-                        <span class="text-danger">23 Ocak</span><span> • 14:35 • by parafesor</span>
+                        <span class="text-danger">23 Ocak</span><span> • 14:35 • parafesor</span>
                     </div>
                 </div>
             </div>
@@ -450,7 +450,7 @@
                         Haberin devam metni gelecek kısımlarda. 2021 haberleri Migros tanıtım sayfası...
                     </div>
                     <div class="company-bottom">
-                        <span class="text-danger">23 Ocak</span><span> • 14:35 • by parafesor</span>
+                        <span class="text-danger">23 Ocak</span><span> • 14:35 • parafesor</span>
                     </div>
                 </div>
             </div>
@@ -463,7 +463,7 @@
                         Haberin devam metni gelecek kısımlarda. 2021 haberleri Migros tanıtım sayfası...
                     </div>
                     <div class="company-bottom">
-                        <span class="text-danger">23 Ocak</span><span> • 14:35 • by parafesor</span>
+                        <span class="text-danger">23 Ocak</span><span> • 14:35 • parafesor</span>
                     </div>
                 </div>
             </div>
@@ -476,7 +476,7 @@
                         Haberin devam metni gelecek kısımlarda. 2021 haberleri Migros tanıtım sayfası...
                     </div>
                     <div class="company-bottom">
-                        <span class="text-danger">23 Ocak</span><span> • 14:35 • by parafesor</span>
+                        <span class="text-danger">23 Ocak</span><span> • 14:35 • parafesor</span>
                     </div>
                 </div>
             </div>
@@ -669,7 +669,7 @@
                         </div>
                         <div class="most-red-bottom">
                     <span
-                        class="text-danger">{{ Carbon\Carbon::parse($article->created_at)->format('d F')}}</span><span> • {{ Carbon\Carbon::parse($article->created_at)->format('H:m')}} • by parafesor</span>
+                        class="text-danger">{{ Carbon\Carbon::parse($article->created_at)->format('d F')}}</span><span> • {{ Carbon\Carbon::parse($article->created_at)->format('H:m')}} • parafesor</span>
                         </div>
                     </div>
                 </div>

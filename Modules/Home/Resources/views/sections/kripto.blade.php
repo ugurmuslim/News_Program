@@ -72,7 +72,7 @@
                                     </div>
                                     <div class="crypto-text-bottom">
                                     <span
-                                        style="color:#f2b01b;">{{ Carbon\Carbon::parse($article->created_at)->format('d F')}}</span><span> • {{ Carbon\Carbon::parse($article->created_at)->format('H:m')}} • by parafesor</span>
+                                        style="color:#f2b01b;">{{ Carbon\Carbon::parse($article->created_at)->format('d F')}}</span><span> • {{ Carbon\Carbon::parse($article->created_at)->format('H:m')}} • parafesor</span>
                                     </div>
                                 </div>
 
@@ -117,7 +117,7 @@
                                     {{ \Illuminate\Support\Str::limit($article->title, 70, $end='...') }}
                                 </div>
                                 <div class="crypto-text-bottom-sm">
-                                    <span>{{ Carbon\Carbon::parse($article->created_at)->format('d F')}} • {{ Carbon\Carbon::parse($article->created_at)->format('H:m')}} • by parafesor</span>
+                                    <span>{{ Carbon\Carbon::parse($article->created_at)->format('d F')}} • {{ Carbon\Carbon::parse($article->created_at)->format('H:m')}} • parafesor</span>
                                 </div>
                             </div>
                             <div class="col-14"
@@ -138,7 +138,7 @@
 
                                 </div>
                                 <div class="crypto-text-bottom-sm">
-                                    <span>{{ Carbon\Carbon::parse($article->created_at)->format('d F')}} • {{ Carbon\Carbon::parse($article->created_at)->format('H:m')}} • by parafesor</span>
+                                    <span>{{ Carbon\Carbon::parse($article->created_at)->format('d F')}} • {{ Carbon\Carbon::parse($article->created_at)->format('H:m')}} • parafesor</span>
                                 </div>
                             </div>
 
@@ -159,7 +159,7 @@
                                     {{ \Illuminate\Support\Str::limit($article->title, 70, $end='...') }}
                                     <div class="crypto-text-bottom-sm">
                                     <span
-                                        class="text-white">{{ Carbon\Carbon::parse($article->created_at)->format('d F')}}</span><span> • {{ Carbon\Carbon::parse($article->created_at)->format('H:m')}} • by parafesor</span>
+                                        class="text-white">{{ Carbon\Carbon::parse($article->created_at)->format('d F')}}</span><span> • {{ Carbon\Carbon::parse($article->created_at)->format('H:m')}} • parafesor</span>
                                     </div>
                                 </div>
 

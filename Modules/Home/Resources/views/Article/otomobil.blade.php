@@ -15,7 +15,7 @@
                                 <div class="automobile-title">{{$article->title}}
                                     <div class="automobile-text-bottom-sm">
                                     <span
-                                        class="text-white">{{ Carbon\Carbon::parse($article->created_at)->format('d F')}}</span><span> • {{ Carbon\Carbon::parse($article->created_at)->format('H:m')}} • by parafesor</span>
+                                        class="text-white">{{ Carbon\Carbon::parse($article->created_at)->format('d F')}}</span><span> • {{ Carbon\Carbon::parse($article->created_at)->format('H:m')}} • parafesor</span>
                                     </div>
                                 </div>
 

@@ -121,7 +121,7 @@
                                         class="date float-left">{{ Carbon\Carbon::parse($article->created_at)->format('d F')}}</span>
                                     <span
                                         class="time float-left ml-3">{{ Carbon\Carbon::parse($article->created_at)->format('H:m')}}</span>
-                                    <span class="float-left ml-3">by parafesor</span>
+                                    <span class="float-left ml-3">parafesor</span>
                                 </div>
                                 </article>
                             </div>
@@ -587,7 +587,7 @@
                                         class="date float-left">{{ Carbon\Carbon::parse($article->created_at)->format('d F')}}</span>
                                 <span
                                     class="time float-left ml-3">{{ Carbon\Carbon::parse($article->created_at)->format('H:m')}}</span>
-                                <span class="float-left ml-3">by parafesor</span>
+                                <span class="float-left ml-3">parafesor</span>
                             </div>
                             </article>
                         </div>

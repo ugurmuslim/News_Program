@@ -78,7 +78,7 @@
                                             takımların mücadelesi
                                             <div class=" sport-text-bottom-sm">
 
-                                                <span class="">23 Ocak • 14:35 • by parafesor</span>
+                                                <span class="">23 Ocak • 14:35 • parafesor</span>
                                             </div>
 
                                         </div>
@@ -103,7 +103,7 @@
                                 <div class="internet-news-box-caption">
                                     {{$article->title}}
                                     <div class="tech-text-bottom-sm">
-                                        <span class="">{{ Carbon\Carbon::parse($article->created_at)->format('d F')}} • {{ Carbon\Carbon::parse($article->created_at)->format('H:m')}} • by parafesor</span>
+                                        <span class="">{{ Carbon\Carbon::parse($article->created_at)->format('d F')}} • {{ Carbon\Carbon::parse($article->created_at)->format('H:m')}} • parafesor</span>
                                     </div>
                                 </div>
                             </div>
@@ -126,7 +126,7 @@
                                             </div>
                                             <div class="card-bottom-date">
                                         <span
-                                            class="text-dark-orange">{{ Carbon\Carbon::parse($article->created_at)->format('d F')}}</span><span> • {{ Carbon\Carbon::parse($article->created_at)->format('H:m')}} • by parafesor</span>
+                                            class="text-dark-orange">{{ Carbon\Carbon::parse($article->created_at)->format('d F')}}</span><span> • {{ Carbon\Carbon::parse($article->created_at)->format('H:m')}} • parafesor</span>
                                             </div>
                                         </div>
                                     </div>
@@ -151,7 +151,7 @@
                                     </div>
                                     <div class="card-bottom-date">
                                     <span
-                                        class="text-dark-orange">{{Carbon\Carbon::parse($article->created_at)->format('d F')}}</span><span> • {{ Carbon\Carbon::parse($article->created_at)->format('H:m')}} • by parafesor</span>
+                                        class="text-dark-orange">{{Carbon\Carbon::parse($article->created_at)->format('d F')}}</span><span> • {{ Carbon\Carbon::parse($article->created_at)->format('H:m')}} • parafesor</span>
                                     </div>
                                 </div>
 

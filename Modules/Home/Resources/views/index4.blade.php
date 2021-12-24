@@ -43,7 +43,7 @@
                                 üreticilerinden Polat Enerji'nin tamamının satışı için ortaklar
                             </div>
                             <div class="news-card-bottom">
-                                <span class="text-danger">23 Ocak</span><span> • 14:35 • by parafesor</span>
+                                <span class="text-danger">23 Ocak</span><span> • 14:35 • parafesor</span>
                             </div>
                         </div>
                     </div>
@@ -101,7 +101,7 @@
                                 <div class="news-card-img-text">İsrail Suriye'deki İran Üssünü Vurdu</div>
                             </div>
                             <div class="news-card-bottom">
-                                <span class="text-danger">23 Ocak</span><span> • 14:35 • by parafesor</span>
+                                <span class="text-danger">23 Ocak</span><span> • 14:35 • parafesor</span>
                             </div>
                         </div>
                     </div>
@@ -116,7 +116,7 @@
                                 </div>
                             </div>
                             <div class="news-card-bottom">
-                                <span class="text-danger">23 Ocak</span><span> • 14:35 • by parafesor</span>
+                                <span class="text-danger">23 Ocak</span><span> • 14:35 • parafesor</span>
                             </div>
                         </div>
                     </div>
@@ -130,7 +130,7 @@
                                 <div class="news-card-img-text">2050'de Dünyaya Hükmedecek Ülkeler Belli Oldu!</div>
                             </div>
                             <div class="news-card-bottom">
-                                <span class="text-danger">23 Ocak</span><span> • 14:35 • by parafesor</span>
+                                <span class="text-danger">23 Ocak</span><span> • 14:35 • parafesor</span>
                             </div>
                         </div>
                     </div>
@@ -144,7 +144,7 @@
                                 <div class="news-card-img-text">2050'de Dünyaya Hükmedecek Ülkeler Belli Oldu!</div>
                             </div>
                             <div class="news-card-bottom">
-                                <span class="text-danger">23 Ocak</span><span> • 14:35 • by parafesor</span>
+                                <span class="text-danger">23 Ocak</span><span> • 14:35 • parafesor</span>
                             </div>
                         </div>
                     </div>
@@ -589,7 +589,7 @@
                                 merkezinden biri
                             </div>
                             <div class="corporate-news-text-bottom">
-                                <span class="text-danger">23 Ocak</span><span> • 14:35 • by parafesor</span>
+                                <span class="text-danger">23 Ocak</span><span> • 14:35 • parafesor</span>
                             </div>
                         </div>
 
@@ -605,7 +605,7 @@
                                 Türkiye'nin en büyük rüzgar enerjisi üreticilerinden Polat Enerji'nin tamamının satışı
                             </div>
                             <div class="corporate-news-text-bottom">
-                                <span class="text-danger">23 Ocak</span><span> • 14:35 • by parafesor</span>
+                                <span class="text-danger">23 Ocak</span><span> • 14:35 • parafesor</span>
                             </div>
                         </div>
 
@@ -621,7 +621,7 @@
                                 Türkiye'nin en büyük rüzgar enerjisi üreticilerinden Polat Enerji'nin tamamının satışı
                             </div>
                             <div class="corporate-news-text-bottom">
-                                <span class="text-danger">23 Ocak</span><span> • 14:35 • by parafesor</span>
+                                <span class="text-danger">23 Ocak</span><span> • 14:35 • parafesor</span>
                             </div>
                         </div>
 
@@ -640,7 +640,7 @@
                         Haberin devam metni gelecek kısımlarda. 2021 haberleri Migros tanıtım sayfası...
                     </div>
                     <div class="company-bottom">
-                        <span class="text-danger">23 Ocak</span><span> • 14:35 • by parafesor</span>
+                        <span class="text-danger">23 Ocak</span><span> • 14:35 • parafesor</span>
                     </div>
                 </div>
             </div>
@@ -652,7 +652,7 @@
                         Haberin devam metni gelecek kısımlarda. 2021 haberleri Migros tanıtım sayfası...
                     </div>
                     <div class="company-bottom">
-                        <span class="text-danger">23 Ocak</span><span> • 14:35 • by parafesor</span>
+                        <span class="text-danger">23 Ocak</span><span> • 14:35 • parafesor</span>
                     </div>
                 </div>
             </div>
@@ -664,7 +664,7 @@
                         Haberin devam metni gelecek kısımlarda. 2021 haberleri Migros tanıtım sayfası...
                     </div>
                     <div class="company-bottom">
-                        <span class="text-danger">23 Ocak</span><span> • 14:35 • by parafesor</span>
+                        <span class="text-danger">23 Ocak</span><span> • 14:35 • parafesor</span>
                     </div>
                 </div>
             </div>
@@ -676,7 +676,7 @@
                         Haberin devam metni gelecek kısımlarda. 2021 haberleri Migros tanıtım sayfası...
                     </div>
                     <div class="company-bottom">
-                        <span class="text-danger">23 Ocak</span><span> • 14:35 • by parafesor</span>
+                        <span class="text-danger">23 Ocak</span><span> • 14:35 • parafesor</span>
                     </div>
                 </div>
             </div>
@@ -688,7 +688,7 @@
                         Haberin devam metni gelecek kısımlarda. 2021 haberleri Migros tanıtım sayfası...
                     </div>
                     <div class="company-bottom">
-                        <span class="text-danger">23 Ocak</span><span> • 14:35 • by parafesor</span>
+                        <span class="text-danger">23 Ocak</span><span> • 14:35 • parafesor</span>
                     </div>
                 </div>
             </div>
@@ -700,7 +700,7 @@
                         Haberin devam metni gelecek kısımlarda. 2021 haberleri Migros tanıtım sayfası...
                     </div>
                     <div class="company-bottom">
-                        <span class="text-danger">23 Ocak</span><span> • 14:35 • by parafesor</span>
+                        <span class="text-danger">23 Ocak</span><span> • 14:35 • parafesor</span>
                     </div>
                 </div>
             </div>
@@ -712,7 +712,7 @@
                         Haberin devam metni gelecek kısımlarda. 2021 haberleri Migros tanıtım sayfası...
                     </div>
                     <div class="company-bottom">
-                        <span class="text-danger">23 Ocak</span><span> • 14:35 • by parafesor</span>
+                        <span class="text-danger">23 Ocak</span><span> • 14:35 • parafesor</span>
                     </div>
                 </div>
             </div>
@@ -724,7 +724,7 @@
                         Haberin devam metni gelecek kısımlarda. 2021 haberleri Migros tanıtım sayfası...
                     </div>
                     <div class="company-bottom">
-                        <span class="text-danger">23 Ocak</span><span> • 14:35 • by parafesor</span>
+                        <span class="text-danger">23 Ocak</span><span> • 14:35 • parafesor</span>
                     </div>
                 </div>
             </div>
@@ -824,12 +824,12 @@
                             <div class="last-min-title ">{{$article->title}}
                                 <div class="d-sm-block d-md-none last-min-text-bottom-sm">
                             <span
-                                class="text-danger">{{ Carbon\Carbon::parse($article->created_at)->format('d F')}}</span><span> • {{ Carbon\Carbon::parse($article->created_at)->format('H:m')}} • by parafesor</span>
+                                class="text-danger">{{ Carbon\Carbon::parse($article->created_at)->format('d F')}}</span><span> • {{ Carbon\Carbon::parse($article->created_at)->format('H:m')}} • parafesor</span>
                                 </div>
                             </div>
                             <div class="d-none d-md-block last-min-text-bottom">
                         <span
-                            class="text-danger">{{ Carbon\Carbon::parse($article->created_at)->format('d F')}}</span><span> • {{ Carbon\Carbon::parse($article->created_at)->format('H:m')}} • by parafesor</span>
+                            class="text-danger">{{ Carbon\Carbon::parse($article->created_at)->format('d F')}}</span><span> • {{ Carbon\Carbon::parse($article->created_at)->format('H:m')}} • parafesor</span>
                             </div>
                         </a>
                     </div>
@@ -848,7 +848,7 @@
                                     <div class="last-min-caption">{{$article->title}}
                                         <div class="last-min-bottom-sm">
 
-                                            <span class="text-white">{{ Carbon\Carbon::parse($article->created_at)->format('d F')}} • {{ Carbon\Carbon::parse($article->created_at)->format('H:m')}} • by parafesor</span>
+                                            <span class="text-white">{{ Carbon\Carbon::parse($article->created_at)->format('d F')}} • {{ Carbon\Carbon::parse($article->created_at)->format('H:m')}} • parafesor</span>
                                         </div>
                                     </div>
                                 </div>
@@ -869,12 +869,12 @@
                             <div class="last-min-title">{{$article->title}}
                                 <div class="d-sm-block d-md-none last-min-text-bottom-sm">
                             <span
-                                class="text-danger">{{ Carbon\Carbon::parse($article->created_at)->format('d F')}}</span><span> • {{ Carbon\Carbon::parse($article->created_at)->format('H:m')}} • by parafesor</span>
+                                class="text-danger">{{ Carbon\Carbon::parse($article->created_at)->format('d F')}}</span><span> • {{ Carbon\Carbon::parse($article->created_at)->format('H:m')}} • parafesor</span>
                                 </div>
                             </div>
                             <div class="d-none d-md-block last-min-text-bottom">
                         <span
-                            class="text-danger">{{ Carbon\Carbon::parse($article->created_at)->format('d F')}}</span><span> • {{ Carbon\Carbon::parse($article->created_at)->format('H:m')}} • by parafesor</span>
+                            class="text-danger">{{ Carbon\Carbon::parse($article->created_at)->format('d F')}}</span><span> • {{ Carbon\Carbon::parse($article->created_at)->format('H:m')}} • parafesor</span>
                             </div>
                         </a>
                     </div>
@@ -896,7 +896,7 @@
                             <div class="last-min-sm-title">{{$article->title}}</div>
                             <div class="last-min-text-bottom">
                             <span
-                                class="text-danger">{{ Carbon\Carbon::parse($article->created_at)->format('d F')}}</span><span>  {{Carbon\Carbon::parse($article->created_at)->format('H:m')}} • by parafesor</span>
+                                class="text-danger">{{ Carbon\Carbon::parse($article->created_at)->format('d F')}}</span><span>  {{Carbon\Carbon::parse($article->created_at)->format('H:m')}} • parafesor</span>
                             </div>
                         </a>
                     </div>
@@ -922,7 +922,7 @@
                         Aksigorta'dan yüzde 100 oranında kar payı haberi
                     </div>
                     <div class="most-red-bottom">
-                        <span>23 Ocak</span><span> • 14:35 • by parafesor</span>
+                        <span>23 Ocak</span><span> • 14:35 • parafesor</span>
                     </div>
                 </div>
             </div>
@@ -935,7 +935,7 @@
                         Aksigorta'dan yüzde 100 oranında kar payı haberi
                     </div>
                     <div class="most-red-bottom">
-                        <span>23 Ocak</span><span> • 14:35 • by parafesor</span>
+                        <span>23 Ocak</span><span> • 14:35 • parafesor</span>
                     </div>
                 </div>
             </div>
@@ -948,7 +948,7 @@
                         Aksigorta'dan yüzde 100 oranında kar payı haberi
                     </div>
                     <div class="most-red-bottom">
-                        <span>23 Ocak</span><span> • 14:35 • by parafesor</span>
+                        <span>23 Ocak</span><span> • 14:35 • parafesor</span>
                     </div>
                 </div>
             </div>
@@ -961,7 +961,7 @@
                         Aksigorta'dan yüzde 100 oranında kar payı haberi
                     </div>
                     <div class="most-red-bottom">
-                        <span>23 Ocak</span><span> • 14:35 • by parafesor</span>
+                        <span>23 Ocak</span><span> • 14:35 • parafesor</span>
                     </div>
                 </div>
             </div>
@@ -974,7 +974,7 @@
                         Aksigorta'dan yüzde 100 oranında kar payı haberi
                     </div>
                     <div class="most-red-bottom">
-                        <span>23 Ocak</span><span> • 14:35 • by parafesor</span>
+                        <span>23 Ocak</span><span> • 14:35 • parafesor</span>
                     </div>
                 </div>
             </div>
@@ -987,7 +987,7 @@
                         Aksigorta'dan yüzde 100 oranında kar payı haberi
                     </div>
                     <div class="most-red-bottom">
-                        <span>23 Ocak</span><span> • 14:35 • by parafesor</span>
+                        <span>23 Ocak</span><span> • 14:35 • parafesor</span>
                     </div>
                 </div>
             </div>
@@ -1000,7 +1000,7 @@
                         Aksigorta'dan yüzde 100 oranında kar payı haberi
                     </div>
                     <div class="most-red-bottom">
-                        <span>23 Ocak</span><span> • 14:35 • by parafesor</span>
+                        <span>23 Ocak</span><span> • 14:35 • parafesor</span>
                     </div>
                 </div>
             </div>
@@ -1013,7 +1013,7 @@
                         Aksigorta'dan yüzde 100 oranında kar payı haberi
                     </div>
                     <div class="most-red-bottom">
-                        <span>23 Ocak</span><span> • 14:35 • by parafesor</span>
+                        <span>23 Ocak</span><span> • 14:35 • parafesor</span>
                     </div>
                 </div>
             </div>
@@ -1052,7 +1052,7 @@
                                     takımların mücadelesi
                                     <div class=" sport-text-bottom-sm">
 
-                                        <span class="text-white">23 Ocak • 14:35 • by parafesor</span>
+                                        <span class="text-white">23 Ocak • 14:35 • parafesor</span>
                                     </div>
 
                                 </div>
@@ -1074,7 +1074,7 @@
                         Bakanlığı'ndan KMaliye Bakanlığı'ndan KMaliye Bakanlığı'ndan K
                     </div>
                     <div class="card-bottom-date">
-                        <span class="text-light-blue">23 Ocak</span><span> • 14:35 • by parafesor</span>
+                        <span class="text-light-blue">23 Ocak</span><span> • 14:35 • parafesor</span>
                     </div>
                 </div>
             </div>
@@ -1086,7 +1086,7 @@
                         Bakanlığı'ndan KMaliye Bakanlığı'ndan KMaliye Bakanlığı'ndan K
                     </div>
                     <div class="card-bottom-date">
-                        <span class="text-light-blue">23 Ocak</span><span> • 14:35 • by parafesor</span>
+                        <span class="text-light-blue">23 Ocak</span><span> • 14:35 • parafesor</span>
                     </div>
                 </div>
 
@@ -1123,7 +1123,7 @@
                         <div class="news-card-img-text">2050'de Dünyaya Hükmedecek Ülkeler Belli Oldu!</div>
                     </div>
                     <div class="news-card-bottom">
-                        <span class="text-light-blue">23 Ocak</span><span> • 14:35 • by parafesor</span>
+                        <span class="text-light-blue">23 Ocak</span><span> • 14:35 • parafesor</span>
                     </div>
                 </div>
             </div>
@@ -1134,7 +1134,7 @@
                         <div class="news-card-img-text">2050'de Dünyaya Hükmedecek Ülkeler Belli Oldu!</div>
                     </div>
                     <div class="news-card-bottom">
-                        <span class="text-light-blue">23 Ocak</span><span> • 14:35 • by parafesor</span>
+                        <span class="text-light-blue">23 Ocak</span><span> • 14:35 • parafesor</span>
                     </div>
                 </div>
             </div>
@@ -1145,7 +1145,7 @@
                         <div class="news-card-img-text">2050'de Dünyaya Hükmedecek Ülkeler Belli Oldu!</div>
                     </div>
                     <div class="news-card-bottom">
-                        <span class="text-light-blue">23 Ocak</span><span> • 14:35 • by parafesor</span>
+                        <span class="text-light-blue">23 Ocak</span><span> • 14:35 • parafesor</span>
                     </div>
                 </div>
             </div>
@@ -1156,7 +1156,7 @@
                         <div class="news-card-img-text">2050'de Dünyaya Hükmedecek Ülkeler Belli Oldu!</div>
                     </div>
                     <div class="news-card-bottom">
-                        <span class="text-light-blue">23 Ocak</span><span> • 14:35 • by parafesor</span>
+                        <span class="text-light-blue">23 Ocak</span><span> • 14:35 • parafesor</span>
                     </div>
                 </div>
             </div>
@@ -1167,7 +1167,7 @@
                         <div class="news-card-img-text">2050'de Dünyaya Hükmedecek Ülkeler Belli Oldu!</div>
                     </div>
                     <div class="news-card-bottom">
-                        <span class="text-light-blue">23 Ocak</span><span> • 14:35 • by parafesor</span>
+                        <span class="text-light-blue">23 Ocak</span><span> • 14:35 • parafesor</span>
                     </div>
                 </div>
             </div>
@@ -1190,7 +1190,7 @@
                         <div class="news-card-img-text bg-light-grey">2050'de Dünyaya Hükmedecek Ülkeler Belli Oldu!</div>
                     </div>
                     <div class="news-card-bottom">
-                        <span class="text-purple">23 Ocak</span><span> • 14:35 • by parafesor</span>
+                        <span class="text-purple">23 Ocak</span><span> • 14:35 • parafesor</span>
                     </div>
                 </div>
                 <div class="card news-card news-card-small mt-4 ">
@@ -1199,7 +1199,7 @@
                         <div class="news-card-img-text bg-light-grey">2050'de Dünyaya Hükmedecek Ülkeler Belli Oldu!</div>
                     </div>
                     <div class="news-card-bottom">
-                        <span class="text-purple">23 Ocak</span><span> • 14:35 • by parafesor</span>
+                        <span class="text-purple">23 Ocak</span><span> • 14:35 • parafesor</span>
                     </div>
                 </div>
                 <div class="card news-card news-card-small mt-4 ">
@@ -1208,7 +1208,7 @@
                         <div class="news-card-img-text bg-light-grey">2050'de Dünyaya Hükmedecek Ülkeler Belli Oldu!</div>
                     </div>
                     <div class="news-card-bottom">
-                        <span class="text-purple">23 Ocak</span><span> • 14:35 • by parafesor</span>
+                        <span class="text-purple">23 Ocak</span><span> • 14:35 • parafesor</span>
                     </div>
                 </div>
             </div>
@@ -1249,7 +1249,7 @@
                             <div class="tech-news-box-caption">
                             Bitcoin, Etherium ve Altcoin'lerde son durum ne? 25 Mart 2021 BTC, ETH ve XRP kaç Dolar/TL oldu?
                                 <div class="tech-text-bottom-sm text-white">
-                                    <span class="">23 Ocak</span><span> • 14:35 • by parafesor</span>
+                                    <span class="">23 Ocak</span><span> • 14:35 • parafesor</span>
                                 </div>
                             </div>
                         </div>
@@ -1262,7 +1262,7 @@
                         <div class="col-24 tech tech-md" style="background-image: url(https://cdnuploads.aa.com.tr/uploads/Contents/2021/10/28/thumbs_b_c_a1693caea49a038614b185774617bead.jpg?v=144147)"></div>
                         <div class="tech-title">Maliye Bakanlığı'ndan Kılıçdaroglu'na yanıt: Aradaki ayrımı bilmiyor
                             <div class="tech-text-bottom-sm">
-                                <span class="text-purple">23 Ocak</span><span> • 14:35 • by parafesor</span>
+                                <span class="text-purple">23 Ocak</span><span> • 14:35 • parafesor</span>
                             </div>
                         </div>
 
@@ -1271,7 +1271,7 @@
                         <div class="col-24 tech tech-md" style="background-image: url(https://iatkv.tmgrup.com.tr/876035/600/314/0/0/1200/628?u=https%3A%2F%2Fitkv.tmgrup.com.tr%2F2021%2F04%2F14%2Fucak-bileti-olan-yolcular-yasaktan-muaf-mi-seyahat-izin-belgesi-nasil-alinir-1618384131987.jpg)"></div>
                         <div class="tech-title">Maliye Bakanlığı'ndan Kılıçdaroglu'na yanıt: Aradaki ayrımı bilmiyor
                             <div class="tech-text-bottom-sm">
-                                <span class="text-purple">23 Ocak</span><span> • 14:35 • by parafesor</span>
+                                <span class="text-purple">23 Ocak</span><span> • 14:35 • parafesor</span>
                             </div>
                         </div>
 
@@ -1280,7 +1280,7 @@
                         <div class="col-24 tech tech-md" style="background-image: url({{asset('modules/home/sample/img/news/sliderNext.webp')}})"></div>
                         <div class="tech-title">Maliye Bakanlığı'ndan Kılıçdaroglu'na yanıt: Aradaki ayrımı bilmiyor
                             <div class="tech-text-bottom-sm">
-                                <span class="text-purple">23 Ocak</span><span> • 14:35 • by parafesor</span>
+                                <span class="text-purple">23 Ocak</span><span> • 14:35 • parafesor</span>
                             </div>
                         </div>
 
@@ -1341,7 +1341,7 @@
                             <div class="life-news-box-caption">
                                     Lorem f fdsfdsfdasd
                                 <div class="life-text-bottom-sm ">
-                                    <span class="">2021 • by parafesor</span>
+                                    <span class="">2021 • parafesor</span>
                                 </div>
                             </div>
                         </div>
@@ -1355,7 +1355,7 @@
                         <div class="life-news-box-caption">
                             Lorem f fdsfdsfdasd
                             <div class="life-text-bottom-sm ">
-                                <span class=""> • by parafesor</span>
+                                <span class=""> • parafesor</span>
                             </div>
                         </div>
                     </div>
@@ -1406,7 +1406,7 @@
                 <div class="col-24 life life-md" style="background-image: url(https://fdn.gsmarena.com/imgroot/news/20/10/netflix-india-free-weekend/-1200/gsmarena_001.jpg)"></div>
                 <div class="life-title">Maliye Bakanlığı'ndan Kılıçdaroglu'na yanıt: Aradaki ayrımı bilmiyor
                     <div class="life-text-bottom-sm">
-                        <span class="text-orange">23 Ocak</span><span> • 14:35 • by parafesor</span>
+                        <span class="text-orange">23 Ocak</span><span> • 14:35 • parafesor</span>
                     </div>
                 </div>
 
@@ -1415,7 +1415,7 @@
                 <div class="col-24 life life-md" style="background-image: url(https://im.haberturk.com/2021/10/11/ver1633944874/3217819_810x458.jpg)"></div>
                 <div class="life-title">Maliye Bakanlığı'ndan Kılıçdaroglu'na yanıt: Aradaki ayrımı bilmiyor
                     <div class="life-text-bottom-sm">
-                        <span class="text-orange">23 Ocak</span><span> • 14:35 • by parafesor</span>
+                        <span class="text-orange">23 Ocak</span><span> • 14:35 • parafesor</span>
                     </div>
                 </div>
 
@@ -1424,7 +1424,7 @@
                 <div class="col-24 life life-md" style="background-image: url({{asset('modules/home/sample/img/news/sliderNext.webp')}})"></div>
                 <div class="life-title">Maliye Bakanlığı'ndan Kılıçdaroglu'na yanıt: Aradaki ayrımı bilmiyor
                     <div class="life-text-bottom-sm">
-                        <span class="text-orange">23 Ocak</span><span> • 14:35 • by parafesor</span>
+                        <span class="text-orange">23 Ocak</span><span> • 14:35 • parafesor</span>
                     </div>
                 </div>
 
@@ -1433,7 +1433,7 @@
                 <div class="col-24 life life-md" style="background-image: url({{asset('modules/home/sample/img/news/sliderNext.webp')}})"></div>
                 <div class="life-title">Maliye Bakanlığı'ndan Kılıçdaroglu'na yanıt: Aradaki ayrımı bilmiyor
                     <div class="life-text-bottom-sm">
-                        <span class="text-orange">23 Ocak</span><span> • 14:35 • by parafesor</span>
+                        <span class="text-orange">23 Ocak</span><span> • 14:35 • parafesor</span>
                     </div>
                 </div>
 
@@ -1500,7 +1500,7 @@
                                 KMaliye Bakanlığı'ndan KMaliye Bakanlığı'ndan KMaliye Bakanlığı'ndan K
                             </div>
                             <div class="automobile-text-bottom">
-                                <span class="text-white">23 Ocak</span><span> • 14:35 • by parafesor</span>
+                                <span class="text-white">23 Ocak</span><span> • 14:35 • parafesor</span>
                             </div>
                         </div>
 
@@ -1517,7 +1517,7 @@
                         <div class="automobile-title">Maliye Bakanlığı'ndan Kılıçdaroglu'na yanıt: Aradaki ayrımı
                             bilmiyor
                             <div class="automobile-text-bottom-sm">
-                                <span class="text-white">23 Ocak</span><span> • 14:35 • by parafesor</span>
+                                <span class="text-white">23 Ocak</span><span> • 14:35 • parafesor</span>
                             </div>
                         </div>
 
@@ -1532,7 +1532,7 @@
                         <div class="automobile-title">Maliye Bakanlığı'ndan Kılıçdaroglu'na yanıt: Aradaki ayrımı
                             bilmiyor
                             <div class="automobile-text-bottom-sm">
-                                <span class="text-white">23 Ocak</span><span> • 14:35 • by parafesor</span>
+                                <span class="text-white">23 Ocak</span><span> • 14:35 • parafesor</span>
                             </div>
                         </div>
 
@@ -1547,7 +1547,7 @@
                         <div class="automobile-title">Maliye Bakanlığı'ndan Kılıçdaroglu'na yanıt: Aradaki ayrımı
                             bilmiyor
                             <div class="automobile-text-bottom-sm">
-                                <span class="text-white">23 Ocak</span><span> • 14:35 • by parafesor</span>
+                                <span class="text-white">23 Ocak</span><span> • 14:35 • parafesor</span>
                             </div>
                         </div>
 
@@ -1563,7 +1563,7 @@
                         <div class="automobile-title">TAYSAD Başkanı Kanca: Tofaş'ın bu kararı sürpriz oldu
                         </div>
                         <div class="automobile-text-bottom-sm">
-                            <span class="text-white">23 Ocak</span><span> • 14:35 • by parafesor</span>
+                            <span class="text-white">23 Ocak</span><span> • 14:35 • parafesor</span>
                         </div>
                     </div>
                 </div>
@@ -1577,7 +1577,7 @@
 
                         </div>
                         <div class="automobile-text-bottom-sm">
-                            <span class="text-white">23 Ocak</span><span> • 14:35 • by parafesor</span>
+                            <span class="text-white">23 Ocak</span><span> • 14:35 • parafesor</span>
                         </div>
                     </div>
 
@@ -1644,7 +1644,7 @@
                                         takımların mücadelesi
                                         <div class=" sport-text-bottom-sm">
 
-                                            <span class="text-white">23 Ocak • 14:35 • by parafesor</span>
+                                            <span class="text-white">23 Ocak • 14:35 • parafesor</span>
                                         </div>
 
                                     </div>
@@ -1666,7 +1666,7 @@
                                 <div class="tech-news-box-caption">
                                     dwadasdsad
                                     <div class="tech-text-bottom-sm text-white">
-                                        <span class="">23123 • by parafesor</span>
+                                        <span class="">23123 • parafesor</span>
                                     </div>
                                 </div>
                             </div>
@@ -1686,7 +1686,7 @@
                                         Bakanlığı'ndan K
                                     </div>
                                     <div class="card-bottom-date">
-                                        <span class="text-dark-orange">23 Ocak</span><span> • 14:35 • by parafesor</span>
+                                        <span class="text-dark-orange">23 Ocak</span><span> • 14:35 • parafesor</span>
                                     </div>
                                 </div>
                             </div>
@@ -1701,7 +1701,7 @@
                                     <div class="multilineEllipsis" multilineEllipsisMax="100">KMaliye Bakanlığı'ndan K
                                     </div>
                                     <div class="card-bottom-date">
-                                        <span class="text-dark-orange">23 Ocak</span><span> • 14:35 • by parafesor</span>
+                                        <span class="text-dark-orange">23 Ocak</span><span> • 14:35 • parafesor</span>
                                     </div>
                                 </div>
                             </div>
@@ -1719,7 +1719,7 @@
                                         Bakanlığı'ndan K
                                     </div>
                                     <div class="card-bottom-date">
-                                        <span class="text-dark-orange">23 Ocak</span><span> • 14:35 • by parafesor</span>
+                                        <span class="text-dark-orange">23 Ocak</span><span> • 14:35 • parafesor</span>
                                     </div>
                                 </div>
                             </div>
@@ -1740,7 +1740,7 @@
                                 Bakanlığı'ndan KMaliye Bakanlığı'ndan KMaliye Bakanlığı'ndan KMaliye Bakanlığı'ndan K
                             </div>
                             <div class="card-bottom-date">
-                                <span class="text-dark-orange">23 Ocak</span><span> • 14:35 • by parafesor</span>
+                                <span class="text-dark-orange">23 Ocak</span><span> • 14:35 • parafesor</span>
                             </div>
                         </div>
 
@@ -1758,7 +1758,7 @@
                                 KMaliye Bakanlığı'ndan KMaliye Bakanlığı'ndan KMaliye Bakanlığı'ndan K
                             </div>
                             <div class="card-bottom-date">
-                                <span class="text-dark-orange">23 Ocak</span><span> • 14:35 • by parafesor</span>
+                                <span class="text-dark-orange">23 Ocak</span><span> • 14:35 • parafesor</span>
                             </div>
                         </div>
 
@@ -1776,7 +1776,7 @@
                                 KMaliye Bakanlığı'ndan KMaliye Bakanlığı'ndan KMaliye Bakanlığı'ndan K
                             </div>
                             <div class="card-bottom-date">
-                                <span class="text-dark-orange">23 Ocak</span><span> • 14:35 • by parafesor</span>
+                                <span class="text-dark-orange">23 Ocak</span><span> • 14:35 • parafesor</span>
                             </div>
                         </div>
 
@@ -1946,7 +1946,7 @@
                             <div class="crypto-news-box-caption text-white">
                                 Lorem f fdsfdsfdasd
                                 <div class="life-text-bottom-sm text-white ">
-                                    <span class="">2021 • by parafesor</span>
+                                    <span class="">2021 • parafesor</span>
                                 </div>
                             </div>
                         </div>
@@ -1961,7 +1961,7 @@
                             <div class="crypto-news-box-caption text-white">
                                 Lorem f fdsfdsfdasd
                                 <div class="life-text-bottom-sm text-white">
-                                    <span class="">2021 • by parafesor</span>
+                                    <span class="">2021 • parafesor</span>
                                 </div>
                             </div>
                         </div>
@@ -1979,7 +1979,7 @@
                                         </div>
                                         <div class="crypto-text-bottom">
                                     <span
-                                        class="text-white">{{ Carbon\Carbon::parse($article->created_at)->format('d F')}}</span><span> • {{ Carbon\Carbon::parse($article->created_at)->format('H:m')}} • by parafesor</span>
+                                        class="text-white">{{ Carbon\Carbon::parse($article->created_at)->format('d F')}}</span><span> • {{ Carbon\Carbon::parse($article->created_at)->format('H:m')}} • parafesor</span>
                                         </div>
                                     </div>
 
@@ -1999,7 +1999,7 @@
                                 <div class="crypto-title text-black">{{$article->title}}
                                 </div>
                                 <div class="crypto-text-bottom-sm">
-                                    <span class="text-black">{{ Carbon\Carbon::parse($article->created_at)->format('d F')}} • {{ Carbon\Carbon::parse($article->created_at)->format('H:m')}} • by parafesor</span>
+                                    <span class="text-black">{{ Carbon\Carbon::parse($article->created_at)->format('d F')}} • {{ Carbon\Carbon::parse($article->created_at)->format('H:m')}} • parafesor</span>
                                 </div>
                             </div>
                             <div class="col-10"
@@ -2016,7 +2016,7 @@
                                 <div class="crypto-title text-black">{{$article->title}}
                                 </div>
                                 <div class="crypto-text-bottom-sm">
-                                    <span class="text-black">{{ Carbon\Carbon::parse($article->created_at)->format('d F')}} • {{ Carbon\Carbon::parse($article->created_at)->format('H:m')}} • by parafesor</span>
+                                    <span class="text-black">{{ Carbon\Carbon::parse($article->created_at)->format('d F')}} • {{ Carbon\Carbon::parse($article->created_at)->format('H:m')}} • parafesor</span>
                                 </div>
                             </div>
 
@@ -2035,7 +2035,7 @@
                                     <div class="crypto-title">{{$article->title}}
                                         <div class="crypto-text-bottom-sm">
                                     <span
-                                        class="text-white">{{ Carbon\Carbon::parse($article->created_at)->format('d F')}}</span><span> • {{ Carbon\Carbon::parse($article->created_at)->format('H:m')}} • by parafesor</span>
+                                        class="text-white">{{ Carbon\Carbon::parse($article->created_at)->format('d F')}}</span><span> • {{ Carbon\Carbon::parse($article->created_at)->format('H:m')}} • parafesor</span>
                                         </div>
                                     </div>
 
@@ -2075,7 +2075,7 @@
                                                 {{ \Illuminate\Support\Str::limit($article->summary, 100, $end='...') }}
                                             </div>
                                             <div class="tech-text-bottom-sm text-white">
-                                                <span class="">23 Ocak</span><span> • 14:35 • by parafesor</span>
+                                                <span class="">23 Ocak</span><span> • 14:35 • parafesor</span>
                                             </div>
                                         </div>
                                     </div>
@@ -2111,7 +2111,7 @@
                                         </div>
                                         <div class="share-recommendation-news-text-bottom">
                                <span
-                                   class="text-danger">{{ Carbon\Carbon::parse($article->created_at)->format('d F')}}</span><span> • {{ Carbon\Carbon::parse($article->created_at)->format('H:m')}} • by parafesor</span>
+                                   class="text-danger">{{ Carbon\Carbon::parse($article->created_at)->format('d F')}}</span><span> • {{ Carbon\Carbon::parse($article->created_at)->format('H:m')}} • parafesor</span>
                                         </div>
                                     </div>
                                 </a>
@@ -2137,7 +2137,7 @@
                                 </div>
                                 <div class="company-bottom">
                           <span
-                              class="text-danger">{{ Carbon\Carbon::parse($article->created_at)->format('d F')}}</span><span> • {{ Carbon\Carbon::parse($article->created_at)->format('H:m')}} • by parafesor</span>
+                              class="text-danger">{{ Carbon\Carbon::parse($article->created_at)->format('d F')}}</span><span> • {{ Carbon\Carbon::parse($article->created_at)->format('H:m')}} • parafesor</span>
                                 </div>
                             </div>
                         </a>

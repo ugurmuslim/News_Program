@@ -30,7 +30,7 @@
                                     </div>
                                     <div class="news-card-bottom">
                                     <span
-                                        class="text-danger">{{ Carbon\Carbon::parse($article->created_at)->formatLocalized('%d de %B %Y')}}</span><span> • {{ Carbon\Carbon::parse($article->created_at)->format('H:m')}} • by parafesor</span>
+                                        class="text-danger">{{ Carbon\Carbon::parse($article->created_at)->formatLocalized('%d de %B %Y')}}</span><span> • {{ Carbon\Carbon::parse($article->created_at)->format('H:m')}} • parafesor</span>
                                     </div>
 
                                 </div>
@@ -92,7 +92,7 @@
                                         </div>
                                         <div class="news-card-bottom">
                                     <span
-                                        class="text-danger">{{ Carbon\Carbon::parse($article->created_at)->format('d F')}}</span><span> • {{ Carbon\Carbon::parse($article->created_at)->format('H:m')}} • by parafesor</span>
+                                        class="text-danger">{{ Carbon\Carbon::parse($article->created_at)->format('d F')}}</span><span> • {{ Carbon\Carbon::parse($article->created_at)->format('H:m')}} • parafesor</span>
                                         </div>
                                     </div>
                                 </a>
@@ -113,7 +113,7 @@
                                     </div>
                                     <div class="news-card-bottom">
                                     <span
-                                        class="text-danger">{{ Carbon\Carbon::parse($article->created_at)->format('d F')}}</span><span> • {{ Carbon\Carbon::parse($article->created_at)->format('H:m')}} • by parafesor</span>
+                                        class="text-danger">{{ Carbon\Carbon::parse($article->created_at)->format('d F')}}</span><span> • {{ Carbon\Carbon::parse($article->created_at)->format('H:m')}} • parafesor</span>
                                     </div>
                                 </div>
                             </a>

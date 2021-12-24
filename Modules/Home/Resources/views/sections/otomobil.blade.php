@@ -33,7 +33,7 @@
                                                 <span
                                                     class="text-white bg-black">{{ Carbon\Carbon::parse($article->created_at)->format('d F') }}
                                                     • {{ Carbon\Carbon::parse($article->created_at)->format('H:m') }} •
-                                                    by parafesor</span>
+                                                    parafesor</span>
                                             </div>
                                         </div>
                                     </div>
