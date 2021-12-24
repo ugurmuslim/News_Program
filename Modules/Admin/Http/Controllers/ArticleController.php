@@ -196,6 +196,11 @@ class ArticleController extends Controller
      */
     public function store(Request $request): \Illuminate\Http\RedirectResponse
     {
+        Log::debug(json_encode([
+            'type'     => 'Article Object',
+            'request' => Request::except(['image1']),
+        ]));
+
         $validator = Validator::make(\Illuminate\Support\Facades\Request::all(), [
             'Title'    => 'required|string',
             'Body'     => 'required|string',
@@ -224,7 +229,7 @@ class ArticleController extends Controller
             }
         }
         $articleType = ArticleType::find(Request::input('ArticleTypeId'));
-        Log::warning(json_encode([
+        Log::debug(json_encode([
             'type'         => 'Article Started',
             'article_type' => $articleType->title,
             'user_id'      => Auth::user()->id,
@@ -238,7 +243,7 @@ class ArticleController extends Controller
         $imageDimensions = json_decode($articleType->image_dimensions, true);
         if ($articleType->id != ArticleTypes::SirketHaberleri) {
             if (Request::hasFile('image')) {
-                Log::warning(json_encode([
+                Log::debug(json_encode([
                     'type'         => 'Image Saving',
                     'article_type' => $articleType->title,
                     'user_id'      => Auth::user()->id,
@@ -281,7 +286,7 @@ class ArticleController extends Controller
         $article->sort = 1;
         $article->seo_keywords = Request::input('SeoKeywords');
         $article->article_date = Request::input('ArticleDate');
-        Log::warning(json_encode([
+        Log::debug(json_encode([
             'type'         => 'Article Saving',
             'article_type' => $articleType->title,
             'user_id'      => Auth::user()->id,
@@ -291,11 +296,20 @@ class ArticleController extends Controller
             $article->save();
             ArticleHelper::updateCache([ $articleType->id ]);
         } catch (\Exception $e) {
+            Log::error(json_encode([
+                'type' => 'Article Save Error',
+                'message' => $e->getMessage()
+            ]));
             Session::flash('error', $e->getMessage());
             return back();
         }
 
-
+        Log::debug(json_encode([
+            'type'         => 'Article Saved',
+            'article_type' => $articleType->title,
+            'user_id'      => Auth::user()->id,
+            'user_name'    => Auth::user()->name,
+        ]));
         Session::flash('success', "Başarı ile yaratıldı");
         return back();
 
