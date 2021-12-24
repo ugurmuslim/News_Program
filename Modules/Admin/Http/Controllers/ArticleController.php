@@ -10,9 +10,11 @@ use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Str;
 use Intervention\Image\Facades\Image;
 use Modules\Admin\Entities\Article;
 use Modules\Admin\Entities\ArticleType;
@@ -231,6 +233,14 @@ class ArticleController extends Controller
         $imageDimensions = json_decode($articleType->image_dimensions, true);
         if ($articleType->id != ArticleTypes::SirketHaberleri) {
             if (Request::hasFile('image')) {
+                if (in_array(Auth::user()->id, [ 8, 17 ])) {
+                    Log::warning(json_encode([
+                        'user_id'   => Auth::user()->id,
+                        'user_name' => Auth::user()->name,
+                        'image'     => Request::input('image'),
+                        'image1'    => Str::limit(Request::input('image1'), 20, $end = '...'),
+                    ]));
+                }
                 $image_parts = explode(";base64,", Request::input('image1'));
                 $image_type_aux = explode("image/", $image_parts[0]);
                 $image_type = $image_type_aux[1];

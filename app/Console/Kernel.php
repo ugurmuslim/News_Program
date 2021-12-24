@@ -33,7 +33,7 @@ class Kernel extends ConsoleKernel
         $schedule->command("feed:parser")->everyFiveMinutes();
         $schedule->command("youtube:crawl")->hourly();
         $schedule->command("article:cache")->everyMinute();
-        $schedule->command("twitter:scrape")->everyFifteenMinutes();
+//        $schedule->command("twitter:scrape")->everyFifteenMinutes();
 
         // $schedule->command('inspire')->hourly();
     }
