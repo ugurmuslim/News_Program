@@ -80,7 +80,7 @@
                                     <div class="tech-news-box-image"
                                          style="background-image: url({{asset($article->image_path)}})"></div>
                                     <div class="tech-news-box-caption">
-                                        {{ \Illuminate\Support\Str::limit($article->title, 100, $end='...') }}
+                                        <p>{{$article->title}}</p>
 
                                         <div class="tech-text-bottom-sm text-white">
                                                 <span
@@ -98,7 +98,7 @@
                             <a href="{{route('article.show',['slug' => $article->slug ])}}">
                                 <div class="col-24 tech tech-md"
                                      style="background-image: url({{asset($article->image_path)}})"></div>
-                                <div class="tech-title">{{$article->title}}
+                                <div class="tech-title"><p>{{$article->title}}</p>
                                     <div class="tech-text-bottom-sm">
                                     <span
                                         class="text-purple">{{ Date::parse($article->created_at)->format('j F') }}</span><span> • {{ Carbon\Carbon::parse($article->created_at)->format('H:m')}} • parafesor</span>

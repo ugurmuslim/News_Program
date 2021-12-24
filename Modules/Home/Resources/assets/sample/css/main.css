@@ -161,6 +161,8 @@ a:hover {
 .life-second-image-caption p,
 .life-news-box-caption p,
 .automobile-title p,
+.tech-news-box-caption p,
+.tech-title p,
 .article-text-title p,
 .life-title p {
     display: -webkit-box;
@@ -171,6 +173,7 @@ a:hover {
 
 .news-card-body p,
 .company-text p,
+.tech-news-box-caption p,
 #mainSliderCaption p {
     -webkit-line-clamp: 4 !important;
 }
