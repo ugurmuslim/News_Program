@@ -127,15 +127,19 @@
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
                 </svg>
             </button>
+
             <a href="{{ route('home.indextest') }}" class="header__nav__logo">
                 <img src="{{ URL::asset('modules/home/sample/img/logo-dark.svg') }}" alt="Header Logo" width="226"
                     height="54">
             </a>
-            <svg xmlns="http://www.w3.org/2000/svg" style="width: 24; height: 24;" fill="none" viewBox="0 0 24 24"
-                stroke="black">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-            </svg>
+
+            <button class="menu__button">
+                <svg xmlns="http://www.w3.org/2000/svg" style="width: 24; height: 24;" fill="none" viewBox="0 0 24 24"
+                    stroke="black">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                </svg>
+            </button>
 
             <div id="drawer-nav" class="drawer__navigation" style="display: none;">
                 <div
