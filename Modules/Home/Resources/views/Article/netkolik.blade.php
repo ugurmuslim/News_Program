@@ -18,7 +18,7 @@
                                     </div>
                                     <div class="card-bottom-date">
                                     <span
-                                        class="text-dark-orange">{{Carbon\Carbon::parse($article->created_at)->format('d F')}}</span><span> • {{ Carbon\Carbon::parse($article->created_at)->format('H:m')}} • parafesor</span>
+                                        class="text-dark-orange">{{Date::parse($article->created_at)->format('j F')}}</span><span> • {{ Carbon\Carbon::parse($article->created_at)->format('H:m')}} • parafesor</span>
                                     </div>
                                 </div>
 

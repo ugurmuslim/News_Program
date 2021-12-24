@@ -103,7 +103,7 @@
                                 <div class="internet-news-box-caption">
                                     {{$article->title}}
                                     <div class="tech-text-bottom-sm">
-                                        <span class="">{{ Carbon\Carbon::parse($article->created_at)->format('d F')}} • {{ Carbon\Carbon::parse($article->created_at)->format('H:m')}} • parafesor</span>
+                                        <span class="">{{ Date::parse($article->created_at)->format('j F')}} • {{ Carbon\Carbon::parse($article->created_at)->format('H:m')}} • parafesor</span>
                                     </div>
                                 </div>
                             </div>
@@ -126,7 +126,7 @@
                                             </div>
                                             <div class="card-bottom-date">
                                         <span
-                                            class="text-dark-orange">{{ Carbon\Carbon::parse($article->created_at)->format('d F')}}</span><span> • {{ Carbon\Carbon::parse($article->created_at)->format('H:m')}} • parafesor</span>
+                                            class="text-dark-orange">{{ Date::parse($article->created_at)->format('j F')}}</span><span> • {{ Carbon\Carbon::parse($article->created_at)->format('H:m')}} • parafesor</span>
                                             </div>
                                         </div>
                                     </div>
@@ -151,7 +151,7 @@
                                     </div>
                                     <div class="card-bottom-date">
                                     <span
-                                        class="text-dark-orange">{{Carbon\Carbon::parse($article->created_at)->format('d F')}}</span><span> • {{ Carbon\Carbon::parse($article->created_at)->format('H:m')}} • parafesor</span>
+                                        class="text-dark-orange">{{Date::parse($article->created_at)->format('j F')}}</span><span> • {{ Carbon\Carbon::parse($article->created_at)->format('H:m')}} • parafesor</span>
                                     </div>
                                 </div>
 

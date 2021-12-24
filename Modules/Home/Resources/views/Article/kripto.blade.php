@@ -16,7 +16,7 @@
                                     {{ \Illuminate\Support\Str::limit($article->title, 70, $end='...') }}
                                     <div class="crypto-text-bottom-sm">
                                     <span
-                                        class="text-white">{{ Carbon\Carbon::parse($article->created_at)->format('d F')}}</span><span> • {{ Carbon\Carbon::parse($article->created_at)->format('H:m')}} • parafesor</span>
+                                        class="text-white">{{ Date::parse($article->created_at)->format('j F')}}</span><span> • {{ Carbon\Carbon::parse($article->created_at)->format('H:m')}} • parafesor</span>
                                     </div>
                                 </div>
 

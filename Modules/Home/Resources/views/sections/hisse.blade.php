@@ -85,7 +85,7 @@
                                     </div>
                                     <div class="share-recommendation-news-text-bottom">
                                <span
-                                   style="color: #A2A2A2">{{ Carbon\Carbon::parse($article->created_at)->format('d F')}}</span><span> • {{ Carbon\Carbon::parse($article->created_at)->format('H:m')}} • parafesor</span>
+                                   style="color: #A2A2A2">{{ Date::parse($article->created_at)->format('j F')}}</span><span> • {{ Carbon\Carbon::parse($article->created_at)->format('H:m')}} • parafesor</span>
                                     </div>
                                 </div>
                             </a>
@@ -114,7 +114,7 @@
                                 </div>
                                 <div class="share-recommendation-bottom mt-3">
                           <span
-                              class="text-black">{{ Carbon\Carbon::parse($article->created_at)->format('d F')}}</span><span> • {{ Carbon\Carbon::parse($article->created_at)->format('H:m')}} • parafesor</span>
+                              class="text-black">{{ Date::parse($article->created_at)->format('j F')}}</span><span> • {{ Carbon\Carbon::parse($article->created_at)->format('H:m')}} • parafesor</span>
                                 </div>
                             </div>
                         </div>

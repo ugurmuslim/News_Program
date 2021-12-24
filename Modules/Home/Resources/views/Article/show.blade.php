@@ -27,7 +27,7 @@
                 </div>
                 <div class="news-card-bottom mt-5">
             <span
-                class="text-danger">{{ Carbon\Carbon::parse($article->created_at)->format('d F')}}</span><span> • {{ Carbon\Carbon::parse($article->created_at)->format('H:m')}} • parafesor</span>
+                class="text-danger">{{ Date::parse($article->created_at)->format('j F')}}</span><span> • {{ Carbon\Carbon::parse($article->created_at)->format('H:m')}} • parafesor</span>
                 </div>
                 <div class="row mt-5">
                     {!! $article->body !!}
