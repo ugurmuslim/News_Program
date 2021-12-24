@@ -291,7 +291,7 @@ class ArticleController extends Controller
             $article->save();
             ArticleHelper::updateCache([ $articleType->id ]);
         } catch (\Exception $e) {
-            Session::flash('error', $e->getMessage()et);
+            Session::flash('error', $e->getMessage());
             return back();
         }
 
