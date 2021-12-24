@@ -224,7 +224,12 @@ class ArticleController extends Controller
             }
         }
         $articleType = ArticleType::find(Request::input('ArticleTypeId'));
-
+        Log::warning(json_encode([
+            'type'         => 'Article Started',
+            'article_type' => $articleType->title,
+            'user_id'      => Auth::user()->id,
+            'user_name'    => Auth::user()->name,
+        ]));
         if (!Request::input('sameImage') && Request::input('savedImage') && !Request::hasFile('image') && $articleType->id != ArticleTypes::SirketHaberleri) {
             Session::flash('error', "Görsel seçmediniz halihazırdaki görseli de kullanmayacaksınız");
             return back()->withInput(Request::all());
@@ -233,14 +238,14 @@ class ArticleController extends Controller
         $imageDimensions = json_decode($articleType->image_dimensions, true);
         if ($articleType->id != ArticleTypes::SirketHaberleri) {
             if (Request::hasFile('image')) {
-                if (in_array(Auth::user()->id, [ 8, 17 ])) {
-                    Log::warning(json_encode([
-                        'user_id'   => Auth::user()->id,
-                        'user_name' => Auth::user()->name,
-                        'image'     => Request::input('image'),
-                        'image1'    => Str::limit(Request::input('image1'), 20, $end = '...'),
-                    ]));
-                }
+                Log::warning(json_encode([
+                    'type'         => 'Image Saving',
+                    'article_type' => $articleType->title,
+                    'user_id'      => Auth::user()->id,
+                    'user_name'    => Auth::user()->name,
+                    'image'        => Request::input('image'),
+                    'image1'       => Str::limit(Request::input('image1'), 20, $end = '...'),
+                ]));
                 $image_parts = explode(";base64,", Request::input('image1'));
                 $image_type_aux = explode("image/", $image_parts[0]);
                 $image_type = $image_type_aux[1];
@@ -276,10 +281,20 @@ class ArticleController extends Controller
         $article->sort = 1;
         $article->seo_keywords = Request::input('SeoKeywords');
         $article->article_date = Request::input('ArticleDate');
-        $article->save();
+        Log::warning(json_encode([
+            'type'         => 'Article Saving',
+            'article_type' => $articleType->title,
+            'user_id'      => Auth::user()->id,
+            'user_name'    => Auth::user()->name,
+        ]));
+        try {
+            $article->save();
+            ArticleHelper::updateCache([ $articleType->id ]);
+        } catch (\Exception $e {
+            Session::flash('error', $e->getMessage()et);
+            return back();
+        }
 
-
-        ArticleHelper::updateCache([ $articleType->id ]);
 
         Session::flash('success', "Başarı ile yaratıldı");
         return back();
