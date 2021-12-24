@@ -208,6 +208,10 @@ class ArticleController extends Controller
         ]);
 
         if ($validator->fails()) {
+            Log::debug(json_encode([
+                'type'     => 'Article validation error',
+                'request' => $validator->errors(),
+            ]));
             Session::flash('error', $validator->errors());
             return back()->withInput(Request::all());
         }
