@@ -129,7 +129,7 @@ class ArticleController extends Controller
             return back();
         }
 
-        if ($articleType->id == ArticleTypes::SirketHaberleri && !Request::input('CompanyId')) {
+        if (($articleType->id == ArticleTypes::SirketHaberleri || $articleType->id == ArticleTypes::Hisse) && !Request::input('CompanyId')) {
             Session::flash('error', "Şirket Seçmeniz lazım!!");
             return back();
 
@@ -270,7 +270,7 @@ class ArticleController extends Controller
             }
         }
 
-        if ($articleType->id == ArticleTypes::SirketHaberleri) {
+        if ($articleType->id == ArticleTypes::SirketHaberleri || $articleType->id == ArticleTypes::Hisse ) {
             if (!Request::input('CompanyId')) {
                 Log::debug(json_encode([
                     'type'    => 'Article validation error',

@@ -121,7 +121,6 @@
             contentType: false,
             processData: false,
             success: function (response) {
-                console.log(response)
                 var w = window.open();
                 $(w.document.body).html(response.html);
             },
@@ -163,13 +162,13 @@
 
     $('#category').on('change', function () {
         let categoryVal = $("#category").val();
-        if(categoryVal == 1) {
+        if(categoryVal == {{\App\Parafesor\Constants\ArticleTypes::GUNDEM}}) {
             $("#SecondSlider").css("display", "")
         } else {
             $("#SecondSlider").css("display", "none")
         }
-
-        if(categoryVal == {{\App\Parafesor\Constants\ArticleTypes::SirketHaberleri}}) {
+        console.log("Category:" +   categoryVal);
+        if(categoryVal == {{\App\Parafesor\Constants\ArticleTypes::SirketHaberleri}} || categoryVal == {{\App\Parafesor\Constants\ArticleTypes::Hisse}} ) {
             $("#companySelect").css("display", "")
         } else {
             $("#companySelect").css("display", "none")
@@ -181,7 +180,6 @@
     let categoryVal = $("#category").val();
 
     function getDimensions(categoryVal) {
-        console.log(categoryVal)
         $.ajax({
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
