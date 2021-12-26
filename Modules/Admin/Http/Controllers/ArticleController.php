@@ -129,7 +129,7 @@ class ArticleController extends Controller
             return back();
         }
 
-        if (($articleType->id == ArticleTypes::SirketHaberleri || $articleType->id == ArticleTypes::Hisse) && !Request::input('CompanyId')) {
+        if (( $articleType->id == ArticleTypes::SirketHaberleri || $articleType->id == ArticleTypes::Hisse ) && !Request::input('CompanyId')) {
             Session::flash('error', "Şirket Seçmeniz lazım!!");
             return back();
 
@@ -196,6 +196,7 @@ class ArticleController extends Controller
      */
     public function store(Request $request): \Illuminate\Http\RedirectResponse
     {
+
         Log::debug(json_encode([
             'type'    => 'Article Object',
             'request' => Request::except([ 'image1' ]),
@@ -234,78 +235,79 @@ class ArticleController extends Controller
         }
         $articleType = ArticleType::find(Request::input('ArticleTypeId'));
 
-        if (!Request::input('sameImage') && Request::input('savedImage') && !Request::hasFile('image') && $articleType->id != ArticleTypes::SirketHaberleri) {
-            Log::debug(json_encode([
-                'type'      => 'Article Started',
-                'message'   => "Image is not inserted",
-                'user_id'   => Auth::user()->id,
-                'user_name' => Auth::user()->name,
-            ]));
-            Session::flash('error', "Görsel seçmediniz halihazırdaki görseli de kullanmayacaksınız");
-            return back()->withInput(Request::all());
-        }
-
-        $imageDimensions = json_decode($articleType->image_dimensions, true);
-        if ($articleType->id != ArticleTypes::SirketHaberleri) {
-            if (Request::hasFile('image')) {
+        try {
+            if (!Request::input('sameImage') && Request::input('savedImage') && !Request::hasFile('image') && $articleType->id != ArticleTypes::SirketHaberleri) {
                 Log::debug(json_encode([
-                    'type'         => 'Image Saving',
-                    'article_type' => $articleType->title,
-                    'user_id'      => Auth::user()->id,
-                    'user_name'    => Auth::user()->name,
-                    'image'        => Request::input('image'),
-                    'image1'       => Str::limit(Request::input('image1'), 20, $end = '...'),
+                    'type'      => 'Article Started',
+                    'message'   => "Image is not inserted",
+                    'user_id'   => Auth::user()->id,
+                    'user_name' => Auth::user()->name,
                 ]));
-                $image_parts = explode(";base64,", Request::input('image1'));
-                $image_type_aux = explode("image/", $image_parts[0]);
-                $image_type = $image_type_aux[1];
-                $image_base64 = base64_decode($image_parts[1]);
-                $file = "images/" . uniqid() . '.webp';
-
-                if (Request::input('PlacementSection')) {
-                    Image::make($image_base64)->encode('webp', 90)->resize($imageDimensions[Request::input('PlacementSection')]['width'], $imageDimensions[Request::input('PlacementSection')]['height'])->save($file);
-                }
-
-                $article->image_path = $file;
-            }
-        }
-
-        if ($articleType->id == ArticleTypes::SirketHaberleri || $articleType->id == ArticleTypes::Hisse ) {
-            if (!Request::input('CompanyId')) {
-                Log::debug(json_encode([
-                    'type'    => 'Article validation error',
-                    'request' => "Company should be selected",
-                ]));
-                Session::flash('error', "Şirket seçilmeli");
+                Session::flash('error', "Görsel seçmediniz halihazırdaki görseli de kullanmayacaksınız");
                 return back()->withInput(Request::all());
             }
-            $company = Company::find(Request::input('CompanyId'));
-            $article->image_path = $company->image_path;
-        }
-        $article->title = Request::input('Title');
-        $article->body = Request::input('Body');
-        $article->status = ArticleStatus::PUBLISHED;
-        $article->article_type_id = Request::input('ArticleTypeId');
-        $article->show_case = Request::input('PlacementSection');
-        $article->header_slider = Request::input('HeaderSection');
-        $article->persistent = Request::input('PersistentSection');
-        $article->summary = Request::input('Description');
-        $article->start_date = Request::input('StartedOn');
-        $article->end_date = Request::input('EndOn');
-        $article->editor_id = Auth::user()->id;
-        $article->slug = str_slug(Request::input('Title'), "-");;
-        $article->seo_title = Request::input('SeoTitle');
-        $article->seo_description = Request::input('SeoDescription');
-        $article->sort = 1;
-        $article->seo_keywords = Request::input('SeoKeywords');
-        $article->article_date = Request::input('ArticleDate');
-        Log::debug(json_encode([
-            'type'         => 'Article Saving',
-            'article_type' => $articleType->title,
-            'user_id'      => Auth::user()->id,
-            'user_name'    => Auth::user()->name,
-        ]));
-        try {
+
+            $imageDimensions = json_decode($articleType->image_dimensions, true);
+            if ($articleType->id != ArticleTypes::SirketHaberleri) {
+                if (Request::hasFile('image')) {
+                    Log::debug(json_encode([
+                        'type'         => 'Image Saving',
+                        'article_type' => $articleType->title,
+                        'user_id'      => Auth::user()->id,
+                        'user_name'    => Auth::user()->name,
+                        'image'        => Request::input('image'),
+                        'image1'       => Str::limit(Request::input('image1'), 20, $end = '...'),
+                    ]));
+                    $image_parts = explode(";base64,", Request::input('image1'));
+                    $image_type_aux = explode("image/", $image_parts[0]);
+                    $image_type = $image_type_aux[1];
+                    $image_base64 = base64_decode($image_parts[1]);
+                    $file = "images/" . uniqid() . '.webp';
+
+                    if (Request::input('PlacementSection')) {
+                        Image::make($image_base64)->encode('webp', 90)->resize($imageDimensions[Request::input('PlacementSection')]['width'], $imageDimensions[Request::input('PlacementSection')]['height'])->save($file);
+                    }
+
+                    $article->image_path = $file;
+                }
+            }
+
+            if ($articleType->id == ArticleTypes::SirketHaberleri || $articleType->id == ArticleTypes::Hisse) {
+                if (!Request::input('CompanyId')) {
+                    Log::debug(json_encode([
+                        'type'    => 'Article validation error',
+                        'request' => "Company should be selected",
+                    ]));
+                    Session::flash('error', "Şirket seçilmeli");
+                    return back()->withInput(Request::all());
+                }
+                $company = Company::find(Request::input('CompanyId'));
+                $article->image_path = $company->image_path;
+            }
+            $article->title = Request::input('Title');
+            $article->body = Request::input('Body');
+            $article->status = ArticleStatus::PUBLISHED;
+            $article->article_type_id = Request::input('ArticleTypeId');
+            $article->show_case = Request::input('PlacementSection');
+            $article->header_slider = Request::input('HeaderSection');
+            $article->persistent = Request::input('PersistentSection');
+            $article->summary = Request::input('Description');
+            $article->start_date = Request::input('StartedOn');
+            $article->end_date = Request::input('EndOn');
+            $article->editor_id = Auth::user()->id;
+            $article->slug = str_slug(Request::input('Title'), "-");;
+            $article->seo_title = Request::input('SeoTitle');
+            $article->seo_description = Request::input('SeoDescription');
+            $article->sort = 1;
+            $article->seo_keywords = Request::input('SeoKeywords');
+            $article->article_date = Request::input('ArticleDate');
+            Log::debug(json_encode([
+                'type'         => 'Article Saving',
+                'article_type' => $articleType->title,
+                'user_id'      => Auth::user()->id,
+                'user_name'    => Auth::user()->name,
+            ]));
+
             $article->save();
             ArticleHelper::updateCache([ $articleType->id ]);
         } catch (\Exception $e) {

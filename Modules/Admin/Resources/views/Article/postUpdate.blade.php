@@ -441,7 +441,7 @@
                                                     value="{{$article->article_type_id}}">{{$article->articleType->title}}</option>
                                             @endif
                                             @foreach($articleTypes as $type)
-                                                <option value={{$type->id}}>{{$type->title }}</option>
+                                                <option value={{$type->id}} disabled>{{$type->title }}</option>
                                             @endforeach
                                         </select>
                                     </div>
@@ -457,7 +457,7 @@
                                                     value="{{$article->company_id}}">{{$article->company->title}}</option>
                                             @endif
                                             @foreach($companies as $company)
-                                                <option value={{$company->id}}>{{$company->title }}</option>
+                                                <option value={{$company->id}} disabled>{{$company->title }}</option>
                                             @endforeach
                                         </select>
                                     </div>
@@ -631,7 +631,7 @@
                                               placeholder="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum enim mi, laoreet sed ultrices vitae, dapibus vitae arcu. Praesent non massa lobortis, pharetra tortor ut, fermentum magna."
                                               maxlength="1000"
                                               required="required"
-                                              autocomplete="off">{{isset($article) ? $article->seo_description : old('SeoDescription')}}</textarea>
+                                              autocomplete="off">{{old('SeoDescription') ? (isset($article) ? $article->seo_description : "") : ""}}</textarea>
                                 </div>
 
                                 <div class="col-md-3 form-group">
