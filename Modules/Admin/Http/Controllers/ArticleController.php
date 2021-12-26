@@ -197,8 +197,8 @@ class ArticleController extends Controller
     public function store(Request $request): \Illuminate\Http\RedirectResponse
     {
         Log::debug(json_encode([
-            'type'     => 'Article Object',
-            'request' => Request::except(['image1']),
+            'type'    => 'Article Object',
+            'request' => Request::except([ 'image1' ]),
         ]));
 
         $validator = Validator::make(\Illuminate\Support\Facades\Request::all(), [
@@ -209,7 +209,7 @@ class ArticleController extends Controller
 
         if ($validator->fails()) {
             Log::debug(json_encode([
-                'type'     => 'Article validation error',
+                'type'    => 'Article validation error',
                 'request' => $validator->errors(),
             ]));
             Session::flash('error', $validator->errors());
@@ -233,13 +233,14 @@ class ArticleController extends Controller
             }
         }
         $articleType = ArticleType::find(Request::input('ArticleTypeId'));
-        Log::debug(json_encode([
-            'type'         => 'Article Started',
-            'article_type' => $articleType->title,
-            'user_id'      => Auth::user()->id,
-            'user_name'    => Auth::user()->name,
-        ]));
+
         if (!Request::input('sameImage') && Request::input('savedImage') && !Request::hasFile('image') && $articleType->id != ArticleTypes::SirketHaberleri) {
+            Log::debug(json_encode([
+                'type'      => 'Article Started',
+                'message'   => "Image is not inserted",
+                'user_id'   => Auth::user()->id,
+                'user_name' => Auth::user()->name,
+            ]));
             Session::flash('error', "Görsel seçmediniz halihazırdaki görseli de kullanmayacaksınız");
             return back()->withInput(Request::all());
         }
@@ -270,6 +271,14 @@ class ArticleController extends Controller
         }
 
         if ($articleType->id == ArticleTypes::SirketHaberleri) {
+            if (!Request::input('CompanyId')) {
+                Log::debug(json_encode([
+                    'type'    => 'Article validation error',
+                    'request' => "Company should be selected",
+                ]));
+                Session::flash('error', "Şirket seçilmeli");
+                return back()->withInput(Request::all());
+            }
             $company = Company::find(Request::input('CompanyId'));
             $article->image_path = $company->image_path;
         }
@@ -301,8 +310,8 @@ class ArticleController extends Controller
             ArticleHelper::updateCache([ $articleType->id ]);
         } catch (\Exception $e) {
             Log::error(json_encode([
-                'type' => 'Article Save Error',
-                'message' => $e->getMessage()
+                'type'    => 'Article Save Error',
+                'message' => $e->getMessage(),
             ]));
             Session::flash('error', $e->getMessage());
             return back();

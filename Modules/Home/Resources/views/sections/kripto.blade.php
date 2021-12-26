@@ -47,16 +47,16 @@
                 $persistent = count($articles["Kripto"][\App\Parafesor\Constants\CategorySectionTypes::PERSISTENT]) > 0;
                 if($persistent) {
                     $kriptoArticles = $articles["Kripto"][\App\Parafesor\Constants\CategorySectionTypes::PERSISTENT]->take(1);
-                    $kriptoArticlesHeadSecond = $articles["Kripto"][\App\Parafesor\Constants\CategorySectionTypes::NORMAL]->take(1);
-                    $kriptoArticlesBelowFirst = $articles["Kripto"][\App\Parafesor\Constants\CategorySectionTypes::NORMAL]->slice(1)->take(1);
-                    $kriptoArticlesBelowSecond = $articles["Kripto"][\App\Parafesor\Constants\CategorySectionTypes::NORMAL]->slice(2)->take(3);
-                    $kriptoArticlesFooter = $articles["Kripto"][\App\Parafesor\Constants\CategorySectionTypes::NORMAL]->slice(3)->take(4);
+                    /*$kriptoArticlesHeadSecond = $articles["Kripto"][\App\Parafesor\Constants\CategorySectionTypes::NORMAL]->take(1);*/
+                    $kriptoArticlesBelowFirst = $articles["Kripto"][\App\Parafesor\Constants\CategorySectionTypes::NORMAL]->take(1);
+                    $kriptoArticlesBelowSecond = $articles["Kripto"][\App\Parafesor\Constants\CategorySectionTypes::NORMAL]->slice(1)->take(1);
+                    $kriptoArticlesFooter = $articles["Kripto"][\App\Parafesor\Constants\CategorySectionTypes::NORMAL]->slice(2)->take(4);
                 } else {
                     $kriptoArticles = $articles["Kripto"][\App\Parafesor\Constants\CategorySectionTypes::NORMAL]->take(1);
-                    $kriptoArticlesHeadSecond = $articles["Kripto"][\App\Parafesor\Constants\CategorySectionTypes::NORMAL]->slice(1)->take(1);
-                    $kriptoArticlesBelowFirst = $articles["Kripto"][\App\Parafesor\Constants\CategorySectionTypes::NORMAL]->slice(2)->take(1);
-                    $kriptoArticlesBelowSecond = $articles["Kripto"][\App\Parafesor\Constants\CategorySectionTypes::NORMAL]->slice(3)->take(1);
-                    $kriptoArticlesFooter = $articles["Kripto"][\App\Parafesor\Constants\CategorySectionTypes::NORMAL]->slice(4)->take(4);
+                    /*$kriptoArticlesHeadSecond = $articles["Kripto"][\App\Parafesor\Constants\CategorySectionTypes::NORMAL]->slice(1)->take(1);*/
+                    $kriptoArticlesBelowFirst = $articles["Kripto"][\App\Parafesor\Constants\CategorySectionTypes::NORMAL]->slice(1)->take(1);
+                    $kriptoArticlesBelowSecond = $articles["Kripto"][\App\Parafesor\Constants\CategorySectionTypes::NORMAL]->slice(2)->take(1);
+                    $kriptoArticlesFooter = $articles["Kripto"][\App\Parafesor\Constants\CategorySectionTypes::NORMAL]->slice(3)->take(4);
                     }
             @endphp
 
@@ -82,7 +82,7 @@
                 </div>
             @endforeach
             <div class="col-md-6 match" matchTo="crypto-slider">
-                @foreach($kriptoArticlesHeadSecond as $article)
+{{--                @foreach($kriptoArticlesHeadSecond as $article)--}}
                     <div class="col-md-24 match" matchTo="crypto-slider">
                         <a href="{{route('article.show',['slug'=> $article->slug])}}">
                             <div class="col-md-24 bg-white  h-100 tech-box">
@@ -102,7 +102,7 @@
                             </div>
                         </a>
                     </div>
-                @endforeach
+{{--                @endforeach--}}
             </div>
 
         </div>
@@ -121,7 +121,7 @@
                                 </div>
                             </div>
                             <div class="col-14"
-                                 style="background-image: url(https://i4.hurimg.com/i/hurriyet/75/0x0/61821b494e3fe113306aabb2.jpg)"></div>
+                                 style="background-image: url({{$article->image_path}})"></div>
                         </div>
                     </a>
                 </div>
@@ -131,7 +131,7 @@
                     <a href="{{route('article.show',['slug' => $article->slug ])}}">
                         <div class="row">
                             <div class="col-14"
-                                 style="background-image: url(https://i4.hurimg.com/i/hurriyet/75/0x0/61821b494e3fe113306aabb2.jpg)"></div>
+                                 style="background-image: url({{$article->image_path}})"></div>
                             <div class="col-10 bg-orange crypto-wide-section">
                                 <div class="crypto-title" style="color: black;">
                                     {{ \Illuminate\Support\Str::limit($article->title, 70, $end='...') }}
