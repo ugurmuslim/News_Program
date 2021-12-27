@@ -13,7 +13,7 @@
         <div class="row" style="position: relative">
             <div class="col-lg-12 col-md-24 mt-1">
                 <div class="card news-card news-card-big  cardSlider" currentSlide="0" style="height: 400px;">
-                    <div class=""></div>
+                    <div ></div>
                     <div class="news-card-slider-container">
                         @foreach($articles["Spor"][\App\Parafesor\Constants\CategorySectionTypes::MAIN_SLIDER]->take(4) as $article)
                             <a href="{{route('article.show',['slug' => $article->slug ])}}">
@@ -22,7 +22,7 @@
                                          style="background-image: url({{asset($article->image_path)}})">
                                         <div class="blueOverlay90"></div>
 
-                                        <div class="sport-card-slider-slide-caption">
+                                        <div class="sport-card-slider-slide-caption" >
                                             <p>{{$article->title}}</p>
                                             <div class=" sport-text-bottom-sm">
 
