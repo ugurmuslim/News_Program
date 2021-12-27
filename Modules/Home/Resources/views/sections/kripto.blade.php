@@ -121,7 +121,7 @@
                                 </div>
                             </div>
                             <div class="col-14"
-                                 style="background-image: url({{$article->image_path}})"></div>
+                                 style="background-image: url({{$article->image_path}}); background-size: 100% 100%;"></div>
                         </div>
                     </a>
                 </div>
@@ -131,7 +131,7 @@
                     <a href="{{route('article.show',['slug' => $article->slug ])}}">
                         <div class="row">
                             <div class="col-14"
-                                 style="background-image: url({{$article->image_path}})"></div>
+                                 style="background-image: url({{$article->image_path}}); background-size: 100% 100%;"></div>
                             <div class="col-10 bg-orange crypto-wide-section">
                                 <div class="crypto-title" style="color: black;">
                                     {{ \Illuminate\Support\Str::limit($article->title, 70, $end='...') }}

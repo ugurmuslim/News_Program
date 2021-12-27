@@ -122,7 +122,7 @@
                                     parafesor</span>
                             </div>
                         </div>
-                        <div class="col-10" style="background-image: url({{ asset($article->image_path) }})">
+                        <div class="col-10" style="background-image: url({{ asset($article->image_path) }}); background-size: 100% 100%;">
                         </div>
                     </div>
                 </div>
@@ -130,7 +130,7 @@
             @foreach ($otomobilArticlesFooterRight as $article)
                 <div class="col-md-24 col-lg-12 p-4 ">
                     <div class="row">
-                        <div class="col-10" style="background-image: url({{ asset($article->image_path) }})">
+                        <div class="col-10" style="background-image: url({{ asset($article->image_path) }}); background-size: 100% 100%">
                         </div>
                         <div class="col-14 bg-secondary" style="padding: 0 3% 0 3%">
                             <div class="automobile-title"><p><{{ $article->title }}</p>
