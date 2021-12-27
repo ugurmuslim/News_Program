@@ -97,7 +97,7 @@
         <div class="row">
             <div class="col-md-5">
                 @foreach($netkolikArticlesBelowFirst as $article)
-                    <div class="col-md-24 bg-dark-orange mt-4 match" matchTo="internet-second-row">
+                    <div class="col-md-24 bg-dark-orange mt-4 match" >
                         <a href="{{route('article.show',['slug'=> $article->slug])}}">
                             <div class="col-md-24 bg-dark-orange h-100 tech-box">
                                 <div class="tech-news-box-image"
