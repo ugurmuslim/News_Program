@@ -74,8 +74,7 @@
                                     <div class="automobile-text-bottom">
                                         <span
                                             class="text-white">{{ Date::parse($article->created_at)->format('j F') }}</span><span>
-                                            • {{ Carbon\Carbon::parse($article->created_at)->format('H:m') }} • by
-                                            parafesor</span>
+                                            • {{ Carbon\Carbon::parse($article->created_at)->format('H:m') }} • parafesor</span>
                                     </div>
                                 </div>
                             </div>
@@ -96,8 +95,7 @@
                                     <div class="automobile-text-bottom-sm">
                                         <span
                                             class="text-white">{{ Date::parse($article->created_at)->format('j F') }}</span><span>
-                                            • {{ Carbon\Carbon::parse($article->created_at)->format('H:m') }} • by
-                                            parafesor</span>
+                                            • {{ Carbon\Carbon::parse($article->created_at)->format('H:m') }} • parafesor</span>
                                     </div>
                                 </div>
 
@@ -109,6 +107,7 @@
         </div>
         <div class="row mt-4">
             @foreach ($otomobilArticlesFooterLeft as $article)
+                <a href="{{ route('article.show', ['slug' => $article->slug]) }}">
                 <div class="col-md-24 col-lg-12 p-4 ">
                     <div class="row">
 
@@ -125,9 +124,12 @@
                         </div>
                     </div>
                 </div>
+                </a>
             @endforeach
             @foreach ($otomobilArticlesFooterRight as $article)
-                <div class="col-md-24 col-lg-12 p-4 ">
+                        <a href="{{ route('article.show', ['slug' => $article->slug]) }}">
+
+                        <div class="col-md-24 col-lg-12 p-4 ">
                     <div class="row">
                         <div class="col-10" style="background-image: url({{ asset($article->image_path) }}); background-size: 100% 100%">
                         </div>
@@ -143,7 +145,8 @@
 
                     </div>
                 </div>
-            @endforeach
+                        </a>
+                @endforeach
         </div>
     </div>
 </section>
