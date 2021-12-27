@@ -119,7 +119,7 @@
                         <div class="col-md-8 mt-4">
                             <a href="{{route('article.show',['slug' => $article->slug ])}}">
                                 <div class="col-24">
-                                    <div class="col-sm-24" id="internet-second-row">
+                                    <div class="col-sm-24">
                                         <div class="col-24 internet internet-md"
                                              style="background-image: url({{asset($article->image_path)}})"></div>
                                         <div class="internet-title">
