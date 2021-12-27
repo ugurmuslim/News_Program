@@ -74,7 +74,7 @@
                         }
                     @endphp
                     <div class="col-lg-6 col-md-24 mt-1 match " matchTo="tech-second-row-anchor">
-                        @foreach($articles["Teknoloji"][\App\Parafesor\Constants\CategorySectionTypes::NORMAL]->slice(3)->take(1) as $article)
+                        @foreach($teknolojiArticles as $article)
                             <a href="{{route('article.show',['slug'=> $article->slug])}}">
                                 <div class="col-md-24 bg-purple h-100 tech-box">
                                     <div class="tech-news-box-image"
@@ -93,7 +93,7 @@
                     </div>
                 </div>
                 <div class="row mb-4 mt-2">
-                    @foreach($articles["Teknoloji"][\App\Parafesor\Constants\CategorySectionTypes::NORMAL]->slice(4)->take(3) as $article)
+                    @foreach($teknolojiArticlesBelow as $article)
                         <div class="col-sm-24 col-md-12 col-lg-8 mt-3">
                             <a href="{{route('article.show',['slug' => $article->slug ])}}">
                                 <div class="col-24 tech tech-md"
