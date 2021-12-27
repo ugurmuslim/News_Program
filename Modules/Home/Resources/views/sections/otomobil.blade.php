@@ -133,7 +133,7 @@
                         <div class="col-10" style="background-image: url({{ asset($article->image_path) }}); background-size: 100% 100%">
                         </div>
                         <div class="col-14 bg-secondary" style="padding: 0 3% 0 3%">
-                            <div class="automobile-title"><p><{{ $article->title }}</p>
+                            <div class="automobile-title"><p>{{ $article->title }}</p>
                             </div>
                             <div class="automobile-text-bottom-sm">
                                 <span
