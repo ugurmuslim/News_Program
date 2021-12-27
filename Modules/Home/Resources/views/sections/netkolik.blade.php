@@ -14,7 +14,7 @@
         <div class="row ">
             <div class="col-md-14">
                 <div class="card news-card news-card-big mb-sm-5 keep-ratio cardSlider" currentSlide="0"
-                     ratio="0.525"
+                     ratio="0.525" style="height: 400px;"
                      id="internet-slider">
                     <div></div>
                     <div class="news-card-slider-container">
@@ -69,7 +69,7 @@
                 @foreach($netkolikArticles as $article)
                     <a href="{{route('article.show',['slug' => $article->slug ])}}">
                     <div class="col-lg-24 col-md-24 mt-1">
-                        <div class="card news-card news-card-big match " matchTo="internet-slider">
+                        <div class="card news-card news-card-big match"  id="internet-second-row" matchTo="internet-slider">
                             <div class="news-card-slider-container">
                                 <div class="news-card-slider-slide">
                                     <div class="sport-card-slider-slide-img "
@@ -97,7 +97,7 @@
         <div class="row">
             <div class="col-md-5">
                 @foreach($netkolikArticlesBelowFirst as $article)
-                    <div class="col-md-24 bg-dark-orange mt-4 match" >
+                    <div class="col-md-24 bg-dark-orange mt-4 match" matchTo="internet-second-row">
                         <a href="{{route('article.show',['slug'=> $article->slug])}}">
                             <div class="col-md-24 bg-dark-orange h-100 tech-box">
                                 <div class="tech-news-box-image"
