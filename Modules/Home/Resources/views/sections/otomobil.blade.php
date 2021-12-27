@@ -107,8 +107,8 @@
         </div>
         <div class="row mt-4">
             @foreach ($otomobilArticlesFooterLeft as $article)
-                <a href="{{ route('article.show', ['slug' => $article->slug]) }}">
                 <div class="col-md-24 col-lg-12 p-4 ">
+                    <a href="{{ route('article.show', ['slug' => $article->slug]) }}">
                     <div class="row">
 
                         <div class="col-14 bg-secondary" style="padding: 0 3% 0 3%">
@@ -123,14 +123,14 @@
                         <div class="col-10" style="background-image: url({{ asset($article->image_path) }}); background-size: 100% 100%;">
                         </div>
                     </div>
+                    </a>
                 </div>
-                </a>
             @endforeach
             @foreach ($otomobilArticlesFooterRight as $article)
-                        <a href="{{ route('article.show', ['slug' => $article->slug]) }}">
 
                         <div class="col-md-24 col-lg-12 p-4 ">
-                    <div class="row">
+                            <a href="{{ route('article.show', ['slug' => $article->slug]) }}">
+                            <div class="row">
                         <div class="col-10" style="background-image: url({{ asset($article->image_path) }}); background-size: 100% 100%">
                         </div>
                         <div class="col-14 bg-secondary" style="padding: 0 3% 0 3%">
@@ -144,8 +144,8 @@
                         </div>
 
                     </div>
-                </div>
                         </a>
+        </div>
                 @endforeach
         </div>
     </div>
