@@ -14,14 +14,14 @@
         <div class="row ">
             <div class="col-md-15 h-100">
                 <div class="card news-card news-card-big keep-ratio mb-sm-5 cardSlider" currentSlide="" ratio="0.55"
-                    id="auto-slider" style="min-height: 440px">
+                     id="auto-slider" style="min-height: 440px">
                     <div></div>
                     <div class="news-card-slider-container">
                         @foreach ($articles['Otomobil'][\App\Parafesor\Constants\CategorySectionTypes::MAIN_SLIDER]->take(4) as $article)
                             <div class="news-card-slider-slide">
                                 <a href="{{ route('article.show', ['slug' => $article->slug]) }}">
                                     <div class="life-card-slider-slide-img text-white"
-                                        style="background-image: url({{ asset($article->image_path) }})">
+                                         style="background-image: url({{ asset($article->image_path) }})">
                                         <div class="blueOverlay">
 
                                         </div>
@@ -68,7 +68,7 @@
                         <div class="col-24 bg-dark">
                             <div class="col-sm-24 h-100">
                                 <div class="col-24 automobile automobile-md"
-                                    style="background-image: url({{ asset($article->image_path) }})"></div>
+                                     style="background-image: url({{ asset($article->image_path) }})"></div>
                                 <div class="automobile-title">
                                     <p>{{ $article->title }}</p>
                                     <div class="automobile-text-bottom">
@@ -90,7 +90,7 @@
                         <div class="col-24  bg-dark">
                             <div class="col-sm-24 ">
                                 <div class="col-24 automobile automobile-md"
-                                    style="background-image: url({{ asset($article->image_path) }})"></div>
+                                     style="background-image: url({{ asset($article->image_path) }})"></div>
                                 <div class="automobile-title"><p>{{ $article->title }}</p>
                                     <div class="automobile-text-bottom-sm">
                                         <span
@@ -109,44 +109,46 @@
             @foreach ($otomobilArticlesFooterLeft as $article)
                 <div class="col-md-24 col-lg-12 p-4 ">
                     <a href="{{ route('article.show', ['slug' => $article->slug]) }}">
-                    <div class="row">
+                        <div class="row">
 
-                        <div class="col-14 bg-secondary" style="padding: 0 3% 0 3%">
-                            <div class="automobile-title"><p>{{ $article->title }}</p>
-                            </div>
-                            <div class="automobile-text-bottom-sm">
+                            <div class="col-14 bg-secondary" style="padding: 0 3% 0 3%">
+                                <div class="automobile-title"><p>{{ $article->title }}</p>
+                                </div>
+                                <div class="automobile-text-bottom-sm">
                                 <span
                                     class="text-white">{{ Date::parse($article->created_at)->format('j F') }}
                                     • {{ Carbon\Carbon::parse($article->created_at)->format('H:m') }} • parafesor</span>
+                                </div>
+                            </div>
+                            <div class="col-10"
+                                 style="background-image: url({{ asset($article->image_path) }}); background-size: 100% 100%;">
                             </div>
                         </div>
-                        <div class="col-10" style="background-image: url({{ asset($article->image_path) }}); background-size: 100% 100%;">
-                        </div>
-                    </div>
                     </a>
                 </div>
             @endforeach
             @foreach ($otomobilArticlesFooterRight as $article)
 
-                        <div class="col-md-24 col-lg-12 p-4 ">
-                            <a href="{{ route('article.show', ['slug' => $article->slug]) }}">
-                            <div class="row">
-                        <div class="col-10" style="background-image: url({{ asset($article->image_path) }}); background-size: 100% 100%">
-                        </div>
-                        <div class="col-14 bg-secondary" style="padding: 0 3% 0 3%">
-                            <div class="automobile-title"><p>{{ $article->title }}</p>
+                <div class="col-md-24 col-lg-12 p-4 ">
+                    <a href="{{ route('article.show', ['slug' => $article->slug]) }}">
+                        <div class="row">
+                            <div class="col-10"
+                                 style="background-image: url({{ asset($article->image_path) }}); background-size: 100% 100%">
                             </div>
-                            <div class="automobile-text-bottom-sm">
+                            <div class="col-14 bg-secondary" style="padding: 0 3% 0 3%">
+                                <div class="automobile-title"><p>{{ $article->title }}</p>
+                                </div>
+                                <div class="automobile-text-bottom-sm">
                                 <span
                                     class="text-white">{{ Date::parse($article->created_at)->format('j F') }}
                                     • {{ Carbon\Carbon::parse($article->created_at)->format('H:m') }} • parafesor</span>
+                                </div>
                             </div>
-                        </div>
 
-                    </div>
-                        </a>
-        </div>
-                @endforeach
+                        </div>
+                    </a>
+                </div>
+            @endforeach
         </div>
     </div>
 </section>

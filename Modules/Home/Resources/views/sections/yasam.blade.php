@@ -15,6 +15,7 @@
                     <div class="news-card-slider-container">
                         @foreach($articles["Yaşam"][\App\Parafesor\Constants\CategorySectionTypes::MAIN_SLIDER]->take(4) as $article)
                             <div class="news-card-slider-slide">
+                                <a href="{{route('article.show',['slug'=> $article->slug])}}">
                                 <div class="life-card-slider-slide-img text-white"
                                      style="background-image: url({{asset($article->image_path)}})">
                                     <div class="yellowOverlay0">
@@ -27,6 +28,7 @@
 
 
                                 </div>
+                                </a>
                             </div>
                         @endforeach
                     </div>
