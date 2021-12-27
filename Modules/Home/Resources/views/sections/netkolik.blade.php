@@ -19,6 +19,7 @@
                     <div></div>
                     <div class="news-card-slider-container">
                         @foreach($articles["Netkolik"][\App\Parafesor\Constants\CategorySectionTypes::MAIN_SLIDER]->take(4) as $article)
+                            <a href="{{route('article.show',['slug' => $article->slug ])}}">
 
                             <div class="news-card-slider-slide">
                                 <div class="life-card-slider-slide-img"
@@ -34,6 +35,7 @@
                                     </div>
                                 </div>
                             </div>
+                            </a>
                         @endforeach
                     </div>
                     <div class="internet-card-slider-controls" style="background-color: #fe6845;">
@@ -65,6 +67,7 @@
             @endphp
             <div class="col-md-10">
                 @foreach($netkolikArticles as $article)
+                    <a href="{{route('article.show',['slug' => $article->slug ])}}">
                     <div class="col-lg-24 col-md-24 mt-1">
                         <div class="card news-card news-card-big match " matchTo="internet-slider">
                             <div class="news-card-slider-container">
@@ -87,6 +90,7 @@
                             </div>
                         </div>
                     </div>
+                    </a>
                 @endforeach
             </div>
         </div>
