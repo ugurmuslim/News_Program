@@ -118,8 +118,7 @@
                             <div class="automobile-text-bottom-sm">
                                 <span
                                     class="text-white">{{ Date::parse($article->created_at)->format('j F') }}
-                                    • {{ Carbon\Carbon::parse($article->created_at)->format('H:m') }} • by
-                                    parafesor</span>
+                                    • {{ Carbon\Carbon::parse($article->created_at)->format('H:m') }} • parafesor</span>
                             </div>
                         </div>
                         <div class="col-10" style="background-image: url({{ asset($article->image_path) }}); background-size: 100% 100%;">
@@ -138,8 +137,7 @@
                             <div class="automobile-text-bottom-sm">
                                 <span
                                     class="text-white">{{ Date::parse($article->created_at)->format('j F') }}
-                                    • {{ Carbon\Carbon::parse($article->created_at)->format('H:m') }} • by
-                                    parafesor</span>
+                                    • {{ Carbon\Carbon::parse($article->created_at)->format('H:m') }} • parafesor</span>
                             </div>
                         </div>
 
