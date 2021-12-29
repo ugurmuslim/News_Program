@@ -84,7 +84,6 @@
             <div class="col-md-6 match" matchTo="crypto-slider">
 {{--                @foreach($kriptoArticlesHeadSecond as $article)--}}
                     <div class="col-md-24 match" matchTo="crypto-slider">
-                        <a href="{{route('article.show',['slug'=> $article->slug])}}">
                             <div class="col-md-24 bg-white  h-100 tech-box">
                                 <div class="tech-news-box-image "
                                      style="background-color: black;)}}); height: 100%">
@@ -100,7 +99,6 @@
 
                                 </div>
                             </div>
-                        </a>
                     </div>
 {{--                @endforeach--}}
             </div>

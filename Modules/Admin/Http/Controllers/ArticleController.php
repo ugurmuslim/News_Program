@@ -6,6 +6,7 @@ use App\Models\User;
 use App\Parafesor\Constants\ArticleStatus;
 use App\Parafesor\Constants\ArticleTypes;
 use App\Parafesor\Helper\ArticleHelper;
+use Carbon\Carbon;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Auth;
@@ -295,7 +296,7 @@ class ArticleController extends Controller
             $article->start_date = Request::input('StartedOn');
             $article->end_date = Request::input('EndOn');
             $article->editor_id = Auth::user()->id;
-            $article->slug = str_slug(Request::input('Title'), "-");;
+            $article->slug = str_slug(Request::input('Title') . '-' . Carbon::now()->format('d-m-Y'), "-");;
             $article->seo_title = Request::input('SeoTitle');
             $article->seo_description = Request::input('SeoDescription');
             $article->sort = 1;
