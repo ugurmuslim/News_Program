@@ -5,17 +5,47 @@
         toolbar_mode: 'floating',
         height: "500",
 
-        /* without images_upload_url set, Upload tab won't show up*/
-        images_upload_url: 'postAcceptor.php',
 
-        /* we override default upload handler to simulate successful upload*/
-        images_upload_handler: function (blobInfo, success, failure) {
-            setTimeout(function () {
-                /* no matter what you upload, we will turn it into TinyMCE logo :)*/
-                success('http://moxiecode.cachefly.net/tinymce/v9/images/logo.png');
-            }, 2000);
-        },
+        /* without images_upload_url set, Upload tab won't show up*/
+        images_upload_url: 'editor/image',
+        images_upload_base_path: '{{('/') }}',
+        images_upload_credentials: true,
+
+        images_upload_handler: function (blobInfo, success, failure,folderName) {
+            var xhr, formData;
+            xhr = new XMLHttpRequest();
+            xhr.withCredentials = false;
+
+            xhr.open('POST', "{{url('/')}}/admin/article/editor/image");
+            var token = $('meta[name="csrf-token"]').attr('content');
+            xhr.setRequestHeader("X-CSRF-Token", token);
+
+            xhr.onload = function() {
+                var json;
+
+                if (xhr.status != 200) {
+                    failure('HTTP Error: ' + xhr.status);
+                    return;
+                }
+                json = JSON.parse(xhr.responseText);
+
+                if (!json || typeof json.location != 'string') {
+                    failure('Invalid JSON: ' + xhr.responseText);
+                    return;
+                }
+                success(json.location);
+
+            };
+
+            formData = new FormData();
+            formData.append('file', blobInfo.blob(), blobInfo.filename());
+
+            xhr.send(formData);
+
+        }
     });
+
+
 
     tinymce.init({
         selector: '#textareaHidden',

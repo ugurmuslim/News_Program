@@ -33,7 +33,6 @@ crossorigin="anonymous" referrerpolicy="no-referrer"></script>
         sliderImages = [];
 
         async insertSliders() {
-            ;
             var slider;
             return await $.ajax({
                 headers: {

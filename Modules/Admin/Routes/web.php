@@ -116,6 +116,9 @@ Route::prefix('admin')->group(function () {
         Route::post('/postUpdate/{id?}', [ \Modules\Admin\Http\Controllers\ArticleController::class, 'store' ])
             ->middleware('auth')
             ->name('article.store');
+
+        Route::post('/editor/image', [ \Modules\Admin\Http\Controllers\ArticleController::class, 'editorImageUpload' ])
+            ->name('articleText.imageUpload');
     });
 
 

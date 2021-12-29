@@ -218,13 +218,18 @@ class ArticleController extends Controller
             return back()->withInput(Request::all());
         }
 
+        $oldArticleTypeId = null;
         $articleCheck = false;
         $article = new Article();
         if (Request::input('ArticleId')) {
+            /**
+             * @var $article Article
+             */
             $article = Article::find(Request::input('ArticleId'));
             if (!$article) {
                 abort(404);
             }
+            $oldArticleTypeId = $article->article_type_id;
             $articleCheck = $article->status !== ArticleStatus::PUBLISHED;
         }
 
@@ -311,6 +316,11 @@ class ArticleController extends Controller
 
             $article->save();
             ArticleHelper::updateCache([ $articleType->id ]);
+
+            if($oldArticleTypeId) {
+                ArticleHelper::updateCache([ $oldArticleTypeId ]);
+            }
+
         } catch (\Exception $e) {
             Log::error(json_encode([
                 'type'    => 'Article Save Error',
@@ -395,5 +405,15 @@ class ArticleController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function editorImageUpload() {
+
+        $imagePath = "images/" . uniqid() . '.webp';
+        Image::make(request()->file('file'))->encode('webp', 90)
+            ->resize(480, 270)
+            ->save($imagePath);
+        return response()->json(['location' => url('/')  . "/" . $imagePath]);
+
     }
 }
