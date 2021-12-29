@@ -63,7 +63,9 @@ class FeedParserHelper
                         echo "Could not find image";
                     }
                 }
-
+                if(in_array('yazarlar',explode('/',$item->get_link()))) {
+                    continue;
+                }
 
                 try {
                     CrawledArticle::insert([
