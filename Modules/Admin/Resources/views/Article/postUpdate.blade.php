@@ -305,14 +305,14 @@
                                                placeholder="yyyy-mm-dd" autocomplete="off"/>
                                     </div>
 
-                                    <div class="col-12 hr"></div>
+                                    {{--<div class="col-12 hr"></div>
                                     <div class="col-md-12 form-group">
                                         <label class="form-text">Bitiş Tarihi</label>
                                         <input asp-for="EndOn" asp-format="{0:yyyy-MM-dd}" type="text"
                                                class="form-control date" name="EndOn"
                                                value="{{\Carbon\Carbon::now()->add(2,"days")}}"
                                                placeholder="yyyy-mm-dd" autocomplete="off"/>
-                                    </div>
+                                    </div>--}}
 
 
                                     <input type="hidden" name="_token" id="token" value="{{ csrf_token() }}">
@@ -660,13 +660,13 @@
                                            placeholder="yyyy-mm-dd" autocomplete="off"/>
                                 </div>
 
-                                <div class="col-md-3 form-group">
+                           {{--     <div class="col-md-3 form-group">
                                     <label class="form-text">Bitiş Tarihi</label>
                                     <input asp-for="EndOn" asp-format="{0:yyyy-MM-dd}" type="text"
                                            class="form-control date" name="EndOn"
                                            value="{{isset($article) && $article->status == \App\Parafesor\Constants\ArticleStatus::PUBLISHED ? $article->end_date : \Carbon\Carbon::now()->add(2,"days")}}"
                                            placeholder="yyyy-mm-dd" autocomplete="off"/>
-                                </div>
+                                </div>--}}
 
                             </div>
                             <div class="row mt-3">

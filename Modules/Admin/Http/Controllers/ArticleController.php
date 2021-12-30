@@ -299,7 +299,7 @@ class ArticleController extends Controller
             $article->persistent = Request::input('PersistentSection');
             $article->summary = Request::input('Description');
             $article->start_date = Request::input('StartedOn');
-            $article->end_date = Request::input('EndOn');
+            $article->end_date = Carbon::now()->addYears(3);
             $article->editor_id = Auth::user()->id;
             $article->slug = str_slug(Request::input('Title') . '-' . Carbon::now()->format('d-m-Y'), "-");;
             $article->seo_title = Request::input('SeoTitle');
