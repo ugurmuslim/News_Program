@@ -79,7 +79,7 @@
                                         <div class="internet-card-caption"><p>{{$article->title}}</p>
                                             <div class=" sport-text-bottom-sm">
 
-                                                <span class="">23 Ocak • 14:35 • parafesor</span>
+                                                <span class="">{{ Date::parse($article->created_at)->format('j F')}} • {{ Carbon\Carbon::parse($article->created_at)->format('H:m')}} • parafesor</span>
                                             </div>
 
                                         </div>
