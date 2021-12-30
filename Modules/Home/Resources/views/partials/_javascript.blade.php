@@ -81,7 +81,7 @@ crossorigin="anonymous" referrerpolicy="no-referrer"></script>
             this.center.innerHTML = toAdd;
             this.center.children[0].classList.remove("d-none")
             this.center.innerHTML += `<div class="redFilterOverlay"><div id="mainSliderCaption"><p>
-            <a href="{{ url('/') }}/home/article/${this.sliderImages[this.currentImage].slug}">${this.sliderImages[0].caption}</a></p>
+            <a href="{{ url('/') }}/${this.sliderImages[this.currentImage].slug}">${this.sliderImages[0].caption}</a></p>
             <div class="slider-text-bottom">
                                     <span
                                         class="text-white ">${this.sliderImages[this.currentImage].createdAt}</span><span> • ${this.sliderImages[this.currentImage].createdAtTime} • parafesor</span>
@@ -136,7 +136,7 @@ crossorigin="anonymous" referrerpolicy="no-referrer"></script>
             document.getElementById("mainSliderCaption").classList.add("fade-in-caption");
             document.getElementById("mainSliderCaption").innerText = this.sliderImages[this.currentImage].caption;
             document.getElementById("mainSliderCaption").innerHTML = `<p>
-            <a href="{{ url('/') }}/home/article/${this.sliderImages[this.currentImage].slug}" style="text-decoration: none">${this.sliderImages[this.currentImage].caption}</a>
+            <a href="{{ url('/') }}/${this.sliderImages[this.currentImage].slug}" style="text-decoration: none">${this.sliderImages[this.currentImage].caption}</a>
             <div class="slider-text-bottom">
                                     <span
                                         class="text-white ">${this.sliderImages[this.currentImage].createdAt}</span><span> • ${this.sliderImages[this.currentImage].createdAtTime} • parafesor</span>
