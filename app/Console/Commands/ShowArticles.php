@@ -42,6 +42,6 @@ class ShowArticles extends Command
      */
     public function handle()
     {
-        dd(Cache::get(CacheConst::ARTICLE . 'Gündem' . ":" . CategorySectionTypes::NORMAL));
+        dd(Cache::get(CacheConst::ARTICLE . 'Gündem' . ":" . CategorySectionTypes::MAIN_SLIDER));
     }
 }
