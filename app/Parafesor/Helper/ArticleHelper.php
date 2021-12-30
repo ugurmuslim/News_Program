@@ -11,6 +11,7 @@ use App\Parafesor\Constants\CategorySectionTypes;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Request;
 use Modules\Admin\Entities\Article;
 use Modules\Admin\Entities\ArticleType;
@@ -61,11 +62,13 @@ class ArticleHelper
                 ->get();
 
 
+
             Cache::put(CacheConst::ARTICLE . $articleType->title . ":" . CategorySectionTypes::NORMAL, $articlesByType);
             Cache::put(CacheConst::ARTICLE . $articleType->title . ":" . CategorySectionTypes::MAIN_SLIDER, $articlesMainSlider);
             Cache::put(CacheConst::ARTICLE . $articleType->title . ":" . CategorySectionTypes::SECOND_SLIDER, $articlesSecondSlider);
             Cache::put(CacheConst::ARTICLE . $articleType->title . ":" . CategorySectionTypes::PERSISTENT, $articlesPersistent);
 
+            Log::info("Article Type " . $articleType->title . " cached");
         }
 
         if ($stockTube) {
