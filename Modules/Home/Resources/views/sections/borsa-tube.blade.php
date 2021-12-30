@@ -16,7 +16,7 @@
                 <div class="ratio ratio-16x9 mt-2" id="borsaEmbed" ratio="0.55">
                     {{--<iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>--}}
                     @foreach($articles["Borsa Tube"][\App\Parafesor\Constants\CategorySectionTypes::MAIN_SLIDER]->take(1) as $article)
-                            <a href="{{$article->original_link}}">
+                            <a href="{{$article->original_link}}" target="_blank" >
                                 <div class="image-card image-card-bw-16x10"
                                      style="background-image: url({{asset($article->image_path)}})"></div>
                             </a>
@@ -31,7 +31,7 @@
                         <div class="row px-3">
                             @foreach($articles["Borsa Tube"][\App\Parafesor\Constants\CategorySectionTypes::NORMAL]->take(8) as $article)
                                 <div class="image-card-container">
-                                    <a href="{{$article->original_link}}">
+                                    <a href="{{$article->original_link}}" target="_blank">
                                         <div class="image-card image-card-bw-16x10"
                                              style="background-image: url({{asset($article->image_path)}})"></div>
                                     </a>
@@ -45,7 +45,7 @@
         <div class="row ">
             @foreach($articles["Borsa Tube"][\App\Parafesor\Constants\CategorySectionTypes::NORMAL]->slice(8)->take(3) as $article)
                 <div class="col-md-8 mt-3">
-                    <a href="{{$article->original_link}}">
+                    <a href="{{$article->original_link}}" target="_blank">
                         <div class="image-card image-card-16x8 image-cover image-card-bordered"
                              style="background-image: url({{asset($article->image_path)}})">test
                         </div>
@@ -57,7 +57,7 @@
             <div class="col-md-24">
                 <div
                     style="width:100%; height: 1px; background-color: #CCCCCC; text-align:center; line-height: 0px; ">
-                    <span style="color:#f5f5f5;" class="bg-dark-grey px-2">En Çok Okunanlar</span>
+                    <span style="color:#f5f5f5;" class="bg-dark-grey px-2">En Çok İzlenen Kanallar</span>
                 </div>
             </div>
             <div class="col-24 mt-5 mb-2 pt-3" id="most-red">
