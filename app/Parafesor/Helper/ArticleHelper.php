@@ -215,4 +215,16 @@ class ArticleHelper
             dd($e);
         }
     }
+
+    public static function checkImageUpload($articleTypeId) {
+        if($articleTypeId == ArticleTypes::SirketHaberleri && Request::input('PersistentSection')) {
+            return true;
+        }
+
+        if($articleTypeId == ArticleTypes::SirketHaberleri || $articleTypeId == ArticleTypes::Hisse) {
+            return false;
+        }
+
+        return true;
+    }
 }

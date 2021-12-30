@@ -5,6 +5,7 @@ namespace Modules\Admin\Http\Controllers;
 use App\Models\User;
 use App\Parafesor\Constants\ArticleStatus;
 use App\Parafesor\Constants\ArticleTypes;
+use App\Parafesor\Constants\CategorySectionTypes;
 use App\Parafesor\Helper\ArticleHelper;
 use Carbon\Carbon;
 use Illuminate\Contracts\Support\Renderable;
@@ -240,8 +241,9 @@ class ArticleController extends Controller
             }
         }
         $articleType = ArticleType::find(Request::input('ArticleTypeId'));
+        $imageUpload = ArticleHelper::checkImageUpload($articleType->id);
 
-        try {
+        try {;
             if (!Request::input('sameImage') && Request::input('savedImage') && !Request::hasFile('image') && $articleType->id != ArticleTypes::SirketHaberleri) {
                 Log::debug(json_encode([
                     'type'      => 'Article Started',
@@ -254,7 +256,7 @@ class ArticleController extends Controller
             }
 
             $imageDimensions = json_decode($articleType->image_dimensions, true);
-            if ($articleType->id != ArticleTypes::SirketHaberleri) {
+            if ($imageUpload) {
                 if (Request::hasFile('image')) {
                     Log::debug(json_encode([
                         'type'         => 'Image Saving',
@@ -278,7 +280,7 @@ class ArticleController extends Controller
                 }
             }
 
-            if ($articleType->id == ArticleTypes::SirketHaberleri || $articleType->id == ArticleTypes::Hisse) {
+            if (!$imageUpload) {
                 if (!Request::input('CompanyId')) {
                     Log::debug(json_encode([
                         'type'    => 'Article validation error',
