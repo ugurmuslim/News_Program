@@ -42,6 +42,6 @@ class ShowArticles extends Command
      */
     public function handle()
     {
-        dd(Cache::get(CacheConst::ARTICLE . 'Kripto' . ":" . CategorySectionTypes::NORMAL));
+        dd(Cache::get(CacheConst::ARTICLE . 'Gündem' . ":" . CategorySectionTypes::NORMAL));
     }
 }
