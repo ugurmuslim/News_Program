@@ -674,7 +674,7 @@
                             </div>
                             @endif
                             <div class="row mt-3">
-                                <button class="btn btn-danger" id="previewButton">Önizleme</button>
+                                <button class="btn btn-danger" id="previewButton" type="button">Önizleme</button>
                             </div>
 
                         </form>
