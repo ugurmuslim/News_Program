@@ -317,7 +317,7 @@ class ArticleController extends Controller
             $article->save();
             ArticleHelper::updateCache([ $articleType->id ]);
 
-            if($oldArticleTypeId) {
+            if ($oldArticleTypeId) {
                 ArticleHelper::updateCache([ $oldArticleTypeId ]);
             }
 
@@ -404,16 +404,32 @@ class ArticleController extends Controller
      */
     public function destroy($id)
     {
-        //
+        /**
+         * @var $article Article
+         */
+        $article = Article::find($id);
+        if (!$article) {
+            Session::flash('error', "Haber bulunamadı");
+            return back();
+
+        }
+        $articleTypeId = $article->article_type_id;
+        $article->delete();
+        ArticleHelper::updateCache([ $articleTypeId ]);
+
+        Session::flash('success', "Başarı ile yaratıldı");
+        return back();
+
     }
 
-    public function editorImageUpload() {
+    public function editorImageUpload()
+    {
 
         $imagePath = "images/" . uniqid() . '.webp';
         Image::make(request()->file('file'))->encode('webp', 90)
             ->resize(480, 270)
             ->save($imagePath);
-        return response()->json(['location' => url('/')  . "/" . $imagePath]);
+        return response()->json([ 'location' => url('/') . "/" . $imagePath ]);
 
     }
 }

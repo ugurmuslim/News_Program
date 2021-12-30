@@ -84,6 +84,10 @@ Route::prefix('admin')->group(function () {
             ->middleware('auth')
             ->name('article.index');
 
+        Route::delete('/{id}', [ \Modules\Admin\Http\Controllers\ArticleController::class, 'destroy' ])
+            ->middleware('auth')
+            ->name('article.destroy');
+
         Route::get('/assign/{id}', [ \Modules\Admin\Http\Controllers\ArticleController::class, 'assign' ])
             ->middleware('auth')
             ->name('article.assign');
@@ -119,6 +123,7 @@ Route::prefix('admin')->group(function () {
 
         Route::post('/editor/image', [ \Modules\Admin\Http\Controllers\ArticleController::class, 'editorImageUpload' ])
             ->name('articleText.imageUpload');
+
     });
 
 
