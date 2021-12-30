@@ -21,12 +21,6 @@ Route::get('/', 'HomeController@indexTest')
 
 
 Route::prefix('home')->group(function () {
-    Route::get('/sample', 'HomeController@index')
-        ->name('home.index');
-
-    Route::get('/', 'HomeController@indexTest')
-        ->name('home.indextest');
-
     Route::get('/sliders', 'HomeController@mainSliders')
         ->name('home.mainSliders');
 });
