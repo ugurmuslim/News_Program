@@ -3,6 +3,7 @@
         selector: '#textarea',
         plugins: 'advlist autolink lists link image charmap print preview hr anchor pagebreak image code',
         toolbar_mode: 'floating',
+        toolbar: 'undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | outdent indent | image',
         height: "500",
 
 
