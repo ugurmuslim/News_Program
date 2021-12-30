@@ -7,7 +7,7 @@
     <!--    <meta name="description" content="">-->
     <!--    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">-->
     <!--    <meta name="generator" content="Hugo 0.88.1">-->
-    <title>Parafesor | Haberin Kaynağı</title>
+    <title>Parafesör | Paranıza Akıl Verir</title>
     <link rel="shortcut icon" type="image/jpg" href="{{ asset('modules/home/sample/img/logo-icon.svg') }}" />
     <!--    <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/headers/">-->
     <!-- Bootstrap core CSS -->
