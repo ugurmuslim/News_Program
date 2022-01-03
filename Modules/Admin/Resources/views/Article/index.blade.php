@@ -86,7 +86,7 @@
                                                 src="{{ $news->image_path  }}"
                                                 style="max-width:100px;" alt="">--}}
                                             <img
-                                                src="{{asset($news->image_path)}}"
+                                                src="{{asset($news->image_path)}}" loading="lazy"
                                                 style="max-width:100px;" alt=""></td>
                                         <td style="font-weight: bold"><a
                                                 href="{{$news->original_link}}"
