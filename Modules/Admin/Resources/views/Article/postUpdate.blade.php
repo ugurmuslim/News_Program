@@ -185,7 +185,7 @@
                                                         <label style="color: black;">Resim</label>
                                                         <br>
                                                         @if(isset($article) && $article->article_type_id == \App\Parafesor\Constants\ArticleTypes::Youtube)
-                                                            <iframe width="560" height="315"
+                                                            <iframe width="560" height="315"  loading="lazy"
                                                                     src="https://www.youtube.com/embed/{{$article->external_site_id}}"
                                                                     title="YouTube video player" frameborder="0"
                                                                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
