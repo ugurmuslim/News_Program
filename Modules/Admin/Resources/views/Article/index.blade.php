@@ -130,10 +130,8 @@
                                                     </form>
                                                 @endcan
                                                 @can('edit articles')
-                                                    @if(isset($news->assigner_id))
                                                         <a href="{{route('article.postUpdate',['id' => $news->id])}}"
                                                            class="btn btn-primary">Düzenle</a>
-                                                    @endif
                                                 @endcan
                                             </div>
                                         </td>
