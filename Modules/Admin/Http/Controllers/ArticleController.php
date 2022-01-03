@@ -81,12 +81,14 @@ class ArticleController extends Controller
     public function assign($id)
     {
         $editors = User::role('Yazar')->get();
+        $assigner = User::where('id', Auth::user()->id)->get();
+        $mergedUsers = $editors->merge($assigner);
         $companies = Company::all();
         $news = CrawledArticle::find($id);
         $articleTypes = ArticleType::all();
         return view('admin::Article.assign')
             ->with('news', $news)
-            ->with('editors', $editors)
+            ->with('editors', $mergedUsers)
             ->with('companies', $companies)
             ->with('articleTypes', $articleTypes);
     }
@@ -115,10 +117,10 @@ class ArticleController extends Controller
             Session::flash('error', "Editor bulunamadı!");
             return back();
         }
-        if (!$editor->hasRole('Yazar')) {
+        /*if (!$editor->hasRole('Yazar')) {
             Session::flash('error', "Rol bulunamadı!");
             return back();
-        }
+        }*/
 
         $news = CrawledArticle::find($id);
 

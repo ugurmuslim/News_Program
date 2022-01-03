@@ -122,15 +122,18 @@
                                                        class="btn btn-primary">Atama</a>
                                                 @endcan
                                                 @can('assign articles')
-                                                    <form method="post" action={{route('article.destroy', ['id' => $news->id])}}>
+                                                    <form method="post"
+                                                          action={{route('article.destroy', ['id' => $news->id])}}>
                                                         {{ csrf_field() }}
                                                         {{ method_field('DELETE') }}
                                                         <button class="btn btn-danger">Sil</button>
                                                     </form>
                                                 @endcan
                                                 @can('edit articles')
-                                                    <a href="{{route('article.postUpdate',['id' => $news->id])}}"
-                                                       class="btn btn-primary">Düzenle</a>
+                                                    @if(isset($news->assigner_id))
+                                                        <a href="{{route('article.postUpdate',['id' => $news->id])}}"
+                                                           class="btn btn-primary">Düzenle</a>
+                                                    @endif
                                                 @endcan
                                             </div>
                                         </td>
