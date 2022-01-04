@@ -40,6 +40,9 @@
  * @link http://simplepie.org/ SimplePie
  * @license http://www.opensource.org/licenses/bsd-license.php BSD License
  */
+namespace App\Parafesor\SimplePie\SimplePie;
+
+use App\Parafesor\SimplePie\SimplePie\Registry as SimplePie_Registry;
 
 /**
  * Handles `<media:rating>` or `<itunes:explicit>` tags as defined in Media RSS and iTunes RSS respectively
@@ -51,7 +54,7 @@
  * @package SimplePie
  * @subpackage API
  */
-class SimplePie_Rating
+class Rating
 {
 	/**
 	 * Rating scheme

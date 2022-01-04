@@ -77,7 +77,7 @@ class Registry
         'Caption' => 'SimplePie_Caption',
         'Copyright' => 'SimplePie_Copyright',
         'Credit' => '\App\Parafesor\SimplePie\SimplePie\Credit',
-        'Rating' => 'SimplePie_Rating',
+        'Rating' => '\App\Parafesor\SimplePie\SimplePie\Rating',
         'Restriction' => 'SimplePie_Restriction',
         'Content_Type_Sniffer' => '\App\Parafesor\SimplePie\SimplePie\Content\Type\Sniffer',
         'Source' => 'SimplePie_Source',

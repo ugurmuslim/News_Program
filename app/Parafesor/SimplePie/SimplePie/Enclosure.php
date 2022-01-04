@@ -672,7 +672,8 @@ class Enclosure
 	 * Get a single rating
 	 *
 	 * @param int $key
-	 * @return SimplePie_Rating|null
+	 *
+	 * @return Rating|null
 	 */
 	public function get_rating($key = 0)
 	{
@@ -688,7 +689,7 @@ class Enclosure
 	/**
 	 * Get all ratings
 	 *
-	 * @return array|null Array of {@see SimplePie_Rating} objects
+	 * @return array|null Array of {@see Rating} objects
 	 */
 	public function get_ratings()
 	{
