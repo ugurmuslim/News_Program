@@ -12,7 +12,7 @@
         </div>
 
         <div class="row mt-3">
-            @foreach($articles["Şirket Haberleri"][\App\Parafesor\Constants\CategorySectionTypes::PERSISTENT]->take(1) as $article)
+            @foreach($articles["Şirket Haberleri"][\App\Parafesor\Constants\CategorySectionTypes::MAIN_SLIDER]->take(1) as $article)
                 <div class="col-xl-13 mb-5">
                     <a href="{{route('article.show',['slug' => $article->slug ])}}">
                         <div class="card news-card news-card-big" id="corporate-new-showcase">
