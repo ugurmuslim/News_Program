@@ -40,7 +40,7 @@
 
                                         </select>
 
-                                        <label class="form-text">Site</label>
+                                       {{-- <label class="form-text">Site</label>
                                         <select class="form-control" name="ArticleTypeId" required="required"
                                                 id="category">
                                             @if(request()->query('ArticleTypeId'))
@@ -52,7 +52,7 @@
                                                 <option value={{$type->id}}>{{$type->title }}</option>
                                             @endforeach
 
-                                        </select>
+                                        </select>--}}
                                     </div>
                                 </div>
 
