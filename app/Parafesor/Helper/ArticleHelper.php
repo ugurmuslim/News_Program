@@ -211,7 +211,7 @@ class ArticleHelper
     }
 
     public static function checkImageUpload($articleTypeId) {
-        if($articleTypeId == ArticleTypes::SirketHaberleri && Request::input('PersistentSection')) {
+        if($articleTypeId == ArticleTypes::SirketHaberleri && Request::input('PlacementSection') == CategorySectionTypes::MAIN_SLIDER) {
             return true;
         }
 
