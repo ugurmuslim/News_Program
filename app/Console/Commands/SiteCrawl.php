@@ -5,14 +5,14 @@ namespace App\Console\Commands;
 use App\Parafesor\FeedParser\FeedParserHelper;
 use Illuminate\Console\Command;
 
-class FeedParser extends Command
+class SiteCrawl extends Command
 {
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'feed:parser';
+    protected $signature = 'site:crawl';
 
     /**
      * The console command description.
@@ -38,6 +38,6 @@ class FeedParser extends Command
      */
     public function handle()
     {
-        FeedParserHelper::parseFeed();
+        \App\Parafesor\SiteCrawl\SiteCrawl::siteCrawl();
     }
 }
