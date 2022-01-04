@@ -15,7 +15,6 @@ class SiteCrawl
             ->where('status', 1)
             ->get();
         foreach ($sites as $site) {
-            echo $site->article_type_id . "Started" . PHP_EOL;
             Crawler::create()
                 ->setCrawlObserver(new Observer($site))
                 ->ignoreRobots()

@@ -40,6 +40,7 @@ class Observer extends CrawlObserver
      */
     public function willCrawl(UriInterface $url)
     {
+
     }
 
     /**
@@ -94,16 +95,8 @@ class Observer extends CrawlObserver
             echo $e->getMessage();
         }
 
-        echo $url . "with title : " . $title->nodeValue . "saved " . PHP_EOL;
-        // Create records
-        /*   $doc = new DOMDocument();
-           @$doc->loadHTML($response->getBody());
-           $finder = new DomXPath($doc);
-           $nodes = $finder->query('//ul[starts-with(@class, "slides")]/li/p/a');
-           foreach ($nodes as $node) {
+        echo $url . " with title : " . $title->nodeValue . " saved " . PHP_EOL;
 
-               $this->links[] = $node->getAttribute('href');
-           }*/
     }
 
     /**
