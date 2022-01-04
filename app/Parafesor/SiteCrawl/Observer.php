@@ -84,7 +84,7 @@ class Observer extends CrawlObserver
                 "title"           => $title->nodeValue,
                 "original_link"   => $url,
                 "article_type_id" => $this->site->article_type_id,
-                "pub_date"        => date('Y-m-d h:i:s', strtotime($pubDate)),
+                "pub_date"        => date('Y-m-d H:i:s', strtotime($pubDate)),
                 "summary"         => $summary->nodeValue,
                 "image_path"      => $src,
                 "try_number"      => 0,

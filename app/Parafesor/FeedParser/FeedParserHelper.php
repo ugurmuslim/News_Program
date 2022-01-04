@@ -26,6 +26,13 @@ class FeedParserHelper
             $success = $feed->init();
             $feed->handle_content_type();
             foreach ($feed->get_items() as $item) {
+
+                $crawledArticle = CrawledArticle::where('original_link', $item->get_link())->first();
+
+                if($crawledArticle) {
+                    echo $item->get_link() . " found in the table. Wıll not be crawled" . PHP_EOL;
+                    continue;
+                }
                 /**
                  * @var $item  Item
                  */
