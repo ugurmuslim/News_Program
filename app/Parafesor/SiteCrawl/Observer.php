@@ -56,6 +56,8 @@ class Observer extends CrawlObserver
         ?UriInterface     $foundOnUrl = null
     ): void
     {
+
+        echo $url . " is being crawled" . PHP_EOL;
         $doc = new DOMDocument();
         @$doc->loadHTML($response->getBody());
         $finder = new DomXPath($doc);

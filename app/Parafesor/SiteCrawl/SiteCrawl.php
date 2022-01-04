@@ -17,6 +17,7 @@ class SiteCrawl
         foreach ($sites as $site) {
             Crawler::create()
                 ->setCrawlObserver(new Observer($site))
+                ->setCrawlProfile(new CrawlP())
                 ->ignoreRobots()
                 ->setConcurrency(1)
                 ->acceptNofollowLinks()
