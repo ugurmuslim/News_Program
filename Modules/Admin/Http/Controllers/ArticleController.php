@@ -309,7 +309,7 @@ class ArticleController extends Controller
             $article->seo_title = Request::input('SeoTitle');
             $article->seo_description = Request::input('SeoDescription');
             $article->sort = 1;
-            $article->seo_keywords = Request::input('SeoKeywords');
+//            $article->seo_keywords = Request::input('SeoKeywords');
             $article->article_date = Request::input('ArticleDate');
             Log::debug(json_encode([
                 'type'         => 'Article Saving',

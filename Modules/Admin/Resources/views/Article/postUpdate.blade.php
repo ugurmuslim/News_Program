@@ -276,7 +276,7 @@
                                     </div>
 
                                     <div class="col-md-12 hr"></div>
-                                    <div class="col-md-12 form-group">
+                                    {{--<div class="col-md-12 form-group">
                                         <label class="form-text">Seo Anahtar Kelimeler</label>
                                         <input name="SeoKeywords" type="text" class="form-control"
                                                placeholder="Virgül ile ayrarak anahtar keline girin"
@@ -285,7 +285,7 @@
                                                required="required"
                                                value="{{isset($article) ? $article->seo_keywords :  old('SeoKeywords') }}"
                                         />
-                                    </div>
+                                    </div>--}}
 
                                     <div class="col-12 hr"></div>
                                     <div class="col-md-12 form-group">
@@ -634,7 +634,7 @@
                                               autocomplete="off">{{old('SeoDescription') ? (isset($article) ? $article->seo_description : "") : ""}}</textarea>
                                 </div>
 
-                                <div class="col-md-3 form-group">
+                               {{-- <div class="col-md-3 form-group">
                                     <label class="form-text">Seo Anahtar Kelimeler</label>
                                     <input name="SeoKeywords" type="text" class="form-control"
                                            placeholder="Lorem,ipsum,dolor,sit,amet" maxlength="1000"
@@ -642,7 +642,7 @@
                                            required="required"
                                            value="{{isset($article) ? $article->seo_keywords :  old('SeoKeywords') }}"
                                     />
-                                </div>
+                                </div>--}}
 
                                 <div class="col-md-3 form-group">
                                     <label class="form-text">Tarih</label>
