@@ -34,6 +34,7 @@ class SitesToCrawl extends Model
         'title',
         'site_name',
         'article_type_id',
+        'crawl_type',
         'status',
     ];
 
