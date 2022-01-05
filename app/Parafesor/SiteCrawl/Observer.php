@@ -87,6 +87,9 @@ class Observer extends CrawlObserver
             $summary = $title;
         }
         $date = $finder->query($this->attributes->where('type', 'date')->first()->value)[0];
+        if(!$date) {
+            return;
+        }
         $pubDate = $date->getAttribute('content');
         try {
             CrawledArticle::create([
