@@ -59,13 +59,17 @@ class ArticleController extends Controller
 
 
 
-        if ($articleTypeId && $database == "maria") {
+        if ($articleTypeId) {
             $query = $query->where('article_type_id', $articleTypeId);
         }
 
-        if ($articleTypeId && $database != "maria") {
-            $query = $query->where('article_type_id', $articleTypeId);
+        if (!$articleTypeId) {
+            $query = $query->where('article_type_id', ArticleTypes::Kripto);
         }
+
+        /*if ($articleTypeId && $database != "maria") {
+            $query = $query->where('article_type_id', $articleTypeId);
+        }*/
 
         $query->orderBy('created_at', 'DESC');
         $newsAll = $query->paginate(15);
