@@ -68,7 +68,7 @@ class ArticleController extends Controller
             $query = $query->where('article_type_id', $articleTypeId);
         }
 
-        if (!$articleTypeId && $status) {
+        if (!$articleTypeId && !$status) {
             $query = $query->where('article_type_id', ArticleTypes::Kripto);
         }
 
