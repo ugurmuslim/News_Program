@@ -4,6 +4,7 @@ namespace App\Parafesor\SiteCrawl;
 
 use App\Parafesor\Constants\CrawlTypes;
 use App\Parafesor\SimplePie\SimplePie;
+use Modules\Admin\Entities\SiteAttributes;
 use Modules\Admin\Entities\SitesToCrawl;
 use Spatie\Crawler\Crawler;
 
@@ -14,10 +15,12 @@ class SiteCrawl
         $sites = SitesToCrawl::where('crawl_type', CrawlTypes::SITE)
             ->where('status', 1)
             ->get();
+
         foreach ($sites as $site) {
+            $attributes = SiteAttributes::where('title',$site->site_name)->get();
             Crawler::create()
-                ->setCrawlObserver(new Observer($site))
-                ->setCrawlProfile(new CrawlP())
+                ->setCrawlObserver(new Observer($site, $attributes))
+                ->setCrawlProfile(new CrawlP($site))
                 ->ignoreRobots()
                 ->setConcurrency(1)
                 ->acceptNofollowLinks()

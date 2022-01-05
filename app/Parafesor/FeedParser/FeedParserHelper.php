@@ -21,6 +21,7 @@ class FeedParserHelper
         $sites = SitesToCrawl::where('status', true)
             ->where('article_type_id','!=', ArticleTypes::KoseYazilari)
             ->where('crawl_type','=', CrawlTypes::RSS)->get();
+
         foreach ($sites as $site) {
             $feed = new SimplePie();
             $feed->cache = false;

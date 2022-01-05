@@ -7,6 +7,7 @@ use Carbon\Carbon;
 use DOMDocument;
 use DOMXPath;
 use Exception;
+use Illuminate\Database\Eloquent\Collection;
 use Modules\Admin\Entities\CrawledArticle;
 use Modules\Admin\Entities\SitesToCrawl;
 use Psr\Http\Message\UriInterface;
@@ -27,10 +28,15 @@ class Observer extends CrawlObserver
      * @var \SitesToCrawl
      */
     private $site;
+    /**
+     * @var Collection
+     */
+    private $attributes;
 
-    public function __construct(SitesToCrawl  $site)
+    public function __construct(SitesToCrawl  $site, Collection $attributes)
     {
         $this->site = $site;
+        $this->attributes = $attributes;
     }
 
     /**
@@ -61,22 +67,26 @@ class Observer extends CrawlObserver
         $doc = new DOMDocument();
         @$doc->loadHTML($response->getBody());
         $finder = new DomXPath($doc);
-        $nodeList = $finder->query('//div[starts-with(@class, "dtail")]');
+//        $nodeList = $finder->query('//div[starts-with(@class, "dtail")]');
+        $nodeList = $finder->query($this->attributes->where('type', 'title')->first()->value);
         if ($nodeList->count() == 0) {
+            echo "could not find any node" . PHP_EOL;
             return;
         }
-        $title = $finder->query('//div[starts-with(@class, "dtail")]/h1/text()')[0];
-        $imgPath = $finder->query('//div[starts-with(@class, "pht")]/img')[0];
+        $title = $finder->query($this->attributes->where('type', 'title')->first()->value)[0];
+        $imgPath = $finder->query($this->attributes->where('type', 'image')->first()->value)[0];
 
         if (!$imgPath) {
-            return;
+            $img = null;
+        } else {
+            $img = $imgPath->getAttribute('src');
         }
-        $src = $imgPath->getAttribute('src');
-        $summary = $finder->query('//div[starts-with(@class, "dtail")]/h2/text()')[0];
+
+        $summary = $finder->query($this->attributes->where('type', 'summary')->first()->value)[0];
         if (!$summary) {
-            return;
+            $summary = $title;
         }
-        $date = $finder->query('//meta[starts-with(@itemprop, "datePublished")]')[0];
+        $date = $finder->query($this->attributes->where('type', 'date')->first()->value)[0];
         $pubDate = $date->getAttribute('content');
         try {
             CrawledArticle::create([
@@ -86,7 +96,7 @@ class Observer extends CrawlObserver
                 "article_type_id" => $this->site->article_type_id,
                 "pub_date"        => date('Y-m-d H:i:s', strtotime($pubDate)),
                 "summary"         => $summary->nodeValue,
-                "image_path"      => $src,
+                "image_path"      => $img,
                 "try_number"      => 0,
                 "site_name"       => $this->site->site_name,
                 "body"            => null,
@@ -115,6 +125,7 @@ class Observer extends CrawlObserver
     ): void
     {
         echo "Failed : " . $url;
+        dd($requestException->getMessage());
         Log::error('crawlFailed: ' . $url);
     }
 
