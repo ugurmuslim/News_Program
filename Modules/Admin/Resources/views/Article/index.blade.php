@@ -40,19 +40,19 @@
 
                                         </select>
 
-                                       {{-- <label class="form-text">Site</label>
-                                        <select class="form-control" name="ArticleTypeId" required="required"
-                                                id="category">
-                                            @if(request()->query('ArticleTypeId'))
-                                                <option
-                                                    value="{{request()->query('ArticleTypeId')}}">{{\Modules\Admin\Entities\ArticleType::find(request()->query('ArticleTypeId'))->title}}</option>
-                                            @endif
+                                        {{-- <label class="form-text">Site</label>
+                                         <select class="form-control" name="ArticleTypeId" required="required"
+                                                 id="category">
+                                             @if(request()->query('ArticleTypeId'))
+                                                 <option
+                                                     value="{{request()->query('ArticleTypeId')}}">{{\Modules\Admin\Entities\ArticleType::find(request()->query('ArticleTypeId'))->title}}</option>
+                                             @endif
 
-                                            @foreach($articleTypes as $type)
-                                                <option value={{$type->id}}>{{$type->title }}</option>
-                                            @endforeach
+                                             @foreach($articleTypes as $type)
+                                                 <option value={{$type->id}}>{{$type->title }}</option>
+                                             @endforeach
 
-                                        </select>--}}
+                                         </select>--}}
                                     </div>
                                 </div>
 
@@ -70,7 +70,7 @@
                                     <th>Resim</th>
                                     <th>Başlık</th>
                                     <th>Özet</th>
-                                    <th>Editor</th>
+                                    <th>Yazar</th>
                                     <th style="width: 15%">Zaman</th>
                                     <th>Aksiyon</th>
                                 </tr>
@@ -117,21 +117,23 @@
                                         <td>
 
                                             <div class="col-md-3">
-                                                @can('assign articles')
-                                                    <a href="{{route('article.assign',['id' => $news->id])}}"
-                                                       class="btn btn-primary">Atama</a>
-                                                @endcan
-                                                @can('assign articles')
-                                                    <form method="post"
-                                                          action={{route('article.destroy', ['id' => $news->id])}}>
-                                                        {{ csrf_field() }}
-                                                        {{ method_field('DELETE') }}
-                                                        <button class="btn btn-danger">Sil</button>
-                                                    </form>
-                                                @endcan
+                                                @if(app('request')->input('status')  != \App\Parafesor\Constants\ArticleStatus::PUBLISHED)
+                                                    @can('assign articles')
+                                                        <a href="{{route('article.assign',['id' => $news->id])}}"
+                                                           class="btn btn-primary">Atama</a>
+                                                    @endcan
+                                                    @can('assign articles')
+                                                        <form method="post"
+                                                              action={{route('article.destroy', ['id' => $news->id])}}>
+                                                            {{ csrf_field() }}
+                                                            {{ method_field('DELETE') }}
+                                                            <button class="btn btn-danger">Sil</button>
+                                                        </form>
+                                                    @endcan
+                                                @endif
                                                 @can('edit articles')
-                                                        <a href="{{route('article.postUpdate',['id' => $news->id])}}"
-                                                           class="btn btn-primary">Düzenle</a>
+                                                    <a href="{{route('article.postUpdate',['id' => $news->id])}}"
+                                                       class="btn btn-primary">Düzenle</a>
                                                 @endcan
                                             </div>
                                         </td>

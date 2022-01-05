@@ -273,7 +273,7 @@
                                     <p>Bot Performans</p>
                                 </a>
                                 <form action="{{route('bot.run')}}">
-                                    <button class="btn btn-success btn-sm nav-link">Çalıştır</button>
+                                    <button class="btn btn-success btn-sm nav-link" style="font-weight: bold; color: black;">Çalıştır</button>
                                 </form>
                             </li>
 

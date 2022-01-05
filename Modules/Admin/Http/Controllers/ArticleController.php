@@ -37,6 +37,8 @@ class ArticleController extends Controller
         $articleTypeId = Request::input('ArticleTypeId');
         $status = Request::input('status');
         $database = Request::input('database');
+        $user = User::find(Auth::user()->id);
+
         $editorId = Auth::user()->id;
 
         if ($database != "maria") {
@@ -52,8 +54,10 @@ class ArticleController extends Controller
 
 
         if ($editorId && $database == "maria" && ( Request::input('editor') != 'all' )) {
-            $query = $query->where('editor_id', $editorId);
+            $query = $query->where($user->can('assign articles') ? "assigner_id" : 'editor_id', $editorId);
         }
+
+
 
         if ($articleTypeId && $database == "maria") {
             $query = $query->where('article_type_id', $articleTypeId);
@@ -147,11 +151,14 @@ class ArticleController extends Controller
         $article->original_link = $news->original_link;
         $article->site_name = $news->site_name;
         $article->article_type_id = $articleType->id;
+        $article->title = Request::input('Title');
         $article->company_id = Request::input('CompanyId');
+        $article->show_case = Request::input('PlacementSection');
+        $article->header_slider = Request::input('HeaderSection');
+        $article->persistent = Request::input('PersistentSection');
         $article->status = ArticleStatus::ASSIGNED;
         $article->summary = $news->summary;
         $article->external_site_id = $news->news_id;
-        $article->title = $news->title;
         $article->image_path = $image;
         $article->article_date = $news->pubDate;
         $article->sort = 100;
@@ -177,6 +184,7 @@ class ArticleController extends Controller
     {
         $companies = Company::all();
         $articleTypes = ArticleType::all();
+        $user = User::find(Auth::user()->id);
         if ($id) {
             $article = Article::find($id);
             if (!$article) {
@@ -184,6 +192,7 @@ class ArticleController extends Controller
             }
             return view('admin::Article.postUpdate')->with('articleTypes', $articleTypes)
                 ->with("companies", $companies)
+                ->with("user", $user)
                 ->with("article", $article);
         }
 

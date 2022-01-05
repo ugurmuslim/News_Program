@@ -34,9 +34,8 @@
                                 <div class="col-12">
                                     <label class="form-text">Başlık</label>
                                     <input name="Title" type="text" class="form-control"
-                                           placeholder="Lorem ipsum dolor"
                                            required="required" maxlength="200" autocomplete="off"
-                                           value="{{$news->title}}" disabled/>
+                                           value="{{$news->title}}"/>
                                 </div>
                                 <div class="col-12">
                                     <label class="form-text">Kategori</label>
@@ -60,6 +59,57 @@
                                         @endforeach
                                     </select>
                                 </div>
+                                <div class="col-12 form-group">
+                                    <div class="col-6 mt-3">
+                                        <div class="row">
+                                            <div class="col-md-3">
+                                                <button type="button" class="btn btn-default text-bold border-dark"
+                                                        id="headerDrawing"
+                                                        value="HeaderSlider">Header Slider
+                                                </button>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <button type="button"
+                                                        class="btn btn-default text-bold border-dark placementDrawing"
+                                                        value="MainSlider">Ana Slider
+                                                </button>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <button type="button"
+                                                        class="btn btn-default text-bold border-dark placementDrawing"
+                                                        value="SecondSlider" id="SecondSlider"
+                                                        style="{{isset($article) ? ($article->articleType->title == "Gündem" ? "" : "display:none") : ""}}">
+                                                    İkinci Slider
+                                                </button>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <button type="button"
+                                                        class="btn btn-default text-bold border-dark placementDrawing"
+                                                        value="Normal" style="background-color: red">Normal
+                                                </button>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-12 mt-3">
+                                                    <div class="col-md-3">
+                                                        <button type="button"
+                                                                class="btn btn-default text-bold border-dark "
+                                                                id="persistentDrawing"
+                                                                value="0">Kalıcı
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <input type="text" value="Normal" name="PlacementSection" id="PlacementSection"
+                                       hidden>
+
+                                <input type="number" value="0" name="PersistentSection" id="PersistentSection"
+                                       hidden>
+
+                                <input type="number" value="0" name="HeaderSection" id="HeaderSection" hidden>
                                 <div class="col-12 hr"></div>
                                 <div class="col-12">
                                     <label class="form-text">Açıklama</label>
@@ -130,5 +180,17 @@
             readonly: "true",
         });
 
+    </script>
+    <script>
+        $(".placementDrawing").on("click", function () {
+            $('.placementDrawing').each(function () {
+                $(this).removeClass("activated");
+                $(this).css("background-color", "");
+            })
+            $(this).addClass("activated");
+            $("#PlacementSection").attr("value", $(this).attr("value"));
+            $(this).css("background-color", "red");
+
+        });
     </script>
 @endsection

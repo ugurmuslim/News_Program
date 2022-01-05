@@ -74,14 +74,14 @@
                                                placeholder="Başlık Girin"
                                                id="articleTitle"
                                                value="{{isset($article) ? $article->title : ""}}"
-                                               required="required" maxlength="200" autocomplete="off"/>
+                                               required="required" {{isset($article) && $article->assigner_id && !$user->can('assign articles') ? "readonly" : ""}} maxlength="200" autocomplete="off"/>
                                     </div>
 
                                     <div class="col-12 hr"></div>
                                     <div class="col-12">
                                         <label class="form-text">Kategori</label>
                                         <select class="form-control" name="ArticleTypeId" required="required"
-                                                id="category" {{isset($article) && $article->assigner_id ? "readonly" : ""}}>
+                                                id="category" {{isset($article) && $article->assigner_id && !$user->can('assign articles') ? "readonly" : ""}}>
                                             @if(isset($article))
                                                 <option
                                                     value="{{$article->article_type_id}}">{{$article->articleType->title}}</option>
@@ -96,7 +96,7 @@
                                          style="{{isset($article) && $article->articleType->id == \App\Parafesor\Constants\ArticleTypes::SirketHaberleri ? "" : "display:none"}}">
                                         <label class="form-text">Şirket</label>
                                         <select class="form-control" name="CompanyId"
-                                                id="company" {{isset($article) && $article->assigner_id ? "readonly" : ""}}>
+                                                id="company" {{isset($article) && $article->assigner_id  && !$user->can('assign articles') ? "readonly" : ""}}>
                                             @if(isset($article) && $article->company_id)
                                                 <option
                                                     value="{{$article->company_id}}">{{$article->company->title}}</option>
@@ -106,7 +106,7 @@
                                             @endforeach
                                         </select>
                                     </div>
-                                        <div class="col-12 form-group">
+                                        <div class="col-12 form-group" {{isset($article) && $article->assigner_id && !$user->can('assign articles')  ? "hidden" : ""}}>
                                             <div class="col-6 mt-3">
                                                 <div class="row">
                                                     <div class="col-md-3">
@@ -152,13 +152,13 @@
                                             </div>
                                         </div>
 
-                                        <input type="text" value="Normal" name="PlacementSection" id="PlacementSection"
-                                               hidden>
+                                    <input type="text" value="{{isset($article) && $article->show_case ? $article->show_case : "Normal"}}" name="PlacementSection" id="PlacementSection"
+                                           hidden>
 
-                                        <input type="number" value="0" name="PersistentSection" id="PersistentSection"
-                                               hidden>
+                                    <input type="number" value="{{isset($article) && $article->persistent ? $article->persistent : 0}}" name="PersistentSection" id="PersistentSection"
+                                           hidden>
 
-                                        <input type="number" value="0" name="HeaderSection" id="HeaderSection" hidden>
+                                    <input type="number" value="{{isset($article) && $article->header_slider ? $article->header_slider : 0}}" name="HeaderSection" id="HeaderSection" hidden>
                                         <div class="col-12 hr"></div>
                                         <div class="col-12">
                                             <label class="form-text">Özet</label>
@@ -426,9 +426,9 @@
                                     <div class="col-12">
                                         <label class="form-text">Başlık</label>
                                         <input name="Title" type="text" class="form-control"
-                                               placeholder="Başlık Girin"
+                                               value="{{isset($article) ? $article->title : ""}}"
                                                id="articleTitle"
-                                               required="required" maxlength="200" autocomplete="off"/>
+                                               required="required" readonly maxlength="200" autocomplete="off"/>
                                     </div>
 
                                     <div class="col-12 hr"></div>
@@ -465,7 +465,7 @@
                                            value="{{isset($article) && $article->company_id ? $article->company->id : ""}}"
                                            hidden>
 
-                                    <div class="col-12 form-group">
+                                    {{--<div class="col-12 form-group">
                                         <div class="col-6 mt-3">
                                             <div class="row">
                                                 <div class="col-md-3">
@@ -507,15 +507,15 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
+                                    </div>--}}
 
-                                    <input type="text" value="Normal" name="PlacementSection" id="PlacementSection"
+                                    <input type="text" value="{{isset($article) && $article->show_case ? $article->show_case : "Normal"}}" name="PlacementSection" id="PlacementSection"
                                            hidden>
 
-                                    <input type="number" value="0" name="PersistentSection" id="PersistentSection"
+                                    <input type="number" value="{{isset($article) && $article->persistent ? $article->persistent : 0}}" name="PersistentSection" id="PersistentSection"
                                            hidden>
 
-                                    <input type="number" value="0" name="HeaderSection" id="HeaderSection" hidden>
+                                    <input type="number" value="{{isset($article) && $article->header_slider ? $article->header_slider : 0}}" name="HeaderSection" id="HeaderSection" hidden>
                                     <div class="col-12 hr"></div>
                                     <div class="col-12">
                                         <label class="form-text">Özet</label>
