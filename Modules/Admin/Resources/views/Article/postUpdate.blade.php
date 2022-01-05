@@ -602,7 +602,7 @@
   </textarea>
                                     @else
                                         <iframe src="{{$article->original_link}}" style="width: 100%;  height:90%;"
-                                                title="news"></iframe>
+                                                title="news" loading="lazy"></iframe>
                                     @endif
                                 </div>
                                 <div class="col-6">
