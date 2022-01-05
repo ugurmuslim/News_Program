@@ -22,7 +22,7 @@ class SiteCrawl
                 ->setCrawlObserver(new Observer($site, $attributes))
                 ->setCrawlProfile(new CrawlP($site))
                 ->ignoreRobots()
-                ->setConcurrency(1)
+                ->setConcurrency(3)
                 ->acceptNofollowLinks()
                 ->setMaximumDepth(1)
                 ->startCrawling($site->title);
