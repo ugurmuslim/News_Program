@@ -152,6 +152,10 @@ Route::prefix('admin')->group(function () {
         Route::get('/report/{date}/compare/{compareDate}', [ \Modules\Admin\Http\Controllers\BotController::class, 'report' ])
             ->middleware('auth')
             ->name('bot.report');
+
+        Route::get('/run', [ \Modules\Admin\Http\Controllers\BotController::class, 'run' ])
+            ->middleware('auth')
+            ->name('bot.run');
     });
 
     Route::prefix('articleType')->group(function () {

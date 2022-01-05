@@ -4,10 +4,13 @@
 namespace Modules\Admin\Http\Controllers;
 
 
+use App\Console\Commands\FeedParser;
 use App\Parafesor\Constants\ArticleTypes;
+use App\Parafesor\FeedParser\FeedParserHelper;
 use Carbon\Carbon;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Routing\Controller;
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\Session;
@@ -161,4 +164,12 @@ class BotController extends Controller
 
     }
 
+    public function run()
+    {
+        Artisan::queue('feed:parser', [
+        ]);
+        Session::flash('success', " RSS Botları başarı ile çalıştı!");
+        return back();
+
+    }
 }
