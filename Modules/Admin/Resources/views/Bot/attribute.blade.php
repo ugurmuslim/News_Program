@@ -46,7 +46,7 @@
                                     <input name="imageAttr" type="text" class="form-control"
                                            placeholder="Lorem ipsum dolor"
                                            id="siteImage"
-                                           value="{{isset($botAttributes) ? $botAttributes->where('type', 'image')->first()->value : ""}}"
+                                           value="{{$botAttributes->count() > 0 ? $botAttributes->where('type', 'image')->first()->value : ""}}"
                                            required="required" maxlength="200" autocomplete="off"/>
                                 </div>
 
@@ -56,7 +56,7 @@
                                     <input name="bodyAttr" type="text" class="form-control"
                                            placeholder="Lorem ipsum dolor"
                                            id="siteContent"
-                                           value="{{isset($botAttributes) ? $botAttributes->where('type', 'body')->first()->value : ""}}"
+                                           value="{{$botAttributes->count() > 0 ? $botAttributes->where('type', 'body')->first()->value : ""}}"
                                            required="required" maxlength="200" autocomplete="off"/>
                                 </div>
                                 <div class="col-12">
