@@ -89,6 +89,7 @@ class BotController extends Controller
             'article_type_id' => ArticleTypes::Youtube,
             'title'           => Request::input('ChannelLink'),
             'site_name'       => Request::input('Name'),
+            'crawl_type'       => 0,
             'status'          => 1,
         ]);
 
