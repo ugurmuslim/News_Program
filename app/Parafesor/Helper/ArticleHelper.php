@@ -121,7 +121,7 @@ class ArticleHelper
 
     public static function updateMostReadArticles()
     {
-        $articles = Article::whereBetween('created_at', [ Carbon::now()->subDays(2), Carbon::now() ])
+        $articles = Article::whereBetween('created_at', [ Carbon::now()->subDays(1), Carbon::now() ])
             ->select('title','original_link', 'image_path','summary','created_at', 'slug')
             ->where('status', '=', ArticleStatus::PUBLISHED)
             ->where('article_type_id', '!=', ArticleTypes::Twitter)
