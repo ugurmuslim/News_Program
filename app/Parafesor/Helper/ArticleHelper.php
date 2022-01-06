@@ -25,7 +25,7 @@ class ArticleHelper
         foreach ($articleTypes as $type) {
             $articleType = ArticleType::find($type);
             $articlesByType = Article::where('articles.status', ArticleStatus::PUBLISHED)
-                ->select('title','original_link', 'image_path','summary','created_at', 'slug')
+                ->select('title','original_link', 'image_path','summary','created_at', 'slug','article_date')
                 ->where('article_type_id', $articleType->id)
                 ->where('persistent', 0)
                 ->where('start_date', '<', Carbon::now())
@@ -35,7 +35,7 @@ class ArticleHelper
                 ->get();
 
             $articlesMainSlider = Article::where('articles.status', ArticleStatus::PUBLISHED)
-                ->select('title','original_link', 'image_path','summary','created_at', 'slug')
+                ->select('title','original_link', 'image_path','summary','created_at', 'slug','article_date')
                 ->where('article_type_id', $articleType->id)
                 ->where('show_case', '=', CategorySectionTypes::MAIN_SLIDER)
                 ->where('start_date', '<', Carbon::now())
@@ -44,7 +44,7 @@ class ArticleHelper
                 ->get();
 
             $articlesSecondSlider = Article::where('articles.status', ArticleStatus::PUBLISHED)
-                ->select('title','original_link', 'image_path','summary','created_at', 'slug')
+                ->select('title','original_link', 'image_path','summary','created_at', 'slug','article_date')
                 ->where('article_type_id', $articleType->id)
                 ->where('show_case', '=', CategorySectionTypes::SECOND_SLIDER)
                 ->where('start_date', '<', Carbon::now())
@@ -53,7 +53,7 @@ class ArticleHelper
                 ->get();
 
             $articlesPersistent = Article::where('articles.status', ArticleStatus::PUBLISHED)
-                ->select('title','original_link', 'image_path','summary','created_at', 'slug')
+                ->select('title','original_link', 'image_path','summary','created_at', 'slug','article_date')
                 ->where('article_type_id', $articleType->id)
                 ->where('persistent', '=', 1)
                 ->where('start_date', '<', Carbon::now())
@@ -96,14 +96,14 @@ class ArticleHelper
         }
 
         $articles = Article::where('articles.status', ArticleStatus::PUBLISHED)
-            ->select('title','original_link', 'image_path','summary','created_at', 'slug')
+            ->select('title','original_link', 'image_path','summary','created_at', 'slug','article_date')
             ->where('articles.header_slider', 1)
             ->orderby('articles.created_at', 'DESC')
             ->limit(7)
             ->get();
 
         $lastMinute = Article::where('articles.status', ArticleStatus::PUBLISHED)
-            ->select('title','original_link', 'image_path','summary','created_at', 'slug')
+            ->select('title','original_link', 'image_path','summary','created_at', 'slug','article_date')
             ->where('articles.article_type_id', '!=', ArticleTypes::Twitter)
             ->where('articles.article_type_id', '!=', ArticleTypes::KoseYazilari)
             ->where('articles.article_type_id', '!=', ArticleTypes::BorsaTube)
@@ -122,7 +122,7 @@ class ArticleHelper
     public static function updateMostReadArticles()
     {
         $articles = Article::whereBetween('created_at', [ Carbon::now()->subDays(1), Carbon::now() ])
-            ->select('title','original_link', 'image_path','summary','created_at', 'slug')
+            ->select('title','original_link', 'image_path','summary','created_at', 'slug','article_date')
             ->where('status', '=', ArticleStatus::PUBLISHED)
             ->where('article_type_id', '!=', ArticleTypes::Twitter)
             ->where('article_type_id', '!=', ArticleTypes::KoseYazilari)
