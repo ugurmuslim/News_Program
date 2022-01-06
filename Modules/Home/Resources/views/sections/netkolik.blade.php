@@ -79,7 +79,7 @@
                                         <div class="internet-card-caption"><p>{{$article->title}}</p>
                                             <div class=" sport-text-bottom-sm">
 
-                                                <span class="">{{ Date::parse($article->article_date)->format('j F')}} • {{ Carbon\Carbon::parse($article->article_date)->format('H:m')}} • parafesor</span>
+                                                <span class="">{{ Date::parse($article->article_date)->format('j F')}} • {{ Carbon\Carbon::parse($article->article_date)->format('H:i')}} • parafesor</span>
                                             </div>
 
                                         </div>
@@ -105,7 +105,7 @@
                                 <div class="internet-news-box-caption">
                                    <p>{{$article->title}}</p>
                                     <div class="tech-text-bottom-sm">
-                                        <span class="">{{ Date::parse($article->article_date)->format('j F')}} • {{ Carbon\Carbon::parse($article->article_date)->format('H:m')}} • parafesor</span>
+                                        <span class="">{{ Date::parse($article->article_date)->format('j F')}} • {{ Carbon\Carbon::parse($article->article_date)->format('H:i')}} • parafesor</span>
                                     </div>
                                 </div>
                             </div>
@@ -126,7 +126,7 @@
                                             <p>{{$article->title}}</p>
                                             <div class="card-bottom-date">
                                         <span
-                                            class="text-dark-orange">{{ Date::parse($article->article_date)->format('j F')}}</span><span> • {{ Carbon\Carbon::parse($article->article_date)->format('H:m')}} • parafesor</span>
+                                            class="text-dark-orange">{{ Date::parse($article->article_date)->format('j F')}}</span><span> • {{ Carbon\Carbon::parse($article->article_date)->format('H:i')}} • parafesor</span>
                                             </div>
                                         </div>
                                     </div>
@@ -150,7 +150,7 @@
                                     <p>{{$article->title}}</p>
                                     <div class="card-bottom-date">
                                     <span
-                                        class="text-dark-orange">{{Date::parse($article->article_date)->format('j F')}}</span><span> • {{ Carbon\Carbon::parse($article->article_date)->format('H:m')}} • parafesor</span>
+                                        class="text-dark-orange">{{Date::parse($article->article_date)->format('j F')}}</span><span> • {{ Carbon\Carbon::parse($article->article_date)->format('H:i')}} • parafesor</span>
                                     </div>
                                 </div>
 

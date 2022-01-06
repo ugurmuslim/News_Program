@@ -17,7 +17,7 @@
                             </div>
                             <div class="company-bottom">
                           <span
-                              class="text-dark-blue">{{ Date::parse($article->article_date)->format('j F')}}</span><span> • {{ Carbon\Carbon::parse($article->article_date)->format('H:m')}} • parafesor</span>
+                              class="text-dark-blue">{{ Date::parse($article->article_date)->format('j F')}}</span><span> • {{ Carbon\Carbon::parse($article->article_date)->format('H:i')}} • parafesor</span>
                             </div>
                         </div>
                     </a>

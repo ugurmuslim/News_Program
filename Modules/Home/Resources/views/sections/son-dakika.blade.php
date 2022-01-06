@@ -39,12 +39,12 @@
                         <div class="last-min-title">{{$article->title}}
                             <div class="d-sm-block d-md-none last-min-text-bottom-sm">
                             <span
-                                class="text-danger">{{ Date::parse($article->article_date)->format('j F')}}</span><span> • {{ Carbon\Carbon::parse($article->article_date)->format('H:m')}} • parafesor</span>
+                                class="text-danger">{{ Date::parse($article->article_date)->format('j F')}}</span><span> • {{ Carbon\Carbon::parse($article->article_date)->format('H:i')}} • parafesor</span>
                             </div>
                         </div>
                         <div class="d-none d-md-block last-min-text-bottom">
                         <span
-                            class="text-danger">{{ Date::parse($article->article_date)->format('j F')}}</span><span> • {{ Carbon\Carbon::parse($article->article_date)->format('H:m')}} • parafesor</span>
+                            class="text-danger">{{ Date::parse($article->article_date)->format('j F')}}</span><span> • {{ Carbon\Carbon::parse($article->article_date)->format('H:i')}} • parafesor</span>
                         </div>
                     </a>
                 </div>
@@ -63,7 +63,7 @@
                                 <div class="last-min-caption"><p>{{$article->title}}</p>
                                     <div class="last-min-bottom-sm">
 
-                                        <span class="text-white">{{ Date::parse($article->article_date)->format('j F')}} • {{ Carbon\Carbon::parse($article->article_date)->format('H:m')}} • parafesor</span>
+                                        <span class="text-white">{{ Date::parse($article->article_date)->format('j F')}} • {{ Carbon\Carbon::parse($article->article_date)->format('H:i')}} • parafesor</span>
                                     </div>
                                 </div>
                             </div>
@@ -84,12 +84,12 @@
                         <div class="last-min-title"><p>{{$article->title}}</p>
                             <div class="d-sm-block d-md-none last-min-text-bottom-sm">
                             <span
-                                class="text-danger">{{ Date::parse($article->article_date)->format('j F')}}</span><span> • {{ Carbon\Carbon::parse($article->article_date)->format('H:m')}} • parafesor</span>
+                                class="text-danger">{{ Date::parse($article->article_date)->format('j F')}}</span><span> • {{ Carbon\Carbon::parse($article->article_date)->format('H:i')}} • parafesor</span>
                             </div>
                         </div>
                         <div class="d-none d-md-block last-min-text-bottom">
                         <span
-                            class="text-danger">{{ Date::parse($article->article_date)->format('j F')}}</span><span> • {{ Carbon\Carbon::parse($article->article_date)->format('H:m')}} • parafesor</span>
+                            class="text-danger">{{ Date::parse($article->article_date)->format('j F')}}</span><span> • {{ Carbon\Carbon::parse($article->article_date)->format('H:i')}} • parafesor</span>
                         </div>
                     </a>
                 </div>

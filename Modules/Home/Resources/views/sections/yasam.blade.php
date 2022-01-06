@@ -22,7 +22,7 @@
                                         <div class="life-card-slider-slide-caption text-black"><p>{{$article->title}}</p>
                                             <div class="tech-text-bottom-sm">
                                     <span
-                                        class="text-black">{{ Date::parse($article->article_date)->format('j F')}}</span><span> • {{ Carbon\Carbon::parse($article->article_date)->format('H:m')}} • parafesor</span>
+                                        class="text-black">{{ Date::parse($article->article_date)->format('j F')}}</span><span> • {{ Carbon\Carbon::parse($article->article_date)->format('H:i')}} • parafesor</span>
                                             </div>
                                         </div>  </div>
 
@@ -82,7 +82,7 @@
                                     <p>{{$article->title}}</p>
                                     <div class="life-text-bottom-sm ">
                                             <span
-                                                class="text-orange">{{ Date::parse($article->article_date)->format('j F')}}</span><span> • {{ Carbon\Carbon::parse($article->article_date)->format('H:m')}} • parafesor</span>
+                                                class="text-orange">{{ Date::parse($article->article_date)->format('j F')}}</span><span> • {{ Carbon\Carbon::parse($article->article_date)->format('H:i')}} • parafesor</span>
                                     </div>
                                 </div>
                             </div>
@@ -141,7 +141,7 @@
 
                             <div class="life-text-bottom-sm">
                             <span
-                                class="text-orange">{{ Date::parse($article->article_date)->format('j F')}}</span><span> • {{ Carbon\Carbon::parse($article->article_date)->format('H:m')}} • parafesor</span>
+                                class="text-orange">{{ Date::parse($article->article_date)->format('j F')}}</span><span> • {{ Carbon\Carbon::parse($article->article_date)->format('H:i')}} • parafesor</span>
                             </div>
                         </div>
                     </a>

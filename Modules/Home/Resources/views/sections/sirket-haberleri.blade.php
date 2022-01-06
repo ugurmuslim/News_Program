@@ -57,7 +57,7 @@
                                     </p>
                                     <div class="corporate-news-text-bottom">
                                <span
-                                   class="">{{ Date::parse($article->created_at)->format('j F')}}</span><span> • {{ Carbon\Carbon::parse($article->created_at)->format('H:m')}} • parafesor</span>
+                                   class="">{{ Date::parse($article->created_at)->format('j F')}}</span><span> • {{ Carbon\Carbon::parse($article->created_at)->format('H:i')}} • parafesor</span>
                                     </div>
                                 </div>
                             </a>
@@ -84,7 +84,7 @@
                             </div>
                             <div class="company-bottom">
                           <span
-                              class="text-dark-blue">{{ Date::parse($article->created_at)->format('j F') }}</span><span> • {{ Carbon\Carbon::parse($article->created_at)->format('H:m')}} • parafesor</span>
+                              class="text-dark-blue">{{ Date::parse($article->created_at)->format('j F') }}</span><span> • {{ Carbon\Carbon::parse($article->created_at)->format('H:i')}} • parafesor</span>
                             </div>
                         </div>
                     </a>
