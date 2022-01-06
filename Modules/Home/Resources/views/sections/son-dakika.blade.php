@@ -33,18 +33,18 @@
                         <div class="col-24 last-min last-min-md"
                              style="background-image: url({{asset($article->image_path)}})">
                             <div class="last-min-sm-top"><span class="px-2 text-white" style="z-index: 999"><i
-                                        class="far fa-clock"></i> {{\Carbon\Carbon::parse($article->created_at)->format('H:d')}}</span>
+                                        class="far fa-clock"></i> {{\Carbon\Carbon::parse($article->article_date)->format('H:d')}}</span>
                             </div>
                         </div>
                         <div class="last-min-title">{{$article->title}}
                             <div class="d-sm-block d-md-none last-min-text-bottom-sm">
                             <span
-                                class="text-danger">{{ Date::parse($article->created_at)->format('j F')}}</span><span> • {{ Carbon\Carbon::parse($article->created_at)->format('H:m')}} • parafesor</span>
+                                class="text-danger">{{ Date::parse($article->article_date)->format('j F')}}</span><span> • {{ Carbon\Carbon::parse($article->article_date)->format('H:m')}} • parafesor</span>
                             </div>
                         </div>
                         <div class="d-none d-md-block last-min-text-bottom">
                         <span
-                            class="text-danger">{{ Date::parse($article->created_at)->format('j F')}}</span><span> • {{ Carbon\Carbon::parse($article->created_at)->format('H:m')}} • parafesor</span>
+                            class="text-danger">{{ Date::parse($article->article_date)->format('j F')}}</span><span> • {{ Carbon\Carbon::parse($article->article_date)->format('H:m')}} • parafesor</span>
                         </div>
                     </a>
                 </div>
@@ -58,12 +58,12 @@
                             <div class="redOverlay0">
 
                                 <div class="last-min-sm-top"><span class="px-2 text-white" style="z-index: 999"><i
-                                            class="far fa-clock"></i> {{\Carbon\Carbon::parse($article->created_at)->format('H:d')}}</span>
+                                            class="far fa-clock"></i> {{\Carbon\Carbon::parse($article->article_date)->format('H:d')}}</span>
                                 </div>
                                 <div class="last-min-caption"><p>{{$article->title}}</p>
                                     <div class="last-min-bottom-sm">
 
-                                        <span class="text-white">{{ Date::parse($article->created_at)->format('j F')}} • {{ Carbon\Carbon::parse($article->created_at)->format('H:m')}} • parafesor</span>
+                                        <span class="text-white">{{ Date::parse($article->article_date)->format('j F')}} • {{ Carbon\Carbon::parse($article->article_date)->format('H:m')}} • parafesor</span>
                                     </div>
                                 </div>
                             </div>
@@ -78,18 +78,18 @@
                         <div class="col-24 last-min last-min-md"
                              style="background-image: url({{asset($article->image_path)}})">
                             <div class="last-min-sm-top"><span class="px-2 text-white" style="z-index: 999"><i
-                                        class="far fa-clock"></i> {{\Carbon\Carbon::parse($article->created_at)->format('H:d')}}</span>
+                                        class="far fa-clock"></i> {{\Carbon\Carbon::parse($article->article_date)->format('H:d')}}</span>
                             </div>
                         </div>
                         <div class="last-min-title"><p>{{$article->title}}</p>
                             <div class="d-sm-block d-md-none last-min-text-bottom-sm">
                             <span
-                                class="text-danger">{{ Date::parse($article->created_at)->format('j F')}}</span><span> • {{ Carbon\Carbon::parse($article->created_at)->format('H:m')}} • parafesor</span>
+                                class="text-danger">{{ Date::parse($article->article_date)->format('j F')}}</span><span> • {{ Carbon\Carbon::parse($article->article_date)->format('H:m')}} • parafesor</span>
                             </div>
                         </div>
                         <div class="d-none d-md-block last-min-text-bottom">
                         <span
-                            class="text-danger">{{ Date::parse($article->created_at)->format('j F')}}</span><span> • {{ Carbon\Carbon::parse($article->created_at)->format('H:m')}} • parafesor</span>
+                            class="text-danger">{{ Date::parse($article->article_date)->format('j F')}}</span><span> • {{ Carbon\Carbon::parse($article->article_date)->format('H:m')}} • parafesor</span>
                         </div>
                     </a>
                 </div>
@@ -102,7 +102,7 @@
                 <div class="last-min-sm d-inline-block" style="position:relative">
                     <a href="{{route('article.show',['slug' => $article->slug ])}}">
                         <div class="last-min-sm-top"><span class="px-2 bg-white" style="z-index: 999"><i
-                                    class="far fa-clock"></i> {{\Carbon\Carbon::parse($article->created_at)->format('H:d')}}</span>
+                                    class="far fa-clock"></i> {{\Carbon\Carbon::parse($article->article_date)->format('H:d')}}</span>
                             <div class="last-min-top-line"></div>
                         </div>
                         <div class="col-24 last-min-sm-img"
@@ -112,7 +112,7 @@
                         </div>
                         <div class="last-min-text-bottom small-last-min-bottom">
                             <span
-                                class="text-danger">{{ Date::parse($article->created_at)->format('j F') }}</span><span>  {{Carbon\Carbon::parse($article->created_at)->format('H:m')}} • parafesor</span>
+                                class="text-danger">{{ Date::parse($article->article_date)->format('j F') }}</span><span>  {{Carbon\Carbon::parse($article->article_date)->format('H:m')}} • parafesor</span>
                         </div>
                     </a>
                 </div>

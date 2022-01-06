@@ -118,9 +118,9 @@
                                 </div>
                                 <div class="post-detail">
                                     <span
-                                        class="date float-left">{{ Date::parse($article->created_at)->format('j F')}}</span>
+                                        class="date float-left">{{ Date::parse($article->article_date)->format('j F')}}</span>
                                     <span
-                                        class="time float-left ml-3">{{ Carbon\Carbon::parse($article->created_at)->format('H:m')}}</span>
+                                        class="time float-left ml-3">{{ Carbon\Carbon::parse($article->article_date)->format('H:m')}}</span>
                                     <span class="float-left ml-3">parafesor</span>
                                 </div>
                                 </article>

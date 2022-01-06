@@ -21,7 +21,7 @@
                             </div>
                             <div class="news-card-bottom" style="padding-left: 10%;">
                             <span
-                                class="text-light-blue">{{ Date::parse($article->created_at)->format('j F')}}</span><span> • {{ Carbon\Carbon::parse($article->created_at)->format('H:m')}} • parafesor</span></span>
+                                class="text-light-blue">{{ Date::parse($article->article_date)->format('j F')}}</span><span> • {{ Carbon\Carbon::parse($article->article_date)->format('H:m')}} • parafesor</span></span>
                             </div>
                         </div>
                     </a>

@@ -16,7 +16,7 @@
 
                             <div class="life-text-bottom-sm">
                             <span
-                                class="text-orange">{{ Date::parse($article->created_at)->format('j F')}}</span><span> • {{ Carbon\Carbon::parse($article->created_at)->format('H:m')}} • parafesor</span>
+                                class="text-orange">{{ Date::parse($article->article_date)->format('j F')}}</span><span> • {{ Carbon\Carbon::parse($article->article_date)->format('H:m')}} • parafesor</span>
                             </div>
                         </div>
                     </a>

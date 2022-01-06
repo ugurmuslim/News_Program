@@ -23,7 +23,7 @@
                             </div>
                             <div class="most-red-bottom">
                                    <span
-                                   >{{ Date::parse($article->created_at)->format('j F')}}</span> • <span>{{Carbon\Carbon::parse($article->created_at)->format('H:m')}} • parafesor</span>
+                                   >{{ Date::parse($article->article_date)->format('j F')}}</span> • <span>{{Carbon\Carbon::parse($article->article_date)->format('H:m')}} • parafesor</span>
                             </div>
                         </div>
                     </a>
