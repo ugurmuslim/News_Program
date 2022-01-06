@@ -92,7 +92,7 @@
                                         </div>
                                         <div class="news-card-bottom">
                                     <span
-                                        class="text-danger">{{ Date::parse($article->article_date)->format('j F')}}</span><span> • {{ Carbon\Carbon::parse($article->created_at)->format('H:i')}} • parafesor</span>
+                                        class="text-danger">{{ Date::parse($article->article_date)->format('j F')}}</span><span> • {{ Carbon\Carbon::parse($article->article_date)->format('H:i')}} • parafesor</span>
                                         </div>
                                     </div>
                                 </a>
