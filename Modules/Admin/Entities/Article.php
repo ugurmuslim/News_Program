@@ -105,7 +105,6 @@ class Article extends Model
         'seo_keywords'     => 'string',
         'show_case'        => 'string',
         'site_name'        => 'string',
-        'article_date'     => 'date',
         'start_date'       => 'date',
         'end_date'         => 'date',
     ];
