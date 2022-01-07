@@ -141,6 +141,12 @@ class ArticleController extends Controller
         $company = Company::find(Request::input('CompanyId'));
 
         $image = $company ? $company->image_path : $news->image_path;
+
+        if($articleType->status == 0) {
+            Session::flash('error', $articleType->title . " : Geçerli bir kategori girin! ");
+            return back();
+        }
+
         if (!$articleType) {
             Session::flash('error', "Haber tipi bulunamadı!");
             return back();
@@ -262,6 +268,11 @@ class ArticleController extends Controller
         }
         $articleType = ArticleType::find(Request::input('ArticleTypeId'));
         $imageUpload = ArticleHelper::checkImageUpload($articleType->id);
+
+        if($articleType->status == 0) {
+            Session::flash('error', $articleType->title . " : Geçerli bir kategori girin! ");
+            return back();
+        }
 
         try {;
             if (!Request::input('sameImage') && Request::input('savedImage') && !Request::hasFile('image') && $articleType->id != ArticleTypes::SirketHaberleri) {
