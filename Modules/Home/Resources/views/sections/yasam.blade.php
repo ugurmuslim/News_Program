@@ -59,9 +59,9 @@
                                      style="background-image: url({{asset($article->image_path)}}); height: 100%">
                                     <div class="life-second-image-caption">
                                         <p>{{$article->title}}</p>
-                                        <div class="mt-1">
+                                        {{--<div class="mt-1">
                                             Video <span class="fa fa-play-circle"></span>
-                                        </div>
+                                        </div>--}}
                                     </div>
 
 
