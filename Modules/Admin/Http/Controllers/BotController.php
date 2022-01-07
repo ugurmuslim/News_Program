@@ -170,6 +170,9 @@ class BotController extends Controller
     {
         Artisan::queue('feed:parser', [
         ]);
+
+        Artisan::queue('site:crawl', [
+        ]);
         Session::flash('success', " RSS Botları başarı ile çalıştı!");
         return back();
 
