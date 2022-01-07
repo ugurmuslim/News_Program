@@ -44,8 +44,10 @@ class ArticleController extends Controller
         if ($database != "maria") {
             $query = CrawledArticle::query();
             $query = $query->where('assigned', false);;
+            $query->orderBy('pub_date', 'DESC');
         } else {
             $query = Article::query();
+            $query->orderBy('created_at', 'DESC');
         }
 
         if ($status) {
