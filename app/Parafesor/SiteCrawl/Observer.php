@@ -128,7 +128,6 @@ class Observer extends CrawlObserver
     ): void
     {
         echo "Failed : " . $url;
-        dd($requestException->getMessage());
         Log::error('crawlFailed: ' . $url);
     }
 
