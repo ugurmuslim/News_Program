@@ -7,8 +7,8 @@
     <!--    <meta name="description" content="">-->
     <!--    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">-->
     <!--    <meta name="generator" content="Hugo 0.88.1">-->
-    <title>@yield('title') | Parafesör | Paranıza Akıl Verir</title>
-    @yield('meta_keywords')
+    <title>@yield('title')  Parafesör | Paranıza Akıl Verir</title>
+    {{--@yield('meta_keywords')
     @yield('meta_description')
     <meta property="og:locale" content="tr_TR" />
     <meta property="og:type" content="website" />
@@ -16,7 +16,7 @@
     <meta property="og:description" content="@yield('seo_description')" />
     <meta property="og:url" content=@yield('site_url') />
     <meta property="og:article:publisher" content="https://www.parafesor.net" />
-    <meta property="og:article:pub_time" content=@yield('article_pub_date') />
+    <meta property="og:article:pub_time" content=@yield('article_pub_date') />--}}
     <link rel="shortcut icon" type="image/jpg" href="{{ asset('modules/home/sample/img/logo-icon.svg') }}" />
     <!--    <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/headers/">-->
     <!-- Bootstrap core CSS -->

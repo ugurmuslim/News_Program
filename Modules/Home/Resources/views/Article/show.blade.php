@@ -1,9 +1,11 @@
 @extends('home::layouts.master')
 
 @section('title', $article->title)
+{{--
 @section('meta_keywords', $article->seo_keywords)
 @section('meta_description', $article->seo_description)
 @section('meta_title', $article->seo_title)
+--}}
 
 
 @section('content')
