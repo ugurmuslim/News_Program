@@ -71,7 +71,7 @@ class ArticleController extends Controller
         }
 
         if (!$articleTypeId && !$status) {
-            $query = $query->where('article_type_id', ArticleTypes::Kripto);
+            $query = $query->where('article_type_id', ArticleTypes::Ekonomi);
         }
 
         /*if ($articleTypeId && $database != "maria") {

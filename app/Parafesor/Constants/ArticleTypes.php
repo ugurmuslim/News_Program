@@ -22,5 +22,6 @@ class ArticleTypes
     const Kripto = 14;
     const Hisse = 15;
     const Youtube = 16;
+    const Ekonomi = 17;
 
 }
