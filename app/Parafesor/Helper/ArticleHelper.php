@@ -38,7 +38,6 @@ class ArticleHelper
             $articlesMainSlider = Article::where('articles.status', ArticleStatus::PUBLISHED)
                 ->select('title','original_link', 'image_path','summary','created_at', 'slug','article_date')
                 ->where('article_type_id', $articleType->id)
-                ->where('header_slider', 0)
                 ->where('show_case', '=', CategorySectionTypes::MAIN_SLIDER)
                 ->where('start_date', '<', Carbon::now())
                 ->orderby('articles.article_date', 'DESC')
