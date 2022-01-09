@@ -57,7 +57,7 @@ class ArticleController extends Controller
 
         if ($editorId && $database == "maria" && ( Request::input('editor') != 'all' )) {
             if($user->can('assign articles')) {
-                $query = $query->where(  "assigner_id", $editorId)->orWhere('editor_id',$editorId );
+//                $query = $query->where(  "assigner_id", $editorId)->orWhere('editor_id',$editorId );
             } else {
                 $query = $query->where('editor_id',$editorId );
 
