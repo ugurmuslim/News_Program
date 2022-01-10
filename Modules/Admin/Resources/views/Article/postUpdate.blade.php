@@ -692,7 +692,6 @@
                             <div class="row mt-3">
                                 <button class="btn btn-danger" id="previewButton" type="button">Önizleme</button>
                             </div>
-                            <div class="iframeDiv"></div>
 
                         </form>
 
@@ -720,12 +719,7 @@
     </script>
 
     <script type="text/javascript">
-        /*var f = document.createElement('iframe');
-        f.src = $('.iframeLink').val();
-        f.width = 100;
-        f.height = 90;
-        console.log(f);
-        $('.iframeDiv').append(f);*/
+
         $("#iframeId").attr("src", $('.iframeLink').val());
     </script>
 @endsection

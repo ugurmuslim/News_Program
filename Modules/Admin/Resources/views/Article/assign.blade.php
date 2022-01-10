@@ -130,8 +130,10 @@
                                     </textarea>
                                     @endif
                                         @if(isset($news) && !$news->body)
-                                       {{-- <iframe src="{{$news->original_link}}" style="width: 100%;  height:600px;" loading="lazy"
-                                                title="news"></iframe>--}}
+                                        <iframe id="iframeId" style="width: 100%;  height:600px;" loading="lazy"
+                                                title="news"></iframe>
+                                        <input class="iframeLink" value="{{$news->original_link}}" hidden>
+
                                     @endif
                                 </div>
 
@@ -192,5 +194,9 @@
             $(this).css("background-color", "red");
 
         });
+    </script>
+
+    <script type="text/javascript">
+        $("#iframeId").attr("src", $('.iframeLink').val());
     </script>
 @endsection
