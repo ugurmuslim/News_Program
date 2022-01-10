@@ -1,12 +1,11 @@
 @extends('home::layouts.master')
 
-@section('title', $article->title)
-{{--
-@section('meta_keywords', $article->seo_keywords)
-@section('meta_description', $article->seo_description)
-@section('meta_title', $article->seo_title)
---}}
-
+@section('title', $article->title . " |")
+@section('seo_description', $article->seo_description)
+@section('seo_title', $article->seo_title)
+@section('site_url', url()->current())
+@section('article_pub_date', \Carbon\Carbon::parse($article->article_date)->tz('Europe/Istanbul')->toAtomString())
+@section('article_modified_date', \Carbon\Carbon::parse($article->updated_at)->tz('Europe/Istanbul')->toAtomString())
 
 @section('content')
     @include('home::partials._header')
