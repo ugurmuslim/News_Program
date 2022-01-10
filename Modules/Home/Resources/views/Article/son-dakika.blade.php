@@ -20,7 +20,7 @@
                         </div>
                         <div class="last-min-text-bottom small-last-min-bottom">
                             <span
-                                class="text-danger">{{ Date::parse($article->article_date)->format('j F')}}</span><span>  {{Carbon\Carbon::parse($article->article_date)->format('H:m')}} • parafesor</span>
+                                class="text-danger">{{ Date::parse($article->article_date)->format('j F')}}</span><span>  {{Carbon\Carbon::parse($article->article_date)->format('H:i')}} • parafesor</span>
                         </div>
                     </a>
                 </div>

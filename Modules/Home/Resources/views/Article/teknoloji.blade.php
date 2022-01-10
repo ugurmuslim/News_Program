@@ -13,7 +13,7 @@
                         <div class="tech-title">{{$article->title}}
                             <div class="tech-text-bottom-sm">
                                     <span
-                                        class="text-purple">{{ Date::parse($article->article_date)->format('j F')}}</span><span> • {{ Carbon\Carbon::parse($article->article_date)->format('H:m')}} • parafesor</span>
+                                        class="text-purple">{{ Date::parse($article->article_date)->format('j F')}}</span><span> • {{ Carbon\Carbon::parse($article->article_date)->format('H:i')}} • parafesor</span>
                             </div>
                         </div>
                     </a>
