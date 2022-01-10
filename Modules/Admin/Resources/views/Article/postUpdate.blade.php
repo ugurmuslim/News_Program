@@ -617,8 +617,8 @@
   </textarea>
                                     @else
                                         <div class="iframeDiv">
-                                            <iframe src="{{$article->original_link}}" style="width: 100%;  height:90%;"
-                                                    title="news" loading="lazy"></iframe>
+                                       {{--     <iframe src="{{$article->original_link}}" style="width: 100%;  height:90%;"
+                                                    title="news" loading="lazy"></iframe>--}}
                                         </div>
                                     @endif
                                 </div>
