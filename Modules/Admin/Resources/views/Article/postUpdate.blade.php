@@ -601,8 +601,8 @@
     {{isset($article) ? $article->old_body : ""}}
   </textarea>
                                     @else
-                                     {{--   <iframe src="{{$article->original_link}}" style="width: 100%;  height:90%;"
-                                                title="news" loading="lazy"></iframe>--}}
+                                        <iframe src="{{$article->original_link}}" style="width: 100%;  height:90%;"
+                                                title="news" loading="lazy" ></iframe>
                                     @endif
                                 </div>
                                 <div class="col-6">
