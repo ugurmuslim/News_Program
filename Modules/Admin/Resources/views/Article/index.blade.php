@@ -117,7 +117,6 @@
                                         <td>
 
                                             <div class="col-md-3">
-                                                @if(app('request')->input('status')  != \App\Parafesor\Constants\ArticleStatus::PUBLISHED)
                                                     @can('assign articles')
                                                         <a href="{{route('article.assign',['id' => $news->id])}}"
                                                            class="btn btn-primary">Atama</a>
@@ -130,7 +129,6 @@
                                                             <button class="btn btn-danger">Sil</button>
                                                         </form>
                                                     @endcan
-                                                @endif
                                                 @can('edit articles')
                                                     <a href="{{route('article.postUpdate',['id' => $news->id])}}"
                                                        class="btn btn-primary">Düzenle</a>
