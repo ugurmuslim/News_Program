@@ -70,6 +70,7 @@
                                     <th>Resim</th>
                                     <th>Başlık</th>
                                     <th>Özet</th>
+                                    <th>Okunma</th>
                                     <th>Yazar</th>
                                     <th style="width: 15%">Zaman</th>
                                     <th>Aksiyon</th>
@@ -92,6 +93,7 @@
                                                 href="{{$news->original_link}}"
                                                 target="_blank">{{$news->title}}</a></td>
                                         <td>{!! strip_tags($news->summary) !!}</td>
+                                        <td>{!! $news->read ?? ""!!}</td>
                                         <td>{{isset($news->editor_id) ? $news->editor->name : null}}</td>
                                         <td>
                                             <div class="col-md-9">
