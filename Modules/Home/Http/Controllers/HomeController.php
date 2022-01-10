@@ -82,8 +82,8 @@ class HomeController extends Controller
                 "caption" => $slider->title,
                 "image" => asset($slider->image_path),
                 "slug" => $slider->slug,
-                "createdAt" => Date::parse($slider->created_at)->format('j F'),
-                "createdAtTime" => Carbon::parse($slider->created_at)->format('H:i'),
+                "createdAt" => Date::parse($slider->article_date)->format('j F'),
+                "createdAtTime" => Carbon::parse($slider->article_date)->format('H:i'),
             ];
         }
 
