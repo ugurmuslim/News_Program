@@ -31,7 +31,7 @@
 
 @section('content')
 
-    <div class="wrapper">
+    <div class="wrapper" >
 
         <div class="content-wrapper">
             <div class="content-header">
@@ -61,7 +61,7 @@
                               action={{route('article.store')}} enctype="multipart/form-data">
                             @csrf
                             <div class="row row-sm">
-
+                                <input class="iframeLink" value="{{$article->original_link}}" hidden>
                                 <input name="ArticleId" type="number" class="form-control"
                                        placeholder="Lorem ipsum dolor"
                                        value="{{isset($article) ? $article->id : null}}"
@@ -334,8 +334,8 @@
                                         <label class="form-text">İçerik</label>
                                     </div>
                                     <textarea id="textarea2" style="width: 100%; height: 80%" disabled>
-    {{isset($article) ? $article->old_body : ""}}
-  </textarea>
+            {{isset($article) ? $article->old_body : ""}}
+            </textarea>
                                 </div>--}}
                                 <div class="col-6">
                                     <div class="col-12">
@@ -616,8 +616,9 @@
     {{isset($article) ? $article->old_body : ""}}
   </textarea>
                                     @else
-                                            <iframe src="{{$article->original_link}}" style="width: 100%;  height:90%;"
-                                                    title="news" loading="lazy"></iframe>
+                                        <iframe  style="width: 100%;  height:90%;"
+                                                id="iframeId" title="news" loading="lazy"></iframe>
+                                        <input class="iframeLink" value="{{$article->original_link}}" hidden>
                                     @endif
                                 </div>
                                 <div class="col-6">
@@ -691,6 +692,7 @@
                             <div class="row mt-3">
                                 <button class="btn btn-danger" id="previewButton" type="button">Önizleme</button>
                             </div>
+                            <div class="iframeDiv"></div>
 
                         </form>
 
@@ -717,13 +719,13 @@
 
     </script>
 
-    {{--<script type="text/javascript">
-        $(window).load(function () {
-            var f = document.createElement('iframe');
-            f.src = {{$article->original_link}};
-            f.width = 100%;
-            f.height = 90%;
-            $('.iframeDiv').append(f);
-        });
-    </script>--}}
+    <script type="text/javascript">
+        /*var f = document.createElement('iframe');
+        f.src = $('.iframeLink').val();
+        f.width = 100;
+        f.height = 90;
+        console.log(f);
+        $('.iframeDiv').append(f);*/
+        $("#iframeId").attr("src", $('.iframeLink').val());
+    </script>
 @endsection
