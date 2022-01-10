@@ -130,7 +130,7 @@
                                     </textarea>
                                     @endif
                                         @if(isset($news) && !$news->body)
-                                        <iframe id="iframeId" style="width: 100%;  height:600px;" loading="lazy"
+                                        <iframe src="{{$news->original_link}}"  style="width: 100%;  height:600px;" loading="lazy"
                                                 title="news"></iframe>
                                         <input class="iframeLink" value="{{$news->original_link}}" hidden>
 

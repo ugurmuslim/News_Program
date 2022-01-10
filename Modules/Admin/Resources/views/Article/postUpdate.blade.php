@@ -616,7 +616,7 @@
     {{isset($article) ? $article->old_body : ""}}
   </textarea>
                                     @else
-                                        <iframe  style="width: 100%;  height:90%;"
+                                        <iframe src="{{$article->original_link}}"  style="width: 100%;  height:90%;"
                                                 id="iframeId" title="news" loading="lazy"></iframe>
                                         <input class="iframeLink" value="{{$article->original_link}}" hidden>
                                     @endif
@@ -720,6 +720,6 @@
 
     <script type="text/javascript">
 
-        $("#iframeId").attr("src", $('.iframeLink').val());
+       /* $("#iframeId").attr("src", $('.iframeLink').val())*/;
     </script>
 @endsection
