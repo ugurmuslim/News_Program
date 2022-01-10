@@ -616,10 +616,8 @@
     {{isset($article) ? $article->old_body : ""}}
   </textarea>
                                     @else
-                                        <div class="iframeDiv">
-                                       {{--     <iframe src="{{$article->original_link}}" style="width: 100%;  height:90%;"
-                                                    title="news" loading="lazy"></iframe>--}}
-                                        </div>
+                                            <iframe src="{{$article->original_link}}" style="width: 100%;  height:90%;"
+                                                    title="news" loading="lazy"></iframe>
                                     @endif
                                 </div>
                                 <div class="col-6">
@@ -719,7 +717,7 @@
 
     </script>
 
-    <script type="text/javascript">
+    {{--<script type="text/javascript">
         $(window).load(function () {
             var f = document.createElement('iframe');
             f.src = {{$article->original_link}};
@@ -727,5 +725,5 @@
             f.height = 90%;
             $('.iframeDiv').append(f);
         });
-    </script>
+    </script>--}}
 @endsection
