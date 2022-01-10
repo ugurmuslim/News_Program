@@ -61,7 +61,6 @@
                               action={{route('article.store')}} enctype="multipart/form-data">
                             @csrf
                             <div class="row row-sm">
-                                <input class="iframeLink" value="{{$article->original_link}}" hidden>
                                 <input name="ArticleId" type="number" class="form-control"
                                        placeholder="Lorem ipsum dolor"
                                        value="{{isset($article) ? $article->id : null}}"
