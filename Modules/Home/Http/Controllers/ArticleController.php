@@ -42,6 +42,7 @@ class ArticleController extends Controller
         $articlesDB[$type] = Article::where('status', ArticleStatus::PUBLISHED)
             ->where('article_type_id', $articleType->id)
             ->where('show_case', CategorySectionTypes::NORMAL)
+            ->orderBy('id', 'DESC')
             ->limit(50)
             ->get();
 
