@@ -196,7 +196,5 @@
         });
     </script>
 
-    <script type="text/javascript">
-        $("#iframeId").attr("src", $('.iframeLink').val());
-    </script>
+
 @endsection
