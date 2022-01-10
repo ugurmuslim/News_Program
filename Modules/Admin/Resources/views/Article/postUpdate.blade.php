@@ -723,8 +723,8 @@
         $(window).load(function () {
             var f = document.createElement('iframe');
             f.src = {{$article->original_link}};
-            f.width = 1000;
-            f.height = 500;
+            f.width = 100%;
+            f.height = 90%;
             $('.iframeDiv').append(f);
         });
     </script>
