@@ -200,15 +200,13 @@
                                 <p>Yaz</p>
                             </a>
                         </li>
-                        @can('edit articles')
-                            <li class="nav-item">
-                                <a href="{{route('article.index',['status' => "PUBLISHED","database" => "maria"])}}"
-                                   class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Yayınladıklarım</p>
-                                </a>
-                            </li>
-                        @endcan
+                        <li class="nav-item">
+                            <a href="{{route('article.index',['status' => "PUBLISHED","database" => "maria"])}}"
+                               class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Yayınladıklarım</p>
+                            </a>
+                        </li>
                         @can('edit articles')
                             <li class="nav-item">
                                 <a href="{{route('article.index',['status' => "ASSIGNED","database" => "maria"])}}"
@@ -273,7 +271,9 @@
                                     <p>Bot Performans</p>
                                 </a>
                                 <form action="{{route('bot.run')}}">
-                                    <button class="btn btn-success btn-sm nav-link" style="font-weight: bold; color: black;">Çalıştır</button>
+                                    <button class="btn btn-success btn-sm nav-link"
+                                            style="font-weight: bold; color: black;">Çalıştır
+                                    </button>
                                 </form>
                             </li>
 
