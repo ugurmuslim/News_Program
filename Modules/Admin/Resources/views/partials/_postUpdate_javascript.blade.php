@@ -1,9 +1,9 @@
 <script>
     tinymce.init({
         selector: '#textarea',
-        plugins: 'advlist autolink lists link image charmap print preview hr anchor pagebreak image code',
+        plugins: 'advlist autolink lists link image charmap print preview hr anchor pagebreak image code media',
         toolbar_mode: 'floating',
-        toolbar: 'undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | outdent indent | image',
+        toolbar: 'undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | outdent indent | image media',
         height: "500",
 
 
