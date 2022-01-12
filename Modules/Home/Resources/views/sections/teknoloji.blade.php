@@ -3,7 +3,7 @@
         <div class="section-header d-flex text-purple">
             <div class="section-title">TEKNOLOJİ</div>
             <div class="d-none d-md-block section-right"><a
-                    href="{{route('home_article.index', ['type'=>'Teknoloji'])}}">Tüm
+                    href="{{route('home_article.index', ['type'=>'teknoloji'])}}">Tüm
                     Teknoloji Haberlerini Gör</a></div>
         </div>
     </div>

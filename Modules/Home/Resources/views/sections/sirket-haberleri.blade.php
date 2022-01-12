@@ -3,12 +3,12 @@
         <div class="section-header d-flex text-dark-blue">
             <div class="section-title">ŞİRKET HABERLERİ</div>
             <div class="d-none d-md-block section-right"><a
-                    href="{{route('home_article.index',['type' => 'Şirket Haberleri'])}}">Tüm Şirket Haberlerini
+                    href="{{route('home_article.index',['type' => 'sirket-haberleri'])}}">Tüm Şirket Haberlerini
                     Gör</a>
             </div>
         </div>
         <div class=" d-sm-block d-md-none section-right-sm text-dark-blue"><a
-                href="{{route('home_article.index',['type' => 'Şirket Haberleri'])}}">Tüm Şirket Haberlerini Gör</a>
+                href="{{route('home_article.index',['type' => 'sirket-haberleri'])}}">Tüm Şirket Haberlerini Gör</a>
         </div>
 
         <div class="row mt-3">

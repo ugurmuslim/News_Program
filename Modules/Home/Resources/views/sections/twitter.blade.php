@@ -3,11 +3,11 @@
         <div class="section-header d-flex text-twitter">
             <div class="section-title">TWITTER YAZILARI</div>
             <div class="d-none d-md-block section-right"><a
-                    href="{{route('home_article.index',['type' => 'Twitter'])}}">Tüm Twitter Yazılarını Gör</a>
+                    href="{{route('home_article.index',['type' => 'twitter'])}}">Tüm Twitter Yazılarını Gör</a>
             </div>
         </div>
         <div class=" d-sm-block d-md-none section-right-sm text-dark-blue"><a
-                href="{{route('home_article.index',['type' => 'Twitter'])}}">Tüm Twitter Yazılarını Gör</a>
+                href="{{route('home_article.index',['type' => 'twitter'])}}">Tüm Twitter Yazılarını Gör</a>
         </div>
         <div class=" d-sm-block d-md-none section-right-sm text-info">Tüm Twitter Yazılarını Gör</div>
 

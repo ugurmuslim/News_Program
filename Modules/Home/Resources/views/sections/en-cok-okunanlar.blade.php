@@ -34,7 +34,7 @@
             @endforeach
             <div
                 style="margin-left:auto; margin-right: auto; border-bottom:solid 1px #F5F5F5; color:#F5F5F5; width:auto; padding:10px 35px; font-size:0.9em; margin-top:30px;">
-                <a href="{{route("home_article.index",['type' => 'En Çok Okunanlar'])}}">
+                <a href="{{route("home_article.index",['type' => 'en-cok-okunanlar'])}}">
 
                     Tümünü Gör
                 </a>

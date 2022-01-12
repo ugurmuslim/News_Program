@@ -3,13 +3,13 @@
         <div class="section-header d-flex text-red">
             <div class="section-title">SON DAKİKA</div>
             <div class="d-none d-md-block section-right"><a
-                    href="{{route('home_article.index',['type' => 'Son Dakika'])}}">Tüm Son Dakika Haberlerini Gör
+                    href="{{route('home_article.index',['type' => 'son-dakika'])}}">Tüm Son Dakika Haberlerini Gör
                 </a></div>
 
         </div>
     </div>
     <div class=" d-sm-block d-md-none section-right-sm text-red"><a
-            href="{{route('home_article.index',['type' => 'Son Dakika'])}}">Tüm Son Dakika Haberlerini Gör</a></div>
+            href="{{route('home_article.index',['type' => 'son-dakika'])}}">Tüm Son Dakika Haberlerini Gör</a></div>
 
     </div>
     <div class="container mt-4">

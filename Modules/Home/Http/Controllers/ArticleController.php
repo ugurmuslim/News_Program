@@ -25,7 +25,7 @@ class ArticleController extends Controller
      */
     public function index($type)
     {
-        $articleType = ArticleType::where('title', $type)->first();
+        $articleType = ArticleType::where('slug', $type)->first();
 
         if (!$articleType) {
             abort(404);
@@ -39,7 +39,7 @@ class ArticleController extends Controller
         $articles[$articleType->title][CategorySectionTypes::PERSISTENT] = Cache::get(CacheConst::ARTICLE . $articleType->title . ":" . CategorySectionTypes::PERSISTENT);
 
         $articlesDB = [];
-        $articlesDB[$type] = Article::where('status', ArticleStatus::PUBLISHED)
+        $articlesDB[$articleType->title] = Article::where('status', ArticleStatus::PUBLISHED)
             ->where('article_type_id', $articleType->id)
             ->where('show_case', CategorySectionTypes::NORMAL)
             ->orderBy('id', 'DESC')
@@ -47,14 +47,14 @@ class ArticleController extends Controller
             ->get();
 
         if ($articleType->id == ArticleTypes::SonDakika) {
-            $articlesDB[$type] = Article::where('status', ArticleStatus::PUBLISHED)
+            $articlesDB[$articleType->title] = Article::where('status', ArticleStatus::PUBLISHED)
                 ->orderBy('id', 'DESC')
                 ->limit(30)
                 ->get();
         }
 
         if ($articleType->id == ArticleTypes::EnCokOkunanlar) {
-            $articlesDB[$type] = Article::where('status', ArticleStatus::PUBLISHED)
+            $articlesDB[$articleType->title] = Article::where('status', ArticleStatus::PUBLISHED)
                 ->where('article_type_id', '!=', ArticleTypes::KoseYazilari)
                 ->where('article_type_id', '!=', ArticleTypes::Twitter)
                 ->where('article_type_id', '!=', ArticleTypes::BorsaTube)
@@ -64,7 +64,7 @@ class ArticleController extends Controller
         }
 
         if ($articleType->id == ArticleTypes::BorsaTube) {
-            $articlesDB[$type] = StockTube::where('status', ArticleStatus::PUBLISHED)
+            $articlesDB[$articleType->title] = StockTube::where('status', ArticleStatus::PUBLISHED)
                 ->where('show_case', CategorySectionTypes::NORMAL)
                 ->skip(11)
                 ->orderBy('id', 'DESC')

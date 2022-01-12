@@ -3,11 +3,11 @@
         <div class="section-header d-flex text-white">
             <div class="section-title">OTOMOBİL</div>
             <div class="d-none d-md-block section-right"><a
-                    href="{{ route('home_article.index', ['type' => 'Otomobil']) }}">Tüm
+                    href="{{ route('home_article.index', ['type' => 'otomobil']) }}">Tüm
                     Otomobil Haberlerini Gör</a></div>
         </div>
         <div class=" d-sm-block d-md-none section-right-sm text-danger"><a
-                href="{{ route('home_article.index', ['type' => 'Otomobil']) }}">Tüm Otomobil Haberlerini Gör</a></div>
+                href="{{ route('home_article.index', ['type' => 'otomobil']) }}">Tüm Otomobil Haberlerini Gör</a></div>
     </div>
     </div>
     <div class="container">

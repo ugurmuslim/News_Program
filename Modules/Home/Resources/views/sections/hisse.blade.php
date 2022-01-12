@@ -3,12 +3,12 @@
         <div class="section-header d-flex text-black">
             <div class="section-title">HİSSE ÖNERİLERİ</div>
             <div class="d-none d-md-block section-right"><a
-                    href="{{route('home_article.index',['type' => 'Hisse'])}}">Tüm Hisse Önerilerini
+                    href="{{route('home_article.index',['type' => 'hisse'])}}">Tüm Hisse Önerilerini
                     Gör</a>
             </div>
         </div>
         <div class=" d-sm-block d-md-none section-right-sm text-dark-blue"><a
-                href="{{route('home_article.index',['type' => 'Hisse'])}}">Tüm Hisse Önerilerini Gör</a>
+                href="{{route('home_article.index',['type' => 'hisse'])}}">Tüm Hisse Önerilerini Gör</a>
         </div>
 
         <div class="row">

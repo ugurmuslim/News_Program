@@ -3,11 +3,11 @@
         <div class="section-header d-flex text-white">
             <div class="section-title">KRİPTO PARALAR</div>
             <div class="d-none d-md-block section-right"><a
-                    href="{{route("home_article.index",['type' => 'Kripto'])}}">Tüm
+                    href="{{route("home_article.index",['type' => 'kripto'])}}">Tüm
                     Kripto Haberlerini Gör</a></div>
         </div>
         <div class=" d-sm-block d-md-none section-right-sm text-danger"><a
-                href="{{route("home_article.index",['type' => 'Kripto'])}}">Tüm Kripto Haberlerini Gör</a></div>
+                href="{{route("home_article.index",['type' => 'kripto'])}}">Tüm Kripto Haberlerini Gör</a></div>
     </div>
     </div>
     <div class="container">

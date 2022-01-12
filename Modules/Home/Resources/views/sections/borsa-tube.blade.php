@@ -3,11 +3,11 @@
         <div class="section-header d-flex text-light border-light">
             <div class="section-title">BORSA TUBE</div>
             <div class="d-none d-md-block section-right"><a
-                    href="{{route('home_article.index',['type' => 'Borsa Tube'])}}">Tüm Borsa Youtube Videolarını
+                    href="{{route('home_article.index',['type' => 'borsa-tube'])}}">Tüm Borsa Youtube Videolarını
                     Gör</a></div>
         </div>
         <div class=" d-sm-block d-md-none section-right-sm"><a
-                href="{{route('home_article.index',['type' => 'Borsa Tube'])}}">Tüm Borsa Youtube Videolarını
+                href="{{route('home_article.index',['type' => 'borsa-tube'])}}">Tüm Borsa Youtube Videolarını
                 Gör</a></div>
 
         <div class="row text-white">

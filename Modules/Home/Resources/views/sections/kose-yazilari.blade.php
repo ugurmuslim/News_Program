@@ -3,11 +3,11 @@
         <div class="section-header d-flex text-dark">
             <div class="section-title">KÖŞE YAZILARI</div>
             <div class="d-none d-md-block section-right"><a
-                    href="{{route('home_article.index', ['type'=> 'Köşe Yazıları'])}}">Tüm Köşe Yazılarını Gör</a>
+                    href="{{route('home_article.index', ['type'=> 'kose-yazilari'])}}">Tüm Köşe Yazılarını Gör</a>
             </div>
         </div>
         <div class=" d-sm-block d-md-none section-right-sm text-dark"><a
-                href="{{route('home_article.index', ['type'=> 'Köşe Yazıları'])}}">Tüm Köşe Yazılarını Gör</a></div>
+                href="{{route('home_article.index', ['type'=> 'kose-yazilari'])}}">Tüm Köşe Yazılarını Gör</a></div>
 
     </div>
     <div class="container">

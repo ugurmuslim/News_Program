@@ -3,11 +3,11 @@
         <div class="section-header d-flex text-dark-orange">
             <div class="section-title">NETKOLİK</div>
             <div class="d-none d-md-block section-right"><a
-                    href="{{route("home_article.index",['type' => 'Netkolik'])}}">Tüm
+                    href="{{route("home_article.index",['type' => 'netkolik'])}}">Tüm
                     Netkolik Haberlerini Gör</a></div>
         </div>
         <div class=" d-sm-block d-md-none section-right-sm text-danger"><a
-                href="{{route("home_article.index",['type' => 'Netkolik'])}}">Tüm Netkolik Haberlerini Gör</a></div>
+                href="{{route("home_article.index",['type' => 'netkolik'])}}">Tüm Netkolik Haberlerini Gör</a></div>
     </div>
     </div>
     <div class="container py-5">

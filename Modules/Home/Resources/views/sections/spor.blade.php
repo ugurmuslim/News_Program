@@ -3,11 +3,11 @@
         <div class="section-header d-flex text-primary">
             <div class="section-title">SPOR</div>
             <div class="d-none d-md-block section-right"><a
-                    href="{{route('home_article.index', ['type'=>'Spor'])}}">Tüm
+                    href="{{route('home_article.index', ['type'=>'spor'])}}">Tüm
                     Spor Haberlerini Gör</a></div>
         </div>
         <div class=" d-sm-block d-md-none section-right-sm text-red"><a
-                href="{{route('home_article.index', ['type'=>'Spor'])}}">Tüm Spor Dakika Haberlerini Gör</a></div>
+                href="{{route('home_article.index', ['type'=>'spor'])}}">Tüm Spor Dakika Haberlerini Gör</a></div>
     </div>
     <div class="container">
         <div class="row" style="position: relative">

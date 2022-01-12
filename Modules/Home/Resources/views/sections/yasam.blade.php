@@ -3,7 +3,7 @@
         <div class="section-header d-flex text-orange">
             <div class="section-title">YAŞAM</div>
             <div class="d-none d-md-block section-right"><a
-                    href="{{route("home_article.index",['type' => 'Yaşam'])}}">Tüm Yaşam Haberlerini Gör</a></div>
+                    href="{{route("home_article.index",['type' => 'yasam'])}}">Tüm Yaşam Haberlerini Gör</a></div>
         </div>
     </div>
     <div class="container">

@@ -25,6 +25,7 @@ class UpdateArticleTypesTable extends Migration
      */
     public function down()
     {
+        dd(1);
         Schema::table('article_types', function($table) {
             $table->dropColumn('slug');
         });
