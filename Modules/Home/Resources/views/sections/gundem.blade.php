@@ -157,14 +157,19 @@
                                         <div class="col-12">
                                             {{$crypto->currency}}
                                         </div>
-
+                                        @php
+                                            $numberFormat = 2;
+                                          if(strlen((int) $crypto->buying) > 3 ) {
+                                            $numberFormat = 0;
+  }
+                                        @endphp
                                         <div class="col-6">
                                                 <span
                                                     style="{{$crypto->change > 0 ? "color:#00eb00" : "color:#ff0000"}}">{{ number_format($crypto->change,2) }}%</span>
                                         </div>
                                         <div class="col-6">
                                             <span
-                                                style="{{$crypto->change > 0 ? "color:#00eb00" : "color:#ff0000"}}">{{number_format($crypto->buying, 2) }}</span>
+                                                style="{{$crypto->change > 0 ? "color:#00eb00" : "color:#ff0000"}}">{{number_format($crypto->buying, $numberFormat) }}</span>
                                         </div>
                                     </div>
                                 </li>
