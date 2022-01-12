@@ -51,7 +51,7 @@
                 $otomobilArticles = $articles['Otomobil'][\App\Parafesor\Constants\CategorySectionTypes::NORMAL]->take(1);
                 $otomobilArticlesBelow = $articles['Otomobil'][\App\Parafesor\Constants\CategorySectionTypes::NORMAL]->slice(1)->take(3);
                 $otomobilArticlesFooterLeft = $articles['Otomobil'][\App\Parafesor\Constants\CategorySectionTypes::NORMAL]->slice(4)->take(1);
-                $otomobilArticlesFooterRight = $articles['Otomobil'][\App\Parafesor\Constants\CategorySectionTypes::NORMAL]->take(5)->take(1);
+                $otomobilArticlesFooterRight = $articles['Otomobil'][\App\Parafesor\Constants\CategorySectionTypes::NORMAL]->slice(5)->take(1);
             @endphp
             @foreach ($otomobilArticles as $article)
                 <div class="col-md-9 ">

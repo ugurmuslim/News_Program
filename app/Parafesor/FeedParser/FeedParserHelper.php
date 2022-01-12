@@ -17,13 +17,14 @@ class FeedParserHelper
 {
     public static function parseFeed()
     {
-
         $sites = SitesToCrawl::where('status', true)
             ->where('article_type_id','!=', ArticleTypes::KoseYazilari)
             ->where('crawl_type','=', CrawlTypes::RSS)->get();
 
         foreach ($sites as $site) {
             $feed = new SimplePie();
+            $a = simplexml_load_file("https://www.aa.com.tr/tr/rss/default?cat=ekonomi");
+            dd($a);
             $feed->cache = false;
             $feed->set_feed_url($site->title);
             $success = $feed->init();
