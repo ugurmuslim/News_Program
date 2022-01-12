@@ -88,7 +88,7 @@
                                                         value="Normal" style="background-color: red">Normal
                                                 </button>
                                             </div>
-                                            <div class="row">
+                                         {{--   <div class="row">
                                                 <div class="col-md-12 mt-3">
                                                     <div class="col-md-3">
                                                         <button type="button"
@@ -98,7 +98,7 @@
                                                         </button>
                                                     </div>
                                                 </div>
-                                            </div>
+                                            </div>--}}
                                         </div>
                                     </div>
                                 </div>

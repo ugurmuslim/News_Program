@@ -109,7 +109,7 @@
         }
     });
 
-    $("#persistentDrawing").on("click", function () {
+   /* $("#persistentDrawing").on("click", function () {
         console.log(1)
         if($(this).hasClass("activePersistent")) {
             $(this).removeClass("activePersistent");
@@ -120,7 +120,7 @@
             $(this).css("background-color", "orange");
             $("#PersistentSection").attr("value", 1);
         }
-    });
+    });*/
 
 
     $("#previewButton").on("click", function () {

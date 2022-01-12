@@ -64,14 +64,8 @@
                         </div>
                     </div>
                     @php
-                        $persistent = count($articles["Teknoloji"][\App\Parafesor\Constants\CategorySectionTypes::PERSISTENT]) > 0;
-                        if($persistent) {
-                            $teknolojiArticles = $articles["Teknoloji"][\App\Parafesor\Constants\CategorySectionTypes::PERSISTENT]->take(1);
-                            $teknolojiArticlesBelow = $articles["Teknoloji"][\App\Parafesor\Constants\CategorySectionTypes::NORMAL]->slice(3)->take(3);
-                        } else {
-                            $teknolojiArticles = $articles["Teknoloji"][\App\Parafesor\Constants\CategorySectionTypes::NORMAL]->take(1);
-                            $teknolojiArticlesBelow = $articles["Teknoloji"][\App\Parafesor\Constants\CategorySectionTypes::NORMAL]->slice(4)->take(5);
-                        }
+                        $teknolojiArticles = $articles["Teknoloji"][\App\Parafesor\Constants\CategorySectionTypes::NORMAL]->take(1);
+                       $teknolojiArticlesBelow = $articles["Teknoloji"][\App\Parafesor\Constants\CategorySectionTypes::NORMAL]->slice(4)->take(3);
                     @endphp
                     <div class="col-lg-6 col-md-24 mt-1 match " matchTo="tech-second-row-anchor">
                         @foreach($teknolojiArticles as $article)

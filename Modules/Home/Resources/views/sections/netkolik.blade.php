@@ -21,20 +21,20 @@
                         @foreach($articles["Netkolik"][\App\Parafesor\Constants\CategorySectionTypes::MAIN_SLIDER]->take(4) as $article)
                             <a href="{{route('article.show',['slug' => $article->slug ])}}">
 
-                            <div class="news-card-slider-slide">
-                                <div class="life-card-slider-slide-img"
-                                     style="background-image: url({{asset($article->image_path)}})">
-                                    <div class="blueOverlay">
+                                <div class="news-card-slider-slide">
+                                    <div class="life-card-slider-slide-img"
+                                         style="background-image: url({{asset($article->image_path)}})">
+                                        <div class="blueOverlay">
 
-                                    </div>
+                                        </div>
 
-                                    <div class="internet-card-slider-slide-caption big-title">
-                                        <p style="background-color: #fe6845;">
-                                            {{ $article->title }}
-                                        </p>
+                                        <div class="internet-card-slider-slide-caption big-title">
+                                            <p style="background-color: #fe6845;">
+                                                {{ $article->title }}
+                                            </p>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
                             </a>
                         @endforeach
                     </div>
@@ -51,45 +51,37 @@
                 </div>
             </div>
             @php
-                $persistent = count($articles["Netkolik"][\App\Parafesor\Constants\CategorySectionTypes::PERSISTENT]) > 0;
-                if($persistent) {
-                    $netkolikArticles = $articles["Netkolik"][\App\Parafesor\Constants\CategorySectionTypes::PERSISTENT]->take(1);
-                    $netkolikArticlesBelowFirst = $articles["Netkolik"][\App\Parafesor\Constants\CategorySectionTypes::NORMAL]->take(1);
-                    $netkolikArticlesBelowSecond = $articles["Netkolik"][\App\Parafesor\Constants\CategorySectionTypes::NORMAL]->slice(1)->take(3);
-                    $netkolikArticlesFooter = $articles["Netkolik"][\App\Parafesor\Constants\CategorySectionTypes::NORMAL]->slice(4)->take(1);
-                } else {
-                    $netkolikArticles = $articles["Netkolik"][\App\Parafesor\Constants\CategorySectionTypes::NORMAL]->take(1);
-
-                                   $netkolikArticlesBelowFirst = $articles["Netkolik"][\App\Parafesor\Constants\CategorySectionTypes::NORMAL]->slice(1)->take(1);
-                    $netkolikArticlesBelowSecond = $articles["Netkolik"][\App\Parafesor\Constants\CategorySectionTypes::NORMAL]->slice(2)->take(3);
-                    $netkolikArticlesFooter = $articles["Netkolik"][\App\Parafesor\Constants\CategorySectionTypes::NORMAL]->slice(5)->take(3);
-                }
+                $netkolikArticles = $articles["Netkolik"][\App\Parafesor\Constants\CategorySectionTypes::NORMAL]->take(1);
+                               $netkolikArticlesBelowFirst = $articles["Netkolik"][\App\Parafesor\Constants\CategorySectionTypes::NORMAL]->slice(1)->take(1);
+                $netkolikArticlesBelowSecond = $articles["Netkolik"][\App\Parafesor\Constants\CategorySectionTypes::NORMAL]->slice(2)->take(3);
+                $netkolikArticlesFooter = $articles["Netkolik"][\App\Parafesor\Constants\CategorySectionTypes::NORMAL]->slice(5)->take(3);
             @endphp
             <div class="col-md-10">
                 @foreach($netkolikArticles as $article)
                     <a href="{{route('article.show',['slug' => $article->slug ])}}">
-                    <div class="col-lg-24 col-md-24 mt-1">
-                        <div class="card news-card news-card-big match"  id="internet-second-row" matchTo="internet-slider">
-                            <div class="news-card-slider-container">
-                                <div class="news-card-slider-slide">
-                                    <div class="sport-card-slider-slide-img "
-                                         style="background-image: url({{$article->image_path}})">
-                                        <div class="orangeOverlay90"></div>
+                        <div class="col-lg-24 col-md-24 mt-1">
+                            <div class="card news-card news-card-big match" id="internet-second-row"
+                                 matchTo="internet-slider">
+                                <div class="news-card-slider-container">
+                                    <div class="news-card-slider-slide">
+                                        <div class="sport-card-slider-slide-img "
+                                             style="background-image: url({{$article->image_path}})">
+                                            <div class="orangeOverlay90"></div>
 
-                                        <div class="internet-card-caption"><p>{{$article->title}}</p>
-                                            <div class=" sport-text-bottom-sm">
+                                            <div class="internet-card-caption"><p>{{$article->title}}</p>
+                                                <div class=" sport-text-bottom-sm">
 
-                                                <span class="">{{ Date::parse($article->article_date)->format('j F')}} • {{ Carbon\Carbon::parse($article->article_date)->format('H:i')}} • parafesor</span>
+                                                    <span class="">{{ Date::parse($article->article_date)->format('j F')}} • {{ Carbon\Carbon::parse($article->article_date)->format('H:i')}} • parafesor</span>
+                                                </div>
+
                                             </div>
 
                                         </div>
-
                                     </div>
-                                </div>
 
+                                </div>
                             </div>
                         </div>
-                    </div>
                     </a>
                 @endforeach
             </div>
@@ -103,7 +95,7 @@
                                 <div class="tech-news-box-image"
                                      style="background-image: url({{asset($article->image_path)}})"></div>
                                 <div class="internet-news-box-caption">
-                                   <p>{{$article->title}}</p>
+                                    <p>{{$article->title}}</p>
                                     <div class="tech-text-bottom-sm">
                                         <span class="">{{ Date::parse($article->article_date)->format('j F')}} • {{ Carbon\Carbon::parse($article->article_date)->format('H:i')}} • parafesor</span>
                                     </div>

@@ -61,7 +61,7 @@ class ArticleHelper
                 ->limit(4)
                 ->get();
 
-            $articlesPersistent = Article::where('articles.status', ArticleStatus::PUBLISHED)
+        /*    $articlesPersistent = Article::where('articles.status', ArticleStatus::PUBLISHED)
                 ->select('title','original_link', 'image_path','summary','created_at', 'slug','article_date')
                 ->where('article_type_id', $articleType->id)
                 ->when($type == ArticleTypes::GUNDEM, function ($query, $type) {
@@ -71,14 +71,14 @@ class ArticleHelper
                 ->where('start_date', '<', Carbon::now())
                 ->orderby('articles.article_date', 'DESC')
                 ->limit(1)
-                ->get();
+                ->get();*/
 
 
 
             Cache::put(CacheConst::ARTICLE . $articleType->title . ":" . CategorySectionTypes::NORMAL, $articlesByType);
             Cache::put(CacheConst::ARTICLE . $articleType->title . ":" . CategorySectionTypes::MAIN_SLIDER, $articlesMainSlider);
             Cache::put(CacheConst::ARTICLE . $articleType->title . ":" . CategorySectionTypes::SECOND_SLIDER, $articlesSecondSlider);
-            Cache::put(CacheConst::ARTICLE . $articleType->title . ":" . CategorySectionTypes::PERSISTENT, $articlesPersistent);
+//            Cache::put(CacheConst::ARTICLE . $articleType->title . ":" . CategorySectionTypes::PERSISTENT, $articlesPersistent);
 
             Log::info("Article Type " . $articleType->title . " cached");
         }

@@ -139,7 +139,7 @@
                                                             value="Normal" style="background-color: red">Normal
                                                     </button>
                                                 </div>
-                                                <div class="row">
+                                               {{-- <div class="row">
                                                     <div class="col-md-12 mt-3">
                                                         <div class="col-md-3">
                                                             <button type="button"
@@ -149,7 +149,7 @@
                                                             </button>
                                                         </div>
                                                     </div>
-                                                </div>
+                                                </div>--}}
                                             </div>
                                         </div>
                                     </div>
@@ -159,10 +159,10 @@
                                            name="PlacementSection" id="PlacementSection"
                                            hidden>
 
-                                    <input type="number"
+                                    {{--<input type="number"
                                            value="{{isset($article) && $article->persistent ? $article->persistent : 0}}"
                                            name="PersistentSection" id="PersistentSection"
-                                           hidden>
+                                           hidden>--}}
 
                                     <input type="number"
                                            value="{{isset($article) && $article->header_slider ? $article->header_slider : 0}}"
@@ -522,10 +522,10 @@
                                            name="PlacementSection" id="PlacementSection"
                                            hidden>
 
-                                    <input type="number"
+                                   {{-- <input type="number"
                                            value="{{isset($article) && $article->persistent ? $article->persistent : 0}}"
                                            name="PersistentSection" id="PersistentSection"
-                                           hidden>
+                                           hidden>--}}
 
                                     <input type="number"
                                            value="{{isset($article) && $article->header_slider ? $article->header_slider : 0}}"

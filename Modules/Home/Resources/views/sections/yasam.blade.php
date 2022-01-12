@@ -16,18 +16,20 @@
                         @foreach($articles["Yaşam"][\App\Parafesor\Constants\CategorySectionTypes::MAIN_SLIDER]->take(4) as $article)
                             <div class="news-card-slider-slide">
                                 <a href="{{route('article.show',['slug'=> $article->slug])}}">
-                                <div class="life-card-slider-slide-img text-white"
-                                     style="background-image: url({{asset($article->image_path)}})">
-                                    <div class="yellowOverlay0">
-                                        <div class="life-card-slider-slide-caption text-black"><p>{{$article->title}}</p>
-                                            <div class="tech-text-bottom-sm">
+                                    <div class="life-card-slider-slide-img text-white"
+                                         style="background-image: url({{asset($article->image_path)}})">
+                                        <div class="yellowOverlay0">
+                                            <div class="life-card-slider-slide-caption text-black">
+                                                <p>{{$article->title}}</p>
+                                                <div class="tech-text-bottom-sm">
                                     <span
                                         class="text-black">{{ Date::parse($article->article_date)->format('j F')}}</span><span> • {{ Carbon\Carbon::parse($article->article_date)->format('H:i')}} • parafesor</span>
+                                                </div>
                                             </div>
-                                        </div>  </div>
+                                        </div>
 
 
-                                </div>
+                                    </div>
                                 </a>
                             </div>
                         @endforeach
@@ -39,16 +41,9 @@
                 </div>
             </div>
             @php
-                $persistent = count($articles["Yaşam"][\App\Parafesor\Constants\CategorySectionTypes::PERSISTENT]) > 0;
-                if($persistent) {
-                    $yasamArticles = $articles["Yaşam"][\App\Parafesor\Constants\CategorySectionTypes::PERSISTENT]->take(1);
-                    $yasamArticlesSecond = $articles["Yaşam"][\App\Parafesor\Constants\CategorySectionTypes::NORMAL]->take(1);
-                    $yasamArticlesBelow = $articles["Yaşam"][\App\Parafesor\Constants\CategorySectionTypes::NORMAL]->slice(1)->take(4);
-                } else {
-                    $yasamArticles = $articles["Yaşam"][\App\Parafesor\Constants\CategorySectionTypes::NORMAL]->take(1);
-                    $yasamArticlesSecond = $articles["Yaşam"][\App\Parafesor\Constants\CategorySectionTypes::NORMAL]->slice(1)->take(1);
-                    $yasamArticlesBelow = $articles["Yaşam"][\App\Parafesor\Constants\CategorySectionTypes::NORMAL]->slice(2)->take(4);
-                }
+                $yasamArticles = $articles["Yaşam"][\App\Parafesor\Constants\CategorySectionTypes::NORMAL]->take(1);
+                $yasamArticlesSecond = $articles["Yaşam"][\App\Parafesor\Constants\CategorySectionTypes::NORMAL]->slice(1)->take(1);
+                $yasamArticlesBelow = $articles["Yaşam"][\App\Parafesor\Constants\CategorySectionTypes::NORMAL]->slice(2)->take(4);
             @endphp
             <div class="col-md-5 match mt-3" matchTo="life-slider">
                 @foreach($yasamArticles as $article)

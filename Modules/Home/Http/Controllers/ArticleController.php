@@ -36,7 +36,7 @@ class ArticleController extends Controller
         $articles[$articleType->title][CategorySectionTypes::NORMAL] = Cache::get(CacheConst::ARTICLE . $articleType->title . ":" . CategorySectionTypes::NORMAL);
         $articles[$articleType->title][CategorySectionTypes::SECOND_SLIDER] = Cache::get(CacheConst::ARTICLE . $articleType->title . ":" . CategorySectionTypes::SECOND_SLIDER);
         $articles[$articleType->title][CategorySectionTypes::CHANNEL] = Cache::get(CacheConst::ARTICLE . $articleType->title . ":" . CategorySectionTypes::CHANNEL);
-        $articles[$articleType->title][CategorySectionTypes::PERSISTENT] = Cache::get(CacheConst::ARTICLE . $articleType->title . ":" . CategorySectionTypes::PERSISTENT);
+//        $articles[$articleType->title][CategorySectionTypes::PERSISTENT] = Cache::get(CacheConst::ARTICLE . $articleType->title . ":" . CategorySectionTypes::PERSISTENT);
 
         $articlesDB = [];
         $articlesDB[$articleType->title] = Article::where('status', ArticleStatus::PUBLISHED)

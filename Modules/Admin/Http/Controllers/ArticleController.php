@@ -172,7 +172,7 @@ class ArticleController extends Controller
         $article->company_id = Request::input('CompanyId');
         $article->show_case = Request::input('PlacementSection');
         $article->header_slider = Request::input('HeaderSection');
-        $article->persistent = Request::input('PersistentSection');
+        $article->persistent = 0;
         $article->status = ArticleStatus::ASSIGNED;
         $article->summary = $news->summary;
         $article->external_site_id = $news->news_id;
@@ -331,7 +331,7 @@ class ArticleController extends Controller
             $article->article_type_id = Request::input('ArticleTypeId');
             $article->show_case = Request::input('PlacementSection');
             $article->header_slider = Request::input('HeaderSection');
-            $article->persistent = Request::input('PersistentSection');
+            $article->persistent = 0;
             $article->summary = Request::input('Description');
             $article->start_date = Request::input('StartedOn');
             $article->end_date = Carbon::now()->addYears(3);

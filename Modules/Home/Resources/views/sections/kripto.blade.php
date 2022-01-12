@@ -44,20 +44,11 @@
                 </div>
             </div>
             @php
-                $persistent = count($articles["Kripto"][\App\Parafesor\Constants\CategorySectionTypes::PERSISTENT]) > 0;
-                if($persistent) {
-                    $kriptoArticles = $articles["Kripto"][\App\Parafesor\Constants\CategorySectionTypes::PERSISTENT]->take(1);
-                    /*$kriptoArticlesHeadSecond = $articles["Kripto"][\App\Parafesor\Constants\CategorySectionTypes::NORMAL]->take(1);*/
-                    $kriptoArticlesBelowFirst = $articles["Kripto"][\App\Parafesor\Constants\CategorySectionTypes::NORMAL]->take(1);
-                    $kriptoArticlesBelowSecond = $articles["Kripto"][\App\Parafesor\Constants\CategorySectionTypes::NORMAL]->slice(1)->take(1);
-                    $kriptoArticlesFooter = $articles["Kripto"][\App\Parafesor\Constants\CategorySectionTypes::NORMAL]->slice(2)->take(4);
-                } else {
-                    $kriptoArticles = $articles["Kripto"][\App\Parafesor\Constants\CategorySectionTypes::NORMAL]->take(1);
-                    /*$kriptoArticlesHeadSecond = $articles["Kripto"][\App\Parafesor\Constants\CategorySectionTypes::NORMAL]->slice(1)->take(1);*/
-                    $kriptoArticlesBelowFirst = $articles["Kripto"][\App\Parafesor\Constants\CategorySectionTypes::NORMAL]->slice(1)->take(1);
-                    $kriptoArticlesBelowSecond = $articles["Kripto"][\App\Parafesor\Constants\CategorySectionTypes::NORMAL]->slice(2)->take(1);
-                    $kriptoArticlesFooter = $articles["Kripto"][\App\Parafesor\Constants\CategorySectionTypes::NORMAL]->slice(3)->take(4);
-                    }
+                $kriptoArticles = $articles["Kripto"][\App\Parafesor\Constants\CategorySectionTypes::NORMAL]->take(1);
+                /*$kriptoArticlesHeadSecond = $articles["Kripto"][\App\Parafesor\Constants\CategorySectionTypes::NORMAL]->slice(1)->take(1);*/
+                $kriptoArticlesBelowFirst = $articles["Kripto"][\App\Parafesor\Constants\CategorySectionTypes::NORMAL]->slice(1)->take(1);
+                $kriptoArticlesBelowSecond = $articles["Kripto"][\App\Parafesor\Constants\CategorySectionTypes::NORMAL]->slice(2)->take(1);
+                $kriptoArticlesFooter = $articles["Kripto"][\App\Parafesor\Constants\CategorySectionTypes::NORMAL]->slice(3)->take(4);
             @endphp
 
             @foreach($kriptoArticles as $article)
@@ -82,25 +73,25 @@
                 </div>
             @endforeach
             <div class="col-md-6 match" matchTo="crypto-slider">
-{{--                @foreach($kriptoArticlesHeadSecond as $article)--}}
-                    <div class="col-md-24 match" matchTo="crypto-slider">
-                            <div class="col-md-24 bg-white  h-100 tech-box">
-                                <div class="tech-news-box-image "
-                                     style="background-color: black;)}}); height: 100%">
-                                    {{--       <div class="tech-news-box-image "
-                                                style="background-image: url({{asset($article->image_path)}}); height: 100%">--}}
-                                    <div class="crypto-second-image-caption">
-                                        Gültekin Bey Haftalık Bitcoin Analizi
-                                        <div class="mt-1">
-                                            Video <span class="fa fa-play-circle"></span>
-                                        </div>
-                                    </div>
-
-
+                {{--                @foreach($kriptoArticlesHeadSecond as $article)--}}
+                <div class="col-md-24 match" matchTo="crypto-slider">
+                    <div class="col-md-24 bg-white  h-100 tech-box">
+                        <div class="tech-news-box-image "
+                             style="background-color: black;)}}); height: 100%">
+                            {{--       <div class="tech-news-box-image "
+                                        style="background-image: url({{asset($article->image_path)}}); height: 100%">--}}
+                            <div class="crypto-second-image-caption">
+                                Gültekin Bey Haftalık Bitcoin Analizi
+                                <div class="mt-1">
+                                    Video <span class="fa fa-play-circle"></span>
                                 </div>
                             </div>
+
+
+                        </div>
                     </div>
-{{--                @endforeach--}}
+                </div>
+                {{--                @endforeach--}}
             </div>
 
         </div>

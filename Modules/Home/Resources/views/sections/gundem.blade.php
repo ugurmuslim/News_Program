@@ -68,7 +68,7 @@
                         </div>
                     </div>
                     <!-- First Big News Slider of the section -->
-                @php
+                {{--@php
                     $gundemPersistent = count($articles["Gündem"][\App\Parafesor\Constants\CategorySectionTypes::PERSISTENT]) > 0;
                     if($gundemPersistent) {
                     $gundemNormalCount = 3;
@@ -76,8 +76,8 @@
                     } else {
                     $gundemNormalCount = 4;
                     }
-                @endphp
-                @if($gundemPersistent)
+                @endphp--}}
+               {{-- @if($gundemPersistent)
                     @foreach($articles["Gündem"][\App\Parafesor\Constants\CategorySectionTypes::PERSISTENT]->take(1) as $article)
                         <!-- First Small News of the section -->
                             <div class="col-lg-6 col-sm-12 mt-5">
@@ -98,8 +98,8 @@
                                 </a>
                             </div>
                     @endforeach
-                @endif
-                @foreach($articles["Gündem"][\App\Parafesor\Constants\CategorySectionTypes::NORMAL]->take($gundemNormalCount) as $article)
+                @endif--}}
+                @foreach($articles["Gündem"][\App\Parafesor\Constants\CategorySectionTypes::NORMAL]->take(4) as $article)
 
                     <!-- First Small News of the section -->
                         <div class="col-lg-6 col-sm-12 mt-5">
