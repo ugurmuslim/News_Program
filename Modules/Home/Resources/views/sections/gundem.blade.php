@@ -134,14 +134,14 @@
                             @foreach($currencies['Fiat'] as $fiat)
                                 <li class="list-group-item">
                                     <div class="row">
-                                        <div class="col-12">
+                                        <div class="col-11">
                                             {{$fiat->currency}}
                                         </div>
 
                                         <div class="col-6">
                                             {{--                                                <span style="{{$fiat->change > 0 ? "color:green" : "color:red"}}">{{ \Illuminate\Support\Str::limit($fiat->change, 5, $end='') }}%</span>--}}
                                         </div>
-                                        <div class="col-6">
+                                        <div class="col-7">
                                             <span
                                                 style="">{{ \Illuminate\Support\Str::limit($fiat->buying, 6, $end='') }}</span>
                                         </div>
@@ -154,7 +154,7 @@
                             @foreach($currencies['Crypto'] as $crypto)
                                 <li class="list-group-item" style="font-family: HelveticaNeueMedium">
                                     <div class="row">
-                                        <div class="col-12">
+                                        <div class="col-11">
                                             {{$crypto->currency}}
                                         </div>
                                         @php
@@ -167,7 +167,7 @@
                                                 <span
                                                     style="{{$crypto->change > 0 ? "color:#00eb00" : "color:#ff0000"}}">{{ number_format($crypto->change,2) }}%</span>
                                         </div>
-                                        <div class="col-6">
+                                        <div class="col-7">
                                             <span
                                                 style="{{$crypto->change > 0 ? "color:#00eb00" : "color:#ff0000"}}">{{number_format($crypto->buying, $numberFormat) }}</span>
                                         </div>
