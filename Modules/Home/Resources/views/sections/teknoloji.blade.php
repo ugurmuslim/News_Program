@@ -9,7 +9,7 @@
     </div>
     <div class="container">
         <div class="row pb-5">
-            <div class="col-md-5">
+            <div class="col-md-5 mt-1">
                 @foreach($articles["Teknoloji"][\App\Parafesor\Constants\CategorySectionTypes::NORMAL]->take(3) as $article)
                     <div class="card news-card news-card-small">
                         <a href="{{route('article.show',['slug' => $article->slug ])}}">
