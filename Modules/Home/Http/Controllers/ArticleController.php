@@ -48,6 +48,9 @@ class ArticleController extends Controller
 
         if ($articleType->id == ArticleTypes::SonDakika) {
             $articlesDB[$articleType->title] = Article::where('status', ArticleStatus::PUBLISHED)
+                ->where('article_type_id', '!=', ArticleTypes::KoseYazilari)
+                ->where('article_type_id', '!=', ArticleTypes::Twitter)
+                ->where('article_type_id', '!=', ArticleTypes::BorsaTube)
                 ->orderBy('id', 'DESC')
                 ->limit(30)
                 ->get();
