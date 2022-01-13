@@ -112,6 +112,10 @@ Route::prefix('admin')->group(function () {
             ->middleware('auth')
             ->name('stockTube.store');
 
+        Route::delete('/{id}', [ \Modules\Admin\Http\Controllers\StockTubeController::class, 'destroy' ])
+            ->middleware('auth')
+            ->name('stockTube.destroy');
+
         Route::post('/preview', [ \Modules\Admin\Http\Controllers\ArticleController::class, 'preview' ])
             ->middleware('auth')
             ->name('article.preview');

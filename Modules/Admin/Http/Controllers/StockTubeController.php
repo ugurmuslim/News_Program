@@ -42,7 +42,7 @@ class StockTubeController extends Controller
 
         if ($channel == 1) {
             $articles = StockTube::where('status', ArticleStatus::PUBLISHED)
-                ->whereIn('show_case', [ CategorySectionTypes::CHANNEL])
+                ->whereIn('show_case', [ CategorySectionTypes::CHANNEL ])
                 ->paginate(15);
         }
         return view("admin::StockTube.index")
@@ -120,6 +120,32 @@ class StockTubeController extends Controller
 
         Session::flash('success', "Başarı ile yaratıldı");
         return back()->withInput(Request::all());
+
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param int $id
+     *
+     * @return Renderable
+     */
+    public function destroy($id)
+    {
+        /**
+         * @var $article StockTube
+         */
+        $article = StockTube::find($id);
+        if (!$article) {
+            Session::flash('error', "Haber bulunamadı");
+            return back();
+
+        }
+        $article->delete();
+        ArticleHelper::updateCache([], true);
+
+        Session::flash('success', "Başarı ile silindi");
+        return back();
 
     }
 

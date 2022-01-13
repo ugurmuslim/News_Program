@@ -9,7 +9,8 @@
                         <div class="card-header">
                             <h3 class="card-title">Bursa Tube</h3>
                         </div>
-                        <a class="btn btn-success btn-sm float-right" href="{{route('stockTube.postUpdate',['channel' => $channel ]),}}">Yarat</a>
+                        <a class="btn btn-success btn-sm float-right"
+                           href="{{route('stockTube.postUpdate',['channel' => $channel ]),}}">Yarat</a>
                         <!-- /.card-header -->
                         <div class="card-body">
                             <table class="table table-bordered">
@@ -30,8 +31,16 @@
                                         {{--<td>{!! $article->placement !!}</td>--}}
                                         <td>
                                             <div class="col-md-3">
-                                                    <a href="{{route('stockTube.postUpdate',['id' => $article->id])}}"
-                                                       class="btn btn-primary">Düzenle</a>
+                                                <a href="{{route('stockTube.postUpdate',['id' => $article->id])}}"
+                                                   class="btn btn-primary">Düzenle</a>
+                                            </div>
+                                            <div class="col-md-3">
+                                            <form method="post"
+                                                  action={{route('stockTube.destroy', ['id' => $article->id])}}>
+                                                {{ csrf_field() }}
+                                                {{ method_field('DELETE') }}
+                                                <button class="btn btn-danger">Sil</button>
+                                            </form>
                                             </div>
                                         </td>
                                     </tr>

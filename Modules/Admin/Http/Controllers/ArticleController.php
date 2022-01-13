@@ -452,7 +452,7 @@ class ArticleController extends Controller
         $article->delete();
         ArticleHelper::updateCache([ $articleTypeId ]);
 
-        Session::flash('success', "Başarı ile yaratıldı");
+        Session::flash('success', "Başarı ile silindi");
         return back();
 
     }
