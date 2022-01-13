@@ -215,7 +215,6 @@ Route::prefix('admin')->group(function () {
     });
 
     Route::prefix('system-company')->group(function () {
-
         Route::get('/', [ \Modules\Admin\Http\Controllers\CompanyController::class, 'index' ])
             ->middleware('auth')
             ->name('system.company.index');
@@ -227,6 +226,11 @@ Route::prefix('admin')->group(function () {
         Route::post('/postUpdate/{id?}', [ \Modules\Admin\Http\Controllers\CompanyController::class, 'store' ])
             ->middleware('auth')
             ->name('system.company.store');
+    });
 
+    Route::prefix('download')->group(function () {
+        Route::get('/sitemap', [ \Modules\Admin\Http\Controllers\SystemController::class, 'sitemapDownload' ])
+            ->middleware('auth')
+            ->name('system.download.sitemap');
     });
 });

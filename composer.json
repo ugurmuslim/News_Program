@@ -21,7 +21,8 @@
         "predis/predis": "^1.1",
         "spatie/browsershot": "^3.52",
         "spatie/crawler": "^6.0",
-        "spatie/laravel-permission": "^5.1"
+        "spatie/laravel-permission": "^5.1",
+        "spatie/laravel-sitemap": "^5.9"
     },
     "require-dev": {
         "facade/ignition": "^2.5",

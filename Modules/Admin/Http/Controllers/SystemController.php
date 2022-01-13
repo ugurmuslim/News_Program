@@ -20,6 +20,7 @@ use Modules\Admin\Entities\Article;
 use Modules\Admin\Entities\ArticleType;
 use Modules\Admin\Entities\Menu;
 use Spatie\Permission\Models\Role;
+use Spatie\Sitemap\SitemapGenerator;
 
 class SystemController extends Controller
 {
@@ -90,6 +91,11 @@ class SystemController extends Controller
         Session::flash('success', "İşlem Başarı ile Gerçekleştirildi");
         return back();
 
+    }
+
+    public function sitemapDownload() {
+        SitemapGenerator::create('https://parafesor.net')->writeToFile('sitemap.xml');
+        return response()->download('sitemap.xml', 'sitemap.xml',['Content-type => text/xml']);
     }
 }
 

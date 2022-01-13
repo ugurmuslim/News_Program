@@ -339,11 +339,16 @@
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>Menu</p>
                                 </a>
+                                <a href="{{route('system.download.sitemap')}}" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>SiteMap Indir</p>
+                                </a>
                             @endcan
                             <a href="{{route('system.company.index')}}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Şirketler</p>
                             </a>
+
 
                         </li>
 {{--                    </ul>--}}
