@@ -54,7 +54,7 @@
                 $netkolikArticles = $articles["Netkolik"][\App\Parafesor\Constants\CategorySectionTypes::NORMAL]->take(1);
                                $netkolikArticlesBelowFirst = $articles["Netkolik"][\App\Parafesor\Constants\CategorySectionTypes::NORMAL]->slice(1)->take(1);
                 $netkolikArticlesBelowSecond = $articles["Netkolik"][\App\Parafesor\Constants\CategorySectionTypes::NORMAL]->slice(2)->take(3);
-                $netkolikArticlesFooter = $articles["Netkolik"][\App\Parafesor\Constants\CategorySectionTypes::NORMAL]->slice(5)->take(3);
+                /*$netkolikArticlesFooter = $articles["Netkolik"][\App\Parafesor\Constants\CategorySectionTypes::NORMAL]->slice(5)->take(3);*/
             @endphp
             <div class="col-md-10">
                 @foreach($netkolikArticles as $article)
@@ -129,7 +129,7 @@
                 </div>
             </div>
         </div>
-        <div class="row mt-3">
+        {{--<div class="row mt-3">
             @foreach($netkolikArticlesFooter as $article)
                 <div class="col-md-8 mt-3">
                     <a href="{{route('article.show',['slug' => $article->slug ])}}">
@@ -151,7 +151,7 @@
                     </a>
                 </div>
             @endforeach
-        </div>
+        </div>--}}
 
     </div>
 </section>
