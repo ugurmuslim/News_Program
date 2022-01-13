@@ -178,17 +178,17 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link">
+                  {{--  <a href="#" class="nav-link">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
                         <p>
                             Haberler
                             <i class="right fas fa-angle-left"></i>
                         </p>
-                    </a>
-                    <ul class="nav nav-treeview">
+                    </a>--}}
+{{--                    <ul class="nav nav-treeview">--}}
                         @can('assign articles')
                             <li class="nav-item">
-                                <a href="{{route('article.index')}}" class="nav-link active">
+                                <a href="{{route('article.index')}}" class="nav-link ">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>Haberler</p>
                                 </a>
@@ -227,48 +227,51 @@
                                 </a>
                             </li>
                         @endcan
-                    </ul>
+{{--                    </ul>--}}
                 </li>
+                    <hr style="border-top: 1px solid #fff;  margin: 1em 0;">
                 <li class="nav-item">
-                    <a href="#" class="nav-link">
+                   {{-- <a href="#" class="nav-link">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
                         <p>
                             Borsa Tube
                             <i class="right fas fa-angle-left"></i>
                         </p>
-                    </a>
-                    <ul class="nav nav-treeview">
+                    </a>--}}
+{{--                    <ul class="nav nav-treeview">--}}
                         <li class="nav-item">
-                            <a href="{{route('stockTube.index')}}" class="nav-link active">
+                            <a href="{{route('stockTube.index')}}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Video Rapor</p>
                             </a>
-                            <a href="{{route('stockTube.index',['channel'=> true])}}" class="nav-link active">
+                            <a href="{{route('stockTube.index',['channel'=> true])}}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Kanal Rapor</p>
                             </a>
                         </li>
-                    </ul>
+{{--                    </ul>--}}
                 </li>
+                    <hr style="border-top: 1px solid #fff;  margin: 1em 0;">
+
                 @can('assign articles')
                     <li class="nav-item">
-                        <a href="#" class="nav-link">
+                      {{--  <a href="#" class="nav-link">
                             <i class="nav-icon fas fa-tachometer-alt"></i>
                             <p>
                                 Bot Raporları
                                 <i class="right fas fa-angle-left"></i>
                             </p>
-                        </a>
-                        <ul class="nav nav-treeview">
+                        </a>--}}
+{{--                        <ul class="nav nav-treeview">--}}
                             <li class="nav-item">
                                 <a href="{{route('bot.index')}}" class="nav-link">
                                     <i class="nav-icon fas fa-tree"></i>
                                     <p>
-                                        Genel Rapor
+                                        Bot Rapor
                                     </p>
                                 </a>
                                 <a href="{{route('bot.report', [\Carbon\Carbon::now()->format('Y-m-d'),\Carbon\Carbon::yesterday()->format('Y-m-d')])}}"
-                                   class="nav-link active">
+                                   class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>Bot Performans</p>
                                 </a>
@@ -277,46 +280,49 @@
                                 </form>
                             </li>
 
-                        </ul>
+{{--                        </ul>--}}
                     </li>
                 @endcan
+                    <hr style="border-top: 1px solid #fff;  margin: 1em 0;">
 
 
                 @can('assign articles')
                     <li class="nav-item">
-                        <a href="#" class="nav-link">
+                     {{--   <a href="#" class="nav-link">
                             <i class="nav-icon fas fa-tachometer-alt"></i>
                             <p>
                                 Editor Raporları
                                 <i class="right fas fa-angle-left"></i>
                             </p>
-                        </a>
-                        <ul class="nav nav-treeview">
+                        </a>--}}
+{{--                        <ul class="nav nav-treeview">--}}
                             <li class="nav-item">
                                 <a href="{{route('editor.report')}}" class="nav-link">
                                     <i class="nav-icon fas fa-tree"></i>
                                     <p>
-                                        Genel Rapor
+                                        Editor Genel Rapor
                                     </p>
                                 </a>
-                                <a href="{{route('editor.log')}}" class="nav-link active">
+                                <a href="{{route('editor.log')}}" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>Editor Log</p>
                                 </a>
                             </li>
 
-                        </ul>
+{{--                        </ul>--}}
                     </li>
                 @endcan
-                <li class="nav-item">
-                    <a href="#" class="nav-link">
+                    <hr style="border-top: 1px solid #fff;  margin: 1em 0;">
+
+                    <li class="nav-item">
+                  {{--  <a href="#" class="nav-link">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
                         <p>
                             Sistem
                             <i class="right fas fa-angle-left"></i>
                         </p>
-                    </a>
-                    <ul class="nav nav-treeview">
+                    </a>--}}
+{{--                    <ul class="nav nav-treeview">--}}
                         <li class="nav-item">
                             @can('assign articles')
                                 <a href="{{route('articleType.index')}}" class="nav-link">
@@ -340,7 +346,7 @@
                             </a>
 
                         </li>
-                    </ul>
+{{--                    </ul>--}}
                 </li>
             </ul>
         </nav>

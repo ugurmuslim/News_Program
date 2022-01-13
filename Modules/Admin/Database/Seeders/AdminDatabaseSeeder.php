@@ -22,6 +22,7 @@ class AdminDatabaseSeeder extends Seeder
             "title"            => "Gündem",
             "page_path"        => "home::Article.gundem",
             "status"           => 1,
+            "slug"           => 'gundem',
             "image_dimensions" => '{"MainSlider": {"width": 1600,"height": 900},"SecondSlider": {"width": 1600,"height": 900},"Normal": {"width": 1600,"height": 900}}',
             "created_at"       => Date::now(),
         ]);
@@ -30,6 +31,7 @@ class AdminDatabaseSeeder extends Seeder
             "title"            => "Şirket Haberleri",
             "page_path"        => "home::Article.sirket-haberleri",
             "image_dimensions" => '{"MainSlider": {"width": 1600,"height": 900},"SecondSlider": {"width": 1600,"height": 900},"Normal": {"width": 1600,"height": 900}}',
+            "slug"           => 'gundem',
             "status"           => 1,
             "created_at"       => Date::now(),
         ]);
@@ -38,6 +40,7 @@ class AdminDatabaseSeeder extends Seeder
             "title"            => "Köşe Yazıları",
             "page_path"        => "home::Article.kose-yazilari",
             "image_dimensions" => '{"MainSlider": {"width": 1600,"height": 900},"SecondSlider": {"width": 1600,"height": 900},"Normal": {"width": 1600,"height": 900}}',
+            "slug"           => 'gundem',
             "status"           => 1,
             "created_at"       => Date::now(),
         ]);
@@ -47,6 +50,7 @@ class AdminDatabaseSeeder extends Seeder
             "page_path"        => "home::Article.borsa-tube",
             "image_dimensions" => '{"MainSlider": {"width": 1600,"height": 900},"SecondSlider": {"width": 1600,"height": 900},"Normal": {"width": 1600,"height": 900}}',
             "status"           => 0,
+            "slug"           => 'gundem',
             "created_at"       => Date::now(),
         ]);
 
@@ -54,6 +58,7 @@ class AdminDatabaseSeeder extends Seeder
             "title"            => "Twitter",
             "page_path"        => "home::Article.twitter",
             "image_dimensions" => '{"MainSlider": {"width": 1600,"height": 900},"SecondSlider": {"width": 1600,"height": 900},"Normal": {"width": 1600,"height": 900}}',
+            "slug"           => 'gundem',
             "status"           => 1,
             "created_at"       => Date::now(),
         ]);
@@ -63,6 +68,7 @@ class AdminDatabaseSeeder extends Seeder
             "page_path"        => "home::Article.teknoloji",
             "image_dimensions" => '{"MainSlider": {"width": 1600,"height": 900},"SecondSlider": {"width": 1600,"height": 900},"Normal": {"width": 1600,"height": 900}}',
             "status"           => 1,
+            "slug"           => 'gundem',
             "created_at"       => Date::now(),
         ]);
 
@@ -71,6 +77,7 @@ class AdminDatabaseSeeder extends Seeder
             "page_path"        => "home::Article.son-dakika",
             "image_dimensions" => '{"MainSlider": {"width": 1600,"height": 900},"SecondSlider": {"width": 1600,"height": 900},"Normal": {"width": 1600,"height": 900}}',
             "status"           => 0,
+            "slug"           => 'gundem',
             "created_at"       => Date::now(),
         ]);
 
@@ -80,6 +87,7 @@ class AdminDatabaseSeeder extends Seeder
             "page_path"        => "home::Article.spor",
             "image_dimensions" => '{"MainSlider": {"width": 1600,"height": 900},"SecondSlider": {"width": 1600,"height": 900},"Normal": {"width": 1600,"height": 900}}',
             "status"           => 1,
+            "slug"           => 'gundem',
             "created_at"       => Date::now(),
         ]);
 
@@ -88,6 +96,7 @@ class AdminDatabaseSeeder extends Seeder
             "page_path"        => "home::Article.yasam",
             "image_dimensions" => '{"MainSlider": {"width": 1600,"height": 900},"SecondSlider": {"width": 1600,"height": 900},"Normal": {"width": 1600,"height": 900}}',
             "status"           => 1,
+            "slug"           => 'gundem',
             "created_at"       => Date::now(),
         ]);
 
@@ -96,6 +105,7 @@ class AdminDatabaseSeeder extends Seeder
             "page_path"        => "home::Article.otomobil",
             "image_dimensions" => '{"MainSlider": {"width": 1600,"height": 900},"SecondSlider": {"width": 1600,"height": 900},"Normal": {"width": 1600,"height": 900}}',
             "status"           => 1,
+            "slug"           => 'gundem',
             "created_at"       => Date::now(),
         ]);
 
@@ -104,6 +114,7 @@ class AdminDatabaseSeeder extends Seeder
             "page_path"        => "home::Article.netkolik",
             "image_dimensions" => '{"MainSlider": {"width": 1600,"height": 900},"SecondSlider": {"width": 1600,"height": 900},"Normal": {"width": 1600,"height": 900}}',
             "status"           => 1,
+            "slug"           => 'gundem',
             "created_at"       => Date::now(),
         ]);
 
@@ -112,6 +123,7 @@ class AdminDatabaseSeeder extends Seeder
             "page_path"        => "home::Article.egitim",
             "image_dimensions" => '{"MainSlider": {"width": 1600,"height": 900},"SecondSlider": {"width": 1600,"height": 900},"Normal": {"width": 1600,"height": 900}}',
             "status"           => 1,
+            "slug"           => 'gundem',
             "created_at"       => Date::now(),
         ]);
 
@@ -120,6 +132,7 @@ class AdminDatabaseSeeder extends Seeder
             "page_path"        => "home::Article.en-cok-okunanlar",
             "image_dimensions" => '{"MainSlider": {"width": 1600,"height": 900},"SecondSlider": {"width": 1600,"height": 900},"Normal": {"width": 1600,"height": 900}}',
             "status"           => 1,
+            "slug"           => 'gundem',
             "created_at"       => Date::now(),
         ]);
 
@@ -128,6 +141,7 @@ class AdminDatabaseSeeder extends Seeder
             "page_path"        => "home::Article.kripto",
             "image_dimensions" => '{"MainSlider": {"width": 1600,"height": 900},"SecondSlider": {"width": 1600,"height": 900},"Normal": {"width": 1600,"height": 900}}',
             "status"           => 1,
+            "slug"           => 'gundem',
             "created_at"       => Date::now(),
         ]);
 
@@ -136,6 +150,7 @@ class AdminDatabaseSeeder extends Seeder
             "page_path"        => "home::Article.hisse",
             "image_dimensions" => '{"MainSlider": {"width": 1600,"height": 900},"SecondSlider": {"width": 1600,"height": 900},"Normal": {"width": 1600,"height": 900}}',
             "status"           => 1,
+            "slug"           => 'gundem',
             "created_at"       => Date::now(),
         ]);
 
