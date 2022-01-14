@@ -112,7 +112,7 @@ Route::prefix('admin')->group(function () {
             ->middleware('auth')
             ->name('stockTube.store');
 
-        Route::delete('/{id}', [ \Modules\Admin\Http\Controllers\StockTubeController::class, 'destroy' ])
+        Route::delete('/stock-tube/{id}', [ \Modules\Admin\Http\Controllers\StockTubeController::class, 'destroy' ])
             ->middleware('auth')
             ->name('stockTube.destroy');
 
