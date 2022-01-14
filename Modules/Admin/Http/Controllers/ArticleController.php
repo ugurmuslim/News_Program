@@ -96,8 +96,8 @@ class ArticleController extends Controller
     public function assign($id)
     {
         $editors = User::role('Yazar')->get();
-        $assigner = User::where('id', Auth::user()->id)->get();
-        $mergedUsers = $editors->merge($assigner);
+        $assigners = User::role('Editor')->get();
+        $mergedUsers = $editors->merge($assigners);
         $companies = Company::all();
         $news = CrawledArticle::find($id);
         $articleTypes = ArticleType::all();
