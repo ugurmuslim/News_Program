@@ -31,6 +31,7 @@ class AdminController extends Controller
             ->where('article_type_id', '!=', ArticleTypes::BorsaTube)
             ->where('article_type_id', '!=', ArticleTypes::Twitter)
             ->where('article_type_id', '!=', ArticleTypes::KoseYazilari)
+            ->orderBy('article_date', 'DESC')
             ->limit(20)->get();
 
         return view('admin::index')
