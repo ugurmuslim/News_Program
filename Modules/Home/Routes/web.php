@@ -25,6 +25,9 @@ Route::prefix('home')->group(function () {
         ->name('home.mainSliders');
 });
 
+Route::get('/sample', [ \Modules\Admin\Http\Controllers\SystemController::class, 'sample' ])
+    ->name('systemFront.sample');
+
 
 Route::get('/{slug}', [ \Modules\Home\Http\Controllers\ArticleController::class, 'show' ])
     ->name('article.show');

@@ -97,5 +97,9 @@ class SystemController extends Controller
         SitemapGenerator::create('https://parafesor.net')->writeToFile('sitemap.xml');
         return response()->download('sitemap.xml', 'sitemap.xml',['Content-type => text/xml']);
     }
+
+    public function sample() {
+        return view('home::sample.front');
+    }
 }
 
