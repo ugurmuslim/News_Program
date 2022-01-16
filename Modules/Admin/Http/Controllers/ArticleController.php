@@ -362,7 +362,7 @@ class ArticleController extends Controller
                 'message' => $e->getMessage(),
             ]));
             Session::flash('error', $e->getMessage());
-            return back();
+            return back()->withInput(Request::all());
         }
 
         Log::debug(json_encode([

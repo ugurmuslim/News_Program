@@ -31,7 +31,7 @@
 
 @section('content')
 
-    <div class="wrapper" >
+    <div class="wrapper">
 
         <div class="content-wrapper">
             <div class="content-header">
@@ -72,7 +72,7 @@
                                         <input name="Title" type="text" class="form-control"
                                                placeholder="Başlık Girin"
                                                id="articleTitle"
-                                               value="{{isset($article) ? $article->title : ""}}"
+                                               value="{{old('Title',isset($article) ? $article->title : "")}}"
                                                required="required"
                                                {{isset($article) && $article->assigner_id && !$user->can('assign articles') ? "readonly" : ""}} maxlength="200"
                                                autocomplete="off"/>
@@ -83,6 +83,10 @@
                                         <label class="form-text">Kategori</label>
                                         <select class="form-control" name="ArticleTypeId" required="required"
                                                 id="category" {{isset($article) && $article->assigner_id && !$user->can('assign articles') ? "readonly" : ""}}>
+                                            @if(old('ArticleTypeId'))
+                                                <option
+                                                    value="{{old('ArticleTypeId')}}">{{\Modules\Admin\Entities\ArticleType::find(old('ArticleTypeId'))->title}}</option>
+                                                @endif
                                             @if(isset($article))
                                                 <option
                                                     value="{{$article->article_type_id}}">{{$article->articleType->title}}</option>
@@ -94,10 +98,14 @@
                                     </div>
 
                                     <div class="col-12" id="companySelect"
-                                         style="{{isset($article) && $article->articleType->id == \App\Parafesor\Constants\ArticleTypes::SirketHaberleri ? "" : "display:none"}}">
+                                         style="{{old('CompanyId') || (isset($article) && $article->articleType->id == \App\Parafesor\Constants\ArticleTypes::SirketHaberleri) ? "" : "display:none"}}">
                                         <label class="form-text">Şirket</label>
                                         <select class="form-control" name="CompanyId"
                                                 id="company" {{isset($article) && $article->assigner_id  && !$user->can('assign articles') ? "readonly" : ""}}>
+                                            @if(old('CompanyId'))
+                                                <option
+                                                    value="{{old('CompanyId')}}">{{\Modules\Admin\Entities\Company::find(old('CompanyId'))->title}}</option>
+                                            @endif
                                             @if(isset($article) && $article->company_id)
                                                 <option
                                                     value="{{$article->company_id}}">{{$article->company->title}}</option>
@@ -139,17 +147,17 @@
                                                             value="Normal" style="background-color: red">Normal
                                                     </button>
                                                 </div>
-                                               {{-- <div class="row">
-                                                    <div class="col-md-12 mt-3">
-                                                        <div class="col-md-3">
-                                                            <button type="button"
-                                                                    class="btn btn-default text-bold border-dark "
-                                                                    id="persistentDrawing"
-                                                                    value="0">Kalıcı
-                                                            </button>
-                                                        </div>
-                                                    </div>
-                                                </div>--}}
+                                                {{-- <div class="row">
+                                                     <div class="col-md-12 mt-3">
+                                                         <div class="col-md-3">
+                                                             <button type="button"
+                                                                     class="btn btn-default text-bold border-dark "
+                                                                     id="persistentDrawing"
+                                                                     value="0">Kalıcı
+                                                             </button>
+                                                         </div>
+                                                     </div>
+                                                 </div>--}}
                                             </div>
                                         </div>
                                     </div>
@@ -174,7 +182,7 @@
                                                   autocomplete="off"
                                                   id="articleSummary"
                                                   maxlength="500"
-                                                  required="required">{!! isset($article) ? $article->summary : "" !!}</textarea>
+                                                  required="required">{!! old('Description',isset($article) ? $article->summary : "" )!!}</textarea>
                                     </div>
 
                                     <div class="col-12 hr"></div>
@@ -185,7 +193,7 @@
                                                 <br>
                                                 {{--<input type="file" name="image" />
             --}}                                    {{--<input type="file" name="select_file" id="articleImage">--}}
-                                                <input type="file" name="image"
+                                                <input type="file" name="image" value="{{old('image1')}}"
                                                        class="image" {{isset($article) && $article->image_path ? "" : ""}}>
                                                 <input type="text" name="image1" class="image" id="croppedImage"
                                                        value="{{old('image1')}}" hidden>
@@ -263,7 +271,7 @@
                                         <label class="form-text">Seo Başlık</label>
                                         <input name="SeoTitle" type="text" class="form-control"
                                                placeholder="Seo Başlık Girin" maxlength="200"
-                                               value="{{isset($article) ? $article->seo_title : ""}}"
+                                               value="{{old('SeoTitle',isset($article) ? $article->seo_title : "")}}"
                                                autocomplete="off" required/>
                                     </div>
                                 </div>
@@ -280,7 +288,7 @@
                                                   placeholder="Seo için Açıklama Girin"
                                                   maxlength="1000"
                                                   required="required"
-                                                  autocomplete="off">{{isset($article) ? $article->seo_description : old('SeoDescription')}}</textarea>
+                                                  autocomplete="off">{{old('SeoDescription', isset($article) ? $article->seo_description : "")}}</textarea>
                                     </div>
 
                                     <div class="col-md-12 hr"></div>
@@ -300,7 +308,7 @@
                                         <label class="form-text">Tarih</label>
                                         <input name="ArticleDate" asp-format="{0:yyyy-MM-dd}" type="text"
                                                class="form-control date"
-                                               value="{{\Carbon\Carbon::now()}}"
+                                               value="{{old('ArticleDate', \Carbon\Carbon::now())}}"
                                                placeholder="yyyy-mm-dd" autocomplete="off" required="required"/>
                                     </div>
 
@@ -309,7 +317,7 @@
                                         <label class="form-text">Başlangıç Tarihi</label>
                                         <input asp-for="StartedOn" asp-format="{0:yyyy-MM-dd}" type="text"
                                                class="form-control date" name="StartedOn"
-                                               value="{{\Carbon\Carbon::now()}}"
+                                               value="{{old('StartedOn',\Carbon\Carbon::now())}}"
                                                placeholder="yyyy-mm-dd" autocomplete="off"/>
                                     </div>
 
@@ -341,7 +349,7 @@
                                         <label class="form-text">İçerik</label>
                                     </div>
                                     <textarea name=Body id="textarea">
-    {{isset($article) ? $article->body : ""}}
+    {{old('Body',isset($article) ? $article->body : "")}}
 
   </textarea>
                                 </div>
@@ -367,7 +375,7 @@
                                     <div class="col-12">
                                         <label class="form-text">Başlık</label>
                                         <input type="text" class="form-control"
-                                               placeholder="Başlık Girin"
+                                                   placeholder="Başlık Girin"
                                                id="articleTitle"
                                                value="{{isset($article) ? $article->title : ""}}"
                                                disabled/>
@@ -522,10 +530,10 @@
                                            name="PlacementSection" id="PlacementSection"
                                            hidden>
 
-                                   {{-- <input type="number"
-                                           value="{{isset($article) && $article->persistent ? $article->persistent : 0}}"
-                                           name="PersistentSection" id="PersistentSection"
-                                           hidden>--}}
+                                    {{-- <input type="number"
+                                            value="{{isset($article) && $article->persistent ? $article->persistent : 0}}"
+                                            name="PersistentSection" id="PersistentSection"
+                                            hidden>--}}
 
                                     <input type="number"
                                            value="{{isset($article) && $article->header_slider ? $article->header_slider : 0}}"
@@ -536,7 +544,7 @@
                                         <textarea name="Description" class="form-control" rows="5" autocomplete="off"
                                                   id="articleSummary"
                                                   maxlength="500"
-                                                  required="required"></textarea>
+                                                  required="required">{{old('Description')}}</textarea>
                                     </div>
 
                                     <div class="col-12 hr"></div>
@@ -615,8 +623,8 @@
     {{isset($article) ? $article->old_body : ""}}
   </textarea>
                                     @else
-                                       {{-- <iframe src="{{$article->original_link}}"  style="width: 100%;  height:90%;"
-                                                id="iframeId" title="news" loading="lazy"></iframe>--}}
+                                        {{-- <iframe src="{{$article->original_link}}"  style="width: 100%;  height:90%;"
+                                                 id="iframeId" title="news" loading="lazy"></iframe>--}}
                                         <input class="iframeLink" value="{{$article->original_link}}" hidden>
                                     @endif
                                 </div>
@@ -625,7 +633,7 @@
                                         <label class="form-text">İçerik</label>
                                     </div>
                                     <textarea name=Body id="textarea">
-    {{isset($article) ? $article->body : ""}}
+    {{old('Body', isset($article) ? $article->body : "")}}
 
   </textarea>
                                 </div>
@@ -719,6 +727,7 @@
 
     <script type="text/javascript">
 
-       /* $("#iframeId").attr("src", $('.iframeLink').val())*/;
+        /* $("#iframeId").attr("src", $('.iframeLink').val())*/
+        ;
     </script>
 @endsection
