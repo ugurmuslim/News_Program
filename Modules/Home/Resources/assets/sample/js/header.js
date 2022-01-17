@@ -1,10 +1,23 @@
 function toggleLargeNavMenu(e) {
     const largeNavMenu = document.getElementById("large-nav-menu");
-    if (largeNavMenu?.style?.display === "none")
+    const menuBtn = document.querySelector("#large-nav-menu-button svg");
+
+    if (largeNavMenu?.style?.display === "none"){
         largeNavMenu.style.display = "flex";
-    else if (largeNavMenu?.style?.display === "flex")
+        menuBtn.style.transform = "scaleY(1.3)";
+        menuBtn.style.transition = "150ms ease";
+    }
+    else if (largeNavMenu?.style?.display === "flex"){
         largeNavMenu.style.display = "none";
-    else largeNavMenu.style.display = "flex";
+        menuBtn.style.transform = "scaleY(1)";
+        menuBtn.style.transition = "150ms ease";
+    }        
+    else{
+        largeNavMenu.style.display = "flex";
+        menuBtn.style.transform = "scaleY(1.3)";
+        menuBtn.style.transition = "150ms ease";
+    }
+
 }
 
 function toggleDrawerNav(e) {
@@ -17,6 +30,7 @@ function toggleDrawerNav(e) {
 
 function deactivateLargeNavMenu(event) {
     const largeNavMenu = document.getElementById("large-nav-menu");
+    const menuBtn = document.querySelector("#large-nav-menu-button svg");
     let isLargeNavMenuButton = event.target.id === "large-nav-menu-button";
     let isLargeNavMenu =
         event.target.id === "large-nav-menu" ||
@@ -25,7 +39,12 @@ function deactivateLargeNavMenu(event) {
 
     if (!isOpen) return;
     else if (isLargeNavMenuButton || isLargeNavMenu) return;
-    else largeNavMenu.style.display = "none";
+    else {
+        largeNavMenu.style.display = "none";
+        menuBtn.style.transform = "scaleY(1)";
+        menuBtn.style.transition = "150ms ease";
+    }
+
 }
 
 function deactivateDrawerNav(event) {
@@ -43,4 +62,5 @@ function deactivateDrawerNav(event) {
 document.addEventListener("click", function (event) {
     deactivateLargeNavMenu(event);
     deactivateDrawerNav(event);
+    console.log("5");
 });
