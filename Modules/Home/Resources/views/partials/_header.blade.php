@@ -30,7 +30,7 @@ $menu = \Modules\Admin\Entities\Menu::orderBy('sort', 'ASC')->get();
                     <li><a href="#">BORSA TUBE</a></li>
                     <li><a href="#">DOLAR</a></li>
                     <li><a href="https://parafesor.net">
-                            <img src="sample/img/logo-icon.svg" alt="Header Logo" width="150" height="150">
+                            <img src="{{asset('modules/home/sample/img/logo-icon.svg')}}" alt="Header Logo" width="150" height="150">
                         </a></li>
                     <li><a href="#">ŞİRKET HABERLERİ</a></li>
                     <li><a href="#">ALTIN</a></li>
@@ -113,7 +113,7 @@ $menu = \Modules\Admin\Entities\Menu::orderBy('sort', 'ASC')->get();
                 </svg>
             </button>
             <a href="https://parafesor.net" class="header__nav__logo">
-                <img src="sample/img/logo-dark.svg" alt="Header Logo" width="226" height="54">
+                <img src="{{asset('modules/home/sample/img/logo-dark.svg')}}" alt="Header Logo" width="226" height="54">
             </a>
             <svg xmlns="http://www.w3.org/2000/svg" style="width: 24; height: 24;" fill="none" viewBox="0 0 24 24" stroke="black">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
@@ -257,7 +257,7 @@ $menu = \Modules\Admin\Entities\Menu::orderBy('sort', 'ASC')->get();
         <div class="container">
             <div class="header__bottom">
                 <div class="nav__text__container">
-                    <img style="flex: none;" src="sample/img/hepsi-parafesorde.png" alt="" width="175" height="55">
+                    <img style="flex: none;" src="{{asset('modules/home/sample/img/hepsi-parafesorde.png')}}" alt="" width="175" height="55">
                     <a class="nav__text" href="https://www.bloomberght.com/" target="_blank">Bloomberg HT</a>
                     <a class="nav__text" href="https://www.borsagundem.com/" target="_blank">Borsa Gündem</a>
                     <a class="nav__text" href="https://hisse.net/" target="_blank">Hisse.net</a>
