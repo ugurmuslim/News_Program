@@ -462,7 +462,7 @@ class ArticleController extends Controller
 
         $imagePath = "images/" . uniqid() . '.webp';
         Image::make(request()->file('file'))->encode('webp', 90)
-            ->resize(480, 270)
+//            ->resize(480, 270)
             ->save($imagePath);
         return response()->json([ 'location' => url('/') . "/" . $imagePath ]);
 
