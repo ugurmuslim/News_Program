@@ -726,7 +726,6 @@
     </script>
 
     <script type="text/javascript">
-        var iframeDoc = document.getElementById('iframeId').contentDocument || document.getElementById('iframeId').contentWindow.document;
         document.getElementById('iframeId').onload = function() {
             if($('#iframeId').attr("src") !== "http://www.test.tld/") {
                 return
