@@ -729,7 +729,7 @@
         document.getElementById('iframeId').onload = function() {
             console.log(13232131);
             console.log($('#iframeId').attr("src"));
-            if($('#iframeId').attr("src") !== "http://www.test.tld/") {
+            if($('#iframeId').attr("src") != "http://www.test.tld/") {
                 return
             }
             console.log(22222222);
