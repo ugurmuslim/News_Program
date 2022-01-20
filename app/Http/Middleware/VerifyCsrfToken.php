@@ -14,6 +14,7 @@ class VerifyCsrfToken extends Middleware
     protected $except = [
         '/admin/article/editor/image',
         '/admin/article/preview',
+        '/admin/article/postUpdate',
         '/home/sliders'
     ];
 }
