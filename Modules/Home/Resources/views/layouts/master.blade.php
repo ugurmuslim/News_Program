@@ -65,7 +65,7 @@
     <!--    <link href="headers.css" rel="stylesheet">-->
 </head>
 
-<body>
+<body class="home">
     @yield('content')
     @yield('extra_scripts')
     <script src="{{asset('modules/home/sample/js/header.js')}}"></script>
