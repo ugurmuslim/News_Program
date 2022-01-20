@@ -729,11 +729,13 @@
         var iframeDoc = document.getElementById('iframeId').contentDocument || document.getElementById('iframeId').contentWindow.document;
         console.log(iframeDoc);
         document.getElementById('iframeId').onload = function() {
-            console.log(12321324234);
+            console.log($('#iframeId').attr("src"));
             if($('#iframeId').attr("src") !== "http://www.test.tld/") {
                 return
             }
             $('#iframeId').attr("src","{{$article->original_link}}");
+            console.log($('#iframeId').attr("src"));
+
         }
     </script>
 @endsection
