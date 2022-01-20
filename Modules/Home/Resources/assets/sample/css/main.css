@@ -178,7 +178,8 @@ a:hover {
 .internet-card-caption p,
 .internet-news-box-caption p,
 .internet-title p,
-.life-title p {
+.life-title p,
+.entry-title a {
     display: -webkit-box;
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
@@ -189,7 +190,7 @@ a:hover {
 .company-text p,
 .tech-news-box-caption p,
 .internet-card-caption p,
-#mainSliderCaption p {
+.entry-title a  {
     -webkit-line-clamp: 4 !important;
 }
 

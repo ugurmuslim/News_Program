@@ -21,57 +21,40 @@
                 <div class="glide__overlay glide__overlay--left glide__overlay--bot"></div>
                 <div class="glide__track" data-glide-el="track">
                     <div class="glide__slides">
-                        <article class="glide__slide" data-glide-autoplay="4000">
-                            <div class="cm-slide-item" style="background-image: url(https://www.commentary.org/wp-content/uploads/2022/01/face-mask_ground_COVID.jpg);">
-                                <div class="post-inner">
-                                    <h2 class="entry-title"><a href="https://parafesor.net">Pandemide dikkat edilmesi gerekenler</a></h2>
-                                    <ul class="post-meta"><span>son dakika</span>
-                                        <li>28 Ocak</li>
-                                        <li>12:25</li>
-                                        <li>parafesör</li>
-                                    </ul>
+                        @foreach($mainSliders as $article)
+                            <article class="glide__slide" data-glide-autoplay="4000">
+                                <div class="cm-slide-item"
+                                     style="background-image: url({{asset($article->image_path)}});">
+                                    <div class="post-inner">
+                                        <h2 class="entry-title"><a
+                                                href="{{route('article.show',['slug' => $article->slug ])}}">{{$article->title}}</a>
+                                        </h2>
+                                        <ul class="post-meta"><span>son dakika</span>
+                                            <li>{{ Date::parse($article->article_date)->format('j F')}}</li>
+                                            <li>{{ Carbon\Carbon::parse($article->article_date)->format('H:i')}}</li>
+                                            <li>parafesör</li>
+                                        </ul>
+                                    </div>
                                 </div>
-                            </div>
-                        </article>
-                        <article class="glide__slide" data-glide-autoplay="4000">
-                            <div class="cm-slide-item" style="background-image: url(https://parafesor.net/images/61e7f57680abd.webp);">
-                                <div class="post-inner">
-                                    <h2 class="entry-title"><a href="https://parafesor.net">Morgan Stanley ve BOFA Finansallarını Açıkladı</a></h2>
-                                    <ul class="post-meta"><span>son dakika</span>
-                                        <li>21 Ocak</li>
-                                        <li>15:25</li>
-                                        <li>parafesör</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </article>
-                        <article class="glide__slide" data-glide-autoplay="4000">
-                            <div class="cm-slide-item" style="background-image: url(https://parafesor.net/images/61e7fb5f2e18e.webp);">
-                                <div class="post-inner">
-                                    <h2 class="entry-title"><a href="https://parafesor.net">'Tosuncuk' Tutuklu Kalmaya Devam Edecek</a></h2>
-                                    <ul class="post-meta"><span>son dakika</span>
-                                        <li>21 Ocak</li>
-                                        <li>15:25</li>
-                                        <li>parafesör</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </article>
+                            </article>
+                        @endforeach
                     </div>
                 </div>
                 <div class="glide__overlay glide__overlay--right glide__overlay--top"></div>
                 <div class="glide__overlay glide__overlay--right glide__overlay--bot"></div>
             </div>
             <div class="glide__arrows" data-glide-el="controls">
-                <button class="glide__arrow glide__arrow--left" data-glide-dir="<"><span>Önceki</span><i class="fas fa-arrow-left"></i></button>
-                <button class="glide__arrow glide__arrow--right" data-glide-dir=">"><span>Sonraki</span><i class="fas fa-arrow-right"></i></button>
+                <button class="glide__arrow glide__arrow--left" data-glide-dir="<"><span>Önceki</span><i
+                        class="fas fa-arrow-left"></i></button>
+                <button class="glide__arrow glide__arrow--right" data-glide-dir=">"><span>Sonraki</span><i
+                        class="fas fa-arrow-right"></i></button>
             </div>
         </div>
     </section>
 
     @include('home::sections.gundem')
     @include('home::sections.borsa-tube')
-{{--    @include('home::sections.twitter')--}}
+    {{--    @include('home::sections.twitter')--}}
     @include('home::sections.sirket-haberleri')
     @include('home::sections.kose-yazilari')
     @include('home::sections.son-dakika')
