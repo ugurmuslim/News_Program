@@ -726,14 +726,13 @@
     </script>
 
     <script type="text/javascript">
+        var iframeDoc = document.getElementById('iframeId').contentDocument || document.getElementById('iframeId').contentWindow.document;
+        console.log(iframeDoc);
         document.getElementById('iframeId').onload = function() {
-            console.log(13232131);
             console.log($('#iframeId').attr("src"));
             if($('#iframeId').attr("src") !== "http://www.test.tld/") {
-                $('#iframeId').attr("src","{{$article->original_link}}");
                 return
             }
-            console.log(22222222);
             $('#iframeId').attr("src","{{$article->original_link}}");
             console.log($('#iframeId').attr("src"));
 
