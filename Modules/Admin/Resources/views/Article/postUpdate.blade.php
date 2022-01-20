@@ -729,7 +729,7 @@
         var iframeDoc = document.getElementById('iframeId').contentDocument || document.getElementById('iframeId').contentWindow.document;
         document.getElementById('iframeId').onload = function() {
             if($('#iframeId').attr("src") !== "http://www.test.tld/") {
-                window.frames[0].stop()
+                return
             }
             $('#iframeId').attr("src","{{$article->original_link}}");
         }
