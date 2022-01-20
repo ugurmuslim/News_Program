@@ -1,9 +1,11 @@
+<script src="{{asset('modules/home/sample/js/glide.js')}}"></script>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
 integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
 crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
 <script>
-    var mainSlider;
+   /* var mainSlider;
 
     $(".mainSliderLeftArrow").on("click", function() {
         mainSlider.controlSlider("previous");
@@ -11,11 +13,11 @@ crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
     $(".mainSliderRightArrow").on("click", function() {
         mainSlider.controlSlider("next");
-    })
+    })*/
 
 
 
-    class MainSlider {
+    /*class MainSlider {
 
         currentImage = 0;
         right = document.getElementById("mainSliderRight");
@@ -150,9 +152,9 @@ crossorigin="anonymous" referrerpolicy="no-referrer"></script>
         }
 
 
-    }
+    }*/
 
-    window.addEventListener('resize', runResizeEvents);
+  /*  window.addEventListener('resize', runResizeEvents);
 
     function runResizeEvents() {
         multilineEllipsis();
@@ -245,10 +247,10 @@ crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     }
 
 
-    mainSlider = new MainSlider();
+   /!* mainSlider = new MainSlider();
     mainSlider.insertSliders()
-    mainSlider.addImages()
+    mainSlider.addImages()*!/
     runResizeEvents()
     let cs = new CardSlider()
-    cs.configureSliders()
+    cs.configureSliders()*/
 </script>

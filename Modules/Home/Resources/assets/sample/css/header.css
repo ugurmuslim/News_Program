@@ -1,5 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&display=swap');
+
 header {
-    font-family: "MontserratBold";
+    font-family: "MontserratBold", 'Montserrat', sans-serif;
 }
 
 .header__top {
@@ -28,6 +30,10 @@ header {
     width: 100%;
 }
 
+.search__input::placeholder {
+    font-family: 'Montserrat';
+}
+
 .header__top .search__input:focus {
     border-color: #212121;
 }
@@ -45,7 +51,7 @@ header {
 .header__top .social-icons {
     display: initial;
     color: #a2a2a2;
-    margin-right: 80px;
+    margin-right: 50px;
 }
 
 .social-icons a {
@@ -70,7 +76,7 @@ header {
 
 .nav__list ul{
     display: flex;
-    width: 90%;
+    width: 95%;
     align-items: center;
     justify-content: space-evenly;
     padding: 8px 0;
@@ -81,9 +87,9 @@ header {
 }
 
 .toggle_menu_icon_div {
-    width:10%;
+    width:5%;
     display: flex; 
-    align-items: center;
+    justify-contents: center;
 }
 
 .header__middle .menu__button {
@@ -91,12 +97,6 @@ header {
     border: none;
     background-color: transparent;
 }
-
-/* .header__middle .menu__button:focus {
-    border: solid rgba(0, 0, 0, 0.12) 1px;
-    -webkit-box-shadow: 0px 0px 11px 3px rgba(0, 0, 0, 0.12);
-    box-shadow: 0px 0px 11px 3px rgba(0, 0, 0, 0.12);
-} */
 
 .header__middle .nav__contanier--mobile {
     display: none;
@@ -114,7 +114,7 @@ header {
     left: 0px;
     right: 0px;
     top: 100%;
-    z-index: 4;
+    z-index: 25;
     background-color: #242424;
     display: none;
 }
@@ -216,26 +216,32 @@ header {
 
 .drawer__navigation#drawer-nav {
     position: fixed;
+    height: 100vh;
+    width: 50%;
     top: 0;
     left: 0;
-    bottom: 0;
-    /* transform: translateX(-200px); */
-    z-index: 900;
-    width: 300px;
-    display: flex;
-    flex-direction: column;
+    z-index: 999999;
+    display: grid;
+    transform: translateX(-100%);
+    transition: transform .5s ease;
+}
+
+.drawer__navigation#drawer-nav div{
+    padding: 5px 5px;
+}
+
+.drawer_nav_open {
+    transform: translateX(0) !important;
 }
 
 .drawer__navigation#drawer-nav .top {
     flex: 1;
     background-color: #242424;
-    padding: 15px 25px;
     overflow-y: auto;
 }
 
 .drawer__navigation#drawer-nav .stil {
     background-color: #ffebd5;
-    padding: 15px 25px;
 }
 
 .drawer__navigation#drawer-nav .top .list__container {
@@ -275,7 +281,59 @@ header {
     color: rgb(45, 45, 45);
 }
 
-@media screen and (max-width: 768px) {
+#mobile_search_input2_div {
+    display: none;
+    position: relative;
+    width: 90%;
+    margin: 11px 0;
+    border-bottom: 1px solid #fff;
+    box-sizing: border-box;
+}
+
+
+#mobile_search_icon2 {
+    width: 35px !important;
+    height: 35px !important;
+    padding: 5px;
+    border-radius: 10px;
+    transition: 200ms ease;
+}
+
+#mobile_search_icon2:hover {
+    cursor: pointer;
+}
+
+#mobile_search_input2_div input {
+    width: 100%;
+    background-color: #242424;
+    color: #fff;
+    border: none;
+}
+
+#mobile_search_input2_div i,
+#mobile_search_input2_div svg{
+    position: absolute;
+    right: 5px;
+    color: #fff;
+    width: 1.4em;
+    height: 1.5em;
+    z-index: 99;
+}
+
+#mobile_search_input2_div i:hover,
+#mobile_search_input2_div svg:hover {
+    cursor: pointer;
+}
+
+.showSearch2{
+    display: block !important;
+}
+
+.search2_bg {
+    background: #242424 !important;
+}
+
+@media screen and (max-width: 850px) {
     .header__top .search__input__contanier {
         flex: 1;
         flex-basis: 200px;
@@ -295,10 +353,37 @@ header {
         justify-content: space-between;
         align-items: center;
     }
+
+    #drawer-nav-button{
+        padding:0;
+    }
+
+    #drawer-nav-button svg {
+        width: 28px !important;
+        height: 28px !important;
+    }
 }
 
 @media screen and (max-width: 425px) {
     .header__bottom .nav__text__container {
         margin-left: 0px;
+    }
+}
+
+@media screen and (min-width: 769px) and (max-width: 1200px) {
+    .header__middle .nav__contanier--desktop .nav__list {
+        width: 100%;
+    }
+
+    .nav__list ul li a{
+        font-size: 15px;
+    }
+
+    .header__top .social-icons {
+        margin-right: 10px;
+    }
+
+    .header__top .social-icons {
+        margin-right: 0;
     }
 }

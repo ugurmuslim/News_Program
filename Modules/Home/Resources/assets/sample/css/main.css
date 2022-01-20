@@ -1,3 +1,7 @@
+html{
+    overflow-x: hidden;
+}
+
 @font-face {
     font-family: "ArchivoBlack-Regular";
     src: url("../fonts/ArchivoBlack-Regular.ttf") format("truetype");
@@ -43,6 +47,11 @@
     src: url("../fonts/Montserrat-Bold.ttf") format("truetype");
 }
 
+@font-face {
+    font-family: "Montserrat";
+    src: url("../fonts/Montserrat-Medium.ttf") format("truetype");
+}
+
 .list-group-flush > .list-group-item {
     border-bottom: 1px solid grey !important;
     font-size: 14px;
@@ -54,7 +63,7 @@ a {
 }
 
 body {
-    font-family: HelveticaNeue;
+    /* font-family: HelveticaNeue; */
 }
 
 ::-webkit-scrollbar {

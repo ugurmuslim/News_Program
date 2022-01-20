@@ -21,7 +21,6 @@
     <link href="{{ asset('modules/home/sample/css/main.css') }}" rel="stylesheet" type="text/css" />
     {{-- Header Resources - Start --}}
     <link href="{{ asset('modules/home/sample/css/header.css') }}" rel="stylesheet" type="text/css" />
-    <script src="{{ asset('modules/home/sample/js/header.js') }}"></script>
     {{-- Header Resources - End --}}
     <link href="{{ asset('modules/home/sample/css/topSlider.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('modules/home/sample/css/articles.css') }}" rel="stylesheet" type="text/css" />
@@ -42,6 +41,7 @@
 
     <link href="{{ asset('modules/home/sample/css/common.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('modules/home/sample/css/color.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('modules/home/sample/css/glide.css') }}" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="{{ asset('modules/home/sample/css/font-awesome/all.min.css') }}"
         integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -51,6 +51,9 @@
         integrity="sha384-GNFwBvfVxBkLMJpYMOABq3c+d3KnQxudP/mGPkzpZSTYykLBNsZEnG2D9G/X/+7D" crossorigin="anonymous" async>
     </script>
     <script src="{{ asset('modules/home/sample/js/font-awesome/all.min.js') }}"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    @yield('extra_css')
     <!-- Favicons -->
     <!--    <link rel="apple-touch-icon" href="/docs/5.1/assets/img/favicons/apple-touch-icon.png" sizes="180x180">-->
     <!--    <link rel="icon" href="/docs/5.1/assets/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png">-->
@@ -65,7 +68,6 @@
 <body>
     @yield('content')
     @yield('extra_scripts')
-
     <script src="{{asset('modules/home/sample/js/header.js')}}"></script>
 
 </body>
