@@ -726,8 +726,10 @@
     </script>
 
     <script type="text/javascript">
+        console.log($('#iframeId').attr("src"));
         document.getElementById('iframeId').onload = function() {
             if($('#iframeId').attr("src") !== "http://www.test.tld/") {
+                console.log($('#iframeId').attr("src"));
                 return
             }
             $('#iframeId').attr("src","{{$article->original_link}}");
