@@ -728,6 +728,7 @@
     <script type="text/javascript">
         console.log($('#iframeId').attr("src"));
         document.getElementById('iframeId').onload = function() {
+            console.log(123213);
             if($('#iframeId').attr("src") !== "http://www.test.tld/") {
                 console.log($('#iframeId').attr("src"));
                 return
