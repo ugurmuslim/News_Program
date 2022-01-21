@@ -623,7 +623,7 @@
     {{isset($article) ? $article->old_body : ""}}
   </textarea>
                                     @else
-                                         <iframe src="https://www.test.tld/"  style="width: 100%;  height:90%;"
+                                         <iframe src=""  style="width: 100%;  height:90%;"
                                                  id="iframeId" title="news" loading="lazy"></iframe>
                                         <input class="iframeLink" value="{{$article->original_link}}" hidden>
                                     @endif
@@ -692,6 +692,11 @@
                                      </div>--}}
 
                             </div>
+
+                            <div class="row mt-3">
+                                <button class="btn btn-warning" id="articleGet" type="button">İçeriği al</button>
+                            </div>
+
                             <div class="row mt-3">
                                 <button type="submit" class="btn btn-success mt-5">Kaydet</button>
                             </div>
@@ -699,6 +704,8 @@
                             <div class="row mt-3">
                                 <button class="btn btn-danger" id="previewButton" type="button">Önizleme</button>
                             </div>
+
+
 
                         </form>
 
@@ -725,16 +732,27 @@
 
     </script>
 
-    <script type="text/javascript">
+    {{--<script type="text/javascript">
 
         document.getElementById('iframeId').onload = function() {
             console.log($('#iframeId').attr("src"));
-            if($('#iframeId').attr("src") !== "https://www.test.tld/") {
+            if($('#iframeId').attr("src") !== "https://parafesor.net/") {
                 return
             }
             $('#iframeId').attr("src","{{isset($article) ? $article->original_link : ''}}");
             console.log($('#iframeId').attr("src"));
 
         }
+    </script>
+--}}
+
+    <script type="text/javascript">
+
+        $("#articleGet").on('click', function() {
+            console.log(1231321313);
+            $('#iframeId').attr("src","{{isset($article) ? $article->original_link : ''}}");
+        });
+
+
     </script>
 @endsection
