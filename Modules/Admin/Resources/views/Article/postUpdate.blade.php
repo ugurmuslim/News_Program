@@ -623,7 +623,7 @@
     {{isset($article) ? $article->old_body : ""}}
   </textarea>
                                     @else
-                                         <iframe src="http://www.test.tld/"  style="width: 100%;  height:90%;"
+                                         <iframe src="https://www.test.tld/"  style="width: 100%;  height:90%;"
                                                  id="iframeId" title="news" loading="lazy"></iframe>
                                         <input class="iframeLink" value="{{$article->original_link}}" hidden>
                                     @endif
