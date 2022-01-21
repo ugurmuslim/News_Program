@@ -593,9 +593,9 @@ class CompanyUploadCommand extends Command
             Image::make($content)->encode('webp', 90)->save(public_path($file));
             $title = str_replace('-',' ',$companyString);
             $title = ucwords($title);
-            $company->title = $title;
+           /* $company->title = $title;
             $company->image_path = $file;
-            $company->save();
+            $company->save();*/
             echo $title . " saved." . PHP_EOL;
         }
     }
