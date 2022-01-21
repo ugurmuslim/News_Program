@@ -23,7 +23,7 @@
                                 @foreach($companies as $company)
                                     <tr>
                                         <td>{{$company->title}}</td>
-                                        <td><img style="width:200px; height:40px;" src="{{asset($company->image_path)}}" alt=""></td>
+                                        <td><img style="width:300px; height:100px;" src="{{asset($company->image_path)}}" alt=""></td>
                                         <td>
                                             <div class="col-md-3">
                                                 <a href="{{route('system.company.postUpdate',['id' => $company->id])}}"
