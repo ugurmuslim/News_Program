@@ -51,8 +51,8 @@
                                 <div class="col-12" id="companySelect"
                                      style="{{isset($news) ? ($news->articleType->id == \App\Parafesor\Constants\ArticleTypes::SirketHaberleri ? "" : "display:none") : ""}}">
                                     <label class="form-text">Şirket</label>
-                                    <select class="form-control" name="CompanyId"
-                                            id="company">
+                                    <select class="form-control select2" name="CompanyId"
+                                            id="company" style="width: 100%;">
                                         <option value="">Sirket Seçiniz</option>
                                         @foreach($companies as $company)
                                             <option value={{$company->id}}>{{$company->title }}</option>
@@ -130,8 +130,8 @@
                                     </textarea>
                                     @endif
                                         @if(isset($news) && !$news->body)
-                                    {{--    <iframe src="{{$news->original_link}}"  style="width: 100%;  height:600px;" loading="lazy"
-                                                title="news"></iframe>--}}
+                                        <iframe src="" id="iframeId"  style="width: 100%;  height:600px;" loading="lazy"
+                                                title="news"></iframe>
                                         <input class="iframeLink" value="{{$news->original_link}}" hidden>
 
                                     @endif
@@ -158,9 +158,12 @@
                                         @endforeach
                                     </select>
                                 </div>
-                                <div class="row">
+                                <div class="row mt-5 ml-3">
+                                    <div class="col-12 row align-content-start">
+                                        <button class="btn btn-warning" id="articleGet" type="button">İçeriği al</button>
+                                    </div>
                                     <div class="col-12">
-                                        <button type="submit" class="btn btn-success mt-5">Kaydet</button>
+                                        <button type="submit" class="btn btn-success mt-2">Kaydet</button>
                                     </div>
                                 </div>
                             </div>
@@ -197,6 +200,11 @@
     </script>
 
     <script type="text/javascript">
-        $("#iframeId").attr("src", $('.iframeLink').val());
+        $('.select2').select2();
+        $("#articleGet").on('click', function() {
+            $('#iframeId').attr("src","{{isset($news) ? $news->original_link : ''}}");
+        });
+
+
     </script>
 @endsection

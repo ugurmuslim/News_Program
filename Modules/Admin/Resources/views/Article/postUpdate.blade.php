@@ -100,8 +100,9 @@
                                     <div class="col-12" id="companySelect"
                                          style="{{old('CompanyId') || (isset($article) && $article->articleType->id == \App\Parafesor\Constants\ArticleTypes::SirketHaberleri) ? "" : "display:none"}}">
                                         <label class="form-text">Şirket</label>
-                                        <select class="form-control" name="CompanyId"
-                                                id="company" {{isset($article) && $article->assigner_id  && !$user->can('assign articles') ? "readonly" : ""}}>
+                                        <select class="form-control select2" name="CompanyId"
+                                                id="company" {{isset($article) && $article->assigner_id  && !$user->can('assign articles') ? "readonly" : ""}}
+                                                style="width: 100%;">
                                             @if(old('CompanyId'))
                                                 <option
                                                     value="{{old('CompanyId')}}">{{\Modules\Admin\Entities\Company::find(old('CompanyId'))->title}}</option>
@@ -747,9 +748,8 @@
 --}}
 
     <script type="text/javascript">
-
+        $('.select2').select2();
         $("#articleGet").on('click', function() {
-            console.log(1231321313);
             $('#iframeId').attr("src","{{isset($article) ? $article->original_link : ''}}");
         });
 

@@ -34,6 +34,7 @@
     <link rel="stylesheet" href="{{ Module::asset('admin:plugins/daterangepicker/daterangepicker.css') }}">
     <!-- summernote -->
     <link rel="stylesheet" href="{{ Module::asset('admin:plugins/summernote/summernote-bs4.min.css') }}">
+    <link rel="stylesheet" href="{{ Module::asset('admin:plugins/select2/css/select2.min.css') }}">
 </head>
 @yield('style')
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -66,6 +67,7 @@
 <script src={{ Module::asset('admin:plugins/jqvmap/maps/jquery.vmap.usa.js') }}></script>
 <!-- jQuery Knob Chart -->
 <script src={{ Module::asset('admin:plugins/jquery-knob/jquery.knob.min.js') }}></script>
+<script src={{ Module::asset('admin:plugins/select2/js/select2.js') }}></script>
 <!-- daterangepicker -->
 <script src={{ Module::asset('admin:plugins/moment/moment.min.js') }}></script>
 <script src={{ Module::asset('admin:plugins/daterangepicker/daterangepicker.js') }}></script>
