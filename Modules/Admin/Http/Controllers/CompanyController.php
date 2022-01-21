@@ -31,7 +31,8 @@ class CompanyController extends Controller
      */
     public function index()
     {
-        $companies = Company::all();
+        $query = Company::query();
+        $companies = $query->paginate();
         return view('admin::Company.index')
             ->with('companies', $companies);
     }

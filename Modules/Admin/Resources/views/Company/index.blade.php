@@ -36,6 +36,7 @@
                             </table>
                         </div>
                         <!-- /.card-body -->
+                        {{ $companies->appends(request()->input())->links() }}
 
                     </div>
                     <!-- /.card -->
