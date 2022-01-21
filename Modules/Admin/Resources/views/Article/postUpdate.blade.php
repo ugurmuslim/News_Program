@@ -732,7 +732,7 @@
             if($('#iframeId').attr("src") !== "https://www.test.tld/") {
                 return
             }
-            $('#iframeId').attr("src","{{$article->original_link}}");
+            $('#iframeId').attr("src","{{isset($article) ? $article->original_link : ''}}");
             console.log($('#iframeId').attr("src"));
 
         }
