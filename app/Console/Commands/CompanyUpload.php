@@ -5,14 +5,14 @@ namespace App\Console\Commands;
 use App\Parafesor\FeedParser\FeedParserHelper;
 use Illuminate\Console\Command;
 
-class SiteCrawl extends Command
+class CompanyUpload extends Command
 {
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'site:crawl';
+    protected $signature = 'company:upload';
 
     /**
      * The console command description.
@@ -38,6 +38,11 @@ class SiteCrawl extends Command
      */
     public function handle()
     {
-        \App\Parafesor\SiteCrawl\SiteCrawl::siteCrawl();
+        $array = [];
+
+        foreach ($array as $a) {
+
+
+        }
     }
 }
