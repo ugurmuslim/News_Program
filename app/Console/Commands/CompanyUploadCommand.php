@@ -590,7 +590,7 @@ class CompanyUploadCommand extends Command
             $path = '/var/www/sirket-logolar/' . $companyString . '.jpg';
             $content = file_get_contents($path);
             $file = "images/companies/" . $companyString . '.webp';
-            Image::make($content)->encode('webp', 90)->resize($imageDimensions['Normal']['width'], $imageDimensions['Normal']['height'])->save(public_path($file));
+            Image::make($content)->encode('webp', 90)->save(public_path($file));
             $title = str_replace('-',' ',$companyString);
             $title = ucwords($title);
             $company->title = $title;
