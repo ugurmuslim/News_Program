@@ -127,7 +127,7 @@ class Article extends Model
 
     public function assigner()
     {
-        return $this->hasOne(User::class, 'id', 'assigner _id');
+        return $this->hasOne(User::class, 'id', 'assigner_id');
     }
 
     public function articleType()

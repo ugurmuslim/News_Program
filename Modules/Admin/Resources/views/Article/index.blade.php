@@ -72,6 +72,7 @@
                                     <th>Özet</th>
                                     <th>Okunma</th>
                                     <th>Yazar</th>
+                                    <th>Atayan</th>
                                     <th style="width: 15%">Zaman</th>
                                     <th>Aksiyon</th>
                                 </tr>
@@ -95,6 +96,7 @@
                                         <td>{!! strip_tags($news->summary) !!}</td>
                                         <td>{!! $news->read ?? ""!!}</td>
                                         <td>{{isset($news->editor_id) ? $news->editor->name : null}}</td>
+                                        <td>{{isset($news->assigner_id) ? $news->assigner->name : null}}</td>
                                         <td>
                                             <div class="col-md-9">
 
