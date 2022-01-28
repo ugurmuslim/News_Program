@@ -655,7 +655,12 @@ progress {
 }
 @media (min-width: 1400px) {
   .container-xxl, .container-xl, .container-lg, .container-md, .container-sm, .container {
-    /* max-width: 1320px; */
+    max-width: 90%;
+  }
+}
+
+@media (min-width: 1600px) {
+  .container-xxl, .container-xl, .container-lg, .container-md, .container-sm, .container {
     max-width: 80%;
   }
 }
@@ -1738,6 +1743,7 @@ progress {
   .col-lg-12 {
     flex: 0 0 auto;
     width: 50%;
+    height: 405px;
   }
 
   .col-lg-13 {
@@ -5678,10 +5684,9 @@ textarea.form-control-lg {
 .list-group-item {
   position: relative;
   display: block;
-  padding: 0.5rem 1rem;
+  padding: 0.35rem 1.8rem;
   color: #fff;
   text-decoration: none;
-  /*background-color: #fff;*/
   border: 1px solid rgba(0, 0, 0, 0.125);
 }
 .list-group-item:first-child {

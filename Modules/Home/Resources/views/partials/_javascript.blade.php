@@ -154,7 +154,7 @@ crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
     }*/
 
-   window.addEventListener('resize', runResizeEvents);
+  /* window.addEventListener('resize', runResizeEvents);
 
     function runResizeEvents() {
         multilineEllipsis();
@@ -247,10 +247,10 @@ crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     }
 
 
-/*    mainSlider = new MainSlider();
+/!*    mainSlider = new MainSlider();
     mainSlider.insertSliders()
-    mainSlider.addImages()*/
+    mainSlider.addImages()*!/
     runResizeEvents()
     let cs = new CardSlider()
-    cs.configureSliders()
+    cs.configureSliders()*/
 </script>

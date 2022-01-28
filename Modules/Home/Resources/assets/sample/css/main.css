@@ -52,11 +52,6 @@ html{
     src: url("../fonts/Montserrat-Medium.ttf") format("truetype");
 }
 
-.list-group-flush > .list-group-item {
-    border-bottom: 1px solid grey !important;
-    font-size: 14px;
-}
-
 a {
     text-decoration: none;
     color: inherit;
@@ -178,8 +173,7 @@ a:hover {
 .internet-card-caption p,
 .internet-news-box-caption p,
 .internet-title p,
-.life-title p,
-.entry-title a {
+.life-title p {
     display: -webkit-box;
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
@@ -190,7 +184,7 @@ a:hover {
 .company-text p,
 .tech-news-box-caption p,
 .internet-card-caption p,
-.entry-title a  {
+#mainSliderCaption p {
     -webkit-line-clamp: 4 !important;
 }
 
@@ -198,7 +192,7 @@ a:hover {
 .life-news-box-caption p {
     -webkit-line-clamp: 5 !important;
 }
-.news-card-slider-slide-caption p,
+/* .news-card-slider-slide-caption p, */
 .life-card-slider-slide-caption p,
 .internet-card-slider-slide-caption p,
 .article-text-title p

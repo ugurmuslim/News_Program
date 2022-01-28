@@ -44,13 +44,55 @@
                 <div class="glide__overlay glide__overlay--right glide__overlay--bot"></div>
             </div>
             <div class="glide__arrows" data-glide-el="controls">
+                <button class="glide__arrow glide__arrow--left" data-glide-dir="<"><span>Önceki</span><i class="fas fa-arrow-left"></i></button>
+                <button class="glide__arrow glide__arrow--right" data-glide-dir=">"><span>Sonraki</span><i class="fas fa-arrow-right"></i></button>
+            </div>
+            <div class="slide-control-div">
+                <div class="slider__bullets glide__bullets" data-glide-el="controls[nav]">
+                    <button class="slider__bullet glide__bullet glide__bullet--active" data-glide-dir="=0"></button>
+                    <button class="slider__bullet glide__bullet" data-glide-dir="=1"></button>
+                    <button class="slider__bullet glide__bullet" data-glide-dir="=2"></button>
+                </div>
+            </div>
+        </div>
+    </section>
+   {{-- <section class="container-outer home-slide-container">
+        <div class="glide">
+            <div class="glide__wrapper">
+                <div class="glide__overlay glide__overlay--left glide__overlay--top"></div>
+                <div class="glide__overlay glide__overlay--left glide__overlay--bot"></div>
+                <div class="glide__track" data-glide-el="track">
+                    <div class="glide__slides">
+                        @foreach($mainSliders as $article)
+                            <article class="glide__slide" data-glide-autoplay="4000">
+                                <div class="cm-slide-item"
+                                     style="background-image: url({{asset($article->image_path)}});">
+                                    <div class="post-inner">
+                                        <h2 class="entry-title"><a
+                                                href="{{route('article.show',['slug' => $article->slug ])}}">{{$article->title}}</a>
+                                        </h2>
+                                        <ul class="post-meta"><span>son dakika</span>
+                                            <li>{{ Date::parse($article->article_date)->format('j F')}}</li>
+                                            <li>{{ Carbon\Carbon::parse($article->article_date)->format('H:i')}}</li>
+                                            <li>parafesör</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </article>
+                        @endforeach
+                    </div>
+                </div>
+                <div class="glide__overlay glide__overlay--right glide__overlay--top"></div>
+                <div class="glide__overlay glide__overlay--right glide__overlay--bot"></div>
+            </div>
+            <div class="glide__arrows" data-glide-el="controls">
                 <button class="glide__arrow glide__arrow--left" data-glide-dir="<"><span>Önceki</span><i
                         class="fas fa-arrow-left"></i></button>
                 <button class="glide__arrow glide__arrow--right" data-glide-dir=">"><span>Sonraki</span><i
                         class="fas fa-arrow-right"></i></button>
             </div>
         </div>
-    </section>
+    </section>--}}
 
     @include('home::sections.gundem')
     @include('home::sections.borsa-tube')
