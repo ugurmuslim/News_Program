@@ -84,6 +84,7 @@
     @yield('content')
     @yield('extra_scripts')
     <script src="{{asset('modules/home/sample/js/header.js')}}"></script>
+    <script src="{{asset('modules/home/sample/js/main.js')}}"></script>
 
 </body>
 
