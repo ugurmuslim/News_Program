@@ -560,12 +560,18 @@
                             <div>
                                 <span>Kripto Paralar</span>
                             </div>
-                           {{-- @foreach($currencies['Crypto'] as $crypto)
+                            @foreach($currencies['Crypto'] as $crypto)
                                 <li class="list-group-item" style="font-family: HelveticaNeueMedium">
                                 <div class="row">
                                     <div class="col-8">
                                         {{$crypto->currency}}
                                     </div>
+                                    @php
+                                        $numberFormat = 2;
+                                      if(strlen((int) $crypto->buying) > 3 ) {
+                                        $numberFormat = 0;
+}
+                                    @endphp
                                     <div class="col-8">
                                         <span style="color:#ff0000">{{ number_format($crypto->change,2) }}%</span>
                                     </div>
@@ -574,7 +580,7 @@
                                     </div>
                                 </div>
                             </li>
-                     @endforeach--}}
+                     @endforeach
                         </ul>
                     </div>
                 </div>
