@@ -46,7 +46,7 @@ class ArticleHelper
                 ->where('show_case', '=', CategorySectionTypes::MAIN_SLIDER)
                 ->where('start_date', '<', Carbon::now())
                 ->orderby('articles.article_date', 'DESC')
-                ->limit(4)
+                ->limit(6)
                 ->get();
 
             $articlesSecondSlider = Article::where('articles.status', ArticleStatus::PUBLISHED)
@@ -58,7 +58,7 @@ class ArticleHelper
                 ->where('show_case', '=', CategorySectionTypes::SECOND_SLIDER)
                 ->where('start_date', '<', Carbon::now())
                 ->orderby('articles.article_date', 'DESC')
-                ->limit(4)
+                ->limit(6)
                 ->get();
 
         /*    $articlesPersistent = Article::where('articles.status', ArticleStatus::PUBLISHED)
