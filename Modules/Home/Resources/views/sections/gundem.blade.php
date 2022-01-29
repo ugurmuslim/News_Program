@@ -560,7 +560,7 @@
                             <div>
                                 <span>Kripto Paralar</span>
                             </div>
-                            @foreach($currencies['Crypto'] as $crypto)
+                           {{-- @foreach($currencies['Crypto'] as $crypto)
                                 <li class="list-group-item" style="font-family: HelveticaNeueMedium">
                                 <div class="row">
                                     <div class="col-8">
@@ -574,7 +574,7 @@
                                     </div>
                                 </div>
                             </li>
-                     @endforeach
+                     @endforeach--}}
                         </ul>
                     </div>
                 </div>
