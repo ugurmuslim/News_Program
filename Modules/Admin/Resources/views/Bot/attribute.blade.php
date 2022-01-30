@@ -61,7 +61,7 @@
                                     </div>
                                     <div class="col-12 hr"></div>
                                     <div class="col-12">
-                                        <label class="form-text">Görsel Tag</label>
+                                        <label class="form-text">Görsel Attribute</label>
                                         <input name="imageAttrContentPlace" type="text" class="form-control"
                                                placeholder="Lorem ipsum dolor"
                                                id="siteImage"
@@ -97,7 +97,7 @@
                                     </div>
                                     <div class="col-12 hr"></div>
                                     <div class="col-12">
-                                        <label class="form-text">Tarih Tag</label>
+                                        <label class="form-text">Tarih Attribute</label>
                                         <input name="dateAttrContentPlace" type="text" class="form-control"
                                                placeholder="Lorem ipsum dolor"
                                                id="siteContent"
@@ -115,7 +115,7 @@
                                     </div>
                                     <div class="col-12 hr"></div>
                                     <div class="col-12">
-                                        <label class="form-text">Kaynak Tag</label>
+                                        <label class="form-text">Kaynak Attribute</label>
                                         <input name="sourceAttrContentPlace" type="text" class="form-control"
                                                placeholder="Lorem ipsum dolor"
                                                id="siteContent"
