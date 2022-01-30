@@ -39,7 +39,7 @@
 
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1 class="m-0">Makaleler</h1>
+                            <h1 class="m-0">Botlar</h1>
                         </div><!-- /.col -->
 
                         <div class="col-sm-6">
@@ -64,11 +64,30 @@
 
                             <div class="col-md-9 row align-content-start">
                                 <div class="col-10">
+                                    <input name="id" type="number" class="form-control"
+                                           placeholder="Lorem ipsum dolor"
+                                           value="{{isset($siteToCrawl) ? $siteToCrawl->id : null}}"
+                                           hidden/>
+                                    <label class="form-text">Kategori</label>
+                                    <select class="form-control" name="CrawlType" required="required"
+                                            id="category">
+                                        @if(old('CrawlType'))
+                                            <option
+                                                value="{{old('CrawlType')}}">{{old('CrawlType') == 0 ? "RSS Crawler" : "Site Crawler"}}</option>
+                                        @endif
+                                        @if(isset($siteToCrawl))
+                                            <option value="{{$siteToCrawl->crawl_type}}">{{$siteToCrawl->crawl_type == 0 ? "RSS Crawler" : "Site Crawler"}}</option>
+                                        @endif
+                                        <option value="0">RSS Crawler</option>
+                                        <option value="1">Site Crawler</option>
+                                    </select>
+                                </div>
+                                <div class="col-10">
                                     <label class="form-text">Link</label>
                                     <input name="ChannelLink" type="text" class="form-control"
                                            placeholder="RSS i veya youtube kanalını girin"
                                            id="ChannelLink"
-                                           value="{{isset($user) ? $user->name : ""}}"
+                                           value="{{isset($siteToCrawl) ? $siteToCrawl->title : ""}}"
                                            required="required" maxlength="200" autocomplete="off"/>
                                 </div>
 
@@ -77,7 +96,7 @@
                                     <input name="Name" type="text" class="form-control"
                                            placeholder="Kanal İsmi"
                                            id="name"
-                                           value="{{isset($user) ? $user->name : ""}}"
+                                               value="{{isset($siteToCrawl) ? $siteToCrawl->site_name : ""}}"
                                            required="required" maxlength="200" autocomplete="off"/>
                                 </div>
                             </div>
@@ -85,12 +104,29 @@
                             <div class="col-md-3 row align-content-start">
                                 <label class="form-text">Kategori</label>
                                 <select class="form-control" name="ArticleTypeId" required="required" id="category">
+                                    @if(old('ArticleTypeId'))
+                                        <option
+                                            value="{{old('ArticleTypeId')}}">{{\Modules\Admin\Entities\ArticleType::find(old('ArticleTypeId'))->title}}</option>
+                                    @endif
+                                    @if(isset($siteToCrawl))
+                                        <option value="{{$siteToCrawl->article_type_id}}">{{\Modules\Admin\Entities\ArticleType::find($siteToCrawl->article_type_id)->title}}</option>
+                                    @endif
                                     <option value=></option>
                                     @foreach($articleTypes as $type)
                                         <option value={{$type->id}}>{{$type->title }}</option>
                                     @endforeach
                                 </select>
                                 <input type="hidden" name="_token" id="token" value="{{ csrf_token() }}">
+                            </div>
+
+                            <div class="col-12">
+                                <div class="form-check mt-3">
+                                    <input class="form-check-input" type="checkbox" value="1" id="flexCheckChecked"
+                                           {{isset($siteToCrawl) ? ($siteToCrawl->status ? "checked" : "") : ""}} name="status">
+                                    <label class="form-check-label" for="flexCheckChecked">
+                                        Bot Çalışsın mı?
+                                    </label>
+                                </div>
                             </div>
                         </div>
 

@@ -11,17 +11,24 @@ use App\Parafesor\SimplePie\SimplePie\Item;
 use Carbon\Carbon;
 use Modules\Admin\Entities\Article;
 use Modules\Admin\Entities\CrawledArticle;
+use Modules\Admin\Entities\CrawledArticleTestLog;
 use Modules\Admin\Entities\SitesToCrawl;
 
 class FeedParserHelper
 {
-    public static function parseFeed()
+    public static function parseFeed($siteTitle = null, $test = false)
     {
+        if (!$siteTitle) {
+            $sites = SitesToCrawl::where('status', true)
+                ->where('article_type_id', '!=', ArticleTypes::KoseYazilari)
+                ->where('crawl_type', '=', CrawlTypes::RSS)->get();
+        }
 
-        $sites = SitesToCrawl::where('status', true)
-            ->where('article_type_id','!=', ArticleTypes::KoseYazilari)
-            ->where('crawl_type','=', CrawlTypes::RSS)->get();
-
+        if ($siteTitle) {
+            $sites = SitesToCrawl::where('article_type_id', '!=', ArticleTypes::KoseYazilari)
+                ->where('title', $siteTitle)
+                ->where('crawl_type', '=', CrawlTypes::RSS)->get();
+        }
         foreach ($sites as $site) {
             $feed = new SimplePie();
             $feed->cache = false;
@@ -30,9 +37,15 @@ class FeedParserHelper
             $feed->handle_content_type();
             foreach ($feed->get_items() as $item) {
 
-                $crawledArticle = CrawledArticle::where('original_link', $item->get_link())->first();
+                if (!$test) {
+                    $crawledArticle = CrawledArticle::where('original_link', $item->get_link())->first();
+                }
 
-                if($crawledArticle) {
+                if ($test) {
+                    $crawledArticle = CrawledArticleTestLog::where('original_link', $item->get_link())->first();
+                }
+
+                if ($crawledArticle) {
                     echo $item->get_link() . " found in the table. Wıll not be crawled" . PHP_EOL;
                     continue;
                 }
@@ -73,27 +86,48 @@ class FeedParserHelper
                         echo "Could not find image";
                     }
                 }
-                if(in_array('yazarlar',explode('/',$item->get_link()))) {
+                if (in_array('yazarlar', explode('/', $item->get_link()))) {
                     continue;
                 }
 
                 try {
-                    CrawledArticle::insert([
-                        "news_id"         => $item->get_id(),
-                        "title"           => strip_tags($item->get_title()),
-                        "original_link"   => $item->get_link(),
-                        "article_type_id" => $site->article_type_id,
-                        "pub_date"        => Carbon::createFromFormat('d F Y, g:i A', $item->get_date())->format('Y-m-d H:i:s'),
-                        "summary"         => strip_tags($item->get_description()),
-                        "image_path"      => $image,
-                        "try_number"      => 0,
-                        "site_name"       => $site->site_name,
-                        "body"            => null,
-                        "created_at"      => Carbon::now(),
-                        "updated_at"      => Carbon::now(),
-                    ]);
-                    echo "Saved \n";
+                    if (!$test) {
+                        CrawledArticle::insert([
+                            "news_id"         => $item->get_id(),
+                            "title"           => strip_tags($item->get_title()),
+                            "original_link"   => $item->get_link(),
+                            "article_type_id" => $site->article_type_id,
+                            "pub_date"        => Carbon::createFromFormat('d F Y, g:i A', $item->get_date())->format('Y-m-d H:i:s'),
+                            "summary"         => strip_tags($item->get_description()),
+                            "image_path"      => $image,
+                            "try_number"      => 0,
+                            "site_name"       => $site->site_name,
+                            "body"            => null,
+                            "created_at"      => Carbon::now(),
+                            "updated_at"      => Carbon::now(),
+                        ]);
+                        echo "Saved \n";
+                    }
+
+                    if ($test) {
+                        CrawledArticleTestLog::create([
+                            "title"            => strip_tags($item->get_title()),
+                            "site_to_crawl_id" => $site->id,
+                            "original_link"    => $item->get_link(),
+                            "article_type_id"  => $site->article_type_id,
+                            "pub_date"         => Carbon::createFromFormat('d F Y, g:i A', $item->get_date())->format('Y-m-d H:i:s'),
+                            "summary"          => strip_tags($item->get_description()),
+                            "image_path"       => $image,
+                            "site_name"        => $site->site_name,
+                            "body"             => null,
+                            "message"          => '[]',
+                            "created_at"       => Carbon::now(),
+                            "updated_at"       => Carbon::now(),
+                        ]);
+                        echo "Saved \n";
+                    }
                 } catch (\Exception $e) {
+                    dd($e->getMessage());
                     echo $e->getMessage();
                 }
 

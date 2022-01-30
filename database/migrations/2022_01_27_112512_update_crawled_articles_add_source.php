@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class UpdateArticleTypes extends Migration
+class UpdateCrawledArticlesAddSource extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,8 @@ class UpdateArticleTypes extends Migration
      */
     public function up()
     {
-        Schema::table('article_types', function (Blueprint $table) {
-            $table->integer('sort')->nullable()->after('status');
+        Schema::table('crawled_articles', function (Blueprint $table) {
+            $table->string('source')->nullable()->after('image_path');
         });
     }
 
@@ -25,8 +25,8 @@ class UpdateArticleTypes extends Migration
      */
     public function down()
     {
-        Schema::table('article_types', function($table) {
-            $table->dropColumn('sort');
+        Schema::table('crawled_articles', function($table) {
+            $table->dropColumn('source');
         });
     }
 }

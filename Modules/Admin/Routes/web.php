@@ -140,7 +140,7 @@ Route::prefix('admin')->group(function () {
             ->middleware('auth')
             ->name('bot.attribute');
 
-        Route::get('/postUpdate', [ \Modules\Admin\Http\Controllers\BotController::class, 'postUpdate' ])
+        Route::get('/postUpdate/{id?}', [ \Modules\Admin\Http\Controllers\BotController::class, 'postUpdate' ])
             ->middleware('auth')
             ->name('bot.postUpdate');
 
@@ -160,6 +160,10 @@ Route::prefix('admin')->group(function () {
         Route::get('/run', [ \Modules\Admin\Http\Controllers\BotController::class, 'run' ])
             ->middleware('auth')
             ->name('bot.run');
+
+        Route::get('/test/{id}', [ \Modules\Admin\Http\Controllers\BotController::class, 'test' ])
+            ->middleware('auth')
+            ->name('bot.test');
     });
 
     Route::prefix('articleType')->group(function () {

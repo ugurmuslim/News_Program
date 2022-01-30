@@ -16,6 +16,7 @@ use Illuminate\Database\Eloquent\Relations\HasOne;
  * @property string  $title
  * @property string  $site_name
  * @property integer $article_type_id
+ * @property integer $crawl_type
  * @property boolean $status
  * @property Carbon  $created_at
  * @property Carbon  $updated_at

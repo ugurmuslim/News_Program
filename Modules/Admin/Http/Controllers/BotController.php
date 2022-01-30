@@ -7,6 +7,7 @@ namespace Modules\Admin\Http\Controllers;
 use App\Console\Commands\FeedParser;
 use App\Parafesor\Constants\ArticleTypes;
 use App\Parafesor\FeedParser\FeedParserHelper;
+use App\Parafesor\SiteCrawl\SiteCrawl;
 use Carbon\Carbon;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Routing\Controller;
@@ -17,6 +18,7 @@ use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Validator;
 use Modules\Admin\Entities\ArticleType;
 use Modules\Admin\Entities\CrawledArticle;
+use Modules\Admin\Entities\CrawledArticleTestLog;
 use Modules\Admin\Entities\SiteAttributes;
 use Modules\Admin\Entities\SitesToCrawl;
 
@@ -53,15 +55,37 @@ class BotController extends Controller
         $articleTypes = ArticleType::all();
         $botAttributes = SiteAttributes::where('title', $title)->get();
         $bot = SitesToCrawl::find($botId);
+
+        $crawledArticles = CrawledArticleTestLog::where('site_to_crawl_id', $botId)
+            ->where('message', '=', '[]')
+            ->orderBy('pub_date', 'DESC')
+            ->limit(15)
+            ->get();
+
+        $errors = CrawledArticleTestLog::where('site_to_crawl_id', $botId)
+            ->whereNull('title')
+            ->orderBy('id', 'DESC')
+            ->limit(15)
+            ->get();
+
         return view('admin::Bot.attribute')
             ->with('botAttributes', $botAttributes)
             ->with('bot', $bot)
-            ->with('articleTypes', $articleTypes);
+            ->with('articleTypes', $articleTypes)
+            ->with('crawledArticles', $crawledArticles)
+            ->with('crawledErrors', $errors);
     }
 
-    public function postUpdate()
+    public function postUpdate($id = null)
     {
         $articleTypes = ArticleType::all();
+
+        if ($id) {
+            $siteToCrawl = SitesToCrawl::find($id);
+            return view('admin::Bot.postUpdate')
+                ->with('articleTypes', $articleTypes)
+                ->with('siteToCrawl', $siteToCrawl);
+        }
         return view('admin::Bot.postUpdate')
             ->with('articleTypes', $articleTypes);
     }
@@ -86,15 +110,20 @@ class BotController extends Controller
                 return back()->withInput(Request::all());
             }
         }
-        SitesToCrawl::create([
-            'article_type_id' => Request::input('ArticleTypeId'),
-            'title'           => Request::input('ChannelLink'),
-            'site_name'       => Request::input('Name'),
-            'crawl_type'      => 0,
-            'status'          => 1,
-        ]);
 
-        Session::flash('success', "Başarı ile yaratıldı");
+        $siteToCrawl = new SitesToCrawl();
+        if (Request::input('id')) {
+            $siteToCrawl = SitesToCrawl::find(Request::input('id'));
+        }
+
+        $siteToCrawl->article_type_id = Request::input('ArticleTypeId');
+        $siteToCrawl->title = Request::input('ChannelLink');
+        $siteToCrawl->site_name = Request::input('Name');
+        $siteToCrawl->crawl_type = Request::input('CrawlType');
+        $siteToCrawl->status = Request::input('status') ? 1 : 0;
+        $siteToCrawl->save();
+
+        Session::flash('success', "Başarı ile gerçekleştirildi");
         return back();
     }
 
@@ -110,14 +139,33 @@ class BotController extends Controller
         SitesToCrawl::find($botId)
             ->update([ 'status' => $runnable, 'article_type_id' => Request::input("ArticleTypeId") ]);
 
-        SiteAttributes::where('title', $title)
-            ->where('type', 'image')
-            ->update([ 'value' => Request::input('imageAttr') ]);
-
-        SiteAttributes::where('title', $title)
-            ->where('type', 'body')
-            ->update([ 'value' => Request::input('bodyAttr') ]);
-
+        $requiredFields = [
+            'title'   => [
+                "attr"    => 'titleAttr',
+                "content" => 'titleAttrContentPlace',
+            ],
+            'image'   => [
+                "attr"    => 'imageAttr',
+                "content" => 'imageAttrContentPlace',
+            ],
+            'summary' => [
+                "attr"    => 'summaryAttr',
+                "content" => 'summaryAttrContentPlace',
+            ],
+            'date'    => [
+                "attr"    => 'dateAttr',
+                "content" => 'dateAttrContentPlace',
+            ],
+            'source'  => [
+                "attr"    => 'sourceAttr',
+                "content" => 'sourceAttrContentPlace',
+            ],
+        ];
+        foreach ($requiredFields as $key => $value) {
+            SiteAttributes::updateOrCreate([ 'title' => $title, 'type' => $key ],
+                [ 'value' => Request::input($value['attr']), 'content_place' => Request::input($value['content'] ), 'sites_to_crawl_id' => 1 ]);
+        }
+        ////div[@class="pht"]//img
 
         Session::flash('success', "Başarı ile değiştirildi!");
         return back();
@@ -174,6 +222,29 @@ class BotController extends Controller
         Artisan::queue('site:crawl', [
         ]);
         Session::flash('success', " RSS Botları başarı ile çalıştı!");
+        return back();
+
+    }
+
+    public function test($id)
+    {
+        $site = SitesToCrawl::find($id);
+
+        if (!$site) {
+            Session::flash('error', " Crawler bulunamadı.");
+            return back();
+        }
+
+        $rssCrawl = $site->crawl_type == 0;
+
+        if ($rssCrawl) {
+            FeedParserHelper::parseFeed($site->title, true);
+            Session::flash('success', " Çekildi. Kontrol edebilirsiniz!");
+            return back();
+        }
+
+        SiteCrawl::siteCrawl($site->title, true);
+        Session::flash('success', " Çekildi. Kontrol edebilirsiniz!");
         return back();
 
     }

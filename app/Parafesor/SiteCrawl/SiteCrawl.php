@@ -10,16 +10,23 @@ use Spatie\Crawler\Crawler;
 
 class SiteCrawl
 {
-    public static function siteCrawl()
+    public static function siteCrawl($siteTitle = null, $test = false)
     {
-        $sites = SitesToCrawl::where('crawl_type', CrawlTypes::SITE)
-            ->where('status', 1)
-            ->get();
+        if (!$siteTitle) {
+            $sites = SitesToCrawl::where('crawl_type', CrawlTypes::SITE)
+                ->where('status', 1)
+                ->get();
+        }
 
+        if ($siteTitle) {
+            $sites = SitesToCrawl::where('crawl_type', CrawlTypes::SITE)
+                ->where('title', $siteTitle)
+                ->get();
+        }
         foreach ($sites as $site) {
-            $attributes = SiteAttributes::where('title',$site->site_name)->get();
+            $attributes = SiteAttributes::where('title', $site->site_name)->get();
             Crawler::create()
-                ->setCrawlObserver(new Observer($site, $attributes))
+                ->setCrawlObserver(new Observer($site, $attributes, $test))
                 ->setCrawlProfile(new CrawlP($site))
                 ->ignoreRobots()
                 ->setConcurrency(3)

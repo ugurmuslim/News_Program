@@ -16,13 +16,15 @@ use Illuminate\Database\Eloquent\Relations\HasOne;
  * @property string  $title
  * @property string  $site_name
  * @property boolean $status
+ * @property string  original_link
+ * @property integer article_type_id
  * @property Carbon  $created_at
  * @property Carbon  $updated_at
  * @package Models
  */
-class CrawledArticle extends Model
+class CrawledArticleTestLog extends Model
 {
-    protected $table = 'crawled_articles';
+    protected $table = 'crawled_articles_test_logs';
 
     /**
      * The attributes that are mass assignable.
@@ -31,17 +33,17 @@ class CrawledArticle extends Model
      */
     protected $fillable = [
         'news_id',
+        'site_to_crawl_id',
         'article_type_id',
         'title',
         'summary',
         'body',
         'original_link',
         'image_path',
+        'source',
         'pub_date',
         'site_name',
-        'assigned',
-        'try_number',
-        'status',
+        'message',
     ];
 
     /**
@@ -52,6 +54,7 @@ class CrawledArticle extends Model
     protected $casts = [
         'news_id'         => 'string',
         'article_type_id' => 'int',
+        'site_to_crawl_id'   => 'int',
         'title'           => 'string',
         'summary'         => 'string',
         'body'            => 'string',
@@ -59,9 +62,8 @@ class CrawledArticle extends Model
         'image_path'      => 'string',
         'pub_date'        => 'datetime',
         'site_name'       => 'string',
-        'assigned'        => 'int',
-        'try_number'      => 'int',
-        'status'          => 'int',
+        'source'          => 'string',
+        'message'         => 'string',
     ];
 
     public function articleType()

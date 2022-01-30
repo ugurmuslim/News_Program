@@ -9,6 +9,7 @@ use DOMXPath;
 use Exception;
 use Illuminate\Database\Eloquent\Collection;
 use Modules\Admin\Entities\CrawledArticle;
+use Modules\Admin\Entities\CrawledArticleTestLog;
 use Modules\Admin\Entities\SitesToCrawl;
 use Psr\Http\Message\UriInterface;
 use Illuminate\Support\Facades\Log;
@@ -33,10 +34,11 @@ class Observer extends CrawlObserver
      */
     private $attributes;
 
-    public function __construct(SitesToCrawl  $site, Collection $attributes)
+    public function __construct(SitesToCrawl $site, Collection $attributes, $test = false)
     {
         $this->site = $site;
         $this->attributes = $attributes;
+        $this->test = $test;
     }
 
     /**
@@ -62,6 +64,8 @@ class Observer extends CrawlObserver
         ?UriInterface     $foundOnUrl = null
     ): void
     {
+        $errors = [];
+        $goToEnd = false;
 
         echo $url . " is being crawled" . PHP_EOL;
         $doc = new DOMDocument();
@@ -70,48 +74,87 @@ class Observer extends CrawlObserver
 //        $nodeList = $finder->query('//div[starts-with(@class, "dtail")]');
         $nodeList = $finder->query($this->attributes->where('type', 'title')->first()->value);
         if ($nodeList->count() == 0) {
+            $errors[] = "Baslik Bulunamadi";
+            if ($this->test) {
+                $goToEnd = true;
+            }
+        }
+
+        if (!$this->test && count($errors) > 0) {
             echo "could not find any node" . PHP_EOL;
             return;
         }
-        $title = $finder->query($this->attributes->where('type', 'title')->first()->value)[0];
-        $imgPath = $finder->query($this->attributes->where('type', 'image')->first()->value)[0];
 
-        if (!$imgPath) {
-            $img = null;
-        } else {
-            $img = $imgPath->getAttribute('src');
-        }
+        if (!$goToEnd) {
+            $title = $finder->query($this->attributes->where('type', 'title')->first()->value)[0];
+            $imgRow = $this->attributes->where('type', 'image')->first();
+            $imgPath = $finder->query($imgRow->value)[0];
+            if (!$imgPath) {
+                $img = null;
+            } else {
+                $img = $imgPath->getAttribute($imgRow->content_place);
+            }
 
-        $summary = $finder->query($this->attributes->where('type', 'summary')->first()->value)[0];
-        if (!$summary) {
-            $summary = $title;
+            $summary = $finder->query($this->attributes->where('type', 'summary')->first()->value)[0];
+            if (!$summary) {
+                $summary = $title;
+            }
+            $dateRow = $this->attributes->where('type', 'date')->first();
+            $date = $finder->query($dateRow->value)[0];
+
+            if (!$date) {
+                $errors[] = "Tarih Bulunamadı";
+                if ($this->test) {
+                    $goToEnd = true;
+                }
+            }
+            if (!$goToEnd) {
+                if (!$this->test && count($errors) > 0) {
+                    echo "could not find any date" . PHP_EOL;
+                    return;
+                }
+
+                $pubDate = $date->getAttribute($dateRow->content_place);
+            }
         }
-        $date = $finder->query($this->attributes->where('type', 'date')->first()->value)[0];
-        if(!$date) {
-            return;
-        }
-        $pubDate = $date->getAttribute('content');
         try {
-            CrawledArticle::create([
-                "news_id"         => $url,
-                "title"           => $title->nodeValue,
-                "original_link"   => $url,
-                "article_type_id" => $this->site->article_type_id,
-                "pub_date"        => date('Y-m-d H:i:s', strtotime($pubDate)),
-                "summary"         => $summary->nodeValue,
-                "image_path"      => $img,
-                "try_number"      => 0,
-                "site_name"       => $this->site->site_name,
-                "body"            => null,
-                "created_at"      => Carbon::now(),
-                "updated_at"      => Carbon::now(),
-            ]);
+            if (!$this->test) {
+                CrawledArticle::create([
+                    "news_id"         => $url,
+                    "title"           => $title->nodeValue,
+                    "original_link"   => $url,
+                    "article_type_id" => $this->site->article_type_id,
+                    "pub_date"        => date('Y-m-d H:i:s', strtotime($pubDate)),
+                    "summary"         => $summary->nodeValue,
+                    "image_path"      => $img,
+                    "try_number"      => 0,
+                    "site_name"       => $this->site->site_name,
+                    "body"            => null,
+                    "created_at"      => Carbon::now(),
+                    "updated_at"      => Carbon::now(),
+                ]);
+            } else {
+                CrawledArticleTestLog::create([
+                    "title"           => isset($title) ? $title->nodeValue : null,
+                    "site_to_crawl_id"   => $this->site->id,
+                    "original_link"   => $url,
+                    "article_type_id" => $this->site->article_type_id,
+                    "pub_date"        => isset($pubDate) ? date('Y-m-d H:i:s', strtotime($pubDate)) : null,
+                    "summary"         => isset($summary) ? $summary->nodeValue : null,
+                    "image_path"      => isset($img) ? $img  : null,
+                    "site_name"       => $this->site->site_name,
+                    "body"            => null,
+                    "message"         => json_encode($errors),
+                    "created_at"      => Carbon::now(),
+                    "updated_at"      => Carbon::now(),
+                ]);
+            }
         } catch (Exception $e) {
             echo $e->getMessage();
         }
-
-        echo $url . " with title : " . $title->nodeValue . " saved " . PHP_EOL;
-
+        if (!$this->test) {
+            echo $url . " with title : " . $title->nodeValue . " saved " . PHP_EOL;
+        }
     }
 
     /**

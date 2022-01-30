@@ -33,7 +33,10 @@ class SiteAttributes extends Model
     protected $fillable = [
         'title',
         'site_name',
-        'status',
+        'sites_to_crawl_id',
+        'type',
+        'value',
+        'content_place',
     ];
 
     /**

@@ -54,6 +54,7 @@
                                         <td><a href="{{$bot->title}}" target="_blank">{{$bot->title}}</a></td>
                                         <td>{{$bot->status ? "Calışıyor" : "Calışmıyor"}}</td>
                                         <th><a href="{{route('bot.attribute', [$bot->id, $bot->site_name])}}" class="btn btn-primary">Detay</a></th>
+                                        <th><a href="{{route('bot.postUpdate', [$bot->id])}}" class="btn btn-warning">Değiştir</a></th>
                                     </tr>
                                 @endforeach
                                 </tbody>
