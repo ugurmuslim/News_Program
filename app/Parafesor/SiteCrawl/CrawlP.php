@@ -26,7 +26,7 @@ class CrawlP extends CrawlProfile
 
     public function shouldCrawl(UriInterface $url): bool
     {
-        if (!$this->test) {
+        if ($this->test) {
             return true;
         }
         $crawledArticle = CrawledArticle::where('original_link', $url)->first();
