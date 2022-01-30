@@ -20,7 +20,7 @@
             xhr.open('POST', "{{url('/')}}/admin/article/editor/image");
             var token = $('meta[name="csrf-token"]').attr('content');
             xhr.setRequestHeader("X-CSRF-Token", token);
-
+            console.log("Loading Image");
             xhr.onload = function() {
                 var json;
 
@@ -29,19 +29,23 @@
                     return;
                 }
                 json = JSON.parse(xhr.responseText);
-
+                console.log("response : " + json);
                 if (!json || typeof json.location != 'string') {
+                    console.log("response Failure : " + xhr.responseText);
                     failure('Invalid JSON: ' + xhr.responseText);
                     return;
                 }
+                console.log("response Succeded");
                 success(json.location);
 
             };
+            console.log("Creating Form");
 
             formData = new FormData();
             formData.append('file', blobInfo.blob(), blobInfo.filename());
 
             xhr.send(formData);
+            console.log("SEnding Image done.");
 
         }
     });
