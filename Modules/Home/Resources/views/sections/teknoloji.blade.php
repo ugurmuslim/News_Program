@@ -11,7 +11,7 @@
         <div class="row pb-5">
             <div class="col-md-5 mt-1">
                 @foreach($articles["Teknoloji"][\App\Parafesor\Constants\CategorySectionTypes::NORMAL]->take(3) as $article)
-                    <div class="card news-card news-card-small">
+                    <div class="card news-card news-card-small" style="height: inherit">
                         <a href="{{route('article.show',['slug' => $article->slug ])}}">
                             <div class="news-card-img-container">
                                 <div style="background: url({{asset($article->image_path)}})" alt=""
