@@ -3,6 +3,7 @@
 namespace App\Parafesor\SiteCrawl;
 
 use Modules\Admin\Entities\CrawledArticle;
+use Modules\Admin\Entities\CrawledArticleTestLog;
 use Modules\Admin\Entities\SitesToCrawl;
 use Psr\Http\Message\UriInterface;
 use Spatie\Crawler\CrawlProfiles\CrawlProfile;
@@ -27,9 +28,10 @@ class CrawlP extends CrawlProfile
     public function shouldCrawl(UriInterface $url): bool
     {
         if ($this->test) {
-            return true;
+            $crawledArticle = CrawledArticleTestLog::where('original_link', $url)->first();
+        } else {
+            $crawledArticle = CrawledArticle::where('original_link', $url)->first();
         }
-        $crawledArticle = CrawledArticle::where('original_link', $url)->first();
         if ($crawledArticle) {
             echo $url . " is not being crawled" . PHP_EOL;
             return false;
