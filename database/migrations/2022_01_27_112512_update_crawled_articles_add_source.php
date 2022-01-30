@@ -25,6 +25,7 @@ class UpdateCrawledArticlesAddSource extends Migration
      */
     public function down()
     {
+        dd(1);
         Schema::table('crawled_articles', function($table) {
             $table->dropColumn('source');
         });
