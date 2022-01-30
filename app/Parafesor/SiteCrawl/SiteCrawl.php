@@ -27,7 +27,7 @@ class SiteCrawl
             $attributes = SiteAttributes::where('title', $site->site_name)->get();
             Crawler::create()
                 ->setCrawlObserver(new Observer($site, $attributes, $test))
-                ->setCrawlProfile(new CrawlP($site))
+                ->setCrawlProfile(new CrawlP($site, $test))
                 ->ignoreRobots()
                 ->setConcurrency(3)
                 ->acceptNofollowLinks()
