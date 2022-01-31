@@ -116,7 +116,7 @@
 
                                 </div>
                             </div>
-                            <div class="news-card-bottom" style="padding-left: 10%;">
+                            <div class="news-card-bottom" style="padding-left: 10%; margin-bottom: 10px;">
                             <span
                                 class="text-light-blue">{{ Date::parse($article->article_date)->format('j F')}}</span><span> • {{ Carbon\Carbon::parse($article->article_date)->format('H:i')}} • parafesor</span></span>
                             </div>
