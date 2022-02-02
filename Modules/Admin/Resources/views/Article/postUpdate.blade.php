@@ -619,7 +619,7 @@
                                     <div class="col-12">
                                         <label class="form-text">İçerik</label>
                                     </div>
-                                    @if(isset($article) && $article->body)
+                                    @if(isset($article) && $article->old_body)
                                         <textarea id="textarea2" style="width: 100%; height: 80%" disabled>
     {{isset($article) ? $article->old_body : ""}}
   </textarea>

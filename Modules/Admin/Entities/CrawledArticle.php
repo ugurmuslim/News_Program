@@ -43,6 +43,7 @@ class CrawledArticle extends Model
         'assigned',
         'try_number',
         'status',
+        'keywords',
     ];
 
     /**
@@ -64,6 +65,7 @@ class CrawledArticle extends Model
         'assigned'        => 'int',
         'try_number'      => 'int',
         'status'          => 'int',
+        'keywords'        => 'json',
     ];
 
     public function articleType()

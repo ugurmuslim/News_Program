@@ -9,6 +9,7 @@ use App\Parafesor\Constants\CrawlTypes;
 use App\Parafesor\SimplePie\SimplePie;
 use App\Parafesor\SimplePie\SimplePie\Item;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Http;
 use Modules\Admin\Entities\Article;
 use Modules\Admin\Entities\CrawledArticle;
 use Modules\Admin\Entities\CrawledArticleTestLog;
@@ -127,7 +128,6 @@ class FeedParserHelper
                         echo "Saved \n";
                     }
                 } catch (\Exception $e) {
-                    dd($e->getMessage());
                     echo $e->getMessage();
                 }
 
@@ -215,6 +215,104 @@ class FeedParserHelper
 
         }
 
+    }
+
+    public static function aaBotParser()
+    {
+
+        $categoryArray = [
+            1 => ArticleTypes::GUNDEM,
+            2 => ArticleTypes::Spor,
+            3 => ArticleTypes::Ekonomi,
+            4 => ArticleTypes::Yasam,
+            5 => ArticleTypes::Teknoloji,
+            6 => ArticleTypes::GUNDEM,
+            7 => ArticleTypes::Yasam,
+        ];
+
+        foreach ($categoryArray as $key => $value) {
+            $response = Http::withBasicAuth("api_aa_bot", 'Yazilim2022')->asForm()
+                ->post("https://api.aa.com.tr/abone/search/", [
+                    'filter_category' => $key,
+                    'filter_type'     => 1,
+                    'limit'           => 20,
+//                    'end_date'        => '2022-01-30T23:00:00Z',
+                ])
+                ->json();
+
+            if (!isset($response['data']['result'])) {
+                continue;
+            }
+
+            foreach ($response['data']['result'] as $item) {
+                $crawled = CrawledArticle::where('news_id', $item['id'])->first();
+                if ($crawled) {
+                    echo "Already crawled : " . $item['id'] . PHP_EOL;
+                    continue;
+                }
+                try {
+                    $article = CrawledArticle::create([
+                        "news_id"         => $item['group_id'] ?? $item['id'],
+                        "title"           => $item['title'],
+                        "original_link"   => $item['id'],
+                        "article_type_id" => $value,
+                        "pub_date"        => date('Y-m-d H:i:s', strtotime($item['date'])),
+                        "summary"         => $item['title'],
+                        "image_path"      => null,
+                        "try_number"      => 0,
+                        "site_name"       => 'AABOT',
+                        "body"            => null,
+                        "created_at"      => Carbon::now(),
+                        "updated_at"      => Carbon::now(),
+                    ]);
+                    $response = Http::withBasicAuth("api_aa_bot", 'Yazilim2022')->asForm()
+                        ->get('https://api.aa.com.tr/abone/document/' . $item['id'] . '/newsml29', [
+                        ])->body();
+                    $xml = simplexml_load_string($response);
+                    $json = json_encode($xml);
+                    $array = json_decode($json, true);
+
+                    $body = null;
+                    $keywords = null;
+                    $image = null;
+                    $link = false;
+                    if (isset($array['itemSet']['newsItem']['contentSet']['inlineXML']['nitf']['body']['body.content'])) {
+                        echo "Body Found " . PHP_EOL;
+                        $body = $array['itemSet']['newsItem']['contentSet']['inlineXML']['nitf']['body']['body.content'];
+                    }
+
+                    if (isset($array['itemSet']['newsItem']['contentMeta']['keyword'])) {
+                        $keywords = $array['itemSet']['newsItem']['contentMeta']['keyword'];
+                        if (!is_array($keywords)) {
+                            $keywords = [ $keywords ];
+                        }
+                    }
+
+
+                    if (isset($array['itemSet']['newsItem']['itemMeta']['link'])) {
+                        foreach ($array['itemSet']['newsItem']['itemMeta']['link'] as $link) {
+                            if (isset($link['@attributes']['residref'])) {
+                                if (in_array('picture', explode(':', $link['@attributes']['residref']))) {
+                                    $response = Http::withoutRedirecting()->withBasicAuth("api_aa_bot", 'Yazilim2022')->asForm()
+                                        ->get('https://api.aa.com.tr/abone/token/' . $link['@attributes']['residref'] . '/print', [
+                                        ]);
+                                    $image = $response->header('Location');
+                                }
+                            }
+                        }
+                    }
+
+                    $article->keywords = $keywords;
+                    $article->body = $body;
+                    $article->image_path = $image;
+                    $article->save();
+
+                    echo "Saved \n";
+                } catch (\Exception $e) {
+                    echo $e->getMessage();
+                }
+            }
+        }
     }
 
 }

@@ -88,17 +88,17 @@
                                                         value="Normal" style="background-color: red">Normal
                                                 </button>
                                             </div>
-                                         {{--   <div class="row">
-                                                <div class="col-md-12 mt-3">
-                                                    <div class="col-md-3">
-                                                        <button type="button"
-                                                                class="btn btn-default text-bold border-dark "
-                                                                id="persistentDrawing"
-                                                                value="0">Kalıcı
-                                                        </button>
-                                                    </div>
-                                                </div>
-                                            </div>--}}
+                                            {{--   <div class="row">
+                                                   <div class="col-md-12 mt-3">
+                                                       <div class="col-md-3">
+                                                           <button type="button"
+                                                                   class="btn btn-default text-bold border-dark "
+                                                                   id="persistentDrawing"
+                                                                   value="0">Kalıcı
+                                                           </button>
+                                                       </div>
+                                                   </div>
+                                               </div>--}}
                                         </div>
                                     </div>
                                 </div>
@@ -129,8 +129,8 @@
                      {!! strip_tags($news->body, '<p><img><script>') !!}
                                     </textarea>
                                     @endif
-                                        @if(isset($news) && !$news->body)
-                                        <iframe src="" id="iframeId"  style="width: 100%;  height:600px;" loading="lazy"
+                                    @if(isset($news) && !$news->body)
+                                        <iframe src="" id="iframeId" style="width: 100%;  height:600px;" loading="lazy"
                                                 title="news"></iframe>
                                         <input class="iframeLink" value="{{$news->original_link}}" hidden>
 
@@ -160,10 +160,25 @@
                                 </div>
                                 <div class="row mt-5 ml-3">
                                     <div class="col-12 row align-content-start">
-                                        <button class="btn btn-warning" id="articleGet" type="button">İçeriği al</button>
+                                        <button class="btn btn-warning" id="articleGet" type="button">İçeriği al
+                                        </button>
                                     </div>
                                     <div class="col-12">
                                         <button type="submit" class="btn btn-success mt-2">Kaydet</button>
+                                    </div>
+                                    <div class="row mt-3">
+                                        @if($news->keywords)
+                                            <div class="col-md-12">
+                                                <h3>ETIKETLER</h3>
+                                            </div>
+                                            <div class="row">
+                                                @foreach($news->keywords as $keyword)
+                                                    <div class="col-md-8 mt-2">
+                                                        <button class="btn btn-default btn-block">{{$keyword}}</button>
+                                                    </div>
+                                                @endforeach
+                                            </div>
+                                        @endif
                                     </div>
                                 </div>
                             </div>
@@ -201,8 +216,8 @@
 
     <script type="text/javascript">
         $('.select2').select2();
-        $("#articleGet").on('click', function() {
-            $('#iframeId').attr("src","{{isset($news) ? $news->original_link : ''}}");
+        $("#articleGet").on('click', function () {
+            $('#iframeId').attr("src", "{{isset($news) ? $news->original_link : ''}}");
         });
 
 
