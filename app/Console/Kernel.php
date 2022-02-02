@@ -28,7 +28,7 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule)
     {
         $schedule->command("currency:updater")->everyMinute();
-//        $schedule->command("aaBot:crawl")->everyMinute();
+        $schedule->command("aaBot:crawl")->everyMinute();
         $schedule->command("update:mostRead")->everyMinute();
         $schedule->command("necessaryRows:sync")->everyMinute();
         $schedule->command("feed:parser")->everyTwoMinutes();
