@@ -14,6 +14,7 @@ use Modules\Admin\Entities\Article;
 use Modules\Admin\Entities\CrawledArticle;
 use Modules\Admin\Entities\CrawledArticleTestLog;
 use Modules\Admin\Entities\SitesToCrawl;
+use SebastianBergmann\CodeCoverage\Report\PHP;
 
 class FeedParserHelper
 {
@@ -265,6 +266,10 @@ class FeedParserHelper
                         "created_at"      => Carbon::now(),
                         "updated_at"      => Carbon::now(),
                     ]);
+                    echo "sleeping : " . PHP_EOL;
+                    usleep(600000);
+                    echo "slept : " . PHP_EOL;
+
                     $response = Http::withBasicAuth("api_aa_bot", 'Yazilim2022')->asForm()
                         ->get('https://api.aa.com.tr/abone/document/' . $item['id'] . '/newsml29', [
                         ])->body();
