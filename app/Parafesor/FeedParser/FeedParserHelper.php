@@ -222,12 +222,12 @@ class FeedParserHelper
     {
 
         $categoryArray = [
-            1 => ArticleTypes::GUNDEM,
+            1 => ArticleTypes::Ekonomi,
             2 => ArticleTypes::Spor,
             3 => ArticleTypes::Ekonomi,
             4 => ArticleTypes::Yasam,
             5 => ArticleTypes::Teknoloji,
-            6 => ArticleTypes::GUNDEM,
+            6 => ArticleTypes::Ekonomi,
             7 => ArticleTypes::Yasam,
         ];
 
