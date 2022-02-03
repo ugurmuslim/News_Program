@@ -262,12 +262,12 @@ class ArticleController extends Controller
             $articleCheck = $article->status !== ArticleStatus::PUBLISHED;
         }
 
-        if ($articleCheck) {
+       /* if ($articleCheck) {
             if (!ArticleHelper::checkDifferences(Request::input('BodyCheck'), Request::input('Body'))) {
                 Session::flash('error', "Metinde daha fazla değişiklik yapmanız lazım!");
                 return back()->withInput(Request::all());
             }
-        }
+        }*/
         $articleType = ArticleType::find(Request::input('ArticleTypeId'));
         $imageUpload = ArticleHelper::checkImageUpload($articleType->id);
 
