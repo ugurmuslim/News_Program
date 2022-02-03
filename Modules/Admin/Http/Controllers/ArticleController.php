@@ -3,6 +3,7 @@
 namespace Modules\Admin\Http\Controllers;
 
 use App\Models\User;
+use App\Parafesor\Altinkaynak\Response\Response;
 use App\Parafesor\Constants\ArticleStatus;
 use App\Parafesor\Constants\ArticleTypes;
 use App\Parafesor\Constants\CategorySectionTypes;
@@ -468,6 +469,19 @@ class ArticleController extends Controller
         Log::debug("EditorImageUpload Saved and will return");
 
         return response()->json([ 'location' => url('/') . "/" . $imagePath ]);
+
+    }
+
+    public function imageDownload($id)
+    {
+        $article = Article::find($id);
+        $pieces = explode(" ", $article->title);
+        $slug = str_slug(implode(" ", array_splice($pieces, 0, 5)));
+        $img = $slug . '.jpg';
+        file_put_contents($img, file_get_contents($article->image_path));
+
+        return \Illuminate\Support\Facades\Response::download(public_path($img))->deleteFileAfterSend(true);
+
 
     }
 }

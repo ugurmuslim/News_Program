@@ -128,6 +128,10 @@ Route::prefix('admin')->group(function () {
         Route::post('/editor/image', [ \Modules\Admin\Http\Controllers\ArticleController::class, 'editorImageUpload' ])
             ->name('articleText.imageUpload');
 
+        Route::get('/image/download/{id}', [ \Modules\Admin\Http\Controllers\ArticleController::class, 'imageDownload' ])
+            ->middleware('auth')
+            ->name('article.image.download');
+
     });
 
 
@@ -160,6 +164,8 @@ Route::prefix('admin')->group(function () {
         Route::get('/run', [ \Modules\Admin\Http\Controllers\BotController::class, 'run' ])
             ->middleware('auth')
             ->name('bot.run');
+
+
 
         Route::get('/test/{id}', [ \Modules\Admin\Http\Controllers\BotController::class, 'test' ])
             ->middleware('auth')

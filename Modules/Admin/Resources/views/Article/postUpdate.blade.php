@@ -86,7 +86,7 @@
                                             @if(old('ArticleTypeId'))
                                                 <option
                                                     value="{{old('ArticleTypeId')}}">{{\Modules\Admin\Entities\ArticleType::find(old('ArticleTypeId'))->title}}</option>
-                                                @endif
+                                            @endif
                                             @if(isset($article))
                                                 <option
                                                     value="{{$article->article_type_id}}">{{$article->articleType->title}}</option>
@@ -101,7 +101,8 @@
                                          style="{{old('CompanyId') || (isset($article) && $article->articleType->id == \App\Parafesor\Constants\ArticleTypes::SirketHaberleri) ? "" : "display:none"}}">
                                         <label class="form-text">Şirket</label>
                                         <select class="form-control select2" name="CompanyId"
-                                                id="company" {{isset($article) && $article->assigner_id  && !$user->can('assign articles') ? "readonly" : ""}}
+                                                id="company"
+                                                {{isset($article) && $article->assigner_id  && !$user->can('assign articles') ? "readonly" : ""}}
                                                 style="width: 100%;">
                                             @if(old('CompanyId'))
                                                 <option
@@ -198,6 +199,8 @@
                                                        class="image" {{isset($article) && $article->image_path ? "" : ""}}>
                                                 <input type="text" name="image1" class="image" id="croppedImage"
                                                        value="{{old('image1')}}" hidden>
+
+
                                                 <div class="col-12">
                                                     <label style="color: black;">Resim</label>
                                                     <br>
@@ -376,7 +379,7 @@
                                     <div class="col-12">
                                         <label class="form-text">Başlık</label>
                                         <input type="text" class="form-control"
-                                                   placeholder="Başlık Girin"
+                                               placeholder="Başlık Girin"
                                                id="articleTitle"
                                                value="{{isset($article) ? $article->title : ""}}"
                                                disabled/>
@@ -554,6 +557,12 @@
                                             <div class="col-12">
                                                 <label style="color: black;">Resim</label>
                                                 <br>
+                                                @if(isset($article) && $article->site_name == 'AABOT' && $article->image_path)
+                                                    <div class="row mb-4">
+                                                    <a href="{{route('article.image.download', ['id' => $article->id])}}"
+                                                       class="btn btn-success">AA Haber Imajı İndir</a>
+                                                    </div>
+                                                @endif
                                                 {{--<input type="file" name="image" />
             --}}                                    {{--<input type="file" name="select_file" id="articleImage">--}}
                                                 <input type="file" name="image"
@@ -561,6 +570,7 @@
                                                 <input type="text" name="image1" class="image" id="croppedImage"
                                                        value="{{old('image1')}}" hidden>
                                                 <input type="checkbox" name="sameImage"> Aynı Resim Kullanılsın mı?
+
 
 
                                                 <div class="modal fade" id="modal" tabindex="-1" role="dialog"
@@ -624,8 +634,8 @@
     {{isset($article) ? $article->old_body : ""}}
   </textarea>
                                     @else
-                                         <iframe src=""  style="width: 100%;  height:90%;"
-                                                 id="iframeId" title="news" loading="lazy"></iframe>
+                                        <iframe src="" style="width: 100%;  height:90%;"
+                                                id="iframeId" title="news" loading="lazy"></iframe>
                                         <input class="iframeLink" value="{{$article->original_link}}" hidden>
                                     @endif
                                 </div>
@@ -707,7 +717,6 @@
                             </div>
 
 
-
                         </form>
 
 
@@ -749,8 +758,8 @@
 
     <script type="text/javascript">
         $('.select2').select2();
-        $("#articleGet").on('click', function() {
-            $('#iframeId').attr("src","{{isset($article) ? $article->original_link : ''}}");
+        $("#articleGet").on('click', function () {
+            $('#iframeId').attr("src", "{{isset($article) ? $article->original_link : ''}}");
         });
 
 
