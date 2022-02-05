@@ -33,7 +33,7 @@
     <!-- Twitter Meta -->
     <meta name="twitter:title" content="@yield('seo_title', 'Parafesör | Paranıza Akıl Verir')">
     <meta name="twitter:description" content="@yield('seo_description', 'Parafesor')">
-    <meta name="twitter:image:src" content="@yield('seo_image', 'Parafesor')">
+    <meta name="twitter:image" content="@yield('seo_image', 'Parafesor')">
 
 
     <link rel="shortcut icon" type="image/jpg" href="{{ asset('modules/home/sample/img/logo-icon.svg') }}" />
