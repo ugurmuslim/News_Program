@@ -26,6 +26,7 @@
     <meta property="og:description" content="@yield('seo_description', 'Parafesor')" />
     <meta property="og:url" content="@yield('site_url', url()->current())" />
     <meta property="og:site_name" content="Parafesor" />
+    <meta property="og:image" content="@yield('seo_image', 'Parafesor')" />
     <meta property="og:article:publisher" content="https://www.parafesor.net" />
     <meta property="og:article:published_time" content="@yield('article_pub_date',\Carbon\Carbon::now()->tz('Europe/Istanbul')->toAtomString())" />
     <meta property="og:article:modified_time" content="@yield('article_pub_date',\Carbon\Carbon::now()->tz('Europe/Istanbul')->toAtomString())" />
