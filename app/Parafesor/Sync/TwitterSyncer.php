@@ -7,6 +7,7 @@ namespace App\Parafesor\Sync;
 use App\Parafesor\Constants\ArticleStatus;
 use App\Parafesor\Constants\ArticleTypes;
 use App\Parafesor\Constants\CategorySectionTypes;
+use Carbon\Carbon;
 use Modules\Admin\Entities\Article;
 use Modules\Admin\Entities\ArticleType;
 use Modules\Admin\Entities\ExternalSourceUser;
@@ -59,6 +60,7 @@ class TwitterSyncer
             if (!$externalUser) {
                 continue;
             }
+
             try {
                 Article::create([
                     'article_type_id'         => ArticleTypes::Twitter,
@@ -67,7 +69,8 @@ class TwitterSyncer
                     'show_case'               => CategorySectionTypes::NORMAL,
                     'external_source_user_id' => $externalUser->id,
                     'external_site_id'        => $jsonData['raw_data']['id_str'],
-                    'article_date'            => $jsonData['raw_data']['created_at'],
+                    'article_date'            => date('Y-m-d H:i:s', strtotime($jsonData['raw_data']['created_at'])),
+                    'start_date'              => Carbon::now(),
                 ]);
                 unlink($tweetFolder . '/' . $tweet);
             } catch (\Exception $e) {

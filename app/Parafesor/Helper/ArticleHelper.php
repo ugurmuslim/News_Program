@@ -26,6 +26,9 @@ class ArticleHelper
             $articleType = ArticleType::find($type);
             $articlesByType = Article::where('articles.status', ArticleStatus::PUBLISHED)
                 ->select('title','original_link', 'image_path','summary','created_at', 'slug','article_date')
+                ->when($type == ArticleTypes::Twitter, function ($query, $type) {
+                    return $query->select('body','external_site_id', 'external_source_user_id','article_date');
+                })
                 ->where('article_type_id', $articleType->id)
                 ->where('persistent', 0)
                 ->when($type == ArticleTypes::GUNDEM, function ($query, $type) {
@@ -147,6 +150,7 @@ class ArticleHelper
         Cache::put(CacheConst::MOST_READ_ARTICLE . 'Articles', $articles);
 
     }
+
 
     public static function checkDifferences($originalArticle, $updatedArticle)
     {
