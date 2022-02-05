@@ -36,7 +36,7 @@ class Kernel extends ConsoleKernel
         $schedule->command("site:crawl")->everyTwoMinutes();
         $schedule->command("sitemap:create")->everySixHours();
         $schedule->command("article:cache")->everyMinute();
-//        $schedule->command("twitter:scrape")->everyFifteenMinutes();
+        $schedule->command("twitter:scrape")->everyFifteenMinutes();
 
         // $schedule->command('inspire')->hourly();
     }
