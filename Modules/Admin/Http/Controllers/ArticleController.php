@@ -277,7 +277,7 @@ class ArticleController extends Controller
             return back();
         }
 
-        try {;
+        try {
             if (!Request::input('sameImage') && Request::input('savedImage') && !Request::hasFile('image') && $articleType->id != ArticleTypes::SirketHaberleri) {
                 Log::debug(json_encode([
                     'type'      => 'Article Started',
