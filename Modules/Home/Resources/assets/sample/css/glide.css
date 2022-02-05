@@ -58,7 +58,7 @@
   align-items: center;
 }
 .home .home-slide-container .glide .glide__track .glide__slide .cm-slide-item .post-inner {
-  max-width: 90%;
+  max-width: 750px;
   visibility: hidden;
   opacity: 0;
   -webkit-transition: opacity 0.2s ease-in-out;
@@ -88,7 +88,7 @@
 }
 
 .home .home-slide-container .glide .glide__track .glide__slide .cm-slide-item .post-inner ul.post-meta li {
-  margin-left: 7%;
+  margin-left: 33px;
 }
 
 .home .home-slide-container .glide__slides {
