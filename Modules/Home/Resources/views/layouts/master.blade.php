@@ -22,13 +22,19 @@
     <title>@yield('title') Parafesör | Paranıza Akıl Verir</title>
     <meta property="og:locale" content="tr_TR" />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="@yield('seo_title', 'Parafesor')" />
+    <meta property="og:title" content="@yield('seo_title', 'Parafesör | Paranıza Akıl Verir')" />
     <meta property="og:description" content="@yield('seo_description', 'Parafesor')" />
     <meta property="og:url" content="@yield('site_url', url()->current())" />
     <meta property="og:site_name" content="Parafesor" />
     <meta property="og:article:publisher" content="https://www.parafesor.net" />
     <meta property="og:article:published_time" content="@yield('article_pub_date',\Carbon\Carbon::now()->tz('Europe/Istanbul')->toAtomString())" />
     <meta property="og:article:modified_time" content="@yield('article_pub_date',\Carbon\Carbon::now()->tz('Europe/Istanbul')->toAtomString())" />
+    <!-- Twitter Meta -->
+    <meta name="twitter:title" content="@yield('seo_title', 'Parafesör | Paranıza Akıl Verir')">
+    <meta name="twitter:description" content="@yield('seo_description', 'Parafesor')">
+    <meta name="twitter:image:src" content="@yield('seo_image', 'Parafesor')">
+
+
     <link rel="shortcut icon" type="image/jpg" href="{{ asset('modules/home/sample/img/logo-icon.svg') }}" />
     <!--    <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/headers/">-->
     <!-- Bootstrap core CSS -->

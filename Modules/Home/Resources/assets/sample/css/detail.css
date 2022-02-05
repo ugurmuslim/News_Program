@@ -1,0 +1,108 @@
+.container.detail {
+    padding-top: 40px;
+    max-width: 900px;
+}
+
+.detail .container {
+    max-width: 100%;
+}
+
+.container.detail span, 
+.container.detail p,
+.container.detail h4{
+    padding: 0;
+}
+
+.container.detail h2,
+.container.detail h3,
+.container.detail h4,
+.container.detail h5,
+.container.detail h6{
+    font-family: 'MontserratBold';
+    margin: 20px 0;
+}
+
+.detail-title {
+    border-bottom: 1px solid #242424; 
+}
+
+.detail-title p {
+    font-family: 'MontserratSemiBold';
+    font-size: 16px;
+    margin-bottom: 35px;
+}
+
+.detail-title h1 {
+    font-size: 55px;
+    font-family: 'MillerTextBold';
+    line-height: 68px;
+    letter-spacing: -2.75px;
+}
+
+.detail-title div {
+    font-family: 'MillerText';
+    margin-top: 25px !important;;
+    padding-bottom: 27px;
+}
+
+.detail .summary,
+.detail-content {
+    font-family: 'MontserratSemiBold';
+    font-size: 20px;
+    line-height: 24px
+}
+
+.detail-content {
+    font-family: 'Montserrat';
+}
+
+.container.other-news {
+    max-width: 1337px;
+    margin-bottom: 150px;
+}
+
+.other-news h4{
+    font-family: 'MontserratBold';
+    font-size: 25px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.other-news .news-card-img-text.small-text{
+    background: #fff;
+}
+
+.other-news .news-card-img-text.small-text .news-card-bottom span {
+    font-size: 16px !important;
+}
+
+.container.other-news .news-card{
+    overflow: hidden;
+}
+
+@media screen and (max-width: 768px){
+
+    .detail-title h1 {
+        font-size: 35px;
+        line-height: 43px;
+    }
+    
+    .other-news h4{
+        font-size: 20px;
+    }
+
+    .detail .summary,
+    .detail-content {
+        font-size: 16px;
+        line-height: 20px
+    }
+
+    .container.other-news .col-lg-6 {
+        height: clamp(160px, 30vw + 40px, 250px);
+    }
+
+    .other-news .news-card-img-text.small-text .news-card-bottom span{
+        font-size: 11px !important;
+    }
+
+}
