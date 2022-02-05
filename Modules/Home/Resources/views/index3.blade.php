@@ -44,8 +44,8 @@
                 <div class="glide__overlay glide__overlay--right glide__overlay--bot"></div>
             </div>
             <div class="glide__arrows" data-glide-el="controls">
-                <button class="glide__arrow glide__arrow--left" data-glide-dir="<"><span>Önceki</span><i class="fas fa-arrow-left"></i></button>
-                <button class="glide__arrow glide__arrow--right" data-glide-dir=">"><span>Sonraki</span><i class="fas fa-arrow-right"></i></button>
+                <button class="glide__arrow glide__arrow--left" data-glide-dir="<"><span>ÖNCEKİ</span><i class="fas fa-arrow-left"></i></button>
+                <button class="glide__arrow glide__arrow--right" data-glide-dir=">"><span>SONRAKİ</span><i class="fas fa-arrow-right"></i></button>
             </div>
             <div class="slide-control-div">
                 <div class="slider__bullets glide__bullets" data-glide-el="controls[nav]">
