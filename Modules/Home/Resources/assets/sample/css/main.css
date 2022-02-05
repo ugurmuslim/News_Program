@@ -52,6 +52,11 @@ html{
     src: url("../fonts/Montserrat-Medium.ttf") format("truetype");
 }
 
+@font-face {
+    font-family: "MontserratSemiBold";
+    src: url("../fonts/Montserrat-SemiBold.ttf") format("truetype");
+}
+
 a {
     text-decoration: none;
     color: inherit;

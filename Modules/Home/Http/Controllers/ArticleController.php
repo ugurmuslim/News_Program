@@ -132,6 +132,8 @@ class ArticleController extends Controller
     {
         $article = Article::where('slug', $slug)->first();
 
+        $relatedArticles = Cache::get(CacheConst::ARTICLE . $article->articleType->title . ":" . CategorySectionTypes::NORMAL);
+
         if (!$article) {
             abort(404);
         }
@@ -140,7 +142,8 @@ class ArticleController extends Controller
         $article->save();
 
         return view('home::Article.show')
-            ->with('article', $article);
+            ->with('article', $article)
+            ->with('relatedArticles', $relatedArticles);
 
     }
 

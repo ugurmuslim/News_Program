@@ -35,7 +35,7 @@
 }
 
 .news-card-img-text.big-title {
-    font-family: MillerTextBold;
+    font-family: 'MillerTextBold';
     position: absolute;
     background: #f5f5f5;
     font-size: 28px;
@@ -307,6 +307,15 @@ ul.list-group-flush > div{
     font-family: 'MillerTextRoman';
 }
 
+/* Şirket Haberleri */
+#section-sirket-haberleri .news-card-img-text.big-title{
+    background: #fff;
+    max-width: 70%;
+    font-size: 35px;
+    line-height: 40px;
+    bottom: 0;
+}
+
 @media screen and (max-width: 992px) {
     .card-bottom-date {
         position: absolute;
@@ -385,6 +394,6 @@ ul.list-group-flush > div{
         font-size: 11px;
     }
     .news-card-small{
-        height: 170px;
+        height: clamp(170px, 30vw + 40px, 220px);
     }
 }
