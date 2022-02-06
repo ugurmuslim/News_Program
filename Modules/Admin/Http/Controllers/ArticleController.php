@@ -251,6 +251,7 @@ class ArticleController extends Controller
         $oldArticleTypeId = null;
         $articleCheck = false;
         $article = new Article();
+        $slug = str_slug(Request::input('Title') . '-' . Carbon::now()->format('d-m-Y'), "-");
         if (Request::input('ArticleId')) {
             /**
              * @var $article Article
@@ -261,6 +262,7 @@ class ArticleController extends Controller
             }
             $oldArticleTypeId = $article->article_type_id;
             $articleCheck = $article->status !== ArticleStatus::PUBLISHED;
+            $slug = $article->slug;
         }
 
        /* if ($articleCheck) {
@@ -337,7 +339,7 @@ class ArticleController extends Controller
             $article->start_date = Request::input('StartedOn');
             $article->end_date = Carbon::now()->addYears(3);
             $article->editor_id = Auth::user()->id;
-            $article->slug = str_slug(Request::input('Title') . '-' . Carbon::now()->format('d-m-Y'), "-");;
+            $article->slug = $slug;
             $article->seo_title = Request::input('SeoTitle');
             $article->seo_description = Request::input('SeoDescription');
             $article->sort = 1;
