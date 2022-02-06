@@ -57,14 +57,13 @@ class ArticleController extends Controller
 
 
         if ($editorId && $database == "maria" && ( Request::input('editor') != 'all' )) {
-            if($user->can('assign articles')) {
+            if ($user->can('assign articles')) {
 //                $query = $query->where(  "assigner_id", $editorId)->orWhere('editor_id',$editorId );
             } else {
-                $query = $query->where('editor_id',$editorId );
+                $query = $query->where('editor_id', $editorId);
 
             }
         }
-
 
 
         if ($articleTypeId) {
@@ -145,7 +144,7 @@ class ArticleController extends Controller
 
         $image = $company ? $company->image_path : $news->image_path;
 
-        if($articleType->status == 0) {
+        if ($articleType->status == 0) {
             Session::flash('error', $articleType->title . " : Geçerli bir kategori girin! ");
             return back();
         }
@@ -262,19 +261,21 @@ class ArticleController extends Controller
             }
             $oldArticleTypeId = $article->article_type_id;
             $articleCheck = $article->status !== ArticleStatus::PUBLISHED;
-            $slug = $article->slug;
+            if ($article->status == ArticleStatus::PUBLISHED) {
+                $slug = $article->slug;
+            }
         }
 
-       /* if ($articleCheck) {
-            if (!ArticleHelper::checkDifferences(Request::input('BodyCheck'), Request::input('Body'))) {
-                Session::flash('error', "Metinde daha fazla değişiklik yapmanız lazım!");
-                return back()->withInput(Request::all());
-            }
-        }*/
+        /* if ($articleCheck) {
+             if (!ArticleHelper::checkDifferences(Request::input('BodyCheck'), Request::input('Body'))) {
+                 Session::flash('error', "Metinde daha fazla değişiklik yapmanız lazım!");
+                 return back()->withInput(Request::all());
+             }
+         }*/
         $articleType = ArticleType::find(Request::input('ArticleTypeId'));
         $imageUpload = ArticleHelper::checkImageUpload($articleType->id);
 
-        if($articleType->status == 0) {
+        if ($articleType->status == 0) {
             Session::flash('error', $articleType->title . " : Geçerli bir kategori girin! ");
             return back();
         }
