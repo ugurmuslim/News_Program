@@ -32,6 +32,7 @@ class StockTube extends Model
         'title',
         'original_link',
         'show_case',
+        'image_path',
     ];
 
     /**

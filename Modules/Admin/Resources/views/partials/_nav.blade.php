@@ -244,6 +244,7 @@
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Video Rapor</p>
                             </a>
+
                             <a href="{{route('stockTube.index',['channel'=> true])}}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Kanal Rapor</p>

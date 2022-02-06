@@ -90,18 +90,21 @@ class ArticleHelper
             $stockTubes = StockTube::where('status', ArticleStatus::PUBLISHED)
                 ->select('original_link', 'image_path')
                 ->where('show_case', CategorySectionTypes::NORMAL)
+                ->orderBy('created_at', 'DESC')
                 ->limit(15)
                 ->get();
 
             $stockTubesChannel = StockTube::where('status', ArticleStatus::PUBLISHED)
                 ->select('original_link', 'image_path')
                 ->where('show_case', CategorySectionTypes::CHANNEL)
+                ->orderBy('created_at', 'DESC')
                 ->limit(15)
                 ->get();
 
             $stockTubesShowCase = StockTube::where('status', ArticleStatus::PUBLISHED)
                 ->select('original_link', 'image_path')
                 ->where('show_case', CategorySectionTypes::MAIN_SLIDER)
+                ->orderBy('created_at', 'DESC')
                 ->limit(1)
                 ->get();
 

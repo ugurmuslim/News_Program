@@ -3,9 +3,11 @@
 namespace App\Parafesor\Youtube;
 
 use App\Parafesor\Constants\ArticleTypes;
+use App\Parafesor\Constants\CrawlTypes;
 use Carbon\Carbon;
 use Modules\Admin\Entities\CrawledArticle;
 use Modules\Admin\Entities\SitesToCrawl;
+use Modules\Admin\Entities\StockTube;
 
 class YoutubeCrawler
 {
@@ -21,12 +23,14 @@ class YoutubeCrawler
 
     public function crawler()
     {
+        $channelsToCrawl = SitesToCrawl::where('article_type_id', ArticleTypes::Youtube)
+            ->orWhere('article_type_id', ArticleTypes::BorsaTube)
+            ->where('status', 1)
+            ->get();
 
-        $channelsToCrawl = SitesToCrawl::where('article_type_id', ArticleTypes::Youtube)->get();
-
-        foreach ($channelsToCrawl as $channelsToCraw) {
-            $array = explode('channel/', $channelsToCraw->title);
-            if(isset($array[1])) {
+        foreach ($channelsToCrawl as $channelToCrawl) {
+            $array = explode('channel/', $channelToCrawl->title);
+            if (!isset($array[1])) {
                 continue;
             }
             $channelId = $array[1];
@@ -40,21 +44,35 @@ class YoutubeCrawler
                 echo 'Invalid API key or channel ID.';
                 continue;
             }
-
             foreach ($videoList['items'] as $video) {
                 try {
-                    CrawledArticle::create([
-                        'news_id' => $video['id']['videoId'],
-                        'article_type_id' => $channelsToCraw->article_type_id,
-                        'title' => $video['snippet']['title'],
-                        'summary' => $video['snippet']['description'],
-                        'original_link' => 'https://www.youtube.com/watch?v=' . $video['id']['videoId'],
-                        'image_path' => $video['snippet']['thumbnails']['high']['url'],
-                        'site_name' => $channelsToCraw->site_name ,
-                        'pub_date' => new Carbon($video['snippet']['publishedAt']),
-                    ]);
+                    if ($channelToCrawl->article_type_id == ArticleTypes::Youtube) {
+                        CrawledArticle::create([
+                            'news_id'         => $video['id']['videoId'],
+                            'article_type_id' => $channelToCrawl->article_type_id,
+                            'title'           => $video['snippet']['title'],
+                            'summary'         => $video['snippet']['description'],
+                            'original_link'   => 'https://www.youtube.com/watch?v=' . $video['id']['videoId'],
+                            'image_path'      => $video['snippet']['thumbnails']['high']['url'],
+                            'site_name'       => $channelToCrawl->site_name,
+                            'pub_date'        => new Carbon($video['snippet']['publishedAt']),
+                        ]);
+                    }
+                    if ($channelToCrawl->article_type_id == ArticleTypes::BorsaTube) {
+                        $crawled = StockTube::where('original_link', 'https://www.youtube.com/watch?v=' . $video['id']['videoId'])->first();
+                        if($crawled) {
+                            continue;
+                        }
+                        StockTube::create([
+                            'title'         => $video['snippet']['title'],
+                            'original_link' => 'https://www.youtube.com/watch?v=' . $video['id']['videoId'],
+                            'image_path'    => $video['snippet']['thumbnails']['high']['url'],
+                            'show_case'     => 'NORMAL',
+                            'status'        => 'PUBLISHED',
+                        ]);
+                    }
                 } catch (\Exception $e) {
-
+                    echo $e->getMessage() . PHP_EOL;
                 }
 
             }

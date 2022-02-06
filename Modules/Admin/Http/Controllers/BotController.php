@@ -103,7 +103,7 @@ class BotController extends Controller
             return back()->withInput(Request::all());
         }
 
-        if (Request::input('ArticleTypeId') == ArticleTypes::Youtube) {
+        if (Request::input('ArticleTypeId') == ArticleTypes::Youtube || Request::input('ArticleTypeId') == ArticleTypes::BorsaTube) {
             $strings = explode('/', Request::input('ChannelLink'));
             if (!in_array('channel', $strings)) {
                 Session::flash('error', 'Youtube linkinin içinde channel geçmeli!');

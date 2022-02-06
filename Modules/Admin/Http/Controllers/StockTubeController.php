@@ -95,18 +95,17 @@ class StockTubeController extends Controller
             $articleType = ArticleType::find(ArticleTypes::BorsaTube);
             $imageDimensions = json_decode($articleType->image_dimensions, true);
 
-            if (Request::input('isShowCase') == 0) {
+            if (Request::input('isShowCase') == 'Normal' || Request::input('isShowCase') == 'Channel') {
                 Image::make($image_base64)->encode('webp', 90)->resize($imageDimensions['Normal']['width'], $imageDimensions['Normal']['height'])->save($file);
             }
 
-            if (Request::input('isShowCase') == 1) {
+            if (Request::input('isShowCase') == 'MainSlider') {
                 Image::make($image_base64)->encode('webp', 90)->resize($imageDimensions['Slider']['width'], $imageDimensions['Slider']['height'])->save($file);
             }
 
-            if (Request::input('isShowCase') == 2) {
+            /*if (Request::input('isShowCase') == 'Channel') {
                 Image::make($image_base64)->encode('webp', 90)->resize($imageDimensions['Logo']['width'], $imageDimensions['Logo']['height'])->save($file);
-            }
-
+            }*/
             $article->image_path = $file;
         }
 

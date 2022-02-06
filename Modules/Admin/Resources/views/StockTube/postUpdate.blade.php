@@ -167,11 +167,11 @@
                                         @endif
                                         @if(isset($article))
                                             <option
-                                                value="{{$article->show_case}}">{{$article->show_case ? "Evet" : "Hayır"}}</option>
+                                                value="{{$article->show_case}}">{{$article->show_case}}</option>
                                         @endif
                                         @if(($channel == 0) || (isset($article) && !$article->channel))
-                                            <option value="Normal">Hayır</option>
-                                            <option value="MainSlider">Evet</option>
+                                            <option value="Normal">Normal</option>
+                                            <option value="MainSlider">MainSlider</option>
                                         @endif
                                     </select>
                                 </div>
