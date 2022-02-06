@@ -144,6 +144,7 @@ class ArticleController extends Controller
         Log::debug('ip => ' . \Illuminate\Support\Facades\Request::header('x-forwarded-for'));
         if(\Illuminate\Support\Facades\Request::header('x-forwarded-for')){
             if(!$article->ip_addresses || !in_array(\Illuminate\Support\Facades\Request::header('x-forwarded-for'), $article->ip_addresses)) {
+                Log::debug('ip => ' . \Illuminate\Support\Facades\Request::header('x-forwarded-for') . 'Read for the first time');
                 $article->read = $article->read + 1;
                 $ipArray = $article->ip_addresses;
 
