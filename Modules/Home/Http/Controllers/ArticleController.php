@@ -132,7 +132,7 @@ class ArticleController extends Controller
      */
     public function show($slug)
     {
-        Log::debug('ip => ' . \Illuminate\Support\Facades\Request::ip());
+        Log::debug('ip => ' . print_r( \Illuminate\Support\Facades\Request::header(),true));
         $article = Article::where('slug', $slug)->first();
 
         $relatedArticles = Cache::get(CacheConst::ARTICLE . $article->articleType->title . ":" . CategorySectionTypes::NORMAL);
