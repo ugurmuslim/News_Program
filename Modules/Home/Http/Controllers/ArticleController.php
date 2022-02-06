@@ -141,7 +141,6 @@ class ArticleController extends Controller
             abort(404);
         }
 
-        Log::debug('ip => ' . \Illuminate\Support\Facades\Request::header('x-forwarded-for'));
         if(\Illuminate\Support\Facades\Request::header('x-forwarded-for')){
             if(!$article->ip_addresses || !in_array(\Illuminate\Support\Facades\Request::header('x-forwarded-for'), $article->ip_addresses)) {
                 Log::debug('ip => ' . \Illuminate\Support\Facades\Request::header('x-forwarded-for') . 'Read for the first time');
@@ -154,7 +153,11 @@ class ArticleController extends Controller
 
                 $ipArray[] = \Illuminate\Support\Facades\Request::header('x-forwarded-for');
                 $article->ip_addresses = $ipArray;
-                $article->save();
+                try {
+                    $article->save();
+                } catch (\Exception $e) {
+                    Log::debug('error in Article show => ' . $e->getMessage());
+                }
             }
         }
 
