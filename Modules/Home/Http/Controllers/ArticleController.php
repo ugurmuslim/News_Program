@@ -7,10 +7,12 @@ use App\Parafesor\Constants\ArticleTypes;
 use App\Parafesor\Constants\CacheConst;
 use App\Parafesor\Constants\CategorySectionTypes;
 use Facade\FlareClient\Http\Exceptions\NotFound;
+use Grpc\Server;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\Log;
 use Modules\Admin\Entities\Article;
 use Modules\Admin\Entities\ArticleType;
 use Modules\Admin\Entities\StockTube;
@@ -130,6 +132,7 @@ class ArticleController extends Controller
      */
     public function show($slug)
     {
+        Log::debug('ip => ' . \Illuminate\Support\Facades\Request::ip());
         $article = Article::where('slug', $slug)->first();
 
         $relatedArticles = Cache::get(CacheConst::ARTICLE . $article->articleType->title . ":" . CategorySectionTypes::NORMAL);
