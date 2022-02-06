@@ -2,7 +2,7 @@
 @section('extra_css')
     <link href="{{ asset('modules/home/sample/css/detail.css') }}" rel="stylesheet" type="text/css" />
 @endsection
-@section('title', $article->title . "| Parafesör | Paranıza Akıl Verir")
+@section('title', $article->title . " | Parafesör | Paranıza Akıl Verir")
 @section('seo_description', $article->seo_description)
 @section('seo_title', $article->seo_title)
 @section('seo_image', asset($article->image_path))
