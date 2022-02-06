@@ -132,7 +132,7 @@ class ArticleController extends Controller
      */
     public function show($slug)
     {
-        Log::debug('ip => ' . print_r( \Illuminate\Support\Facades\Request::header('x-forwarded-for'),true));
+
         $article = Article::where('slug', $slug)->first();
 
         $relatedArticles = Cache::get(CacheConst::ARTICLE . $article->articleType->title . ":" . CategorySectionTypes::NORMAL);
@@ -141,8 +141,21 @@ class ArticleController extends Controller
             abort(404);
         }
 
-        $article->read = $article->read + 1;
-        $article->save();
+        Log::debug('ip => ' . \Illuminate\Support\Facades\Request::header('x-forwarded-for'));
+        if(\Illuminate\Support\Facades\Request::header('x-forwarded-for')){
+            if(!$article->ip_addresses || !in_array(\Illuminate\Support\Facades\Request::header('x-forwarded-for'), $article->ip_addresses)) {
+                $article->read = $article->read + 1;
+                $ipArray = $article->ip_addresses;
+
+                if(!$ipArray) {
+                    $ipArray = [];
+                }
+
+                $ipArray[] = \Illuminate\Support\Facades\Request::header('x-forwarded-for');
+                $article->ip_addresses = $ipArray;
+                $article->save();
+            }
+        }
 
         return view('home::Article.show')
             ->with('article', $article)
