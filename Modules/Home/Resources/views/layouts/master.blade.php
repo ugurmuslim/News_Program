@@ -31,6 +31,9 @@
     <meta property="og:article:published_time" content="@yield('article_pub_date',\Carbon\Carbon::now()->tz('Europe/Istanbul')->toAtomString())" />
     <meta property="og:article:modified_time" content="@yield('article_pub_date',\Carbon\Carbon::now()->tz('Europe/Istanbul')->toAtomString())" />
     <!-- Twitter Meta -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@parafesor">
+    <meta name="twitter:creator" content="@parafesör">
     <meta name="twitter:title" content="@yield('seo_title', 'Parafesör | Paranıza Akıl Verir')">
     <meta name="twitter:description" content="@yield('seo_description', 'Parafesor')">
     <meta name="twitter:image" content="@yield('seo_image', 'Parafesor')">
