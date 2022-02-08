@@ -55,6 +55,7 @@ class ArticleController extends Controller
             $query = $query->where('status', $status);
         }
 
+        $query->where('article_type_id', '!=', ArticleTypes::Twitter);
 
         if ($editorId && $database == "maria" && ( Request::input('editor') != 'all' )) {
             if ($user->can('assign articles')) {
