@@ -34,7 +34,7 @@ html{
 
 @font-face {
     font-family: "HelveticaNeue";
-    src: url("../fonts/HelveticaNeue-01.ttf") format("truetype");
+    src: url("../fonts/HelveticaNeue-01.woff2") format("truetype");
 }
 
 @font-face {
