@@ -16,8 +16,8 @@
         function changeColor(num){
             slideNumber.children.forEach((element,index) => {
                 if(index == num){
-                    element.style.color = slideCurrentColor; 
-                    element.style.transition = ".5s ease"; 
+                    element.style.color = slideCurrentColor;
+                    element.style.transition = ".5s ease";
                     element.style.fontSize = "21px";
                 }
                 else {
@@ -57,7 +57,7 @@
         //change slide When click the Control Buttons
         document.querySelector('#secondCardSlide .news-card-slider-controls').addEventListener('click',function(){
             changeColor(secondCardSlide.attributes.currentslide.value);
-            changeSlide(firstCardSlide,secondCardSlide.attributes.currentslide.value,true);            
+            changeSlide(firstCardSlide,secondCardSlide.attributes.currentslide.value,true);
         });
 
         // Change slide When click the slide's numbers
@@ -73,12 +73,12 @@
         // const lists = document.getElementsByClassName("cardSlider");
         //     lists.forEach(s => {
         //         setInterval(() => {
-                    
+
         //             cardSlider.controlSlider(s, "next");
-                
-        //     }, 4000);           
+
+        //     }, 4000);
         //     });
-    });     
+    });
 
 class MainSlider {
 
@@ -276,7 +276,7 @@ configureSliders() {
             if (c.attributes.direction.value == "next") {
                 c.addEventListener("click", function() {
                     cardSlider.controlSlider(s, "next")
-                    
+
                 })
             } else if (c.attributes.direction.value == "previous") {
                 c.addEventListener("click", function() {
@@ -303,7 +303,7 @@ controlSlider(slider, direction) {
                 s.classList.add("d-none")
             })
             slider.children[i].children[current].classList.remove("d-none");
-        }    
+        }
     }
 }
 }
