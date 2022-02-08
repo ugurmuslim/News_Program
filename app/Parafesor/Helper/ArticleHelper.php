@@ -25,7 +25,7 @@ class ArticleHelper
         foreach ($articleTypes as $type) {
             $articleType = ArticleType::find($type);
             $articlesByType = Article::where('articles.status', ArticleStatus::PUBLISHED)
-                ->select('title','original_link', 'image_path','summary','created_at', 'slug','article_date')
+                ->select('title','original_link', 'image_path','summary', 'slug','article_date')
                 ->when($type == ArticleTypes::Twitter, function ($query, $type) {
                     return $query->select('body','external_site_id', 'external_source_user_id','article_date');
                 })
@@ -41,7 +41,7 @@ class ArticleHelper
                 ->get();
 
             $articlesMainSlider = Article::where('articles.status', ArticleStatus::PUBLISHED)
-                ->select('title','original_link', 'image_path','summary','created_at', 'slug','article_date')
+                ->select('title','original_link', 'image_path','summary', 'slug','article_date')
                 ->where('article_type_id', $articleType->id)
                 ->when($type == ArticleTypes::GUNDEM, function ($query, $type) {
                     return $query->where('header_slider', 0);
@@ -53,7 +53,7 @@ class ArticleHelper
                 ->get();
 
             $articlesSecondSlider = Article::where('articles.status', ArticleStatus::PUBLISHED)
-                ->select('title','original_link', 'image_path','summary','created_at', 'slug','article_date')
+                ->select('title','original_link', 'image_path','summary', 'slug','article_date')
                 ->where('article_type_id', $articleType->id)
                 ->when($type == ArticleTypes::GUNDEM, function ($query, $type) {
                     return $query->where('header_slider', 0);
@@ -65,7 +65,7 @@ class ArticleHelper
                 ->get();
 
         /*    $articlesPersistent = Article::where('articles.status', ArticleStatus::PUBLISHED)
-                ->select('title','original_link', 'image_path','summary','created_at', 'slug','article_date')
+                ->select('title','original_link', 'image_path','summary', 'slug','article_date')
                 ->where('article_type_id', $articleType->id)
                 ->when($type == ArticleTypes::GUNDEM, function ($query, $type) {
                     return $query->where('header_slider', 0);
@@ -121,7 +121,7 @@ class ArticleHelper
             ->get();
 
         $lastMinute = Article::where('articles.status', ArticleStatus::PUBLISHED)
-            ->select('title','original_link', 'image_path','summary','created_at', 'slug','article_date')
+            ->select('title','original_link', 'image_path','summary', 'slug','article_date')
             ->where('articles.article_type_id', '!=', ArticleTypes::Twitter)
             ->where('articles.article_type_id', '!=', ArticleTypes::KoseYazilari)
             ->where('articles.article_type_id', '!=', ArticleTypes::BorsaTube)
@@ -140,7 +140,7 @@ class ArticleHelper
     public static function updateMostReadArticles()
     {
         $articles = Article::where('created_at', '>', Carbon::now()->startOfDay())
-            ->select('title','original_link', 'image_path','summary','created_at', 'slug','article_date')
+            ->select('title','original_link', 'image_path','summary', 'slug','article_date')
             ->where('status', '=', ArticleStatus::PUBLISHED)
             ->where('article_type_id', '!=', ArticleTypes::Twitter)
             ->where('article_type_id', '!=', ArticleTypes::KoseYazilari)

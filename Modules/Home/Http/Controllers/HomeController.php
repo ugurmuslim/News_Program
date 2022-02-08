@@ -51,7 +51,6 @@ class HomeController extends Controller
     public function indexTest()
     {
 //        $sliders = Cache::get(CacheConst::ARTICLE . 'Slider');
-
         $articleTypes = ArticleType::all();
         $mostReads = Cache::get(CacheConst::MOST_READ_ARTICLE . 'Articles');
         $mainSliders = Cache::get(CacheConst::ARTICLE . CategorySectionTypes::HEADER_SLIDER);
