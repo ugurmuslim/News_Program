@@ -21,7 +21,7 @@
                         @foreach($articles["Kripto"][\App\Parafesor\Constants\CategorySectionTypes::MAIN_SLIDER]->take(4) as $article)
                             <div class="news-card-slider-slide">
                                 <a href="{{route('article.show',['slug' => $article->slug ])}}">
-                                    <div class="life-card-slider-slide-img text-white"
+                                    <div class="life-card-slider-slide-img text-white lazy"
                                          style="background-image: url({{asset($article->image_path)}})">
                                         <div class="blueOverlay">
 
@@ -56,7 +56,7 @@
                     <a href="{{route('article.show',['slug' => $article->slug ])}}">
                         <div class="col-24 bg-dark match" matchTo="crypto-slider">
                             <div class="col-sm-24 h-100">
-                                <div class="col-24 crypto crypto-md"
+                                <div class="col-24 crypto crypto-md lazy"
                                      style="background-image: url({{asset($article->image_path)}})"></div>
                                 <div class="crypto-first-title">
                                     <div class="multilineEllipsis" multilineEllipsisMax="100">{{$article->title}}
@@ -76,7 +76,7 @@
                 {{--                @foreach($kriptoArticlesHeadSecond as $article)--}}
                 <div class="col-md-24 match" matchTo="crypto-slider">
                     <div class="col-md-24 bg-white  h-100 tech-box">
-                        <div class="tech-news-box-image "
+                        <div class="tech-news-box-image lazy"
                              style="background-color: black;)}}); height: 100%">
                             {{--       <div class="tech-news-box-image "
                                         style="background-image: url({{asset($article->image_path)}}); height: 100%">--}}
@@ -119,7 +119,7 @@
                 <div class="col-md-24 col-lg-12 p-4 ">
                     <a href="{{route('article.show',['slug' => $article->slug ])}}">
                         <div class="row">
-                            <div class="col-14"
+                            <div class="col-14 lazy"
                                  style="background-image: url({{$article->image_path}}); background-size: 100% 100%;"></div>
                             <div class="col-10 bg-orange crypto-wide-section">
                                 <div class="crypto-title" style="color: black;">
@@ -142,7 +142,7 @@
                     <a href="{{route('article.show',['slug' => $article->slug ])}}">
                         <div class="col-24  bg-dark">
                             <div class="col-sm-24 ">
-                                <div class="col-24 crypto crypto-md"
+                                <div class="col-24 crypto crypto-md lazy"
                                      style="background-image: url({{asset($article->image_path)}})"></div>
                                 <div class="crypto-title">
                                     {{ \Illuminate\Support\Str::limit($article->title, 70, $end='...') }}

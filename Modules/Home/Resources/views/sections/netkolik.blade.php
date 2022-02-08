@@ -22,7 +22,7 @@
                             <a href="{{route('article.show',['slug' => $article->slug ])}}">
 
                                 <div class="news-card-slider-slide">
-                                    <div class="life-card-slider-slide-img"
+                                    <div class="life-card-slider-slide-img lazy"
                                          style="background-image: url({{asset($article->image_path)}})">
                                         <div class="blueOverlay">
 
@@ -64,7 +64,7 @@
                                  matchTo="internet-slider">
                                 <div class="news-card-slider-container">
                                     <div class="news-card-slider-slide">
-                                        <div class="sport-card-slider-slide-img "
+                                        <div class="sport-card-slider-slide-img lazy"
                                              style="background-image: url({{$article->image_path}})">
                                             <div class="orangeOverlay90"></div>
 
@@ -92,7 +92,7 @@
                     <div class="col-md-24 bg-dark-orange mt-4 match" matchTo="internet-second-row">
                         <a href="{{route('article.show',['slug'=> $article->slug])}}">
                             <div class="col-md-24 bg-dark-orange h-100 tech-box">
-                                <div class="tech-news-box-image"
+                                <div class="tech-news-box-image lazy"
                                      style="background-image: url({{asset($article->image_path)}})"></div>
                                 <div class="internet-news-box-caption">
                                     <p>{{$article->title}}</p>
@@ -112,7 +112,7 @@
                             <a href="{{route('article.show',['slug' => $article->slug ])}}">
                                 <div class="col-24">
                                     <div class="col-sm-24">
-                                        <div class="col-24 internet internet-md"
+                                        <div class="col-24 internet internet-md lazy"
                                              style="background-image: url({{asset($article->image_path)}})"></div>
                                         <div class="internet-title">
                                             <p>{{$article->title}}</p>

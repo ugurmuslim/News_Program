@@ -17,7 +17,7 @@
                     <a href="{{route('article.show',['slug' => $article->slug ])}}">
                         <div class="col-24 ">
                             <div class="col-sm-24 h-100">
-                                <div class="col-24 education education-md"
+                                <div class="col-24 education education-md lazy"
                                      style="background-image: url({{asset($article->image_path)}})"></div>
                                 <div class="education-title">{{$article->title}}
                                 </div>
