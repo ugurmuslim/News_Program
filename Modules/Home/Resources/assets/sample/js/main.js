@@ -104,7 +104,7 @@ class MainSlider {
             contentType: false,
             processData: false,
             success: function (response) {
-                var slider = []
+                var slider = [];
                 for (var i = 0; i < response.length; i++) {
                     slider.push({
                         caption: response[i].title,
@@ -115,6 +115,7 @@ class MainSlider {
             },
             error: function (xhr, status, error) {
                 var err = eval("(" + xhr.responseText + ")");
+                var slider = [];
                 for (var i = 0; i < 3; i++) {
                     slider.push({
                         caption: "a",
