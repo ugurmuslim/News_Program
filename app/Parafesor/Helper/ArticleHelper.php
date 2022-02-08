@@ -37,7 +37,7 @@ class ArticleHelper
                 ->where('start_date', '<', Carbon::now())
                 ->where('show_case', CategorySectionTypes::NORMAL)
                 ->orderby('articles.article_date', 'DESC')
-                ->limit(10)
+                ->limit(15)
                 ->get();
 
             $articlesMainSlider = Article::where('articles.status', ArticleStatus::PUBLISHED)
