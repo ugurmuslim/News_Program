@@ -99,10 +99,12 @@ sliderImages = [];
 
 async insertSliders() {
     var slider = [];
-    slider.push({
-        caption:"a",
-        image: "https://parafesor.net/images/6185315d5bfce.png",
-    });
+    for (var i = 0; i < 5; i++) {
+        slider.push({
+            caption: "a",
+            image: "https://parafesor.net/images/6185315d5bfce.png",
+        });
+    }
 
     return slider;
     /*return await $.ajax({
@@ -133,7 +135,7 @@ async insertSliders() {
 
 
 async addImages() {
-   /* this.sliderImages = await $.when(this.insertSliders()).done(function(response) {
+    this.sliderImages = await $.when(this.insertSliders()).done(function(response) {
         return response
     })
     let imagesContainer = document.getElementById("images");
@@ -156,7 +158,7 @@ async addImages() {
         <span
             class="text-white ">${this.sliderImages[this.currentImage].createdAt}</span><span> • ${this.sliderImages[this.currentImage].createdAtTime} • parafesor</span>
     </div>
-    </div></div>`*/
+    </div></div>`
     this.restartTimer();
 }
 
@@ -186,16 +188,16 @@ controlSlider(direction) {
         }
     });
 
-    /*if (direction == "next") {
+    if (direction == "next") {
         centerIndex = this.currentImage + 1 >= this.sliderImages.length - 1 ? 0 : this.currentImage + 1;
     }
     if (direction == "previous") {
         centerIndex = this.currentImage - 1 < 0 ? this.sliderImages.length - 1 : this.currentImage - 1;
-    }*/
+    }
 
-   /* leftIndex = centerIndex == 0 ? this.sliderImages.length - 1 : centerIndex - 1;
+    leftIndex = centerIndex == 0 ? this.sliderImages.length - 1 : centerIndex - 1;
     rightIndex = centerIndex == this.sliderImages.length - 1 ? 0 : centerIndex + 1;
-    console.log(leftIndex + " - " + centerIndex + " - " + rightIndex)*/
+    console.log(leftIndex + " - " + centerIndex + " - " + rightIndex)
 
     this.right.children[rightIndex].classList.remove("d-none");
     this.left.children[leftIndex].classList.remove("d-none");
@@ -203,7 +205,7 @@ controlSlider(direction) {
 
     this.currentImage = centerIndex;
 
-    /*document.getElementById("mainSliderCaption").classList.add("fade-in-caption");
+    document.getElementById("mainSliderCaption").classList.add("fade-in-caption");
     document.getElementById("mainSliderCaption").innerText = this.sliderImages[this.currentImage].caption;
     document.getElementById("mainSliderCaption").innerHTML = `<p>
     <a href="https://parafesor.net/${this.sliderImages[this.currentImage].slug}" style="text-decoration: none">${this.sliderImages[this.currentImage].caption}</a>
@@ -215,7 +217,7 @@ controlSlider(direction) {
 
     setTimeout(() => {
         document.getElementById("mainSliderCaption").classList.remove("fade-in-caption");
-    }, 1000)*/
+    }, 1000)
 
 }
 }
