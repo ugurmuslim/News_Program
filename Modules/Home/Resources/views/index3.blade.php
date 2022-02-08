@@ -129,7 +129,7 @@
 
     </footer>
     @include('home::partials._javascript')
-   {{-- <script>
+    <script>
         document.addEventListener("DOMContentLoaded", function() {
             var lazyloadImages;
 
@@ -181,6 +181,6 @@
             }
         })
 
-    </script>--}}
+    </script>
 
 @endsection
