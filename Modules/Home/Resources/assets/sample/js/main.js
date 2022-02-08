@@ -112,10 +112,16 @@ class MainSlider {
                     });
                 }
                 return slider;
-
             },
             error: function (xhr, status, error) {
                 var err = eval("(" + xhr.responseText + ")");
+                for (var i = 0; i < 3; i++) {
+                    slider.push({
+                        caption: "a",
+                        image: "https://parafesor.net/images/6185315d5bfce.png",
+                    });
+                }
+                return slider;
             }
         })
     }
