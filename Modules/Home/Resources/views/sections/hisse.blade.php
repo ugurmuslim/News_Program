@@ -55,17 +55,7 @@
                     @endforeach
                 </div>
             </div>
-            {{--<div class="col-xl-13 mb-5">
-                <div class="card news-card news-card-big ">
-                    <div class="news-card-img-container bg-white">
-                        <div style="background-image: url({{asset("modules/home/sample/img/news/s1n1.webp")}})" alt=""
-                             class="news-img"></div>
-                        <div class="news-card-img-text text-dark-blue">Polat Enerji'nin Tamamının Satışı İçin
-                            Ortaklar Barclays'i Yetkilendirdi
-                        </div>
-                    </div>
-                </div>
-            </div>--}}
+
             <div class="col-xl-11">
                 <div class="row">
                     @php
