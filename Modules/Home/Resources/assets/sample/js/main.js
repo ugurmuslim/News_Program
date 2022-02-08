@@ -264,9 +264,9 @@ var cardSlider;
 class CardSlider {
     configureSliders() {
         cardSlider = this;
-        let cartSliders = document.getElementsByClassName("cardSlider");
-        if (Array.isArray(cartSliders)) {
-            cartSliders.forEach((s) => {
+        let cardSliders = document.getElementsByClassName("cardSlider");
+        if (Array.isArray(cardSliders)) {
+            cardSliders.forEach((s) => {
                 s.attributes.currentSlide.value = -1;
                 this.controlSlider(s, "next")
                 s.children[2].children.forEach(c => {
