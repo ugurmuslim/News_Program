@@ -99,7 +99,13 @@ sliderImages = [];
 
 async insertSliders() {
     var slider;
-    return await $.ajax({
+    slider.push({
+        caption: response[i].title,
+        image: "https://parafesor.net/images/6185315d5bfce.png",
+    });
+
+    return slider;
+    /*return await $.ajax({
         headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         },
@@ -122,7 +128,7 @@ async insertSliders() {
         error: function(xhr, status, error) {
             var err = eval("(" + xhr.responseText + ")");
         }
-    })
+    })*/
 }
 
 
