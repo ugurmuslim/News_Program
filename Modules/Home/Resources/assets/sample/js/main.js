@@ -98,16 +98,8 @@ restartTimer() {
 sliderImages = [];
 
 async insertSliders() {
-    var slider = [];
-    for (var i = 0; i < 5; i++) {
-        slider.push({
-            caption: "a",
-            image: "https://parafesor.net/images/6185315d5bfce.png",
-        });
-    }
-
-    return slider;
-    /*return await $.ajax({
+    var slider;
+    return await $.ajax({
         headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         },
@@ -129,8 +121,9 @@ async insertSliders() {
         },
         error: function(xhr, status, error) {
             var err = eval("(" + xhr.responseText + ")");
+            console.log(err.Message);
         }
-    })*/
+    })
 }
 
 
