@@ -44,7 +44,7 @@ html{
 
 @font-face {
     font-family: "HelveticaNeueBold";
-    src: url("../fonts/HelveticaNeue-Bold-02.ttf") format("truetype");
+    src: url("../fonts/HelveticaNeue-Bold-02.woff2") format("truetype");
 }
 
 @font-face {
