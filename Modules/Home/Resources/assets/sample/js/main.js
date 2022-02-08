@@ -272,6 +272,7 @@ class CardSlider {
         cardSlider = this;
         let cardSliders = document.getElementsByClassName("cardSlider");
         console.log(cardSliders);
+        console.log(Array.isArray(cardSliders));
         if (Array.isArray(cardSliders)) {
             cardSliders.forEach((s) => {
                 console.log(s);
