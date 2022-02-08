@@ -92,7 +92,7 @@
     @yield('content')
     @yield('extra_scripts')
     <script src="{{asset('modules/home/sample/js/header.js')}}"></script>
-    <script src="{{asset('modules/home/sample/js/main.js')}}"></script>
+    <script src="{{asset('modules/home/sample/js/main.js')}}" defer></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/js/fontawesome.min.js"></script>
 
 </body>
