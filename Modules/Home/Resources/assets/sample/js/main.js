@@ -98,7 +98,7 @@ restartTimer() {
 sliderImages = [];
 
 async insertSliders() {
-    var slider;
+    var slider = [];
     slider.push({
         caption: response[i].title,
         image: "https://parafesor.net/images/6185315d5bfce.png",
