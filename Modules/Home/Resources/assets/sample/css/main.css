@@ -39,7 +39,7 @@ html{
 
 @font-face {
     font-family: "HelveticaNeueMedium";
-    src: url("../fonts/HelveticaNeue-Medium-11.ttf") format("truetype");
+    src: url("../fonts/HelveticaNeue-Medium-11.woff2") format("truetype");
 }
 
 @font-face {
@@ -49,12 +49,12 @@ html{
 
 @font-face {
     font-family: "MontserratBold";
-    src: url("../fonts/Montserrat-Bold.ttf") format("truetype");
+    src: url("../fonts/Montserrat-Bold.woff2") format("truetype");
 }
 
 @font-face {
     font-family: "Montserrat";
-    src: url("../fonts/Montserrat-Medium.ttf") format("truetype");
+    src: url("../fonts/Montserrat-Medium.woff2") format("truetype");
 }
 
 @font-face {
