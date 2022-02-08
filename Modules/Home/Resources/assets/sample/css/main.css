@@ -34,27 +34,32 @@ html{
 
 @font-face {
     font-family: "HelveticaNeue";
-    src: url("../fonts/HelveticaNeue-01.woff2") format("truetype");
+    unicode-range: U+000-5FF;
+    src: url("../fonts/HelveticaNeue-01.woff2") format("woff2");
 }
 
 @font-face {
     font-family: "HelveticaNeueMedium";
-    src: url("../fonts/HelveticaNeue-Medium-11.woff2") format("truetype");
+    unicode-range: U+000-5FF;
+    src: url("../fonts/HelveticaNeue-Medium-11.woff2") format("woff2");
 }
 
 @font-face {
     font-family: "HelveticaNeueBold";
-    src: url("../fonts/HelveticaNeue-Bold-02.woff2") format("truetype");
+    unicode-range: U+000-5FF;
+    src: url("../fonts/HelveticaNeue-Bold-02.woff2") format("woff2");
 }
 
 @font-face {
     font-family: "MontserratBold";
-    src: url("../fonts/Montserrat-Bold.woff2") format("truetype");
+    unicode-range: U+000-5FF;
+    src: url("../fonts/Montserrat-Bold.woff2") format("woff2");
 }
 
 @font-face {
     font-family: "Montserrat";
-    src: url("../fonts/Montserrat-Medium.woff2") format("truetype");
+    unicode-range: U+000-5FF;
+    src: url("../fonts/Montserrat-Medium.woff2") format("woff2");
 }
 
 @font-face {
