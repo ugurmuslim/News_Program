@@ -50,7 +50,7 @@ class HomeController extends Controller
      */
     public function indexTest()
     {
-        $sliders = Cache::get(CacheConst::ARTICLE . 'Slider');
+//        $sliders = Cache::get(CacheConst::ARTICLE . 'Slider');
 
         $articleTypes = ArticleType::all();
         $mostReads = Cache::get(CacheConst::MOST_READ_ARTICLE . 'Articles');
@@ -67,7 +67,7 @@ class HomeController extends Controller
         return view('home::index3')
             ->with('mainSliders', $mainSliders)
             ->with('articles', $articles)
-            ->with('slider', $sliders)
+//            ->with('slider', $sliders)
             ->with('currencies', $currencies)
             ->with('mostReads', $mostReads);
     }
