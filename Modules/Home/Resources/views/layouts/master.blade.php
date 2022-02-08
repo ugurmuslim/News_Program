@@ -83,9 +83,7 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-    <link rel="preload" as="font" href="{{asset('/modules/home/sample/fonts/HelveticaNeue-01.ttf')}}" type="font/ttf" crossorigin="anonymous">
-    <link rel="preload" as="font" href="{{asset('/modules/home/sample/fonts/HelveticaNeue-Bold-02.ttf')}}" type="font/ttf" crossorigin="anonymous">
-    <link rel="preload" as="font" href="{{asset('/modules/home/sample/fonts/Montserrat-Medium.ttf')}}" type="font/ttf" crossorigin="anonymous">
+
     @yield('extra_css')
 
 </head>
