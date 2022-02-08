@@ -139,9 +139,7 @@
                     entries.forEach(function(entry) {
                         if (entry.isIntersecting) {
                             var image = entry.target;
-                            console.log(image.classList);
                             image.classList.remove("lazy");
-                            console.log(image.classList);
                             imageObserver.unobserve(image);
                         }
                     });
