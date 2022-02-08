@@ -67,15 +67,19 @@
     <link href="{{ asset('modules/home/sample/css/common.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('modules/home/sample/css/color.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('modules/home/sample/css/glide.css') }}" rel="stylesheet" type="text/css" />
-    <link rel="stylesheet" href="{{ asset('modules/home/sample/css/font-awesome/all.min.css') }}"
-        integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+{{--    <link rel="stylesheet" href="{{ asset('modules/home/sample/css/font-awesome/all.min.css') }}"--}}
+{{--        integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="--}}
+{{--        crossorigin="anonymous" referrerpolicy="no-referrer" />--}}
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+
+
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/simplebar@latest/dist/simplebar.css" />
     <script src="https://cdn.jsdelivr.net/npm/simplebar@latest/dist/simplebar.min.js" async></script>
     <script src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js"
         integrity="sha384-GNFwBvfVxBkLMJpYMOABq3c+d3KnQxudP/mGPkzpZSTYykLBNsZEnG2D9G/X/+7D" crossorigin="anonymous" async>
     </script>
-    <script src="{{ asset('modules/home/sample/js/font-awesome/all.min.js') }}"></script>
+{{--    <script src="{{ asset('modules/home/sample/js/font-awesome/all.min.js') }}"></script>--}}
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     @yield('extra_css')
@@ -95,6 +99,7 @@
     @yield('extra_scripts')
     <script src="{{asset('modules/home/sample/js/header.js')}}"></script>
     <script src="{{asset('modules/home/sample/js/main.js')}}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/js/fontawesome.min.js"></script>
 
 </body>
 
