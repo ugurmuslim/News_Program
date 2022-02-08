@@ -121,7 +121,6 @@ async insertSliders() {
         },
         error: function(xhr, status, error) {
             var err = eval("(" + xhr.responseText + ")");
-            console.log(err.Message);
         }
     })
 }
