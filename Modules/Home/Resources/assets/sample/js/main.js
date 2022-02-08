@@ -271,11 +271,10 @@ class CardSlider {
     configureSliders() {
         cardSlider = this;
         let cardSliders = document.getElementsByClassName("cardSlider");
-        console.log(cardSliders);
         Array.prototype.forEach.call(cardSliders, function (s) {
             console.log(s);
             s.attributes.currentSlide.value = -1;
-            this.controlSlider(s, "next")
+            cardSlider.controlSlider(s, "next")
             s.children[2].children.forEach(c => {
                 if (c.attributes.direction.value == "next") {
                     c.addEventListener("click", function () {
@@ -293,7 +292,7 @@ class CardSlider {
 
     controlSlider(slider, direction) {
         for (let i = 0; i < slider.childNodes.length - 1; i++) {
-            if (slider.children[i] && slider.children[i].className == "news-card-slider-container") {
+            if (slider.children[i] && slider.children[i].className === "news-card-slider-container") {
                 let current = slider.attributes.currentSlide.value * 1;
                 let count = slider.children[i].children.length;
 
