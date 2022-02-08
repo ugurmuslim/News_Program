@@ -17,7 +17,7 @@
                     {{--<iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>--}}
                     @foreach($articles["Borsa Tube"][\App\Parafesor\Constants\CategorySectionTypes::MAIN_SLIDER]->take(1) as $article)
                             <a href="{{$article->original_link}}" target="_blank" >
-                                <div class="image-card image-card-bw-16x10"
+                                <div class="image-card image-card-bw-16x10 lazy"
                                      style="background-image: url({{asset($article->image_path)}})"></div>
                             </a>
                     @endforeach
@@ -32,7 +32,7 @@
                             @foreach($articles["Borsa Tube"][\App\Parafesor\Constants\CategorySectionTypes::NORMAL]->take(8) as $article)
                                 <div class="image-card-container">
                                     <a href="{{$article->original_link}}" target="_blank">
-                                        <div class="image-card image-card-bw-16x10"
+                                        <div class="image-card image-card-bw-16x10 lazy"
                                              style="background-image: url({{asset($article->image_path)}})"></div>
                                     </a>
                                 </div>
@@ -46,7 +46,7 @@
             @foreach($articles["Borsa Tube"][\App\Parafesor\Constants\CategorySectionTypes::NORMAL]->slice(8)->take(3) as $article)
                 <div class="col-md-8 mt-3">
                     <a href="{{$article->original_link}}" target="_blank">
-                        <div class="image-card image-card-16x8 image-cover image-card-bordered"
+                        <div class="image-card image-card-16x8 image-cover image-card-bordered lazy"
                              style="background-image: url({{asset($article->image_path)}})">test
                         </div>
                     </a>

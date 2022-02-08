@@ -14,7 +14,7 @@
                 <div class="col-sm-24 col-md-12 col-lg-6 mt-3">
                     <a href="{{route('article.show',['slug' => $article->slug ])}}">
                         <div class="most-red">
-                            <div class="most-red-image"
+                            <div class="most-red-image lazy"
                                  style="background-image: url({{asset($article->image_path)}})"></div>
                             <div class="most-red-text">
                                 <div class="most-red-index">{{$i}}</div>

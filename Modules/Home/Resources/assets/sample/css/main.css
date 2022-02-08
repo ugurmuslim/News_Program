@@ -2,6 +2,11 @@ html{
     overflow-x: hidden;
 }
 
+.lazy[style] {
+    background: none !important;
+    background-image: none !important;
+}
+
 @font-face {
     font-family: "ArchivoBlack-Regular";
     src: url("../fonts/ArchivoBlack-Regular.ttf") format("truetype");

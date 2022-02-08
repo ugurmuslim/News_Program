@@ -15,7 +15,7 @@
                         <a href="{{route('article.show',['slug' => $article->slug ])}}">
                             <div class="news-card-img-container">
                                 <div style="background: url({{asset($article->image_path)}})" alt=""
-                                     class="news-img"></div>
+                                     class="news-img lazy"></div>
                                 <div class="news-card-img-text bg-white small-text">
                                     <p>{{$article->title}}</p>
                                 </div>
@@ -38,7 +38,7 @@
                                 @foreach($articles["Teknoloji"][\App\Parafesor\Constants\CategorySectionTypes::MAIN_SLIDER]->take(4) as $article)
                                     <a href="{{route('article.show',['slug' => $article->slug ])}}">
                                         <div class="news-card-slider-slide">
-                                            <div class="tech-card-slider-slide-img text-white"
+                                            <div class="tech-card-slider-slide-img text-white lazy"
                                                  style="background-image: url({{asset($article->image_path)}})">
                                                 <div class="tech-card-slider-slide-caption">
                                                         <span class="highlighted bg-purple">
@@ -71,7 +71,7 @@
                         @foreach($teknolojiArticles as $article)
                             <a href="{{route('article.show',['slug'=> $article->slug])}}">
                                 <div class="col-md-24 bg-purple h-100 tech-box">
-                                    <div class="tech-news-box-image"
+                                    <div class="tech-news-box-image lazy"
                                          style="background-image: url({{asset($article->image_path)}})"></div>
                                     <div class="tech-news-box-caption">
                                         <p>{{$article->title}}</p>
@@ -90,7 +90,7 @@
                     @foreach($teknolojiArticlesBelow as $article)
                         <div class="col-sm-24 col-md-12 col-lg-8 mt-3">
                             <a href="{{route('article.show',['slug' => $article->slug ])}}">
-                                <div class="col-24 tech tech-md"
+                                <div class="col-24 tech tech-md lazy"
                                      style="background-image: url({{asset($article->image_path)}})"></div>
                                 <div class="tech-title"><p>{{$article->title}}</p>
                                     <div class="tech-text-bottom-sm">

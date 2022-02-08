@@ -16,7 +16,7 @@
                 <div class="col-xl-13 mb-5">
                     <a href="{{route('article.show',['slug' => $article->slug ])}}">
                         <div class="card news-card news-card-big" id="corporate-new-showcase">
-                            <div class="news-card-img-container bg-white">
+                            <div class="news-card-img-container bg-white lazy">
                                 <div style="background-image: url({{asset($article->image_path)}})" alt=""
                                      class="news-img"></div>
                                 <div class="news-card-img-text text-dark-blue big-title"
@@ -48,7 +48,7 @@
                             <a href="{{route('article.show',['slug' => $article->slug ])}}">
                                 <div class="corporate-news-numbers text-dark-blue">{{$i}}</div>
                                 <div class="corporate-news-img">
-                                    <div class="image-card-16x10 border bg-white"
+                                    <div class="image-card-16x10 border bg-white lazy"
                                          style="background-image: url({{asset($article->image_path)}})"></div>
                                 </div>
                                 <div class="corporate-news-text">
@@ -77,7 +77,7 @@
                     <a href="{{route('article.show',['slug' => $article->slug ])}}">
                         <div class="card">
                             <div class="corporate-triangle"></div>
-                            <div class="company-image"
+                            <div class="company-image lazy"
                                  style="background-image: url({{asset($article->image_path)}}); background-position: left; margin-left: 5%; "></div>
                             <div class="company-text" style="padding-left: 5%;">
                                 <p>{{$article->summary}}</p>

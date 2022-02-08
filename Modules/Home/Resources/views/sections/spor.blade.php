@@ -18,7 +18,7 @@
                         @foreach($articles["Spor"][\App\Parafesor\Constants\CategorySectionTypes::MAIN_SLIDER]->take(4) as $article)
                             <a href="{{route('article.show',['slug' => $article->slug ])}}">
                                 <div class="news-card-slider-slide">
-                                    <div class="sport-card-slider-slide-img text-white"
+                                    <div class="sport-card-slider-slide-img text-white lazy"
                                          style="background-image: url({{asset($article->image_path)}})">
                                         <div class="blueOverlay90"></div>
 
@@ -51,7 +51,7 @@
 
                 @foreach($sporArticles as $article)
                     <a href="{{route('article.show',['slug' => $article->slug ])}}">
-                        <div class="col-24 sport sport-md"
+                        <div class="col-24 sport sport-md lazy"
                              style="background-image: url({{asset($article->image_path)}})"></div>
                         <div class="sport-title">
                             <p>{{ $article->title }}</p>
@@ -66,7 +66,7 @@
             @foreach($sporArticlesSecond as $article)
                 <div class="col-lg-6 col-md-12 mt-1">
                     <a href="{{route('article.show',['slug' => $article->slug ])}}">
-                        <div class="col-24 sport sport-md"
+                        <div class="col-24 sport sport-md lazy"
                              style="background-image: url({{asset($article->image_path)}})"></div>
                         <div class="sport-title">
                             <p>{{ $article->title}}</p>
@@ -108,7 +108,7 @@
                 <div class="col-sm-12 col-md-8 col-lg-percent-20">
                     <a href="{{route('article.show',['slug' => $article->slug ])}}">
                         <div class="card news-card news-card-small mt-4 ">
-                            <div class="news-card-img-container bg-white">
+                            <div class="news-card-img-container bg-white lazy">
                                 <div style="background: url({{asset($article->image_path)}})" alt=""
                                      class="news-img"></div>
                                 <div class="news-card-img-text small-text">

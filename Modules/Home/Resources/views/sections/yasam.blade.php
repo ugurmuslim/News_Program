@@ -16,7 +16,7 @@
                         @foreach($articles["Yaşam"][\App\Parafesor\Constants\CategorySectionTypes::MAIN_SLIDER]->take(4) as $article)
                             <div class="news-card-slider-slide">
                                 <a href="{{route('article.show',['slug'=> $article->slug])}}">
-                                    <div class="life-card-slider-slide-img text-white"
+                                    <div class="life-card-slider-slide-img text-white lazy"
                                          style="background-image: url({{asset($article->image_path)}})">
                                         <div class="yellowOverlay0">
                                             <div class="life-card-slider-slide-caption text-black">
@@ -50,7 +50,7 @@
                     <div class="col-md-24  match" matchTo="life-slider">
                         <a href="{{route('article.show',['slug'=> $article->slug])}}">
                             <div class="col-md-24 bg-white  h-100 tech-box">
-                                <div class="tech-news-box-image "
+                                <div class="tech-news-box-image lazy"
                                      style="background-image: url({{asset($article->image_path)}}); height: 100%">
                                     <div class="life-second-image-caption">
                                         <p>{{$article->title}}</p>
@@ -71,7 +71,7 @@
                     <div class="col-md-24 match" matchTo="life-slider" style="border-bottom: 8px solid orange;">
                         <a href="{{route('article.show',['slug'=> $article->slug])}}">
                             <div class="col-md-24 bg-white  h-100 tech-box">
-                                <div class="tech-news-box-image "
+                                <div class="tech-news-box-image lazy"
                                      style="background-image: url({{asset($article->image_path)}})"></div>
                                 <div class="life-news-box-caption text-center">
                                     <p>{{$article->title}}</p>

@@ -20,7 +20,7 @@
                         @foreach ($articles['Otomobil'][\App\Parafesor\Constants\CategorySectionTypes::MAIN_SLIDER]->take(4) as $article)
                             <div class="news-card-slider-slide">
                                 <a href="{{ route('article.show', ['slug' => $article->slug]) }}">
-                                    <div class="life-card-slider-slide-img text-white"
+                                    <div class="life-card-slider-slide-img text-white lazy"
                                          style="background-image: url({{ asset($article->image_path) }})">
                                         <div class="blueOverlay">
 
@@ -58,7 +58,7 @@
                     <a href="{{ route('article.show', ['slug' => $article->slug]) }}">
                         <div class="col-24 bg-dark">
                             <div class="col-sm-24 h-100">
-                                <div class="col-24 automobile automobile-md"
+                                <div class="col-24 automobile automobile-md lazy"
                                      style="background-image: url({{ asset($article->image_path) }})"></div>
                                 <div class="automobile-title">
                                     <p>{{ $article->title }}</p>
@@ -80,7 +80,7 @@
                     <a href="{{ route('article.show', ['slug' => $article->slug]) }}">
                         <div class="col-24  bg-dark">
                             <div class="col-sm-24 ">
-                                <div class="col-24 automobile automobile-md"
+                                <div class="col-24 automobile automobile-md lazy"
                                      style="background-image: url({{ asset($article->image_path) }})"></div>
                                 <div class="automobile-title"><p>{{ $article->title }}</p>
                                     <div class="automobile-text-bottom-sm">
@@ -123,7 +123,7 @@
                 <div class="col-md-24 col-lg-12 p-4 ">
                     <a href="{{ route('article.show', ['slug' => $article->slug]) }}">
                         <div class="row">
-                            <div class="col-10"
+                            <div class="col-10 lazy"
                                  style="background-image: url({{ asset($article->image_path) }}); background-size: 100% 100%">
                             </div>
                             <div class="col-14 bg-secondary" style="padding: 0 3% 0 3%">
