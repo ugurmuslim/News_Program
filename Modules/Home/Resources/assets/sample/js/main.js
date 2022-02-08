@@ -308,7 +308,7 @@ controlSlider(slider, direction) {
 }
 
 mainSlider = new MainSlider();
-mainSlider.insertSliders()
+// mainSlider.insertSliders()
 mainSlider.addImages()
 let cs = new CardSlider()
 runResizeEvents()
