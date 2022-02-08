@@ -100,7 +100,7 @@ sliderImages = [];
 async insertSliders() {
     var slider = [];
     slider.push({
-        caption: response[i].title,
+        caption:"a",
         image: "https://parafesor.net/images/6185315d5bfce.png",
     });
 
