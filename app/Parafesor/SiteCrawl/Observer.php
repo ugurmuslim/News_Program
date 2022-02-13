@@ -134,20 +134,22 @@ class Observer extends CrawlObserver
                     "updated_at"      => Carbon::now(),
                 ]);
             } else {
-                CrawledArticleTestLog::create([
-                    "title"           => isset($title) ? $title->nodeValue : null,
-                    "site_to_crawl_id"   => $this->site->id,
-                    "original_link"   => $url,
-                    "article_type_id" => $this->site->article_type_id,
-                    "pub_date"        => isset($pubDate) ? date('Y-m-d H:i:s', strtotime($pubDate)) : null,
-                    "summary"         => isset($summary) ? $summary->nodeValue : null,
-                    "image_path"      => isset($img) ? $img  : null,
-                    "site_name"       => $this->site->site_name,
-                    "body"            => null,
-                    "message"         => json_encode($errors),
-                    "created_at"      => Carbon::now(),
-                    "updated_at"      => Carbon::now(),
-                ]);
+                if ($url->getScheme() . "//" .  $url->getHost() . $url->getPath() !== $this->site->title) {
+                    CrawledArticleTestLog::create([
+                        "title"            => isset($title) ? $title->nodeValue : null,
+                        "site_to_crawl_id" => $this->site->id,
+                        "original_link"    => $url,
+                        "article_type_id"  => $this->site->article_type_id,
+                        "pub_date"         => isset($pubDate) ? date('Y-m-d H:i:s', strtotime($pubDate)) : null,
+                        "summary"          => isset($summary) ? $summary->nodeValue : null,
+                        "image_path"       => isset($img) ? $img : null,
+                        "site_name"        => $this->site->site_name,
+                        "body"             => null,
+                        "message"          => json_encode($errors),
+                        "created_at"       => Carbon::now(),
+                        "updated_at"       => Carbon::now(),
+                    ]);
+                }
             }
         } catch (Exception $e) {
             echo $e->getMessage();
