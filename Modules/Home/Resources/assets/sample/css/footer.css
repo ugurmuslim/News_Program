@@ -1,0 +1,137 @@
+#section-footer{
+    font-family: "HelveticaNeue";
+    background-color: #414242;
+    color: #fff;
+    padding-top: 45px;
+    padding-bottom: 0;
+}
+
+#section-footer .container {
+    max-width: 1288px;
+}
+
+#section-footer .col-lg-5:first-child {
+    margin-top: -16px;
+    position: relative;
+}
+
+#section-footer .social-icons{
+    margin-top: 25px;
+}
+
+#section-footer .social-icons a{
+    display: inline-block;
+    background-color: #fff;
+    color: #414242;
+    width: 33px;
+    height: 33px;
+    text-align: center;
+    border-radius: 50%;
+}
+
+#section-footer .social-icons a svg,
+#section-footer .social-icons a i{
+    font-size: 17px;
+}
+
+.row .col-lg-5:not(:last-child) {
+    padding-right: 30px;
+}
+
+#section-footer .col-lg-5 img{
+    width: 100%;
+    max-width: 220px;
+    padding-bottom: 15px;
+}
+
+#section-footer h4{
+    font-size: 17px;
+    font-family: 'HelveticaNeueBold';
+    padding-bottom: 13px;
+    border-bottom: 1px solid #707070;
+}
+
+#section-footer p{
+    font-size: 17px;
+    line-height: 21px;
+}
+
+#section-footer ul{
+    list-style-type: none;
+    margin: 10px 0 0;
+    padding: 0;
+}
+
+#section-footer ul li{
+    font-size: 17px;
+    line-height: 30px;
+}
+
+.row.copyright {
+    border-top: 1px solid #707070;
+    font-size: 14px;
+    margin-top: 47px;
+    padding:0 12px;
+}
+
+.row.copyright *{
+    color: #868686;
+    padding: 0;
+}
+
+.row.copyright .col-left span{
+    display: inline-block;
+    line-height: 57px;
+}
+
+.row.copyright .col-right a {
+    line-height: 57px;
+    display: inline-block;
+}
+
+.row.copyright .col-right a img{
+    height: 30px;
+}
+
+.row.copyright div *:not(:last-child) {
+    padding-right: 17px;
+}
+
+.row.copyright .col-right{
+    text-align: right;
+}
+
+@media only screen and (max-width: 768px){
+    .row.copyright .col-left span{
+        line-height: 0;
+    }
+
+    .row.copyright .col-left{
+        padding-top: 20px;
+    }
+}
+
+@media only screen and (min-width: 992px){
+    
+    #section-footer .col-lg-5{
+        width: 20%;
+    }
+
+    .col-lg-12 {
+        height: auto;
+    }
+
+}
+
+@media only screen and (max-width: 992px){
+    
+    #section-footer .row.copyright div{
+        text-align: center;
+    }
+
+    #section-footer .row .col-lg-5:not(:last-child){
+        margin-bottom: 40px;
+    }
+
+}
+

@@ -2,9 +2,8 @@ html{
     overflow-x: hidden;
 }
 
-.lazy[style] {
-    background: none !important;
-    background-image: none !important;
+body{
+    background-color: #fefefe;
 }
 
 @font-face {
@@ -34,32 +33,27 @@ html{
 
 @font-face {
     font-family: "HelveticaNeue";
-    unicode-range: U+000-5FF;
-    src: url("../fonts/HelveticaNeue-01.woff2") format("woff2");
+    src: url("../fonts/HelveticaNeue-01.ttf") format("truetype");
 }
 
 @font-face {
     font-family: "HelveticaNeueMedium";
-    unicode-range: U+000-5FF;
-    src: url("../fonts/HelveticaNeue-Medium-11.woff2") format("woff2");
+    src: url("../fonts/HelveticaNeue-Medium-11.ttf") format("truetype");
 }
 
 @font-face {
     font-family: "HelveticaNeueBold";
-    unicode-range: U+000-5FF;
-    src: url("../fonts/HelveticaNeue-Bold-02.woff2") format("woff2");
+    src: url("../fonts/HelveticaNeue-Bold-02.ttf") format("truetype");
 }
 
 @font-face {
     font-family: "MontserratBold";
-    unicode-range: U+000-5FF;
-    src: url("../fonts/Montserrat-Bold.woff2") format("woff2");
+    src: url("../fonts/Montserrat-Bold.ttf") format("truetype");
 }
 
 @font-face {
     font-family: "Montserrat";
-    unicode-range: U+000-5FF;
-    src: url("../fonts/Montserrat-Medium.woff2") format("woff2");
+    src: url("../fonts/Montserrat-Medium.ttf") format("truetype");
 }
 
 @font-face {
