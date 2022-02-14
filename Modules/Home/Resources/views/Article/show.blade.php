@@ -192,7 +192,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-5 col-sm-12 col-24">
-                        <a href="#"><img src="sample/img/parafesor-logo-light.svg" alt="Parafesör Light Logo"></a>
+                        <a href="#"><img src="{{asset('modules/home/sample/img/parafesor-logo-light.svg')}}" alt="Parafesör Light Logo"></a>
                         <p>Paranıza Akıl Verir<br>Gündemin en önemli haberleri Parafesör’de! Borsa, hisse, şirket,
                             kripto, teknoloji ve yaşam haberleri.</p>
                         <p>İletişim: <a href="mailto:info@parafesor.net">info@parafesor.net</a></p>
