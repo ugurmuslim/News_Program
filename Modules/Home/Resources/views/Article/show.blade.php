@@ -187,6 +187,9 @@
             </div>
         </div>
     </div>
+    <div id="ArticleId" hidden>
+        {{$article->id}}
+    </div>
     <section id="section-footer">
         <footer>
             <div class="container">
