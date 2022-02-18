@@ -15,7 +15,7 @@
     @include('home::partials._header')
     <div class="container detail">
         <div class="detail-title col detail-title" style="text-align: center">
-            <p>PARAFESÖR / {{strtoupper($article->articleType->title)}}</p>
+            <p>PARAFESÖR / {{mb_strtoupper($article->articleType->title, 'UTF-8')}}</p>
             <h1>{{$article->title}}</h1>
             <div class="news-card-bottom mt-3">
                 <span>{{ Date::parse($article->article_date)->format('j F')}} • {{ Carbon\Carbon::parse($article->article_date)->format('H:i')}} • parafesor</span>
