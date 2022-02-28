@@ -96,6 +96,15 @@
     overflow: hidden;
 }
 
+.container.detail img{
+    display: block;
+    margin: 0 auto;
+}
+
+.container.detail img{
+    width: 100%;
+    height: 100%;
+}
 
 @media screen and (max-width: 768px){
 
