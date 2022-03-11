@@ -22,7 +22,7 @@
     <div class="header__middle">
         <div class="container nav__contanier--desktop">
             <div class="nav__list">
-                <a href="#"><img src="{{asset('modules/home/sample/img/logo-dark.svg')}}" alt="Parafesör Logo"
+                <a href="/"><img src="{{asset('modules/home/sample/img/logo-dark.svg')}}" alt="Parafesör Logo"
                                  height="76"></a>
                 <ul class="nav nav-pills main_menu_ul">
                     @foreach($headerMenu as $menu)
@@ -107,7 +107,7 @@
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
                 </svg>
             </button>
-            <a href="https://parafesor.net" class="header__nav__logo">
+            <a href="/" class="header__nav__logo">
                 <img src="{{asset('modules/home/sample/img/logo-dark.svg')}}" alt="Header Logo" width="226" height="54">
             </a>
             <svg id="mobile_search_icon2" xmlns="http://www.w3.org/2000/svg" style="width: 24px; height: 24px;"
