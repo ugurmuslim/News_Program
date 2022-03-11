@@ -34,5 +34,6 @@ class AppServiceProvider extends ServiceProvider
 
 				$headerMenu = Cache::get(CacheConst::MENU . 'Header', Menu::orderBy('sort', 'asc')->get());
 				View::share('headerMenu', $headerMenu);
+				//testcommit
 		}
 }
