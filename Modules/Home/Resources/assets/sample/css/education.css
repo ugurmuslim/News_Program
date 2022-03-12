@@ -1,127 +1,151 @@
+.egitim-row {
+    margin: 35px 0 0;
+    display: flex;
+    justify-content: space-between;
+}
 
+.egitim-row > div {
+    padding: 0;
+    width: 350px;
+    margin-bottom: 19px;
+}
 
 .education {
     height: 0px;
-    padding-bottom: 66%;
-    background-color: rgba(0,0,0,0.3);
+    padding-bottom: 199px;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
+    border-bottom: 5px solid #2171F2;
 }
 
-
-.education-lg {
-    padding-bottom: 75%;
+.education-title p{
+    font-family: "MillerTextBold";
+    color: #242424;
+    font-size: 27px;
+    line-height: 33px;
+    letter-spacing: -1.35px;
+    height: 99px;
+    margin: 26px 0 7px;
+    overflow: hidden;
 }
 
-.education-md {
-
-}
-
-.education-sm {
-    position: relative;
-    width: 330px;
-    height: 390px;
-    padding:10px;
-}
-
-.education-sm-img {
-    width: 100%;
-    height:210px;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-}
 .education-text-bottom {
-    /*position: absolute;*/
-    bottom:-10px;
-    font-family: MillerTextRoman;
-    color:#555555;
-    font-size:14px;
-
-}
-.education-text-bottom-sm {
-
-    font-family: MillerTextRoman;
-    color:#555555;
-    padding-top: 10px;
-    font-size:14px;
-
-}
-.education-title {
-    font-family: MillerTextBold;
-    font-size: 22px;
-    height: 120px;
-    padding-top: 30px;
+    font-family: "MillerTextRoman";
+    color:#9A9A9A;
+    font-size: 16px;
 }
 
-.education-sm-title {
-    background-color: #ffffff;
-    position: absolute;
-    width: auto;
-    max-width: 80%;
-    top:60%;
-    right: 5px;
-    font-size: 1.4em;
-    font-family: MillerTextBold;
-    padding: 5px;
-    white-space:normal;
-    height: 120px;
-    padding-bottom: 10px;
-
+.education-text-bottom span{
+    color: #2171F2;
 }
 
-.education-sm-top {
-    font-size: 2em;
-    color: #844dff;
-    font-family: HelveticaNeueBold;
-    font-weight: bolder;
-    display: flex;
+@media screen and (min-width: 1366px) and (max-width: 1509px){
+    .egitim-row {
+        margin-top: 31px;
+    }
+    
+    .egitim-row > div {
+        width: 300px;
+        margin-bottom: 19px;
+    }
+    
+    .education {
+        padding-bottom: 170px;
+    }
+    
+    .education-title p{
+        font-size: 22px;
+        line-height: 27px;
+        letter-spacing: -1.1px;
+        height: 85px;
+        margin: 22px 0 2px;
+    }
+    
+    .education-text-bottom {
+        font-size: 16px;
+    }
 }
 
-.education-top-line {
-    width: calc(100% - 0.75em);
-    border-bottom:solid 1px #844dff;
-    position: absolute;
-    top:0.8em;
-    z-index: 1;
+@media screen and (min-width: 1201px) and (max-width: 1365px){
+    .egitim-row {
+        margin-top: 25px;
+    }
+    
+    .egitim-row > div {
+        width: 280px;
+        margin-bottom: 21px;
+    }
+    
+    .education {
+        padding-bottom: 158px;
+    }
+    
+    .education-title p{
+        font-size: 22px;
+        line-height: 27px;
+        letter-spacing: -1.1px;
+        height: 79px;
+        margin: 21px 0 14px;
+    }
+    
+    .education-text-bottom {
+        font-size: 13px;
+    }
 }
 
-.education-slider {
-    overflow:hidden; width: 100%; height: 420px; overflow-x: scroll; white-space: nowrap;
+@media screen and (min-width: 768px) and (max-width:1200px){
+    .egitim-row {
+        margin-top: 12px;
+    }
+    
+    .egitim-row > div {
+        width: 24%;
+        margin-bottom: 11px;
+    }
+    
+    .education {
+        padding-bottom: 115px;
+        border-width: 4px;
+    }
+    
+    .education-title p{
+        font-size: 16px;
+        line-height: 19px;
+        letter-spacing: -0.85px;
+        height: 77px;
+        margin: 12px 0 10px;
+    }
+    
+    .education-text-bottom {
+        font-size: 11px;
+    }
 }
 
-
-.education-slider ::-webkit-scrollbar {
-    width: 5px;
-    height: 5px;
-    border-color: #844dff;
-}
-.education-slider ::-webkit-scrollbar-thumb {
-
-    border-color: #844dff;
-}
-.education-card-slider-slide-img {
-    width: 100%;
-    height: 100%;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-.education-card-slider-slide-caption {
-    font-family: MillerTextBold;
-    width: 75%;
-    height: 100%;
-    font-size: 26px;
-    text-align: left;
-    padding: 30px;
-    padding-top:30%;
-    z-index: 20;
-    position: absolute;
-}
-
-.education-paper-card {
-    height: 100px;
-    border-radius: 10px;
-
+@media screen and (max-width: 768px){
+    .egitim-row {
+        margin-top: 26px;
+    }
+    
+    .egitim-row > div {
+        width: 49%;
+        margin-bottom: 18px;
+    }
+    
+    .education {
+        padding-bottom: 94px;
+        border-width: 3px;
+    }
+    
+    .education-title p{
+        font-size: 17px;
+        line-height: 21px;
+        letter-spacing: -0.85px;
+        height: 82px;
+        margin: 12px 0 10px;
+    }
+    
+    .education-text-bottom {
+        font-size: 11px;
+    }
 }

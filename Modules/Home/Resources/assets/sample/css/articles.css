@@ -1,15 +1,16 @@
+#section-kose-yazilari .section-header{
+    color: #4E4E4E !important;
+}
 
-.article {
-    padding: 10px 20px;
+.article-image,
+.article-text{
+    border: solid 1px #CCCCCC;
 }
 
 .article-image {
     width: 150px;
     height: 265px;
     float: left;
-    border: solid 1px #CCCCCC;
-    border-radius: 4px;
-   /* background-color: #333333;*/
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -17,62 +18,403 @@
     filter: grayscale(100%);
 }
 
-.article-detail-image {
-    max-width: 1000px;
-}
-
 .article-text {
+    color: #242424;
     height: 265px;
     width: calc(100% - 160px);
-    float: right;
-    margin-left: 10px;
-    border: solid 1px #CCCCCC;
-    border-radius: 4px;
     background-color: #ebecee;
     position: relative;
+    padding: 10px 10px 0;
+    margin-left: 10px;
 }
 
 .article-text-title {
-    font-family: MillerTextBold;
-    padding-top: 15px;
+    font-family: "MillerTextBold";
     font-size: 18px;
-    font-weight: bold;
 }
 
 .article-text-body {
-    padding-top: 15px;
-
     font-size: 17px;
-
+    color: #6A6A6A;
 }
 
-.article-text-bottom {
-    font-family: HelveticaNeueBold;
-    width: 100%;
-    color: #222222;
-    font-weight: bold;
+.article-logo-bottom .author-date{
+    font-family: "HelveticaNeueBold";
+    display: block;
     font-size: 13px;
-    height: 20px;
-    position: absolute;
-    bottom: 10px;
-    left: 10px;
+    line-height: 13px;
 }
 
-.article-logo-bottom {
-    font-family: HelveticaNeueBold;
-    width: 100%;
-    color: #222222;
-    font-weight: bold;
-    font-size: 13px;
-    height: 20px;
-    position: absolute;
-    bottom: 10px;
-    right: -70%;
+.article-logo-bottom img {
+    height: 16px;
+    background: #de0202;
 }
 
-@media (max-width: 1000px) {
-    .article-detail-image {
-        max-width: 900px;
+.container.texts > .row,
+.container.texts > .row > div {
+    margin: 0;
+}
+
+.texts > .row{
+    display: flex;
+    justify-content: space-between;
+}
+
+.show-more-text {
+    margin: 20px 0 !important;
+    text-align: center;
+}
+
+.show-more-text a{
+    font-family: 'Montserrat';
+    padding: 0 25px 12px 32px;
+    border-bottom: 1px solid  #4E4E4E;
+    color: #4E4E4E;
+}
+
+.show-more-text a i,
+.show-more-text a svg{
+    margin-left: 23px;
+    font-size: 17px;
+}
+
+@media screen and (min-width: 1510px){
+    .texts{
+        margin-top: 31px;
     }
 
+    .article {
+        width: 478px;
+        margin-bottom: 21px !important;
+    }
+
+    .article-image{
+        width: 142px;
+    }
+
+    .article-text{
+        margin-left: 18px;
+    }
+
+    .article,
+    .article-image,
+    .article-text{
+        height: 256px;
+    }
+
+    .article-text-title {
+        font-size: 20px;
+        line-height: 26px;
+        letter-spacing: -1px;
+    }
+    
+    .article-text {
+        padding: 26px 23px 0;
+        width: calc(100% - 160px);
+    }
+
+    .article-text-body {
+        font-size: 17px;
+        line-height: 21px;
+        letter-spacing: 0;
+    }
+    
+    .article-text-body p {
+        -webkit-line-clamp: 4 !important;
+    }
+
+    .author-date {
+        font-size: 14px !important;
+        line-height: 17px !important;
+    }
+
+    .show-more-text {
+        margin: 20px 0 31px !important;
+    }
+
+    .show-more-text a i,
+    .show-more-text a svg{
+        margin-left: 23px;
+        font-size: 17px;
+    }
+
+}
+
+@media screen and (min-width: 1366px) and (max-width: 1509px){
+    .texts{
+        margin-top: 31px;
+    }
+
+    .article {
+        width: 412px;
+        margin-bottom: 18px !important;
+    }
+
+    .article-image{
+        width: 122px !important;
+    }
+
+    .article-text{
+        margin-left: 16px;
+    }
+
+    .article,
+    .article-image,
+    .article-text{
+        height: 219px;
+    }
+    
+    .article-text {
+        padding: 22px 18px 0;
+        width: calc(100% - 138px);
+    }
+
+    .article-text-title {
+        font-size: 17px;
+        line-height: 21px;
+        letter-spacing: -0.85px;
+    }
+
+    .article-text-body {
+        font-size: 15px;
+        line-height: 18px;
+        letter-spacing: 0;
+    }
+    
+    .article-text-body p {
+        -webkit-line-clamp: 4 !important;
+    }
+
+    .author-date {
+        font-size: 14px !important;
+        line-height: 13px !important;
+    }
+
+    .show-more-text {
+        margin: 12px 0 27px !important;
+    }
+
+    .show-more-text a{
+        font-size: 13px !important;
+        padding: 0 15px 8px 19px;
+    }
+
+    .show-more-text a i,
+    .show-more-text a svg{
+        margin-left: 10px;
+        font-size: 14px;
+    }   
+}
+
+@media screen and (min-width: 1201px) and (max-width: 1365px){
+    .texts{
+        margin-top: 25px;
+    }
+
+    .article {
+        width: 384px;
+        margin-bottom: 17px !important;
+    }
+
+    .article-image{
+        width: 113px !important;
+    }
+
+    .article-text{
+        margin-left: 14px;
+    }
+    
+    .article-text p {
+        margin: 0;
+    }
+    
+    .article,
+    .article-image,
+    .article-text{
+        height: 205px;
+    }
+    
+    .article-text {
+        padding: 21px 18px 0;
+        width: calc(100% - 127px);
+    }
+
+    .article-text-title {
+        font-size: 16px;
+        line-height: 20px;
+        letter-spacing: -0.8px;
+    }
+
+    .article-text-body {
+        font-size: 14px;
+        line-height: 17px;
+        letter-spacing: 0;
+        margin: 8px 0 12px;
+    }
+    
+    .article-text-body p {
+        -webkit-line-clamp: 5 !important;
+    }
+
+    .author-date {
+        font-size: 13px !important;
+        line-height: 5px !important;
+    }
+
+    .show-more-text {
+        margin: 11px 0 23px !important;
+    }
+
+    .show-more-text a{
+        font-size: 13px !important;
+        padding: 0 13px 7px 8px;
+    }
+
+    .show-more-text a i,
+    .show-more-text a svg{
+        margin-left: 7px;
+        font-size: 13px;
+    }   
+}
+
+@media screen and (min-width: 768px) and (max-width:1200px) {
+    .texts{
+        margin-top: 25px;
+    }
+
+    .article {
+        width: 50%;
+        margin-bottom: 17px !important;
+    }
+
+    .article-image{
+        width: 25%;
+    }
+
+    .article-text{
+        margin-left: 14px;
+        width: 70%;
+    }
+
+    .article,
+    .article-image,
+    .article-text{
+        height: 205px;
+    }
+    
+    .article-text {
+        padding: 21px 18px 0;
+    }
+
+    .article-text-title {
+        
+        height: 40px !important;
+        font-size: 16px;
+        line-height: 20px;
+        letter-spacing: -0.8px;
+    }
+
+    .article-text-body {
+        font-size: 14px;
+        line-height: 17px;
+        letter-spacing: 0;
+        margin: 8px 0 12px;
+        height: 70px;
+    }
+    
+    .article-text-body p {
+        -webkit-line-clamp: 4 !important;
+    }
+
+    .author-date {
+        font-size: 13px !important;
+        line-height: 5px !important;
+    }
+
+    .show-more-text {
+        margin: 8px 0 20px !important;
+    }
+
+    .show-more-text a{
+        font-size: 13px !important;
+        padding: 0 13px 7px 8px;
+    }
+
+    .show-more-text a i,
+    .show-more-text a svg{
+        margin-left: 7px;
+        font-size: 13px;
+    }   
+}
+
+@media screen and (max-width: 768px){
+    .texts{
+        margin-top: 22px;
+    }
+
+    .article {
+        margin-bottom: 12px !important;
+    }
+
+    .article-image{
+        width: 108px !important;
+    }
+
+    .article-text{
+        margin-left: 8px;
+    }
+    
+    .article-text p {
+        margin: 0;
+    }
+    
+    .article,
+    .article-image,
+    .article-text{
+        height: 243px;
+    }
+    
+    .article-text {
+        padding: 17px 15px 0;
+        width: calc(100% - 116px);
+    }
+
+    .article-text-title {
+        font-size: 16px;
+        line-height: 20px;
+        letter-spacing: -0.8px;
+        height: 60px;
+    }
+
+    .article-text-body {
+        font-size: 14px;
+        line-height: 17px;
+        letter-spacing: 0;
+        margin: 10px 0 12px;
+        height: 102px;
+    }
+    
+    .article-text-body p {
+        -webkit-line-clamp: 6 !important;
+    }
+
+    .author-date {
+        font-size: 12px !important;
+        line-height: 8px !important;
+    }
+
+    .show-more-text {
+        margin: 11px 0 23px !important;
+    }
+
+    .show-more-text a{
+        font-size: 13px !important;
+        padding: 0 13px 7px 8px;
+    }
+
+    .show-more-text a i,
+    .show-more-text a svg{
+        margin-left: 7px;
+        font-size: 13px;
+    }   
 }

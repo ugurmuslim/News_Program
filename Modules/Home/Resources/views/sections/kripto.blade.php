@@ -1,21 +1,18 @@
 <section id="section-crypto" class="bg-dark-grey">
     <div class="container">
-        <div class="section-header d-flex text-white">
-            <div class="section-title">KRİPTO PARALAR</div>
-            <div class="d-none d-md-block section-right"><a
-                    href="{{route("home_article.index",['type' => 'kripto'])}}">Tüm
+        <div class="section-header d-flex">
+            <div class="section-title text-warning">KRİPTO PARALAR</div>
+            <div class="d-none d-md-block section-right text-warning"><a href="https://parafesor.net/kategori/kripto">Tüm
                     Kripto Haberlerini Gör</a></div>
         </div>
-        <div class=" d-sm-block d-md-none section-right-sm text-danger"><a
-                href="{{route("home_article.index",['type' => 'kripto'])}}">Tüm Kripto Haberlerini Gör</a></div>
+        <div class=" d-sm-block d-md-none section-right-sm text-warning"><a
+                href="https://parafesor.net/kategori/kripto">Tüm Kripto Haberlerini Gör</a></div>
     </div>
     </div>
     <div class="container">
-        <div class="row" style="position: relative">
-            <div class="col-md-12 h-100">
-                <div class="card news-card news-card-big  mb-sm-5 cardSlider" currentSlide=""
-                     id="crypto-slider"
-                     style="height: 400px">
+        <div class="row c-row">
+            <div class="col-md-12 c-box-1">
+                <div class="card news-card news-card-big  mb-sm-5 cardSlider" currentSlide="" id="crypto-slider">
                     <div></div>
                     <div class="news-card-slider-container">
                         @foreach($articles["Kripto"][\App\Parafesor\Constants\CategorySectionTypes::MAIN_SLIDER]->take(4) as $article)
@@ -24,13 +21,11 @@
                                     <div class="life-card-slider-slide-img text-white lazy"
                                          style="background-image: url({{asset($article->image_path)}})">
                                         <div class="blueOverlay">
-
                                         </div>
-
                                         <div class="crypto-card-slider-slide-caption">
-                                            <div style="background-color: #000; padding: 10px;">
+                                            <p>
                                                 {{$article->title}}
-                                            </div>
+                                            </p>
                                         </div>
                                     </div>
                                 </a>
@@ -45,117 +40,118 @@
             </div>
             @php
                 $kriptoArticles = $articles["Kripto"][\App\Parafesor\Constants\CategorySectionTypes::NORMAL]->take(1);
-                /*$kriptoArticlesHeadSecond = $articles["Kripto"][\App\Parafesor\Constants\CategorySectionTypes::NORMAL]->slice(1)->take(1);*/
-                $kriptoArticlesBelowFirst = $articles["Kripto"][\App\Parafesor\Constants\CategorySectionTypes::NORMAL]->slice(1)->take(1);
-                $kriptoArticlesBelowSecond = $articles["Kripto"][\App\Parafesor\Constants\CategorySectionTypes::NORMAL]->slice(2)->take(1);
-                $kriptoArticlesFooter = $articles["Kripto"][\App\Parafesor\Constants\CategorySectionTypes::NORMAL]->slice(3)->take(4);
+                $kriptoArticlesHeadSecond = $articles["Kripto"][\App\Parafesor\Constants\CategorySectionTypes::NORMAL]->slice(1)->take(1);
+                $kriptoArticlesBelowFirst = $articles["Kripto"][\App\Parafesor\Constants\CategorySectionTypes::NORMAL]->slice(2)->take(1);
+                $kriptoArticlesBelowSecond = $articles["Kripto"][\App\Parafesor\Constants\CategorySectionTypes::NORMAL]->slice(3)->take(1);
+                $kriptoArticlesFooter = $articles["Kripto"][\App\Parafesor\Constants\CategorySectionTypes::NORMAL]->slice(4)->take(4);
             @endphp
 
-            @foreach($kriptoArticles as $article)
-                <div class="col-md-6 match" matchTo="crypto-slider">
+            <div class="col-md-6 col-12 match c-box-2" matchTo="crypto-slider">
+                @foreach($kriptoArticles as $article)
                     <a href="{{route('article.show',['slug' => $article->slug ])}}">
-                        <div class="col-24 bg-dark match" matchTo="crypto-slider">
+                        <div class="col-24 match" matchTo="crypto-slider">
                             <div class="col-sm-24 h-100">
                                 <div class="col-24 crypto crypto-md lazy"
                                      style="background-image: url({{asset($article->image_path)}})"></div>
                                 <div class="crypto-first-title">
-                                    <div class="multilineEllipsis" multilineEllipsisMax="100">{{$article->title}}
-                                    </div>
+                                    <p>{{$article->title}}</p>
                                     <div class="crypto-text-bottom">
-                                    <span
-                                        style="color:#f2b01b;">{{ Date::parse($article->article_date)->format('j F')}}</span><span> • {{ Carbon\Carbon::parse($article->article_date)->format('H:i')}} • parafesor</span>
+                                        <div><span>{{ Date::parse($article->article_date)->format('j F')}}</span>
+                                            • {{ Carbon\Carbon::parse($article->article_date)->format('H:i')}} •
+                                            parafesor
+                                        </div>
                                     </div>
                                 </div>
-
                             </div>
                         </div>
                     </a>
-                </div>
-            @endforeach
-            <div class="col-md-6 match" matchTo="crypto-slider">
-                {{--                @foreach($kriptoArticlesHeadSecond as $article)--}}
-                <div class="col-md-24 match" matchTo="crypto-slider">
-                    <div class="col-md-24 bg-white  h-100 tech-box">
-                        <div class="tech-news-box-image lazy"
-                             style="background-color: black;)}}); height: 100%">
-                            {{--       <div class="tech-news-box-image "
-                                        style="background-image: url({{asset($article->image_path)}}); height: 100%">--}}
-                            <div class="crypto-second-image-caption">
-                                Gültekin Bey Haftalık Bitcoin Analizi
-                                <div class="mt-1">
-                                    Video <span class="fa fa-play-circle"></span>
-                                </div>
-                            </div>
-
-
-                        </div>
-                    </div>
-                </div>
-                {{--                @endforeach--}}
+                @endforeach
             </div>
 
+            <div class="col-md-6 col-12 match c-box-3" matchTo="crypto-slider">
+                @foreach($kriptoArticlesHeadSecond as $article)
+                    <a href="{{route('article.show',['slug' => $article->slug ])}}">
+                        <div class="col-md-24 match" matchTo="crypto-slider">
+                            <div class="col-md-24 bg-white  h-100 tech-box">
+                                <div class="tech-news-box-image lazy"
+                                     style="background-image: url({{asset($article->image_path)}})">
+                                    <div class="crypto-second-image-caption">
+                                        <div class="crypto-first-title">
+                                            <p> {{$article->title}}</p>
+                                        </div>
+                                        <div class="crypto-text-bottom">
+                                            <div><span>{{ Date::parse($article->article_date)->format('j F')}} </span>
+                                                • {{ Carbon\Carbon::parse($article->article_date)->format('H:i')}} •
+                                                parafesor
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                @endforeach
+            </div>
         </div>
-
-        <div class="row mt-4">
+        <div class="row c-row-1">
             @foreach($kriptoArticlesBelowFirst as $article)
-                <div class="col-md-24 col-lg-12 p-4 ">
+                <div class="col-md-24 col-lg-12">
                     <a href="{{route('article.show',['slug' => $article->slug ])}}">
                         <div class="row">
                             <div class="col-10 bg-orange crypto-wide-section">
-                                <div class="crypto-title" style="color: black;">
-                                    {{ \Illuminate\Support\Str::limit($article->title, 70, $end='...') }}
+                                <div class="crypto-title">
+                                    <p> {{$article->title}}</p>
                                 </div>
                                 <div class="crypto-text-bottom-sm">
                                     <span>{{ Date::parse($article->article_date)->format('j F')}} • {{ Carbon\Carbon::parse($article->article_date)->format('H:i')}} • parafesor</span>
                                 </div>
                             </div>
-                            <div class="col-14"
-                                 style="background-image: url({{$article->image_path}}); background-size: 100% 100%;"></div>
+                            <div class="col-14 lazy"
+                                 style="background-image:  url({{asset($article->image_path)}};"></div>
                         </div>
                     </a>
                 </div>
             @endforeach
             @foreach($kriptoArticlesBelowSecond as $article)
-                <div class="col-md-24 col-lg-12 p-4 ">
+                <div class="col-md-24 col-lg-12">
                     <a href="{{route('article.show',['slug' => $article->slug ])}}">
                         <div class="row">
                             <div class="col-14 lazy"
-                                 style="background-image: url({{$article->image_path}}); background-size: 100% 100%;"></div>
+                                 style="background-image: url({{asset($article->image_path)}}; "></div>
                             <div class="col-10 bg-orange crypto-wide-section">
-                                <div class="crypto-title" style="color: black;">
-                                    {{ \Illuminate\Support\Str::limit($article->title, 70, $end='...') }}
-
+                                <div class="crypto-title">
+                                    <p> {{$article->title}}</p>
                                 </div>
                                 <div class="crypto-text-bottom-sm">
                                     <span>{{ Date::parse($article->article_date)->format('j F')}} • {{ Carbon\Carbon::parse($article->article_date)->format('H:i')}} • parafesor</span>
                                 </div>
                             </div>
-
                         </div>
                     </a>
                 </div>
             @endforeach
+
         </div>
-        <div class="row mt-5" style="height: 450px;">
+        <div class="row c-row-2">
             @foreach($kriptoArticlesFooter as $article)
-                <div class="col-md-6">
-                    <a href="{{route('article.show',['slug' => $article->slug ])}}">
-                        <div class="col-24  bg-dark">
-                            <div class="col-sm-24 ">
-                                <div class="col-24 crypto crypto-md lazy"
-                                     style="background-image: url({{asset($article->image_path)}})"></div>
-                                <div class="crypto-title">
-                                    {{ \Illuminate\Support\Str::limit($article->title, 70, $end='...') }}
-                                    <div class="crypto-text-bottom-sm">
-                                    <span
-                                        class="text-white">{{ Date::parse($article->article_date)->format('j F')}}</span><span> • {{ Carbon\Carbon::parse($article->article_date)->format('H:i')}} • parafesor</span>
+            <div class="col-md-6">
+                <a href="{{route('article.show',['slug' => $article->slug ])}}">
+                    <div class="col-24">
+                        <div class="col-sm-24 ">
+                            <div class="col-24 crypto crypto-md lazy"
+                                 style="background-image: url({{asset($article->image_path)}}; "></div>
+                            <div class="crypto-title">
+                                <p> {{$article->title}}</p>
+                                <div class="crypto-text-bottom">
+                                    <div><span>{{ Date::parse($article->article_date)->format('j F')}} </span>
+                                        • {{ Carbon\Carbon::parse($article->article_date)->format('H:i')}}  • parafesor
                                     </div>
                                 </div>
-
                             </div>
                         </div>
-                    </a>
-                </div>
+                    </div>
+                </a>
+            </div>
             @endforeach
 
         </div>

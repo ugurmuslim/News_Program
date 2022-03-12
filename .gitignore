@@ -19,3 +19,4 @@ public/images
 public/modules
 storage/*.log
 composer.lock
+nginx/conf.d/app.conf

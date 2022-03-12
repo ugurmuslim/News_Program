@@ -9,8 +9,6 @@ header {
     justify-content: flex-end;
     flex-wrap: wrap;
     gap: 20px;
-    padding-top: 8px;
-    padding-bottom: 8px;
 }
 
 .header__top .search__input__contanier {
@@ -51,7 +49,7 @@ header {
 .header__top .social-icons {
     display: initial;
     color: #a2a2a2;
-    margin-right: 50px;
+    margin-right: 70px;
 }
 
 .social-icons a {
@@ -70,21 +68,18 @@ header {
 
 .header__middle .nav__contanier--desktop .nav__list {
     display: flex;
-    width: 90%;
+    width: 1250px;
     margin: 0 auto;
+    padding: 12px 0;
 }
 
 .nav__list ul{
     display: flex;
     width: 95%;
     align-items: center;
-    justify-content: space-evenly;
-    padding: 8px 0;
+    justify-content: end;
 }
 
-.nav__list ul li a{
-    font-size: 16px;
-}
 
 .toggle_menu_icon_div {
     width: 5%;
@@ -96,6 +91,7 @@ header {
     outline: none;
     border: none;
     background-color: transparent;
+    padding: 0;
 }
 
 .header__middle .nav__contanier--mobile {
@@ -187,7 +183,10 @@ header {
 
 .second_main_menu_div {
     background-color: #242424;
-    padding: 2.5px 0;
+}
+
+.second_main_menu_div .container {
+    max-width: 1550px;
 }
 
 .header__bottom .nav__text__container {
@@ -201,6 +200,11 @@ header {
     overflow-x: auto;
 }
 
+.nav__text__container img{
+    height: 51px;
+    margin-right: -10px;
+}
+
 
 .header__bottom .nav__text {
     color: #f5f5f5;
@@ -211,7 +215,7 @@ header {
 
 .header__bottom .nav__text__container a:nth-child(2){
     border-left: 2px solid #333;
-    padding-left: 5px;
+    padding-left: 20px;
 }
 
 .drawer__navigation#drawer-nav {
@@ -333,7 +337,12 @@ header {
     background: #242424 !important;
 }
 
-@media screen and (max-width: 850px) {
+@media screen and (max-width: 1024px) {
+    .header__top{
+        padding-top: 8px;
+        padding-bottom: 8px;
+    }
+    
     .header__top .search__input__contanier {
         flex: 1;
         flex-basis: 200px;
@@ -364,13 +373,17 @@ header {
     }
 }
 
-@media screen and (max-width: 425px) {
+@media screen and (max-width: 440px) {
     .header__bottom .nav__text__container {
         margin-left: 0px;
     }
+    
+    .header__top{
+        gap: 10px 20px !important;
+    }
 }
 
-@media screen and (min-width: 769px) and (max-width: 1200px) {
+@media screen and (min-width: 769px) and (max-width: 1365px) {
     .header__middle .nav__contanier--desktop .nav__list {
         width: 100%;
     }
@@ -386,4 +399,38 @@ header {
     .header__top .social-icons {
         margin-right: 0;
     }
+
+    .nav__list ul li{
+        padding-right: 20px !important;
+    }
+
+    .nav__list ul li a{
+        font-size: 13px !important;
+    }
+    
+}
+
+@media screen and (min-width: 1366px) and (max-width: 1509px){
+    .nav__list ul li a{
+        font-size: 14px !important;
+    }
+    .toggle_menu_icon_div{
+        margin-right: 120px !important;
+    }
+
+    .nav__list ul li{
+        padding-right: 30px !important;
+    }
+}
+
+
+@media screen and (min-width: 1510px){
+    .nav__list ul li{
+        padding-right: 40px !important;
+    }
+    
+    .nav__list ul li a{
+        font-size: 16px !important;
+    }
+    
 }

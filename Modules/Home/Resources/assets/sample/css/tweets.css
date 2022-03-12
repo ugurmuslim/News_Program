@@ -1,52 +1,85 @@
-
-.tweet-card {
-    padding: 15px;
+section#section-twitter-yazileri {
+    padding-bottom: 0;
 }
 
+section#section-twitter-yazileri > .container {
+    position: relative;
+}
+
+#section-twitter-yazileri .twitter-row{
+    margin-top: 32px;
+}
+
+.tweet-card {
+    padding: 15px 11px 12px 14px;
+    border-radius: 0;
+    border: .8px solid #CCD6DD;
+}
 
 .tweet-user {
-    float: left;
+    display: flex;
     font-size: 1.1em;
-    font-weight: bold;
 }
 
 .tweet-user-large {
     font-size: 1.4em;
-    font-family: MillerTextBold;
+    font-family: "MillerTextBold";
 }
 
-.tweet-follower {
+.tweet-user-image {
+    border-radius: 100px !important;
+    overflow: hidden;
+    width: 30px;
+    height: 30px;
+}
+
+.tweet-body {
+    font-family: 'MillerTextRegular';
+    font-size: 20px;
+    line-height: 25px;
+    color: #242424;
+    margin-top: 10px;
+}
+
+img.image-twitter {
+    width: 100%;
+}
+/* .tweet-follower {
     margin-top: 4px;
     float: right;
     font-size: 0.85em;
 }
 
 .tweet-body {
-    margin-top: 10px;
-    font-size: 1.2em;
+    margin-top: 15px;
+    font-size: 20px;
+    line-height: 25px;
     font-family: MillerTextRoman;
-    color: #444444;
-    float: left;
+    color: #242424;
 }
 
 .icon-twitter {
     font-size: 1.5em;
 }
 
-
 .image-twitter {
     width: 30px;
     height: 30px;
     background-color: #CCCCCC;
-    border-radius: 100%;
+    border-radius: 100px;
 }
 
-.image-twitter-large {
-    width: 50px;
-    height: 50px;
-    border: solid 3px #FFFFFF;
-    border-radius: 100%;
+img.image-twitter {
+    width: 100%;
+    height: 100%;
 }
+
+.tweet-user-image{
+    width: 30px;
+    height: 30px;
+} */
+
+
 
 .tweet-slider-controls {
     display: flex;
@@ -67,8 +100,519 @@
     line-height: 20px;
 }
 
-
-.tweet-slider-control:hover {
-    color: #f5f5f5;
+.twitter-card-slider-controls .news-card-slider-control:hover {
+    color: #D6D6D6;
+    border-color: #D6D6D6;
     cursor: pointer;
+}
+
+.twitter-card-slider-controls {
+    position: absolute;
+    right: 29px;
+    top: 44px;
+    display: flex;
+}
+
+.t-row-1 .tweet-card {
+    padding: 31px 29px 22px 38px;
+    background-color: #20A1F2 !important;
+    color: #fff;
+    border: none;
+}
+
+.t-row-1 .tweet-user-image {
+    width: 76px;
+    height: 76px;
+}
+
+.t-row-1 .tweet-body{
+    font-size: 24px;
+    line-height: 30px;
+    color: #fff;
+    margin-top: 25px;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    height: 90px;
+}
+
+.tweet-top{
+    display: flex;
+}
+
+.t-row-1,
+.small-tweet-card{
+    margin-bottom: 23px;
+}
+
+.small-tweet-card .tweet-user {
+    width: calc(100% - 30px);
+    justify-content: space-between;
+    align-items: center;
+}
+
+.small-tweet-card p.tweet-username {
+    font-family: 'HelveticaNeueBold';
+    font-size: 14px;
+    color: #161616;
+    padding: 0 0 3px 12px;
+}
+
+.small-tweet-card span.tweet-followers {
+    font-family: 'HelveticaNeue';
+    font-size: 12px;
+    color: #657685;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.small-tweet-card span.tweet-followers i,
+.small-tweet-card span.tweet-followers svg{
+    color: #1DA1F2;
+    font-size: 16px;
+    padding-left: 9px;
+    margin-right: 9px;
+}
+
+.small-tweet-card .tweet-body a{
+    color: #20A1F2;
+}
+
+.t-row-1 .tweet-user {
+    flex-flow: column;
+    margin-left: 19px;
+}
+
+.tweet-user p{
+    margin: 0;
+}
+
+.t-row-1 .tweet-user p{
+    font-family: 'MillerTextBold';
+    font-size: 35px;
+    line-height: 44px;
+    letter-spacing: -1.75px;
+}
+
+.t-row-1 span.tweet-followers {
+    font-family: 'MontserratSemiBold';
+    font-size: 20px;
+    line-height: 24px;
+    letter-spacing: -1px;
+}
+
+.t-row-1  .news-card-slider-control:not(:last-child){
+    margin-right: 7px;
+}
+
+.twitter-icon {
+    color: #fff;
+    position: absolute;
+    right: 99px;
+    top: 44px;
+}
+
+.twitter-icon i,
+.twitter-icon svg{
+    font-size: 26px;
+}
+
+.show-more-tweet {
+    display: flex !important;
+    align-items: end !important;
+    justify-content: center;
+    padding-bottom: 26px;
+    text-align: center;
+    height: 170px;
+    width: 100%;
+    background-image: linear-gradient(360deg, #F5F5F5, #F5F5F5,#F5F5F5C7, #F5F5F500);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+
+}
+
+.show-more-tweet a{
+    font-family: 'Montserrat';
+    font-size: 15px;
+    padding: 0 27px 12px 28px;
+    border-bottom: 1px solid  #20A1F2;
+    color: #20A1F2;
+}
+
+.show-more-tweet a i,
+.show-more-tweet a svg{
+    margin-left: 23px;
+    font-size: 17px;
+}
+
+@media screen and (min-width: 1366px) and (max-width: 1509px){
+
+    .twitter-row{
+        margin-top: 30px;
+    }
+
+    .t-row-1 .tweet-card{
+        padding: 26px 23px 14px 32px;
+    }
+
+    .t-row-1 .tweet-user-image{
+        width: 66px;
+        height: 66px;
+    }
+
+    .t-row-1 .tweet-user{
+        margin-left: 16px;
+    }
+
+    .t-row-1 .tweet-user p {
+        font-size: 29px;
+        line-height: 37px;
+        letter-spacing: -1.45px;
+    }
+
+    .t-row-1 span.tweet-followers {
+        font-size: 17px;
+        line-height: 20px;
+        letter-spacing: -0.85px;
+    }
+    
+    .twitter-card-slider-controls {
+        right: 25px;
+        top: 38px;
+    }
+
+
+    .t-row-1 .news-card-slider-control{
+        width: 22px;
+        height: 22px;
+        line-height: 17px;
+    }
+
+    .twitter-icon{
+    top: 36px;
+    right: 87px;
+    }
+
+    .t-row-1 .tweet-body {
+        font-size: 21px;
+        line-height: 27px;
+        height: 77px;
+    }
+
+    .tweet-user-image {
+        width: 26px;
+        height: 26px;
+    }
+
+    .small-tweet-card p.tweet-username {
+        font-size: 12px;
+        padding-left: 6px;
+    }
+
+    .tweet-body {
+        font-size: 17px;
+        line-height: 21px;
+    }
+
+    .tweet-card {
+        padding: 13px 10px 9px 12px;
+    }
+
+    .small-tweet-card span.tweet-followers i, .small-tweet-card span.tweet-followers svg {
+        font-size: 14px;
+    }
+    
+    .show-more-tweet a {
+        font-size: 13px;
+        padding: 0 18px 8px 25px;
+    }
+}
+
+@media screen and (min-width: 1201px) and (max-width: 1365px){
+    .twitter-row{
+        margin-top: 26px;
+    }
+
+    .t-row-1 .tweet-card{
+        padding: 25px 23px 7px 30px;
+    }
+
+    .t-row-1 .tweet-user-image{
+        width: 61px;
+        height: 61px;
+    }
+
+    .t-row-1 .tweet-user{
+        margin-left: 15px;
+    }
+
+    .t-row-1 .tweet-user p {
+        font-size: 29px;
+        line-height: 37px;
+        letter-spacing: -1.45px;
+    }
+
+    .t-row-1 span.tweet-followers {
+        font-size: 17px;
+        line-height: 20px;
+        letter-spacing: -0.85px;
+    }
+
+    .twitter-card-slider-controls {
+        top: 35px;
+        right: 23px;
+    }
+
+    .t-row-1 .news-card-slider-control{
+        width: 21px;
+        height: 21px;
+        font-size: 11px;
+        line-height: 16px;
+    }
+
+    .small-tweet-card .tweet-followers {
+        font-size: 11px;
+    }
+
+    .twitter-icon{
+    right: 84px;
+    top: 33px;
+    }
+
+    .twitter-icon i,
+    .twitter-icon svg{
+        font-size:24px;
+    }
+
+    .t-row-1 .tweet-body {
+        font-size: 18px;
+        line-height: 22px;
+        height: 69px;
+        margin-top: 20px;
+    }
+
+    .tweet-user-image {
+        width: 24px;
+        height: 24px;
+    }
+
+    .small-tweet-card p.tweet-username {
+        font-size: 11px;
+        padding: 0 0 0 5px;
+    }
+
+    .tweet-body {
+        font-size: 16px;
+        line-height: 20px;
+    }
+
+    .tweet-card {
+        padding: 12px 9px 13px 11px;
+    }
+
+    .small-tweet-card span.tweet-followers i, .small-tweet-card span.tweet-followers svg {
+        font-size: 13px;
+    }
+    
+    .show-more-tweet a {
+        font-size: 13px;
+        padding: 0 18px 8px 25px;
+    }
+}
+
+
+@media screen and (min-width: 768px) and (max-width:1200px) {
+    .twitter-row{
+        margin-top: 20px !important;
+    }
+
+    .t-row-1 .tweet-card{
+        padding: 20px 18px 6px 22px;
+    }
+
+    .t-row-1 .tweet-user-image{
+        width: 57px;
+        height: 57px;
+    }
+
+    .t-row-1 .tweet-user{
+        margin-left: 13px;
+    }
+
+    .t-row-1 .tweet-user p {
+        font-size: 29px;
+        line-height: 37px;
+        letter-spacing: -1.45px;
+    }
+
+    .t-row-1 span.tweet-followers {
+        font-size: 17px;
+        line-height: 20px;
+        letter-spacing: -0.85px;
+    }
+
+    .twitter-card-slider-controls {
+        top: 35px;
+        right: 23px;
+    }
+
+    .t-row-1 .news-card-slider-control{
+        width: 21px;
+        height: 21px;
+        font-size: 11px;
+        line-height: 16px;
+    }
+
+    .small-tweet-card .tweet-followers {
+        font-size: 10px !important;
+    }
+
+    .twitter-icon{
+    top: 33px;
+    right: 82px;
+    }
+
+    .twitter-icon i,
+    .twitter-icon svg{
+        font-size: 24px;
+    }
+
+    .t-row-1 .tweet-body {
+        font-size: 17px;
+        line-height: 20px;
+        height: 63px;
+        margin-top: 17px;
+    }
+
+    .tweet-user-image {
+        width: 24px;
+        height: 24px;
+    }
+
+    .small-tweet-card p.tweet-username {
+        font-size: 11px;
+        padding: 0 0 0 5px;
+    }
+
+    .tweet-body {
+        font-size: 15px;
+        line-height: 17px;
+    }
+
+    .tweet-card {
+        padding: 10px 9px 11px 9px;
+    }
+
+    .small-tweet-card span.tweet-followers i, .small-tweet-card span.tweet-followers svg {
+        font-size: 13px;
+    }
+    
+    .show-more-tweet a {
+        font-size: 13px;
+        padding: 0 18px 8px 25px;
+    }
+}
+
+@media screen and (max-width:767px) {
+    .twitter-row{
+        margin-top: 15px !important;
+        height: 1000px !important;
+    }
+
+    .t-row-1 .tweet-card{
+        padding: 16px 17px 11px 17px;
+    }
+
+    .t-row-1 .tweet-user-image{
+        width: 39px;
+        height: 39px;
+        border: 2px solid #fff;
+    }
+
+    .t-row-1 .tweet-user{
+        margin-left: 13px;
+    }
+
+    .t-row-1 .tweet-user p {
+        font-size: 17px;
+        line-height: 21px;
+        letter-spacing: -0.85px;
+    }
+
+    .t-row-1 span.tweet-followers {
+        font-size: 14px;
+        line-height: 18px;
+        letter-spacing: -0.7px;
+    }
+
+    .twitter-card-slider-controls {
+        top: 23px;
+        right: 17px;
+    }
+
+    .t-row-1 .news-card-slider-control{
+        width: 24px;
+        height: 24px;
+        font-size: 14px;
+        line-height: 19px;
+    }
+
+    .small-tweet-card .tweet-followers {
+        font-size: 12px !important;
+    }
+
+    .twitter-icon{
+    top: 22px;
+    right: 82px;
+    }
+
+    .t-row-1 .tweet-body {
+        font-size: 16px;
+        line-height: 20px;
+        height: 60px;
+        margin-top: 22px;
+    }
+
+    .tweet-user-image {
+        width: 30px;
+        height: 30px;
+    }
+
+    .small-tweet-card p.tweet-username {
+        font-size: 13px;
+        padding: 0 0 0 9px;
+    }
+
+    .tweet-body {
+        font-size: 17px;
+        line-height: 20px;
+        margin-top: 10px;
+    }
+
+    .tweet-card {
+        padding: 10px 9px 11px 9px;
+    }
+
+    .small-tweet-card span.tweet-followers i, .small-tweet-card span.tweet-followers svg {
+        font-size: 16px;
+    }
+    
+    .show-more-tweet a {
+        font-size: 13px;
+        padding: 0 15px 9px 14px;
+        margin-top: 120px !important;
+    }
+
+    .t-row-1, .small-tweet-card{
+        margin-bottom: 12px !important;
+    }
+
+    .show-more-tweet i, .show-more-tweet svg {
+        margin-left: 8px !important;
+        font-size: 14px !important;
+    }
+
 }

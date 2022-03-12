@@ -67,6 +67,7 @@
     <link href="{{ asset('modules/home/sample/css/common.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('modules/home/sample/css/color.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('modules/home/sample/css/glide.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('modules/home/sample/css/footer.css') }}" rel="stylesheet" type="text/css" />
 {{--    <link rel="stylesheet" href="{{ asset('modules/home/sample/css/font-awesome/all.min.css') }}"--}}
 {{--        integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="--}}
 {{--        crossorigin="anonymous" referrerpolicy="no-referrer" />--}}

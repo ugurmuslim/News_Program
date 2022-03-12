@@ -10,40 +10,43 @@
 
 .share-recommendation-news-img {
     float: left;
-    width: 200px;
+    width: 189px;
+    height: 79px;
     background-color: #333333;
 }
 
 .share-recommendation-news-text {
-    font-family: MillerTextBold;
-    width: calc(100% - 270px);
-    padding-left: 10px;
-    font-size: 18px;
-    float: left;
+    width: calc(100% - 190px);
     height: 100%;
+    font-family: "MillerTextBold";
+    font-size: 17px;
+    line-height: 21px;
+    letter-spacing: -0.85px;
+    padding-left: 18px;
     position: relative;
+    color: #222222;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .share-recommendation-news-text-bottom {
-    position: absolute;
-    padding-left: 10px;
+    font-family: 'MillerTextRoman';
     width: 100%;
-    color: #AAAAAA;
+    color: #9A9A9A;
     font-size: 11px;
-    right: 0px;
-    bottom: 0px;
+    letter-spacing: 0;
 }
 
 .share-recommendation-text-bottom-sm {
-
-    font-family: MillerTextRoman;
+    font-family: "MillerTextRoman";
     color:#555555;
     font-size:14px;
 
 }
 
 .share-recommendation-news-box-caption {
-    font-family: MillerTextBold;
+    font-family: "MillerTextBold";
     padding: 10px;
     font-size: 23px;
     height: 55%;
@@ -57,8 +60,6 @@
     height: 45%;
     width: 100%;
 }
-
-
 
 .company-image {
     width: 100%;
@@ -76,28 +77,24 @@
     height: 110px;
     overflow: hidden;
     font-size: 17px;
-    padding: 0 15px;
     line-height: 21px;
 }
 
 .share-recommendation-bottom {
+    font-family: "MillerTextRoman";
     width: 100%;
-    color: #AAAAAA;
-    font-size: 14px;
-    height: 20px;
-    padding-top: 10px;
+    color: #9a9a9a;
+}
+
+.share-recommendation-bottom span {
+    color: #222222;
 }
 
 .share-recommendation-search-input {
     outline: 0;
-    border-width: 0 0 1px;
     outline: none;
-    border-color: #A2A2A2;
     -webkit-box-shadow: none;
     box-shadow: none;
-    background-color: #e5e5e5;
-    font-size: 1.4em;
-    margin-top: 5px;
 }
 
 .share-recommendation-search-icon {
@@ -109,7 +106,7 @@
 }
 
 .share-recommendation-button {
-    font-family: HelveticaNeue;
+    font-family: "HelveticaNeue";
     border-top-right-radius: 10%;
     border-top-left-radius: 10%;
     background-color: gray;
@@ -127,16 +124,1001 @@
     height: 0;
     border-style: solid;
     border-width: 0 30px 30px;
-    border-color: transparent blue transparent transparent;
+    border-color: transparent #325290 transparent transparent;
     right: 0;
     top: 0;
     position: absolute;}
 
 .share-recommendation-box-caption {
-    font-family: MillerTextBold;
+    font-family: "MillerTextBold";
+    color: #fff;
     font-size: 23px;
     height: 55%;
     width: 100%;
-    color: #f5f5f5;
     padding: 20px;
+}
+
+#section-hisse-onerileri {
+    padding-top: 33px;
+}
+
+#section-hisse-onerileri .section-title,
+#section-hisse-onerileri .section-right{
+    border-color: #222222;
+}
+
+#section-hisse-onerileri .text-dark-blue,
+#section-hisse-onerileri .section-title
+{
+    color: #222222;
+}
+
+ul#hisseOnerileri .nav-link {
+    color: #808080;
+    background: #D3D3D3;
+    border-radius: 15px 15px 0 0;
+}
+
+#section-hisse-onerileri .nav-pills .nav-link.active{
+    background-color: #2f2f2f;
+    color: #fff;
+}
+
+ul#hisseOnerileri {
+    font-family: 'HelveticaNeueBold';
+    font-size: 22px;
+    line-height: 27px;
+}
+
+#aracikurumtavsiyeleri-tab{
+    margin-left: 10px;
+}
+
+.h-row-3 .col-10{
+    margin-top: 13px;
+}
+
+.h-row-3 .col-10 .row{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.h-row-3 .col-10 .row .col-12{
+    border-bottom: 1px solid #A8A8A8;
+    width: auto;
+}
+
+.h-row-3 .col-10 .row div:last-child{
+    margin-left: 40px;
+    margin-right: 12px;
+}
+
+.h-row-3 .col-10 .row div:first-child input{
+    width: 187px;
+}
+
+.h-row-3 input {
+    font-size: 17px;
+    width: 224px;
+    border: none;
+    background-color: transparent !important;
+}
+
+.h-row-3 svg{
+    color: #A8A8A8;
+    font-size: 20px;
+}
+
+.h-row-4{
+    margin-top: 10px;
+    padding: 0 12px;
+}
+
+.hisse-4haber .row {
+    display: flex;
+    align-content: space-between;
+    height: 100%;
+}
+
+.h-row-4 .tech-box{
+    background-color: #222222;
+    position: relative;
+    min-height: 365px;
+}
+
+.hisse-4haber .image-card-16x10{
+    padding-bottom: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.text-black::first-line {line-height: 16px;}
+
+.tech-box .share-recommendation-triangle {
+    bottom: 0;
+    top: auto;
+    border-width: 30px 30px 0;
+    border-color: transparent #3D7DFA transparent transparent;
+}
+
+.h-row-5{
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 12px;
+}
+
+.h-row-5 .card .text-caption{
+    font-family: 'MillerTextBold';
+    color: #222222;
+}
+
+.share-recommendation-text {
+    font-family: 'HelveticaNeue';
+    color: #6A6A6A;
+    overflow: hidden;
+}
+
+.h-row-3 .col-10 .row > div{
+    padding: 0;
+}
+
+@media screen and (min-width: 1510px){
+
+    .h-row-4,
+    .hisse-4haber{
+        margin-top: 40px;
+    }
+
+    .h-row-4 .tab-content {
+        width: 900px;
+        height: 509px;
+    }
+    
+    .h-row-4 .col-xl-10 {
+        width: 566px;
+    }
+
+    .h-row-4 .col-lg-12 {
+        height: 505px;
+        width: 435px;
+        padding: 0;
+    }
+
+    .h-row-4 .col-lg-12:last-child{
+        margin-left: 30px;
+    }
+
+    .h-row-4 .tech-news-box-image{
+        height: 217px;
+    }
+
+    .share-recommendation-box-caption{
+        padding: 23px 36px 0 27px;
+    }
+
+    .hisse-box-caption {
+        font-size: 27px;
+        line-height: 33px;
+        letter-spacing: -1.35px;
+        height: 95px;
+    }
+
+    .h-row-4 .company-text{
+        font-size: 17px;
+        line-height: 21px;
+        letter-spacing: 0;
+        margin-top: 18px;
+        margin-bottom: 23px;
+        height: 91px;
+    }
+
+    .share-recommendation-text-bottom-sm{
+        font-size: 16px;
+        line-height: 20px;
+    }
+
+    .col-xl-10.hisse-4haber {
+        width: 563px;
+        padding: 0;
+        margin-left: 27px;
+    }
+
+    .hisse-4haber .row .col-sm-24{
+        height: 92px;
+    }
+    
+    .share-recommendation-news-img{
+        width: 220px;
+        height: 92px;
+    }
+
+    .share-recommendation-news-text {
+        width: calc(100% - 243px);
+        height: 103px;
+        font-size: 20px;
+        line-height: 26px;
+        letter-spacing: -1px;
+        padding-left: 23px;
+    }
+    
+    .share-recommendation-news-text-bottom{
+        font-size: 16px;
+        color: #222222;
+        line-height: 35px;
+    }
+    
+    .share-recommendation-news-text-bottom span{
+        color: #9A9A9A;
+    }
+    
+    .h-row-5{
+        margin-top: 50px;
+    }
+
+    .h-row-5 > div {
+        width: 362px;
+        height: 331px;
+        margin-bottom: 18px;
+        padding: 0;
+    }
+    
+    .h-row-5 .card{
+        height: 100%;
+        padding: 0 30px 0 27px;
+    }
+    
+    .h-row-5 .card .text-caption{
+        font-size: 20px;
+        line-height: 26px;
+        letter-spacing: -1px;
+    }
+    
+    .h-row-5 .company-image {
+        margin: 0;
+        height: 85px;
+    }
+    
+    .share-recommendation-text {
+        margin-top: 17px;
+        font-size: 17px;
+        line-height: 21px;
+        height: 84px;
+    }
+
+    .share-recommendation-bottom{
+        font-size: 16px;
+        padding-top: 23px;
+    }
+
+}
+
+@media screen and (min-width: 1366px) and (max-width: 1509px){
+
+    #section-hisse-onerileri .nav-pills .nav-link {
+        font-size: 18px;
+        padding: 6px 30px 7px 21px;
+    }
+
+    .h-row-3 .col-10 .row div:first-child input {
+        width: 153px;
+    }
+
+    .h-row-3 input {
+        font-size: 14px;
+        width: 184px;
+    }
+    
+    .h-row-3 .col-10 .row div:last-child {
+        margin-left: 25px !important;
+    }
+
+    .h-row-4,
+    .hisse-4haber{
+        height: 433px;
+        margin-top: 26px;
+    }
+    
+    .h-row-4 .col-lg-12 {
+        padding: 0;
+        width: 374px;
+        height: 433px;
+    }
+    
+    #hisseOnerileriContent {
+        width: 100%;
+    }
+
+    .h-row-4 .tab-content {
+        width: 900px;
+        height: 509px;
+    }
+    
+    .h-row-4 .col-xl-10 {
+        width: 566px;
+    }
+
+    .h-row-4 .col-lg-12:last-child{
+        margin-left: 29px;
+    }
+
+    .h-row-4 .tech-news-box-image{
+        height: 187px;
+    }
+
+    .share-recommendation-box-caption{
+        padding: 19px 31px 0 24px;
+    }
+
+    .hisse-box-caption {
+        font-size: 22px;
+        line-height: 27px;
+        letter-spacing: -1.1px;
+        height: 81px;
+    }
+
+    .h-row-4 .company-text{
+        font-size: 15px;
+        line-height: 18px;
+        letter-spacing: 0;
+        margin-top: 15px;
+        margin-bottom: 21px;
+        height: 79px;
+    }
+
+    .share-recommendation-text-bottom-sm{
+        font-size: 15px;
+        line-height: 18px;
+    }
+
+    .col-xl-10.hisse-4haber {
+        width: 483px;
+        height: 433px;
+        padding: 0;
+        margin-left: 20px;
+    }
+
+    .text-black::first-line {line-height: 14px;}
+
+    .hisse-4haber .row .col-sm-24{
+        height: 78px;
+    }
+    
+    .share-recommendation-news-img{
+        width: 189px;
+        height: 79px;
+    }
+
+    .share-recommendation-news-text {
+        width: calc(100% - 190px);
+        height: 89px;
+        font-size: 17px;
+        line-height: 21px;
+        letter-spacing: -0.85px;
+        padding-left: 19px;
+    }
+    
+    .share-recommendation-news-text-bottom{
+        font-size: 16px;
+        color: #222222;
+        line-height: 35px;
+        letter-spacing: 0;
+    }
+    
+    .share-recommendation-news-text-bottom span{
+        color: #9A9A9A;
+    }
+    
+    .h-row-5{
+        margin-top: 43px;
+    }
+
+    .h-row-5 > div {
+        width: 310px;
+        height: 284px;
+        margin-bottom: 15px;
+        padding: 0;
+    }
+    
+    .h-row-5 .card{
+        height: 100%;
+        padding: 0 30px 0 27px;
+    }
+    
+    .h-row-5 .card .text-caption{
+        font-size: 17px;
+        line-height: 21px;
+        letter-spacing: -0.85px;
+    }
+    
+    .h-row-5 .company-image {
+        margin: 0;
+        height: 85px;
+    }
+    
+    .share-recommendation-text {
+        margin-top: 12px;
+        font-size: 15px;
+        line-height: 18px;
+        height: 72px;
+    }
+
+    .share-recommendation-bottom{
+        font-size: 15px;
+        padding-top: 15px;
+    }
+
+}
+
+@media screen and (min-width: 1200px) {
+    .tab-pane.fade.active.show{
+        display: flex !important;
+        flex-wrap: wrap !important;
+        /* width: 100% !important; */
+    }
+    
+    div#hisseOnerileriContent {
+        width: 100% !important;
+    }
+}
+
+@media screen and (min-width: 1201px) and (max-width: 1365px){
+
+    #section-hisse-onerileri .nav-pills .nav-link {
+        font-size: 16px;
+        padding: 6px 28px 7px 30px;
+    }
+
+    .h-row-3 .col-10 .row div:first-child input {
+        width: 141px;
+    }
+
+    .h-row-3 input {
+        font-size: 13px;
+        width: 173px;
+    }
+    
+    .h-row-3 .col-10 .row div:last-child {
+        margin-left: 25px !important;
+    }
+
+    .h-row-4,
+    .hisse-4haber{
+        height: 404px;
+        margin-top: 26px;
+    }
+    
+    .h-row-4 .col-lg-12 {
+        padding: 0;
+        width: 348px;
+        height: 404px;
+    }
+
+    .h-row-4 .tab-content {
+        width: 723px;
+        height: 509px;
+    }
+    
+    .h-row-4 .col-xl-10 {
+        width: 566px;
+    }
+
+    .h-row-4 .col-lg-12:last-child{
+        margin-left: 27px;
+    }
+
+    .h-row-4 .tech-news-box-image{
+        height: 187px;
+    }
+
+    .share-recommendation-box-caption{
+        padding: 19px 31px 0 24px;
+    }
+
+    .hisse-box-caption {
+        font-size: 22px;
+        line-height: 27px;
+        letter-spacing: -1.1px;
+        height: 81px;
+    }
+
+    .h-row-4 .company-text{
+        font-size: 15px;
+        line-height: 18px;
+        letter-spacing: 0;
+        margin-top: 15px;
+        margin-bottom: 21px;
+        height: 79px;
+    }
+
+    .share-recommendation-text-bottom-sm{
+        font-size: 15px;
+        line-height: 18px;
+    }
+
+    .col-xl-10.hisse-4haber {
+        width: 450px;
+        height: 404px;
+        padding: 0;
+        margin-left: auto;
+    }
+
+    .text-black::first-line {line-height: 14px;}
+
+    .hisse-4haber .row .col-sm-24{
+        height: 78px;
+    }
+    
+    .share-recommendation-news-img{
+        width: 189px;
+        height: 79px;
+    }
+
+    .share-recommendation-news-text {
+        width: calc(100% - 190px);
+        height: 89px;
+        font-size: 17px;
+        line-height: 21px;
+        letter-spacing: -0.85px;
+        padding-left: 18px;
+    }
+    
+    .share-recommendation-news-text-bottom{
+        font-size: 16px;
+        color: #222222;
+        line-height: 35px;
+        letter-spacing: 0;
+    }
+    
+    .share-recommendation-news-text-bottom span{
+        color: #9A9A9A;
+    }
+    
+    .h-row-5{
+        margin-top: 43px;
+    }
+
+    .h-row-5 > div {
+        width: 289px;
+        height: 264px;
+        margin-bottom: 15px;
+        padding: 0;
+    }
+    
+    .h-row-5 .card{
+        height: 100%;
+        padding: 0 24px 0 23px;
+    }
+    
+    .h-row-5 .card .text-caption{
+        font-size: 16px;
+        line-height: 20px;
+        letter-spacing: -0.8px;
+    }
+    
+    .h-row-5 .company-image {
+        margin: 0;
+        height: 85px;
+    }
+    
+    .share-recommendation-text {
+        margin-top: 10px;
+        font-size: 14px;
+        line-height: 17px;
+        height: 70px;
+    }
+
+    .share-recommendation-bottom{
+        font-size: 13px;
+        padding-top: 8px;
+    }
+}
+
+@media screen and (min-width: 992px) and (max-width: 1200px){
+    #section-hisse-onerileri .nav-pills .nav-link {
+        font-size: 16px;
+        padding: 6px 28px 7px 30px;
+    }
+
+    .h-row-4{
+        margin-top: 30px;
+    }
+
+    .h-row-3 .col-10 .row div:first-child input {
+        width: 133px;
+    }
+
+    .h-row-3 input {
+        font-size: 12px;
+        width: 158px;
+    }
+
+    .h-row-4 .col-lg-12 {
+        padding: 0;
+        width: 48.5%;
+    }
+    
+    .h-row-4 .col-lg-12:last-child{
+        margin-left: 3%;
+    }
+    
+    .hisse-box-caption {
+        font-size: 22px;
+        line-height: 25px;
+        letter-spacing: -1.1px;
+        height: 60px;
+    }
+    
+    .h-row-4 .company-text{
+        font-size: 16px;
+        line-height: 18px;
+        letter-spacing: 0;
+        margin-top: 15px;
+        margin-bottom: 21px;
+        height: 79px;
+    }
+
+    .share-recommendation-text-bottom-sm{
+        font-size: 15px;
+        line-height: 18px;
+    }
+
+    .h-row-3 .col-10 .row .col-12{
+        padding: 0;
+    }
+
+    .h-row-3 .col-10 .row div:last-child{
+        margin-left: 25px;
+    }
+
+    .h-row-3 svg{
+        font-size: 15px;
+    }
+
+    .col-xl-10.hisse-4haber{
+        padding: 0;
+    }
+    .col-xl-10.hisse-4haber .row {
+        margin-top: 30px;
+    }
+
+    .col-xl-10.hisse-4haber .row > div:not(:last-child) {
+        margin-bottom: 15px;
+    }
+    
+    .company-image{
+        height: 40px;
+    }
+    
+    .text-caption{
+        font-size: 15px;
+        line-height: 17px;
+        height: 54px;
+        overflow: hidden;
+    }
+    
+    .row.h-row-5 .card {
+        padding: 0 12px;
+    }
+    
+    .share-recommendation-text.text-left {
+        line-height: 15px;
+        font-size: 13px;
+        height: 61px;
+        margin-top: 10px;
+    }
+    
+    .share-recommendation-bottom {
+        font-size: 12px;
+        margin: 5px 0;
+    }
+    
+    .h-row-5 {padding: 0;margin-top: 40px;}
+    
+    .row.h-row-5 > div {
+        margin-bottom: 20px;
+    }
+}
+
+@media screen and (min-width:768px) and (max-width: 991px){
+    .h-row-3 > div {
+        width: 100%;
+    }
+    
+    .h-row-3 > div .row > div{
+        width: 47%;
+    }
+    
+    .h-row-3 > div:first-child{
+        order: 2;
+        margin-top: 15px;
+    }
+    
+    .h-row-3 > div:last-child{
+        padding: 0;
+        margin: 0;
+    }
+    
+    .h-row-3 .col-10 .row{
+        padding: 0 12;
+        display: flex;
+        justify-content: space-around;
+    }
+
+    .h-row-3 > div {
+        width: 100%;
+    }
+    
+    .h-row-3 > div .row > div{
+        width: 46% !important;
+    }
+    
+    .h-row-3 > div:first-child{
+        order: 2;
+        margin-top: 15px;
+    }
+    
+    .h-row-3 > div:last-child{
+        padding: 0;
+        margin: 0;
+    }
+    
+    .h-row-3 .col-10 .row{
+        padding: 0 12px 0 24px;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .h-row-4{
+        padding: 0 !important;
+    }
+    
+    ul#hisseOnerileri {
+        display: flex;
+        padding: 0 12px 0 0;
+    }
+    
+    ul#hisseOnerileri > li {
+        flex: 1 1 50%;
+    }
+    
+    ul#hisseOnerileri button {
+        width: 100%;
+    }
+
+    .h-row-3 input,
+    .h-row-3 .col-10 .row div:first-child input{
+        width: 90% !important;
+        font-size: 19px;
+    }
+    div#hisseOnerileriContent{
+        padding: 0 !important;
+    }
+
+    .hisse-box-caption {
+        font-size: 25px;
+        line-height: 23px;
+    }
+    
+    .company-text {
+        margin-top: 20px;
+        height: 70px;
+    }
+    
+    #hisseOnerileriContent .col > .row > div {
+        margin-bottom: 20px;
+    }
+    
+    .col-xl-10.hisse-4haber {
+        padding: 0;
+        margin-top: 20px;
+    }
+    
+    .col-xl-10.hisse-4haber .row > div {
+        margin-bottom: 15px;
+    }
+    
+    .text-caption {
+        font-size: 19px;
+        line-height: 21px;
+    }
+    
+    .h-row-5 .card {
+        padding: 0 20px 10px;
+    }
+    
+    .share-recommendation-text.text-left {
+        font-size: 14px;
+        line-height: 16px;
+        margin-top: 16px;
+    }
+
+    .share-recommendation-bottom{
+        margin-top: 10px
+    }
+    
+    .h-row-5 > div {
+        margin-bottom: 20px;
+    }
+    
+    .h-row-5 {
+        padding: 0;
+    }
+}
+
+@media screen and (max-width:767px){
+
+    .h-row-5{
+        margin-top: 0px !important;
+    }
+
+    .row.h-row-5 .company-image {
+        margin:0 !important;
+    }
+
+    .h-row-3{
+        padding: 0 12px !important;
+        margin-top: 15px !important;
+    }
+
+    .h-row-3 > div {
+        width: 100%;
+    }
+    
+    .h-row-3 > div:first-child{
+        order: 2;
+        margin-top: 15px;
+    }
+    
+    .h-row-3 > div:last-child{
+        margin: 0;
+    }
+    
+    .h-row-3 .col-10 .row{
+        padding: 0 12;
+        display: flex;
+        justify-content: space-around;
+    }
+
+    .h-row-3 .col-14{
+        padding: 0;
+    }
+    
+    .h-row-3 > div .row > div{
+        width: 100% !important;
+    }
+    
+    ul#hisseOnerileri {
+        display: flex;
+        padding: 0 12px 0 0;
+        font-size: 14px;
+    }
+    
+    ul#hisseOnerileri > li {
+        flex: 1 1 auto;
+    }
+    
+    ul#hisseOnerileri button {
+        width: 100%;
+    }
+
+    .h-row-3 input,
+    .h-row-3 .col-10 .row div:first-child input{
+        width: 90% !important;
+    }
+
+    .h-row-3 .col-10 .row div:last-child{
+        margin: 16px 0 0 !important;
+    }
+    .h-row-4 .row > div {
+        margin-bottom: 10px;
+    }
+    
+    .hisse-box-caption {
+        font-size: 20px;
+        line-height: 26px;
+        letter-spacing: -1px;
+        height: 77px;
+    }
+    
+    .company-text {
+        font-size: 17px;
+        line-height: 21px;
+        letter-spacing: 0;
+        margin-top: 10px;
+    }
+    
+    .share-recommendation-text-bottom-sm.text-white {font-size: 11px;letter-spacing: 0;}
+    
+    .share-recommendation-box-caption {
+        padding: 16px 29px 0 22px;
+    }
+    .company-text {
+        height: 100px;
+    }
+
+    .tech-news-box-image{
+        height: 131px !important;
+    }
+
+    .hisse-4haber .col-sm-24 {
+        width: 50% !important;
+    }
+
+    .hisse-4haber{
+        padding: 0;
+    }
+
+    .hisse-4haber .text-black{
+        margin-top: 16px;
+    }
+
+    div#hisseOnerileriContent{
+        padding: 0 !important;
+    }
+
+    .share-recommendation-news-text {
+        width: 100%;
+        height: 125px;
+        padding: 0;
+    }
+
+    .share-recommendation-news-text-bottom{
+        color: #222222;
+        letter-spacing: 0;
+    }
+    
+    .share-recommendation-news-text-bottom span{
+        color: #a9a9a9;
+    }
+    
+    .share-recommendation-news-img {
+        width: 100%;
+    }
+
+    .h-row-5 > div {
+        padding: 0;
+        margin-bottom: 10px;
+        height: 321px;
+    }
+    
+    .h-row-5 > div .card {
+        height: 321px;
+        padding: 0 27px 0 24px;
+    }
+    
+    .text-caption {
+        font-size: 20px;
+        line-height: 26px;
+        letter-spacing: -1px;
+    }
+    
+    .share-recommendation-text.text-left {
+        font-size: 17px;
+        line-height: 21px;
+        letter-spacing: 0;
+        margin-top: 15px;
+    }
+    
+    .share-recommendation-bottom {
+        font-size: 16px;
+        padding-top: 19px;
+    }
+
+    .h-row-4{
+        padding: 0 !important;
+    }
+
+}
+
+@media screen and (max-width: 470px) {
+    .row.h-row-5 .company-image {
+        margin: 8px 0 !important;
+    }
+
+    .hisse-4haber .col-sm-24 {
+        height: 200px !important;
+        margin-bottom: 15px;
+    }
+
 }

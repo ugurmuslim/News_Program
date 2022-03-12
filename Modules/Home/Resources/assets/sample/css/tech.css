@@ -1,3 +1,103 @@
+#section-teknoloji .news-card{
+    height: 287px;
+    margin-bottom: 9px;
+    border-radius: 0;
+}
+
+#section-teknoloji .section-right-sm{
+    color: #844DFF;
+}
+
+.tekno-row-1 {
+    margin: 20px 0 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+.tekno-row-1 > div{
+    padding: 0;
+}
+
+.tekno-col-1{
+    width: 282px;
+}
+
+.tekno-col-2{
+    width: 1196px;
+}
+
+.tekno-alt-1 {
+    height: 452px;
+    margin: 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+.tekno-alt-1 > div {
+    padding: 0;
+}
+
+.tekno-alt-1 > div:first-child {
+    width: 891px;
+}
+
+.tekno-alt-1 > div:last-child {
+    width: 282px;
+}
+
+.tekno-alt-1 .news-card-slider-controls {
+    bottom: 36px;
+    left: 36px;
+    top: auto;
+    padding: 0;
+    margin: 0;
+    width: 68px;
+}
+
+.tekno-alt-2 {
+    margin: 22px 0 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+.tekno-alt-2 > div{
+    padding: 0;
+    width: 376px;
+}
+
+#tech-second-row-anchor {
+    height: 100% !important;
+}
+
+.tekno-col-1 .news-img {
+    padding-bottom: 191px;
+    /* border-radius: 0 !important; */
+}
+
+.tekno-col-1 .news-card-img-text {
+    width: 240px;
+    left: calc(100% - 240px);
+}
+
+.tekno-row-1 .news-card-bottom {
+    font-family: "MillerTextRoman";
+    font-size: 16px;
+    color: #9A9A9A;
+}
+
+.tekno-row-1 .news-card-bottom span{
+    color: #844DFF !important;
+}
+
+.tekno-row-1 p{
+    color: #242424;
+}
+
+.tech-title p {
+    margin: 0;
+    -webkit-line-clamp: 4;
+    height: 99px;
+}
 
 .tech {
     height: 0px;
@@ -14,8 +114,7 @@
 }
 
 .tech-md {
-
-    border-bottom: solid 8px #844dff;
+    border-bottom: solid 6px #844dff;
 }
 
 .tech-sm {
@@ -34,28 +133,30 @@
 }
 
 .tech-text-bottom {
-    /*position: absolute;*/
     bottom: -10px;
-    font-family: MillerTextRoman;
+    font-family: "MillerTextRoman";
     color: #555555;
     font-size: 14px;
 
 }
 
 .tech-text-bottom-sm {
+    font-family: "MillerTextRoman";
+    color: #fff;
+    font-size: 16px;
+    margin-top: 13px;
+}
 
-    font-family: MillerTextRoman;
-    color: #555555;
-    padding-top: 10px;
-    font-size: 14px;
-
+.tech-card-slider-slide-caption .tech-text-bottom-sm {
+    padding-left: 36px;
 }
 
 .tech-title {
-    font-family: MillerTextBold;
-    font-size: 22px;
+    font-family: "MillerTextBold";
+    font-size: 27px;
+    line-height: 33px;
     height: 120px;
-    padding-top: 30px;
+    margin: 19px 0 0;
 }
 
 .tech-sm-title {
@@ -66,7 +167,7 @@
     top: 60%;
     right: 5px;
     font-size: 1.4em;
-    font-family: MillerTextBold;
+    font-family: "MillerTextBold";
     padding: 5px;
     white-space: normal;
     height: 120px;
@@ -77,7 +178,7 @@
 .tech-sm-top {
     font-size: 2em;
     color: #844dff;
-    font-family: HelveticaNeueBold;
+    font-family: "HelveticaNeueBold";
     font-weight: bolder;
     display: flex;
 }
@@ -96,6 +197,12 @@
     height: 420px;
     overflow-x: scroll;
     white-space: nowrap;
+}
+
+.tech-slide-new-caption {
+    line-height: 40px;
+    padding: 8px 0;
+    padding-right: 5px;
 }
 
 
@@ -119,15 +226,27 @@
 }
 
 .tech-card-slider-slide-caption {
-    font-family: MillerTextBold;
-    width: 55%;
-    height: 100%;
-    font-size: 1.5em;
-    text-align: left;
-    padding: 30px;
-    padding-top: 18%;
-    z-index: 2;
+    font-family: "MillerTextBold";
+    font-size: 32px;
+    width: 393px;
     position: absolute;
+    bottom: 75px;
+}
+
+.tech-caption-text {
+    max-height: 134px;
+    overflow: hidden;
+    padding-left: 36px;
+}
+
+.tekno-alt-1 span.highlighted {
+    line-height: 34px;
+    padding: 0 0 2px;
+}
+
+.tech-slider-controls .news-card-slider-control:hover {
+    border-color: rgb(201, 201, 201);
+    color: rgb(201, 201, 201);
 }
 
 .tech-paper-card {
@@ -140,30 +259,526 @@
     margin-bottom: 20px;
 }
 
-.tech-box {
-
+.tech-news-box-caption {
+    font-family: "MillerTextRoman";
+    padding: 26px 21px 0;
 }
 
-.tech-news-box-caption {
-    font-family: MillerTextBold;
-    padding: 10px;
-    font-size: 23px;
-    height: 55%;
-    width: 100%;
-    color: #f5f5f5;
+.tech-news-box-caption p{
+    color: #fff;
+    font-size: 24px;
+    line-height:30px;
+    margin-bottom: 9px;
+    height: 120px;
+    overflow: hidden;
 }
 
 .tech-news-box-image {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    height: 45%;
+    height: 250px;
     width: 100%;
 }
 
-@media screen and (max-width: 850px) {
+@media screen and (min-width: 1366px) and (max-width: 1509px){
+    .tekno-row-1 {
+        margin-top: 15px;
+    }
+
+    .tekno-col-1 {
+        width: 242px;
+    }
+    
+    .tekno-col-2 {
+        width: 1026px;
+    }
+    
+    .tekno-alt-2 > div {
+        width: 323px;
+    }
+
+    .tekno-col-1 .news-img {
+        padding-bottom: 164px;
+    }
+    
+    .tekno-row-1 .news-card-bottom {
+        font-size: 15px;
+    }
+
+    #section-teknoloji .news-card {
+        height: 243px;
+    }
+
+    #section-teknoloji .news-card {
+        height: 243px;
+    }
+    
+    .tekno-alt-1, .tekno-alt-1 > div {
+        height: 388px;
+    }
+
+    .tekno-alt-1 > div:first-child {
+        width: 765px;
+    }
+    
+    .tekno-alt-1 > div:last-child {
+        width: 242px;
+    }
 
     .tech-card-slider-slide-caption {
-        width: 70%;
+        font-size: 29px;
+        line-height: 37px;
+        letter-spacing: -1.45px;
+        bottom: 61px;
+    }
+
+    .tech-caption-text {
+        max-height: 110px;
+        padding-left: 31px;
+        padding-right: 20px;
+    }
+    
+    .news-card-slider-controls.tech-slider-controls {
+        width: 56px;
+        left: 31px;
+        bottom: 31px;
+    }
+    
+    .tech-slider-controls .news-card-slider-control {
+        width: 22px;
+        height: 22px;
+        font-size: 12px;
+        line-height: 17px;
+    }
+
+    .tech-text-bottom-sm {
+        margin-top: 3px;
+        letter-spacing: 0;
+        font-size: 15px;
+    }
+
+    .tech-news-box-image {
+        height: 215px;
+    }
+    
+    .tech-news-box-caption {
+        padding: 22px 17px 0;
+    }
+    
+    .tech-news-box-caption p {
+        font-size: 22px;
+        line-height: 27px;
+        height: 109px;
+    }
+
+    .tech {
+        padding-bottom: 203px;
+    }
+    
+    .tech-title {
+        margin: 16px 0 0;
+        font-size: 22px;
+        line-height: 27px;
+    }
+
+    .tech-title p {
+        height: 85px;
+    }
+
+    .tech-md {
+        border-width: 5px;
+    }
+
+    .tech-slide-new-caption {
+        line-height: 33px;
+    }
+    
+    .tech-card-slider-slide-caption .tech-text-bottom-sm {
+        padding-left: 31px;
+    }
+}
+
+@media screen and (min-width: 1201px) and (max-width: 1365px){
+    .tekno-col-1 {
+        width: 226px;
+    }
+    
+    .tekno-col-2 {
+        width: 957px;
+    }
+    
+    .tekno-alt-1,
+    .tekno-alt-1 > div{
+        height: 362px;
+    }
+    
+    .tekno-col-1 .news-card-img-text {
+        top: -23px !important;
+    }
+
+    .tekno-alt-1 > div:first-child {
+        width: 713px;
+    }
+    
+    .tekno-alt-1 > div:last-child {
+        width: 225px;
+    }
+    
+    .tekno-alt-2 > div {
+        width: 301px;
+    }
+
+    .tekno-alt-2 {
+        margin: 17px 0 0;
+    }
+
+    .tekno-col-1 .news-img {
+        padding-bottom: 153px;
+    }
+    
+    .tekno-row-1 .news-card-bottom {
+        font-size: 13px;
+        letter-spacing: 0;
+    }
+    
+    #section-teknoloji .news-card {
+        height: 225px;
+    }
+
+    .tech-card-slider-slide-caption {
+        font-size: 27px;
+        line-height: 33px;
+        letter-spacing: -1.35px;
+        bottom: 56px;
+    }
+    
+    .tech-caption-text {
+        max-height: 101px;
+        padding-left: 29px;
+    }
+    
+    .tekno-alt-1 span.highlighted {
+        padding: 0;
+        line-height: 30px;
+    }
+
+    .news-card-slider-controls.tech-slider-controls {
+        width: 56px;
+        left: 29px;
+        bottom: 29px;
+    }
+    
+    .tech-slider-controls .news-card-slider-control {
+        width: 22px;
+        height: 22px;
+        font-size: 12px;
+        line-height: 17px;
+    }
+
+    .tech-text-bottom-sm {
+        margin-top: 4px;
+        letter-spacing: 0;
+        font-size: 13px;
+    }
+
+    .tech-news-box-image {
+        height: 200px;
+    }
+
+    .tech-news-box-caption {
+        padding: 20px 17px 0;
+    }
+
+    .tech-news-box-caption p {
+        font-size: 22px;
+        line-height: 27px;
+        height: 111px;
+        margin-bottom: 0;
+    }
+
+    .tech {
+        padding-bottom: 189px;
+    }
+    
+    .tech-title {
+        font-size: 22px;
+        line-height: 27px;
+        letter-spacing: -1.1px;
+        margin: 15px 0 0;
+    }
+    
+    .tech-title p {
+        height: 79px;
+    }
+
+    .tech-title .news-card-bottom {
+        margin-top: 4px;
+    }
+
+    .tech-slide-new-caption {
+        line-height: 30px;
+    }
+    
+    .tech-card-slider-slide-caption .tech-text-bottom-sm {
+        padding-left: 29px;
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width:1200px){
+    .tekno-col-1 {
+        width: 22%;
+    }
+    
+    .tekno-col-2 {
+        width: 76%;
+    }
+    
+    .tekno-alt-1 > div:first-child {
+        width: 74%;
+        height: 100%;
+    }
+    
+    .tekno-alt-1 > div:last-child {
+        width: 24%;
+    }
+    
+    .tekno-alt-1 {
+        height: 360px;
+    }
+
+    .tech-card-slider-slide-caption {
+        font-size: 25px;
+        bottom: 57px;
+    }
+
+    .tech-caption-text {
+        max-height: 113px;
+        padding-left: 25px;
+    }
+    
+    .news-card-slider-controls.tech-slider-controls {
+        left: 25px;
+        bottom: 25px;
+    }
+
+    .tech-text-bottom-sm {
+        font-size: 12px;
+    }
+
+    .tech-news-box-image {
+        height: 160px;
+    }
+
+    .tech-news-box-caption {
+        padding: 15px 12px 0;
+    }
+
+    .tech-news-box-caption p {
+        font-size: 20px;
+        line-height: 24px;
+    }
+
+    .news-card-slider-controls.tech-slider-controls {
+        width: 56px;
+        left: 25px;
+        bottom: 25px;
+    }
+    
+    .tech-slider-controls .news-card-slider-control {
+        width: 22px;
+        height: 22px;
+        font-size: 12px;
+        line-height: 17px;
+    }
+
+    .tekno-alt-2 > div {
+        width: 32%;
+    }
+    
+    .tech-title {
+        font-size: calc(1vw + 10px);
+    }
+    
+    .tech-title p {
+        line-height: 26px;
+        height: 78px;
+    }
+    
+    .tekno-row-1 .news-card-bottom {
+        font-size: 13px;
+    }
+
+    .tekno-col-1 .news-img {
+        padding-bottom: 127px;
+    }
+    
+    #section-teknoloji .news-card {
+        height: 207px;
+    }
+    
+    .tech {
+        padding-bottom: 122px;
+    }
+
+    .tech-slide-new-caption {
+        line-height: 33px;
+    }
+    
+    .tech-card-slider-slide-caption .tech-text-bottom-sm {
+        padding-left: 25px;
+    }
+}
+
+
+@media screen and (max-width: 767px){
+
+    .tekno-row-1 {margin-top: 13px;}
+
+    .tekno-col-2 {
+        order: -1;
+    }
+
+    .tekno-alt-1 {
+        height: auto;
+    }
+    
+    .tekno-alt-1 > div:first-child {
+        width: 100%;
+        height: 290px;
+    }
+    
+    .tech-card-slider-slide-caption {
+        font-size: 20px;
+        line-height: 26px;
+        letter-spacing: -1px;
+        width: 228px;
+        bottom: 51px;
+    }
+
+    .tekno-alt-1 span.highlighted {
+        line-height: 29px;
+    }
+    
+    .tech-caption-text {
+        max-height: 79px;
+        padding-left: 22px;
+    }
+    
+    .tech-text-bottom-sm {
+        font-size: 11px;
+        margin-top: 2px;
+        letter-spacing: 0;
+        padding-bottom: 16px;
+    }
+    
+    .tekno-alt-1 .news-card-slider-controls {
+        background: #844CFC;
+        width: 86px;
+        height: 63px;
+        bottom: 0;
+        left: 22px;
+        justify-content: center;
+        padding-bottom: 13px;
+    }
+
+    .tech-slider-controls .news-card-slider-control {
+        width: 24px;
+        height: 24px;
+        font-size: 13px;
+    }
+
+    .tekno-alt-1 .tech-news-box-image{
+        height: 200px !important;
+    }
+
+    .tekno-alt-1 > div:last-child {
+        width: 100%;
+        height: auto !important;
+        margin-top: 14px;
+    }
+
+    .tech-news-box-caption {
+        padding: 21px 28px 0;
+    }
+    
+    .tech-news-box-caption p {
+        font-size: 20px;
+        line-height: 25px;
+        height: 75px;
+    }
+    
+    .tekno-col-1 > div:nth-child(3),
+    .tekno-alt-2 > div:nth-child(3){
+        display: none;
+    }
+
+    .tekno-alt-2 {
+        margin-top: 16px;
+        height: 242px;
+    }
+
+    .tekno-alt-2 > div {
+        width: 48%;
+    }
+    
+    .tech-title {
+        font-size: 17px;
+        line-height: 21px;
+        letter-spacing: -0.85px;
+        margin-top: 11px;
+    }
+    
+    .tech-title p {
+        height: 63px;
+    }
+
+    .tech {
+        padding-bottom: 120px;
+        border-width: 3px;
+    }
+
+    .tekno-row-1 .news-card-bottom {
+        font-size: 11px;
+        margin-top: 15px;
+    }
+    .tekno-col-1 {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+    }
+    
+    .tekno-col-1 > div{
+        width: 48%;
+    }
+    
+    .tekno-col-1 .news-img {
+        padding-bottom: 112px;
+    }
+
+    .tekno-col-1 .news-card-bottom {
+        font-size: 10px;
+        margin-top: 4px;
+    }
+
+    #section-teknoloji .news-card {
+        height: 200px;
+    }
+
+    .tekno-col-1 .news-card-img-text.small-text {
+        top: -19px;
+        padding: 4px 6px 6px;
+    }
+
+    .tekno-col-1 .news-card-img-text p {
+        height: 73px;
+    }
+
+    .tech-slide-new-caption {
+        line-height: 23px;
+    }
+    
+    .tech-card-slider-slide-caption .tech-text-bottom-sm {
+        padding-left: 22px;
     }
 }

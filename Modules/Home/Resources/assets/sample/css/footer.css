@@ -111,18 +111,6 @@
     }
 }
 
-@media only screen and (min-width: 992px){
-    
-    #section-footer .col-lg-5{
-        width: 20%;
-    }
-
-    .col-lg-12 {
-        height: auto;
-    }
-
-}
-
 @media only screen and (max-width: 992px){
     
     #section-footer .row.copyright div{
@@ -135,3 +123,20 @@
 
 }
 
+@media only screen and (min-width: 992px){
+    
+    #section-footer .col-lg-5{
+        width: 20%;
+    }
+
+    #section-footer .col-lg-12 {
+        height: auto;
+    }
+
+}
+
+@media screen and (min-width: 1510px){
+    #section-footer .container{
+        max-width: 1500px;
+    }
+}

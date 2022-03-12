@@ -32,7 +32,7 @@
   --bs-secondary: #6c757d;
   --bs-success: #198754;
   --bs-info: #0dcaf0;
-  --bs-warning: #ffc107;
+  --bs-warning: #FFC21C;
   --bs-danger: #dc3545;
   --bs-light: #f8f9fa;
   --bs-dark: #212529;
@@ -650,18 +650,21 @@ progress {
 }
 @media (min-width: 1200px) {
   .container-xl, .container-lg, .container-md, .container-sm, .container {
-    max-width: 1140px;
+    /* max-width: 1140px; */
+    max-width: 1200px;
   }
 }
-@media (min-width: 1400px) {
-  .container-xxl, .container-xl, .container-lg, .container-md, .container-sm, .container {
-    max-width: 90%;
+@media (min-width: 1366px) {
+  .container-xl, .container-lg, .container-md, .container-sm, .container {
+    max-width: 1288px;
+    padding: 0;
   }
 }
 
-@media (min-width: 1600px) {
-  .container-xxl, .container-xl, .container-lg, .container-md, .container-sm, .container {
-    max-width: 80%;
+@media (min-width: 1510px) {
+  .container-xl, .container-lg, .container-md, .container-sm, .container {
+    max-width: 1500px;
+    padding: 0;
   }
 }
 .row {

@@ -1,3 +1,24 @@
+section#section-sirket-haberleri .section-header {
+    color: #325290;
+}
+
+#section-sirket-haberleri .s-row-1 {
+    margin-top: 20px;
+}
+
+.s-row-1, .s-row-2 {
+    margin: 0;
+}
+
+.corporate2, .corporate3 {
+    padding: 0;
+}
+
+.corporate3 {
+    margin-left: auto;
+    color: #325290;
+}
+
 .corporate3 > div.row{
     height: calc(100% - 50px);
 }
@@ -22,32 +43,36 @@
 }
  
 .corporate-news-numbers {
+    font-family: 'Helvetica';
+    font-weight: bold;
     float: left;
-    width: 70px;
-    font-size: clamp(85px, 4vw + 20px, 110px);
+    width: 50px;
+    font-size: 109px;
     line-height: normal;
-    font-weight: bolder;
-    opacity: 0.2;
+    opacity: 0.1;
     margin-top: -9px;
+    position: absolute;
 }
 
 .corporate-news-img {
     float: left;
     width: 200px;
     background-color: #333333;
+    margin-left: 69px;
 }
 
 .corporate-news-img div{
-    padding-bottom: 47%;
+    height: 80px;
+    padding: 0;
 }
 
 .corporate-news-text {
     font-family: 'MillerTextBold';
     width: calc(100% - 270px);
-    padding: 0 0 0 10px;
     float: left;
     height: 100%;
     position: relative;
+    padding-left: 23px;
 }
 
 .corporate-news-text p{
@@ -58,13 +83,14 @@
 .corporate-news-text-bottom {
     font-family: 'MillerTextRoman';
     position: absolute;
-    padding-left: 10px;
     width: 100%;
-    color: #325290;
-    font-size: 15px;
-    left: 0px;
+    color: #9A9A9A;
+    font-size: 16px;
     bottom: 0px;
-    opacity: .5;
+}
+
+.corporate-news-text-bottom span {
+    color: #020E72;
 }
 
 .company-image {
@@ -72,22 +98,21 @@
     height: 90px;
     margin-top:15px;
     margin-bottom: 15px;
-    background-size: 60%;
+    background-size: 75% !important;
     background-repeat: no-repeat;
     background-position: center;
 }
 
 .company-bottom {
     font-family: 'MillerTextRoman';
-    padding: 0 15px;
     width: 100%;
     color: #9A9A9A;
-    font-size: 15px;
-    height: 30px;
+    font-size: 16px;
+    margin: 15px 0 10px;
 }
 
 .company-bottom span:first-child{
-    color: #020E72;
+    color: #325290;
 }
 
 .corporate-triangle {
@@ -101,14 +126,430 @@
     position: absolute;
 }
 
-@media only screen and (max-width: 1400px){
-    .corporate-news-text{
-        height: 115%;
+.corporate-divider {
+    width: 100%;
+    height: 1px;
+    background: #325290;
+    margin: 40px 0 26px;
+}
+
+.corporate-big-img-text {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    font-family: 'MillerTextBold';
+    color: #325290;
+    background: #fff;
+    font-size: 30px;
+    width: 70%;
+    padding: 10px 10px 0;
+}
+
+.s-row-2 > div {
+    padding: 0;
+    width: 23%;
+    margin-bottom: 20px;
+}
+
+.corporate3 > div.row{
+    height: 100%;
+}
+
+.s-row-2{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.s-row-2 .company-text p {
+    font-family: 'HelveticaNeue';
+    -webkit-line-clamp: 5 !important;
+    color: #6A6A6A;
+    font-size: 17px;
+    line-height: 21px;
+    margin: 0;
+}
+
+.row.s-row-2 .card {
+    padding: 0 20px;
+}
+
+.row.s-row-2 .company-image {
+    margin: 0 auto;
+}
+
+.row.s-row-2 .company-text {
+    height: 85px;
+}
+
+.s-row-2 .corporate-triangle {
+    border-color: transparent #325290 transparent transparent;
+}
+
+@media only screen and (min-width: 1510px){
+
+    #section-sirket-haberleri .s-row-1 {
+        margin-top: 31px;
+        height: 351px;
+    }
+
+    #section-sirket-haberleri .news-img{
+        padding-bottom: 0;
+        height: 100%;
+    }
+
+    .corporate2 {
+        width: 739px;
+    }
+
+    .corporate-big-img-text {
+        width: 500px;
+        font-size: 32px;
+        line-height: 39px;
+        letter-spacing: -1.6px;
+    }
+
+    .corporate3 {
+        width: 720px;
+    }
+
+    .corporate-news-numbers {
+        width: 70px;
+        font-size: 124px;
+        padding-top: 15px;
+    }
+    
+    .corporate-news-img {
+        margin-left: 85px;
+        width: 220px !important;
+        height: 92px !important;
+    }
+
+    p.corporate-news-title {
+        font-size: 20px;
+        line-height: 26px;
+        letter-spacing: -1px;
+        margin: -5px 0 0;
+    }
+
+    .corporate-news-text-bottom{
+        bottom: -5px;
+    }
+    
+    .corporate-divider {
+        margin: 59px 0 36px;
+    }
+
+    .s-row-2 > div {
+        width: 357px;
+        height: 223px;
+        margin-bottom: 24px;
+    }
+
+    .row.s-row-2 .card {
+        padding: 10px 24px 0 28px;
+    }
+    .row.s-row-2 .company-text {
+        height: 85px;
+        margin-top: 10px;
+    }
+    .row.s-row-2 .company-image {
+        width: 224px;
+        height: 75px;
+    }
+
+    .corporate-news-img div{
+        height: 92px;
+    }
+
+    .s-row-2 .company-text p{
+        font-size: 17px;
+        line-height: 21px;
+    }
+
+}
+
+@media screen and (min-width: 1366px) and (max-width: 1509px){
+
+    #section-sirket-haberleri .s-row-1 {
+        margin-top: 26px;
+        height: 301px;
+    }
+
+    #section-sirket-haberleri .news-img{
+        padding-bottom: 0;
+        height: 100%;
+    }
+
+    .corporate2 {
+        width: 635px;
+    }
+
+    .corporate-big-img-text {
+        width: 430px;
+        font-size: 27px;
+        line-height: 33px;
+        letter-spacing: -1.35px;
+    }
+
+    .corporate3 {
+        width: 623px;
+    }
+
+    .corporate-news-numbers {
+        width: 58px;
+        font-size: 105px;
+        padding-top: 10px;
+    }
+
+    .corporate-news-img {
+        margin-left: 72px;
+        width: 189px !important;
+        height: 79px !important;
+    }
+
+    p.corporate-news-title {
+        font-size: 17px;
+        line-height: 21px;
+        letter-spacing: -0.85px;
+        margin: -2px 0 0;
+    }
+
+    .corporate-news-text-bottom{
+        bottom: -5px;
+        font-size: 15px;
+    }
+    
+    .corporate-divider {
+        margin: 50px 0 31px;
+    }
+
+    .s-row-2 > div {
+        width: 306px;
+        height: 191px;
+        margin-bottom: 24px;
+    }
+
+    .row.s-row-2 .card {
+        padding: 9px 20px 0 24px;
+    }
+    .row.s-row-2 .company-text {
+        height: 73px;
+        margin-top: 9px;
+    }
+
+    .corporate-news-img div{
+        height: 79px;
+    }
+
+    .row.s-row-2 .company-image {
+        width: 191px;
+        height: 64px;
+    }
+
+    .s-row-2 .company-text p {
+        font-size: 15px;
+        line-height: 18px;
+        letter-spacing: 0;
+    }
+    .row.s-row-2 .company-bottom {
+        font-size: 15px;
+        margin: 14px 0 10px;
     }
 }
 
-@media only screen and (min-width: 1800px){
-    .corporate-news-text{
-        height: 80%;
+@media screen and (min-width: 1201px) and (max-width: 1365px){
+
+    #section-sirket-haberleri .s-row-1 {
+        margin-top: 29px;
+        height: 281px;
     }
+
+    #section-sirket-haberleri .news-img{
+        padding-bottom: 0;
+        height: 100%;
+    }
+
+    .corporate2 {
+        width: 591px;
+        height: 100%;
+    }
+
+    .corporate-big-img-text {
+        width: 430px;
+        font-size: 27px;
+        line-height: 33px;
+        letter-spacing: -1.35px;
+    }
+
+    .corporate3 {
+        width: 575px;
+    }
+
+    .corporate-news-numbers {
+        width: 58px;
+        font-size: 96px;
+        padding-top: 12px;
+    }
+
+    .corporate-news-img {
+        margin-left: 68px;
+        width: 176px !important;
+        height: 74px !important;
+    }
+
+    p.corporate-news-title {
+        font-size: 16px;
+        line-height: 20px;
+        letter-spacing: -0.8px;
+        margin: -2px 0 0;
+    }
+
+    .corporate-news-text-bottom{
+        bottom: -5px;
+        font-size: 13px;
+    }
+    
+    .corporate-divider {
+        margin: 50px 0 31px;
+    }
+
+    .s-row-2 > div {
+        width: 285px;
+        height: 178px;
+        margin-bottom: 24px;
+    }
+
+    .row.s-row-2 .card {
+        padding: 9px 19px 0 22px;
+    }
+    .row.s-row-2 .company-text {
+        height: 70px;
+        margin-top: 9px;
+    }
+
+    .corporate-news-img div{
+        height: 74px;
+    }
+
+    .row.s-row-2 .company-image {
+        width: 178px;
+        height: 59px;
+    }
+
+    .s-row-2 .company-text p {
+        font-size: 14px;
+        line-height: 17px;
+        letter-spacing: 0;
+    }
+    .row.s-row-2 .company-bottom {
+        font-size: 13px;
+        margin: 11px 0 7px;
+    }
+
+    .corporate-news-text{
+        padding-left: 18px;
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width:1200px) {
+    .corporate3 {
+        margin-top: 40px;
+        height: 315px;
+    }
+    .corporate-news-numbers {
+        font-size: 100px;
+        margin-bottom: -14px;
+    }
+
+    .corporate-news-text-bottom {
+        bottom: -4px;
+    }
+
+    .s-row-2 > div{
+        width: 48%;
+    }
+
+    #section-sirket-haberleri .company-image{
+        height: 90px;
+        width: 250px;
+    }
+
+    #section-sirket-haberleri .company-text{
+        margin-top: 0;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .corporate-big-img-text {
+        font-size: 20px;
+        line-height: 26px;
+        letter-spacing: -1px;
+        width: 240px;
+    }
+
+    .corporate3{
+        margin-top: 23px;
+    }
+
+    .corporate3 .col-sm-24 a{
+        flex-wrap: wrap;
+    }
+
+    .corporate-news-numbers {
+        position: relative;
+        width: 54px;
+        font-size: 97px;
+        margin-top: -4px;
+        height: 103px;
+    }
+    
+    .corporate-news-text {
+        width: 100%;
+        padding-left: 70px;
+        height: auto;
+    }
+
+    .corporate-news-img {
+        width: calc(100% - 70px);
+        margin-left: auto;
+    }
+
+    p.corporate-news-title {
+        font-size: 17px;
+        line-height: 21px;
+        height: 66px;
+        -webkit-line-clamp: 5;
+    }
+
+    .corporate-news-text-bottom {
+        position: relative;
+        font-size: 11px;
+    }
+
+    .corporate3 .row > div {
+        align-items: start !important;
+    }
+
+    #section-sirket-haberleri .section-right-sm {
+        color: #325290;
+    }
+
+    .s-row-2 > div {
+        width: 100%;
+    }
+    
+    .row.s-row-2 .card {
+        padding: 10px 23px 0 27px;
+    }
+    
+    .corporate-divider {
+        display: none;
+    }
+    
+    .row.s-row-2 {
+        margin-top: 28px;
+    }
+    
+
 }

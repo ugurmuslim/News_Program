@@ -1,5 +1,3 @@
-
-
 .automobile {
     height: 0px;
     padding-bottom: 66%;
@@ -10,13 +8,12 @@
     color:#F5F5F5;
 }
 
-
 .automobile-lg {
     padding-bottom: 75%;
 }
 
 .automobile-md {
-    border-bottom: solid 8px #717171;
+    border-bottom: solid 6px #626262;
 }
 
 .automobile-sm {
@@ -34,28 +31,29 @@
     background-position: center;
 }
 .automobile-text-bottom {
-    /*position: absolute;*/
-    bottom:-10px;
-    font-family: MillerTextRoman;
-    color:#555555;
-    font-size:14px;
-
+    font-family: "MillerTextRoman";
+    font-size: 16px;
 }
 .automobile-text-bottom-sm {
-
-    font-family: MillerTextRoman;
-    color:#555555;
-    padding-top: 10px;
-    font-size:14px;
-
+    font-family: "MillerTextRoman";
+    font-size: 16px;
 }
+
 .automobile-title {
-    font-family: MillerTextBold;
-    font-size: 22px;
-    height: 120px;
-    color:#F5F5F5;
-    padding-top: 30px;
-    padding-bottom: 10px;
+    font-family: "MillerTextBold";
+    color: #fff;
+}
+
+.oto-row-1 .automobile-title,
+.oto-row-2 .automobile-title {
+    margin-top: 23px;
+}
+
+.automobile-title p {
+    font-size: 27px;
+    line-height: 33px;
+    letter-spacing: -1.35px;
+    height: 96px;
 }
 
 .automobile-sm-title {
@@ -66,7 +64,7 @@
     top:60%;
     right: 5px;
     font-size: 1.4em;
-    font-family: MillerTextBold;
+    font-family: "MillerTextBold";
     padding: 5px;
     white-space:normal;
     height: 120px;
@@ -77,7 +75,7 @@
 .automobile-sm-top {
     font-size: 2em;
     color: #844dff;
-    font-family: HelveticaNeueBold;
+    font-family: "HelveticaNeueBold";
     font-weight: bolder;
     display: flex;
 }
@@ -112,15 +110,21 @@
     background-size: cover;
 }
 .automobile-card-slider-slide-caption {
-    font-family: MillerTextBold;
-    width: 65%;
-    height: 100%;
+    background: #242424;
+    font-family: "MillerTextBold";
+    left: 27px;
+    top: 49px;
+    width: 454px;
     font-size: 33px;
-    text-align: left;
-    padding: 30px;
-    padding-top:5%;
-    z-index: 2;
     position: absolute;
+    padding: 10px;
+}
+
+.automobile-text-bottom-sm {
+    color: #fff;
+    font-size: 16px;
+    letter-spacing: 0px !important;
+    margin-top: 10px;
 }
 
 .automobile-paper-card {
@@ -129,15 +133,505 @@
 }
 
 .automobile-card-slider-controls {
+    background: #242424;
     display: flex;
     position: absolute;
-    bottom: 15px;
-    left: 15px;
+    bottom: 0;
+    left: 27px;
     z-index: 5;
-    padding: 20px;
+    padding: 20px 18px 25px;
 }
 
 .automobile-slider-controls{
     left:30px;
     margin-bottom:20px;
+}
+
+#section-otomobil .news-card-slider-control:hover{
+    color: #717171;
+    border-color: #717171;
+}
+
+.automobile-slide-caption {
+    line-height: 39px;
+    font-size: 32px;
+    letter-spacing: -1.6px;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.oto-row-1 {
+    display: flex;
+    justify-content: space-between;
+    margin: 28px 0 0;
+}
+
+.oto-row-1 .cardSlider {
+    height: 505px !important;
+}
+
+.oto-row-1 > div{
+    padding:0;
+}
+
+.oto-col-1 {
+    width: 987px;
+}
+
+.oto-col-2 {
+    width: 476px;
+}
+
+.oto-row-2 {
+    display: flex;
+    justify-content: space-between;
+    margin: 28px 0 0;
+}
+
+.oto-row-2 > div{
+    padding: 0;
+    width: 476px;
+}
+
+.oto-col-2 .automobile {
+    padding-bottom: 345px;
+}
+
+.oto-row-3 {
+    margin: 55px 0 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+.oto-row-3 > div{
+    padding:0 !important;
+    width: 736px;
+    height: auto;
+}
+
+.oto-row-3 .row {
+    margin: 0;
+    background: #626262;
+    height: 179px;
+}
+
+.oto-row-3 .col-14 {
+    padding: 28px 30px 0;
+    width: 381px;
+}
+
+.oto-row-3 .col-10{
+    width: calc(100% - 381px);
+    background-size: cover;
+    background-position: center;
+    border-bottom: 4px solid #626262;
+}
+
+@media screen and (min-width: 1366px) and (max-width: 1509px){
+    .oto-col-1 {
+        width: 847px;
+    }
+    
+    .oto-col-2 {width: 409px;}
+    
+    .oto-row-1 .cardSlider {
+        height: 433px !important;
+    }
+    
+    .oto-row-1 {height: 433px;margin-top: 23px;}
+
+.oto-row-2 {margin-top: 24px;}
+    
+    .oto-col-2 .automobile {
+        padding-bottom: 298px;
+    }
+    
+    .oto-row-1 .automobile-title, .oto-row-2 .automobile-title {
+        margin-top: 18px;
+    }
+    
+    .automobile-title p {
+        font-size: 22px;
+        line-height: 27px;
+        letter-spacing: -1.1px;
+        height: 80px;
+    }
+
+    .automobile-text-bottom,
+    .automobile-text-bottom-sm{
+        font-size: 15px;
+    }
+    
+    .automobile-md {
+        border-width: 5px;
+    }
+
+    .automobile-card-slider-slide-caption div {
+        font-size: 29px;
+        line-height: 37px;
+        letter-spacing: -1.45px;
+    }
+    
+    span.automobile-text-bottom-sm {
+        font-size: 15px;
+    }
+
+    .automobile-card-slider-slide-caption,
+    .automobile-card-slider-controls{
+        left: 23px;
+    }
+
+    .automobile-card-slider-controls .news-card-slider-control {
+        width: 22px;
+        height: 22px;
+        font-size: 13px;
+        line-height: 16px;
+    }
+    .automobile-card-slider-controls{
+        padding: 15px 15px 21px;
+    }
+
+    .oto-row-2 > div {
+        width: 409px;
+    }
+    
+    .automobile {
+        padding-bottom: 201px;
+    }
+
+    .oto-row-3{
+        margin-top: 44px;
+    }
+
+    .oto-row-3 > div {
+        width: 633px;
+    }
+    
+    .oto-row-3 .col-14 {
+        width: 327px;
+        padding: 24px 26px 0;
+    }
+    
+    .oto-row-3 .col-10 {
+        width: calc(100% - 327px);
+    }
+
+}
+
+@media screen and (min-width: 1201px) and (max-width: 1365px){
+    .oto-col-1 {
+        width: 789px;
+    }
+    
+    .oto-col-2 {
+        width: 380px;
+    }
+    
+    .oto-row-1 .cardSlider {
+        height: 404px !important;
+    }
+    
+    .oto-row-1 {
+        height: 404px;
+        margin-top: 25px;
+    }
+
+    .oto-row-2 {
+        margin-top: 22px;
+    }
+    
+    .oto-col-2 .automobile {
+        padding-bottom: 273px;
+    }
+    
+    .oto-row-1 .automobile-title, .oto-row-2 .automobile-title {
+        margin-top: 16px;
+    }
+    
+    .automobile-title p {
+        font-size: 22px;
+        line-height: 27px;
+        letter-spacing: -1.1px;
+        height: 80px;
+    }
+
+    .automobile-text-bottom,
+    .automobile-text-bottom-sm{
+        font-size: 13px !important;
+    }
+    
+    .automobile-md {
+        border-width: 5px;
+    }
+
+    .automobile-card-slider-slide-caption div {
+        font-size: 27px;
+        line-height: 33px;
+        letter-spacing: -1.35px;
+    }
+
+    .automobile-card-slider-slide-caption,
+    .automobile-card-slider-controls{
+        left: 22px;
+    }
+
+    .automobile-card-slider-controls .news-card-slider-control {
+        width: 22px;
+        height: 22px;
+        font-size: 13px;
+        line-height: 16px;
+    }
+    .automobile-card-slider-controls{
+        padding: 14px 14px 19px;
+    }
+
+    .oto-row-2 > div {
+    width: 381px;
+    }
+    
+    .automobile {
+        padding-bottom: 192px;
+    }
+
+    .oto-row-3 {
+        margin-top: 39px;
+    }
+
+    .oto-row-3 > div {
+        width: 590px;
+    }
+
+    .oto-row-3 .row{
+        height: 140px;
+    }
+    
+    .oto-row-3 .col-14 {
+        width: 305px;
+        padding: 19px 22px 0;
+    }
+    
+    .oto-row-3 .col-10 {
+        width: calc(100% - 305px);
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width:1200px){
+    .oto-col-1 {
+        width: 70%;
+    }
+    
+    .oto-col-2 {
+        width: 28%;
+    }
+    
+    .oto-row-1 .cardSlider {
+        height: 404px !important;
+    }
+    
+    .oto-row-1 {
+        height: 404px;
+        margin-top: 25px;
+    }
+
+    .oto-row-2 {
+        margin-top: 22px;
+    }
+    
+    .oto-col-2 .automobile {
+        padding-bottom: 273px;
+    }
+    
+    .oto-row-1 .automobile-title, .oto-row-2 .automobile-title {
+        margin-top: 16px;
+    }
+    
+    .automobile-title p {
+        font-size: 20px;
+        line-height: 26px;
+        letter-spacing: -.4px;
+        height: 77px;
+    }
+
+    .automobile-text-bottom,
+    .automobile-text-bottom-sm{
+        font-size: 13px !important;
+    }
+    
+    .automobile-md {
+        border-width: 5px;
+    }
+
+    .automobile-card-slider-slide-caption div {
+        font-size: 27px;
+        line-height: 33px;
+        letter-spacing: -1.35px;
+    }
+
+    .automobile-card-slider-slide-caption,
+    .automobile-card-slider-controls{
+        left: 22px;
+    }
+
+    .automobile-card-slider-controls .news-card-slider-control {
+        width: 22px;
+        height: 22px;
+        font-size: 13px;
+        line-height: 16px;
+    }
+    .automobile-card-slider-controls{
+        padding: 14px 14px 19px;
+    }
+
+    .oto-row-2 > div {
+    width: 32%;
+    }
+    
+    .automobile {
+        padding-bottom: 192px;
+    }
+
+    .oto-row-3 {
+        margin-top: 34px;
+    }
+
+    .oto-row-3 > div {
+        width: 49%;
+    }
+
+    .oto-row-3 .row{
+        height: 140px;
+    }
+    
+    .oto-row-3 .col-14 {
+        width: 55%;
+        padding: 16px 10px 0 19px;
+    }
+    
+    .oto-row-3 .col-10 {
+        width: 45%;
+    }
+}
+
+@media screen and (max-width: 768px){
+    .oto-col-1 {
+        width: 100%;
+    }
+    
+    .oto-col-2 {
+        width: 100%;
+    }
+    
+    .oto-row-1 .cardSlider {
+        height: 290px !important;
+    }
+    
+    .oto-row-1,
+    .oto-col-2{
+        margin-top: 13px;
+    }
+
+    .oto-row-2{
+        margin:0;
+    }
+    
+    .oto-row-2 > div {
+        margin-top: 17px;
+    }
+    
+    .oto-col-2 .automobile {
+        padding-bottom: 251px;
+    }
+    
+    .oto-row-1 .automobile-title, .oto-row-2 .automobile-title {
+        margin-top: 17px;
+    }
+    
+    .automobile-title p {
+        font-size: 20px;
+        line-height: 26px;
+        letter-spacing: -1px;
+        -webkit-line-clamp: 4;
+        height: 77px;
+    }
+
+    .automobile-text-bottom,
+    .automobile-text-bottom-sm{
+        font-size: 11px !important;
+    }
+    
+    .automobile-md {
+        border-width: 5px;
+    }
+
+    .automobile-card-slider-slide-caption div {
+        font-size: 20px;
+        line-height: 23px;
+        letter-spacing: -1px;
+        max-height: 70px;
+        -webkit-line-clamp: 4;
+    }
+
+    .automobile-card-slider-slide-caption,
+    .automobile-card-slider-controls{
+        left: 18px;
+    }
+
+    .automobile-card-slider-controls .news-card-slider-control {
+        width: 24px;
+        height: 24px;
+        font-size: 12px;
+        line-height: 18px;
+    }
+    .automobile-card-slider-controls{
+        padding: 15px 15px 23px;
+    }
+
+    .oto-row-2 > div {
+    width: 100%;
+    }
+    
+    .automobile {
+        padding-bottom: 168px;
+    }
+
+    .oto-row-3 {
+        margin-top: 18px;
+    }
+
+    .oto-row-3 > div {
+        width: 100%;
+    }
+
+    .oto-row-3 .row{
+        height: auto;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .oto-row-3 .col-14 {
+        width: 100%;
+        padding: 22px 18px 16px;
+    }
+    
+    .oto-row-3 .col-10 {
+        width: 100%;
+        height: 140px;
+    }
+
+    .automobile-card-slider-slide-caption {
+        width: 205px;
+        top: auto;
+        bottom: 80px;
+    }
+
+    .oto-row-3 > div:last-child {
+        margin-top: 18px;
+    }
+
+    .oto-row-3 .automobile-title p {
+        height: 73px;
+    }
+
 }

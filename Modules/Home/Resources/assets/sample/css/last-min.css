@@ -1,4 +1,56 @@
+#section-son-dakika .section-header,
+#section-son-dakika .section-right-sm{
+    color: #ED0000;
+}
 
+.last-container-2{
+    position: relative;
+}
+
+.row.last-row-1 {
+    margin: 30px 0 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+.row.last-row-1 > div{
+    font-family: "MillerTextBold";
+    padding: 0;
+}
+
+.row.last-row-1 .last-middle{
+    width: 396px;
+}
+
+.row.last-row-1 .last-big{
+    width: 653px;
+}
+
+#section-son-dakika .fa-clock {
+    font-size: 21px;
+}
+
+#section-son-dakika .clock-brand {
+    display: flex;
+    align-items: center;
+    letter-spacing: -1.75px;
+}
+
+.row.last-row-1 .clock-brand {
+    display: flex;
+    align-items: center;
+    color: #fff;
+}
+
+.row.last-row-1 .clock-brand svg {
+    margin-right: 9px;
+}
+
+.row.last-row-1 .last-min-sm-top {
+    position: absolute;
+    top: 13px;
+    left: 16px;
+}
 
 .last-min {
     height: 0px;
@@ -10,132 +62,601 @@
     position: relative;
 }
 
-
-.last-min-lg {
-    padding-bottom: 75%;
-}
-
 .last-min-md {
-
-    border-bottom: solid 8px red;
+    border-bottom: solid 8px #ED0000;
 }
 
 .last-min-sm {
     position: relative;
-    width: 280px;
-    height: 350px;
-    padding:10px;
+    width: 282px;
+    height: 310px;
+    margin-right: 22px;
 }
 
 .last-min-sm-img {
     width: 100%;
-    /*height:210px;*/
-    height:178px;
+    height: 191px;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
 }
-.last-min-text-bottom {
+
+.last-middle .last-min-text-bottom {
     position: absolute;
-    bottom:-10px;
-    font-family: MillerTextRoman;
-    color:#555555;
-    font-size:14px;
-
-}
-.last-min-text-bottom-sm {
-
-    font-family: MillerTextRoman;
-    color:#555555;
-    padding-top: 10px;
-    font-size:14px;
-
+    letter-spacing: 0;
 }
 
-.small-last-min-bottom {
-    bottom: 32px;
+.last-min-text-bottom {
+    bottom: -10px;
+    font-family: "MillerTextRoman";
+    color:#9A9A9A;
+    font-size:16px;
+}
+
+.last-min-text-bottom span{
+    color: #ED0000;
 }
 
 .last-min-title {
-    font-family: MillerTextBold;
-    font-size: 22px;
-    height: 120px;
-    padding-top: 15px;
-    line-height: 1.2em;
+    font-family: "MillerTextBold";
+    font-size: 27px;
+    margin-top: 20px;
+    line-height: 33px;
+    letter-spacing: -0.68px;
+    color: #242424;
 }
 
 .last-min-sm-title {
+    font-family: 'MillerTextBold';
     background-color: #ffffff;
+    color: #242424;
     position: absolute;
-    width: auto;
-    max-width: 80%;
-    top:60%;
-    right: 5px;
-    font-size: 18px;
-    font-family: MillerTextBold;
-    padding: 5px;
+    width: 250px;
+    top: 225px;
+    right: 0;
+    font-size: 20px;
+    line-height: 26px;
+    padding: 6px 10px 0;
     white-space:normal;
-    height: 120px;
-    padding-bottom: 10px;
+    height: 75px;
+}
 
+.last-min-sm-title p{
+  letter-spacing: -1px;
+  margin-bottom: 10px;
 }
 
 .last-min-sm-top {
-    font-size: 2em;
-    color:red;
-    font-family: HelveticaNeueBold;
-    font-weight: bolder;
+    font-family: "MontserratBold";
+    font-size: 35px;
+    color:#ED0000;
     display: flex;
+    margin-bottom: 8px;
 }
 
 .last-min-caption {
-    font-family: MillerTextBold;
+    position: absolute;
+    letter-spacing: -1.35px;
+    bottom: 0;
+    left: 0;
     width: 100%;
     height: 100%;
-    font-size: 2em;
-    padding: 50px;
-    padding-top:35%;
-    z-index: 20;
+    font-size: 27px;
+    line-height: 33px;
     color: white;
+    background-image: linear-gradient(0deg, #ED0B19,#ED0B1904, #ED0B1900);
+    padding: 0 84px 11px;
     text-align: center;
-    position: absolute;
-    line-height: 1.2em;
 }
 
 .last-min-bottom-sm {
-
-    font-family: MillerTextRoman;
-    color:#555555;
-    padding-top: 10px;
-    font-size:14px;
-    position: absolute;
-    bottom: 10%;
-    text-align: center;
-    left: 35%;
+    font-family: "MillerTextRoman";
+    font-size: 16px;
+    letter-spacing: 0;
 }
 
-
-
 .last-min-top-line {
-    width: calc(100% - 0.75em);
-    border-bottom:solid 1px red;
+    width: 100%;
+    border-bottom: solid 1px #ED0000;
     position: absolute;
-    top:35px;
+    top: 26px;
     z-index: 1;
 }
 
 .last-min-slider {
-    overflow:hidden; width: 100%; height: 420px; overflow-x: scroll; white-space: nowrap;
+    width: 100%;
+    overflow: hidden;
+    overflow-x: scroll;
+    -webkit-overflow-x: scroll;
+    -mz-overflow-x: scroll;
+    white-space: nowrap;
+    border-top: 1px solid #D3D3D3;
+    margin: 28px 0 20px;
+    padding-top: 13px;
+    height: 390px;
 }
 
-
-.last-min-slider ::-webkit-scrollbar {
-    width: 5px;
-    height: 5px;
-    border-color: red;
+.last-min-slider .last-min-sm-top span {
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    z-index: 99;
+    padding-right: 6px;
 }
-.last-min-slider ::-webkit-scrollbar-thumb {
 
-    border-color: red;
-    background-color: red;
+.last-min-slider .last-min-sm-top span svg{
+     margin-right: 9px;   
 }
+
+#lastSlideBack,
+#lastSlideNext{
+    color: #ED0000;
+    width: 20px;
+    font-size: 26px;
+}
+
+#lastSlideBack:hover,
+#lastSlideNext:hover{
+    cursor: pointer;
+}
+
+.last-slide-control {
+    width: 104%;
+    left: -28px;
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    bottom: 140px;
+}
+
+.last-min-caption p {
+    padding-top: 58%;
+    margin-bottom: 10px;
+}
+
+/* width */
+.last-min-slider::-webkit-scrollbar {
+    height: 8px;
+  }
+  
+/* Track */
+.last-min-slider::-webkit-scrollbar-track {
+    background: #b7b7b7;
+    border-radius: 5px;
+}
+
+/* Handle */
+.last-min-slider::-webkit-scrollbar-thumb {
+    background: #ED0000;
+    border-radius: 5px;
+}
+
+/* Handle on hover */
+.last-min-slider::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+@media screen and (min-width: 1366px) and (max-width: 1509px){
+    .row.last-row-1 {
+        margin: 28px 0 0;
+    }
+
+    .row.last-row-1 > div{
+        font-family: "MillerTextBold";
+        padding: 0;
+    }
+
+    .row.last-row-1 .last-middle{
+        width: 340px;
+    }
+
+    .row.last-row-1 .last-big{
+        width: 560px;
+    }
+
+    #section-son-dakika .fa-clock {
+        font-size: 21px;
+    }
+
+    #section-son-dakika .clock-brand {
+        display: flex;
+        align-items: center;
+        letter-spacing: -1.75px;
+    }
+
+    .row.last-row-1 .last-min-sm-top {
+        top: 11px;
+        left: 14px;
+    }
+
+    .last-min-sm-top{
+        font-size: 30px;
+        line-height: 37px;
+        letter-spacing: -1.5px;
+    }
+    .last-min-title {
+        font-size: 22px;
+        line-height: 27px;
+        letter-spacing: -0.55px;
+        margin-top: 17px;
+    }
+
+    .last-min-text-bottom{
+        bottom: -7px;
+    }
+
+    .last-min-bottom-sm,
+    .last-min-text-bottom {
+        font-size: 15px !important;
+    }
+
+    .last-min-caption {
+        font-size: 22px;
+        line-height: 27px;
+        letter-spacing: -1.1px;
+        padding: 0 72px 9px;
+    }
+
+    .last-min-caption p {
+        margin-bottom: 14px;
+    }
+
+    .last-min-top-line {
+        top: 17px;
+    }
+
+    .last-min-slider {
+        margin-top: 24px;
+        padding-top: 11px;
+        height: 330px;
+    }
+
+    .last-min-sm {
+        width: 242px;
+        margin-right: 19px;
+    }
+
+    .last-min-sm-img {
+        height: 164px;
+    }
+
+    .last-min-sm-title {
+        width: 210px;
+        top: 186px;
+        font-size: 17px;
+        line-height: 21px;
+        letter-spacing: -0.85px;
+    }
+
+    .last-slide-control {
+        bottom: 115px;
+        left: -23px;
+    }
+
+}
+
+@media screen and (min-width: 1201px) and (max-width: 1365px){
+    .row.last-row-1 {
+        margin: 24px 0 0;
+    }
+
+    .row.last-row-1 > div{
+        font-family: "MillerTextBold";
+        padding: 0;
+    }
+
+    .row.last-row-1 .last-middle{
+        width: 316px;
+    }
+
+    .row.last-row-1 .last-big{
+        width: 521px;
+    }
+
+    #section-son-dakika .fa-clock {
+        font-size: 17px;
+    }
+
+    #section-son-dakika .clock-brand {
+        display: flex;
+        align-items: center;
+        letter-spacing: -1.35px;
+    }
+
+    .row.last-row-1 .last-min-sm-top {
+        top: 10px;
+        left: 13px;
+    }
+
+    .last-min-sm-top{
+        font-size: 27px;
+        line-height: 33px;
+        letter-spacing: -1.5px;
+    }
+
+    .last-min-title {
+        font-size: 22px;
+        line-height: 27px;
+        letter-spacing: -0.55px;
+        margin-top: 16px;
+    }
+
+    .last-min-text-bottom {
+        font-size: 13px;
+    }
+
+    .last-min-caption {
+        font-size: 22px;
+        line-height: 27px;
+        letter-spacing: -1.1px;
+        padding: 0 67px 4px;
+    }
+
+    .last-min-top-line {
+        top: 15px;
+    }
+
+    .last-min-caption p {
+        margin-bottom: 11px;
+    }
+
+    .last-min-bottom-sm {
+        font-size: 13px;
+    }
+
+    .last-min-slider {
+        margin-top: 24px;
+        padding-top: 11px;
+        height: 305px;
+    }
+
+    .last-min-sm {
+        width: 225px;
+        margin-right: 18px;
+    }
+
+    .last-min-sm-img {
+        height: 153px;
+    }
+
+    .last-min-sm-title {
+        width: 200px;
+        top: 173px;
+        font-size: 16px;
+        line-height: 20px;
+        letter-spacing: -0.8px;
+    }
+
+    .last-slide-control {
+        bottom: 115px;
+        left: -23px;
+    }
+
+    .last-min-slider::-webkit-scrollbar{
+        height: 6px;
+    }
+}
+@media screen and (min-width: 768px) and (max-width:1200px){
+    .row.last-row-1 {
+        margin: 23px 0 0;
+    }
+
+    .container.last-container-2 {
+        margin: 0;
+        padding: 0;
+        max-width: 100%;
+    }
+
+    .row.last-row-1 > div{
+        font-family: "MillerTextBold";
+        padding: 0;
+    }
+
+    .row.last-row-1 .last-middle{
+        width: 24%;
+    }
+
+    .row.last-row-1 .last-big{
+        width: 48%;
+    }
+
+    #section-son-dakika .fa-clock {
+        font-size: 1.5vw;
+    }
+
+    #section-son-dakika .clock-brand {
+        display: flex;
+        align-items: center;
+        letter-spacing: -1.35px;
+    }
+
+    .row.last-row-1 .last-min-sm-top {
+        top: 10px;
+        left: 13px;
+    }
+
+    .last-min-sm-top{
+        font-size: 2.3vw;
+        line-height: 33px;
+        letter-spacing: -1.5px;
+    }
+
+    .last-min-title {
+        font-size: 1.8vw;
+        line-height: 2vw;
+        letter-spacing: -0.55px;
+        margin-top: 13px;
+    }
+
+    .last-min-text-bottom {
+        font-size: 13px;
+        bottom: -7px;
+    }
+
+    .last-min-caption {
+        font-size: 2vw;
+        line-height: 2.2vw;
+        letter-spacing: -1.1px;
+        padding: 0 67px 4px;
+    }
+
+    .last-min-top-line {
+        top: 15px;
+    }
+
+    .last-min-caption p {
+        margin-bottom: 11px;
+    }
+
+    .last-min-bottom-sm {
+        font-size: 13px;
+    }
+
+    .last-min-slider {
+        margin-top: 24px;
+        padding-top: 11px;
+        height: 290px;
+    }
+
+    .last-min-sm {
+        width: 230px;
+        margin-right: 12px;
+    }
+
+    .last-min-sm-img {
+        height: 140px;
+    }
+
+    .last-min-sm-title {
+        width: 200px;
+        top: 160px;
+        font-size: 16px;
+        line-height: 20px;
+        letter-spacing: -0.8px;
+    }
+
+    .last-slide-control {
+        bottom: 125px;
+        left: -14px;
+    }
+
+    .last-min-slider::-webkit-scrollbar{
+        height: 6px;
+    }
+
+    .last-min-md{
+        border-width: 4px;
+    }
+}
+
+@media screen and (max-width: 767px){
+    #section-son-dakika .section-header{
+        display: block !important;
+    }
+
+    .last-container-2{
+        padding: 0;
+        margin-top: 20px;
+    }
+    .last-min-sm-top {
+        top: 14px !important;
+        left: 14px !important;
+        font-size: 25px;
+        line-height: 30px;
+    }
+    
+    #section-son-dakika .clock-brand {
+        letter-spacing: -1.25px;
+    }
+    
+    .last-min-md {
+        border-width: 6px;
+    }
+    .last-min-title {
+        font-size: 20px;
+        line-height: 26px;
+        letter-spacing: -0.5px;
+        margin-top: 17px;
+    }
+    
+    .last-min-text-bottom {
+        font-size: 16px;
+        letter-spacing: 0;
+    }
+
+    .row.last-row-1 .last-big {
+        width: 100%;
+        margin: 17px 0;
+    }
+    
+    .last-min-text-bottom {
+        position: relative !important;
+    }
+
+    .last-middle .last-min.last-min-md {
+        padding-bottom: 229px;
+    }
+
+    .last-big .last-min {
+        padding-bottom: 374px;
+    }
+
+    .last-min-caption {
+        font-size: 20px;
+        line-height: 26px;
+        letter-spacing: -1px;
+        padding: 0 30px 11px;
+    }
+
+    .last-min-caption p{
+        padding-top: 250px;
+        position: relative;
+        margin-bottom: 9px;
+    }
+
+    .last-min-slider {
+        border: none;
+        margin: 14px 0 30px;
+        height: 280px;
+    }
+
+    .last-slide-control{
+        display: none;
+    }
+
+    .last-min-sm {
+        width: 165px;
+        margin-right: 15px;
+        height: 240px;
+    }
+    
+    .last-min-sm-img {
+        height: 112px;
+    }
+
+    .last-min-sm-title {
+        font-size: 15px;
+        line-height: 18px;
+        letter-spacing: -0.75px;
+        width: 150px;
+        top: 130px;
+        height: 82px !important;
+        padding: 5px 6px 0;
+    }
+
+    .last-min-sm-title p {
+        -webkit-line-clamp: 4;
+        margin-bottom: 4px;
+    }
+
+    .last-min-slider .last-min-text-bottom{
+        font-size: 11px;
+        letter-spacing: 0;
+    }
+
+    .row.last-row-1 .last-middle {
+        width: 100%;
+    }
+
+}
+

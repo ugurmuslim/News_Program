@@ -1,22 +1,100 @@
+#section-spor{
+    padding-top: 37px;
+}
 
+#section-spor .section-title,
+#section-spor .section-right,
+#section-spor .section-right-sm{
+    color: #1A65F2;
+}
+
+.spor-container-2{
+    margin-top: 20px;
+}
+
+.row.spor-row-1, .row.spor-row-1 > div {
+    margin: 0;
+    padding: 0;
+    height: 444px;
+}
+
+.spor-row-1{
+    display:flex;
+    justify-content: space-between;
+}
+
+.spor-row-2 {
+    display: flex;
+    justify-content: space-between;
+    margin: 36px 0 0;
+}
+
+.spor-row-2 > div {
+    width: 282px;
+    padding: 0;
+    height: 300px;
+}
+
+.sport-5box .news-img {
+    padding-bottom: 191px;
+}
+
+.sport-5box .card{
+    border-radius: 0;
+}
+
+.sport-mini-card {
+    position: absolute;
+    color: #242424;
+    background: #fff;
+    width: 250px;
+    top: 163px;
+    right: 0;
+    padding: 7px 0 0 12px;
+}
+
+.sport-mini-card p {
+    font-family: 'MillerTextBold';
+    font-size: 20px;
+    line-height: 26px;
+    letter-spacing: -1px;
+    height: 73px;
+    margin-bottom: 14px;
+}
+
+.sport-mini-card .news-card-bottom{
+    font-family: 'MillerTextRoman';
+    font-size: 16px;
+    color: #9a9a9a;
+}
+
+.sport-mini-card .news-card-bottom span{
+    color: #1A65F2;
+}
+
+.spor-slide {
+    width: 735px;
+}
+
+.spor-2box{
+    width: 353px;
+}
 
 .sport {
     height: 0px;
-    padding-bottom: 66%;
+    padding-bottom: 269px;
     background-color: rgba(0,0,0,0.3);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
 }
 
-
 .sport-lg {
     padding-bottom: 75%;
 }
 
 .sport-md {
-
-    border-bottom: solid 8px #1a67f1;
+    border-bottom: solid 7px #1A65F2;
 }
 
 .sport-sm {
@@ -36,25 +114,36 @@
 .sport-text-bottom {
     position: absolute;
     bottom:-10px;
-    font-family: MillerTextRoman;
+    font-family: "MillerTextRoman";
     color:#555555;
     font-size:14px;
 
 }
 .sport-text-bottom-sm {
 
-    font-family: MillerTextRoman;
+    font-family: "MillerTextRoman";
     color:#555555;
     padding-top: 10px;
     font-size:14px;
 
 }
-.sport-title {
-    font-family: MillerTextBold;
-    font-size: 28px;
-    height: 120px;
-    padding-top: 15px;
+.sport-title p {
+    font-family: "MillerTextBold";
+    color: #242424;
+    font-size: 27px;
+    line-height: 33px;
+    letter-spacing: -1.65px;
+    margin: 28px 0 10px 0;
+    height: 111px;
+}
 
+.sport-title .card-bottom-date{
+    font-size: 16px;
+    color:#9A9A9A;
+}
+
+.sport-title .card-bottom-date span{
+    color: #1A65F2;
 }
 
 .sport-sm-title {
@@ -65,7 +154,7 @@
     top:60%;
     right: 5px;
     font-size: 1.4em;
-    font-family: MillerTextBold;
+    font-family: "MillerTextBold";
     padding: 5px;
     white-space:normal;
     height: 120px;
@@ -76,7 +165,7 @@
 .sport-sm-top {
     font-size: 2em;
     color: #1a67f1;
-    font-family: HelveticaNeueBold;
+    font-family: "HelveticaNeueBold";
     font-weight: bolder;
     display: flex;
 }
@@ -111,23 +200,37 @@
     background-size: cover;
 }
 .sport-card-slider-slide-caption {
-    font-family: MillerTextBold;
-    width: 55%;
+    font-family: "MillerTextBold";
+    background-image: linear-gradient(90deg, #1A65F2, #144EBB8A,#0D337900);
+    width: 50%;
     height: 100%;
-    font-size: 1.5em;
-    text-align: left;
-    padding: 30px;
-    padding-top:25%;
-    z-index: 20;
     position: absolute;
+    padding: 147px 0 0 44px;
+}
+
+.sport-text-caption {
+    font-size: 32px;
+    line-height: 39px;
+    letter-spacing: -1.6px;
+}
+
+.sport-card-bottom-date {
+    font-size: 16px;
+    font-family: 'MillerTextRoman';
+    margin-top: 25px;
 }
 
 .sport-card-slider-controls {
     display: flex;
     position: absolute;
-    bottom: 15px;
-    left: 30px;
+    bottom: 42px;
+    left: 44px;
     z-index: 90;
+}
+
+.sport-card-slider-controls .news-card-slider-control:hover {
+    color: rgb(185, 185, 185);
+    border-color: rgb(185, 185, 185);
 }
 
 
@@ -135,4 +238,315 @@
     height: 100px;
     border-radius: 10px;
 
+}
+
+@media screen and (min-width: 1366px) and (max-width: 1509px){
+    .spor-container-2{
+        margin-top: 21px;
+    }
+
+    .spor-2box {
+        width: 303px;
+    }
+    
+    .spor-slide {
+        width: 632px;
+    }
+    
+    .row.spor-row-1, .row.spor-row-1 > div {
+        height: 381px;
+    }
+
+    .sport-card-slider-slide-caption {
+        padding: 119px 0 0 38px;
+        width: 55%;
+    }
+    
+    .sport-text-caption {
+        font-size: 29px;
+        line-height: 37px;
+        letter-spacing: -1.35px;
+    }
+
+    .sport-card-bottom-date {
+        margin-top: 13px;
+    }
+
+    .sport-card-slider-controls {
+        bottom: 36px;
+        left: 38px;
+    }
+
+    .sport {
+        padding-bottom: 231px;
+    }
+    
+    .sport-title p {
+        font-size: 22px;
+        line-height: 27px;
+        letter-spacing: -1.1px;
+        margin: 25px 0 6px 0;
+        height: 95px;
+    }
+
+    .spor-row-2 > div {
+        width: 242px;
+        height: 265px;
+    }
+
+    .sport-mini-card {
+        width: 210px;
+        top: 142px;
+    }
+
+    .sport-mini-card p {
+        font-size: 17px;
+        line-height: 21px;
+        letter-spacing: -0.85px;
+        height: 64px;
+    }
+
+    .sport-mini-card .news-card-bottom {
+        font-size: 15px;
+    }
+   
+    .sport-5box .news-img {
+        padding-bottom: 165px;
+    }
+}
+
+@media screen and (min-width: 1201px) and (max-width: 1365px){
+    .spor-container-2{
+        margin-top: 22px;
+    }
+
+    .spor-2box {
+        width: 282px;
+    }
+    
+    .spor-slide {
+        width: 588px;
+    }
+    
+    .row.spor-row-1, .row.spor-row-1 > div {
+        height: 355px;
+    }
+
+    .sport-card-slider-slide-caption {
+        padding: 111px 0 0 35px;
+        width: 55%;
+    }
+    
+    .sport-text-caption {
+        font-size: 27px;
+        line-height: 33px;
+        letter-spacing: -1.35px;
+    }
+
+    .sport-card-bottom-date {
+        margin-top: 13px;
+    }
+
+    .sport-card-slider-controls {
+        bottom: 34px;
+        left: 35px;
+    }
+
+    .sport {
+        padding-bottom: 215px;
+    }
+    
+    .sport-title p {
+        font-size: 22px;
+        line-height: 27px;
+        letter-spacing: -1.1px;
+        margin: 22px 0 5px;
+        height: 89px;
+    }
+
+    .spor-row-2 > div {
+        width: 225px;
+        height: 249px;
+    }
+
+    .sport-mini-card {
+        width: 200px;
+        top: 132px;
+    }
+
+    .sport-mini-card p {
+        font-size: 16px;
+        line-height: 20px;
+        letter-spacing: -0.8px;
+        height: 62px;
+        margin-bottom: 8px;
+    }
+
+    .sport-mini-card .news-card-bottom {
+        font-size: 13px;
+    }
+   
+    .sport-5box .news-img {
+        padding-bottom: 153px;
+    }
+
+    .sport-md {
+        border-width: 6px;
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width:1200px) {
+    .row.spor-row-1 {height: auto;}
+
+    .spor-slide {
+        width: 100%;
+        margin-bottom: 20px !important;
+    }
+
+    .spor-2box {
+        width: 48.5%;
+        position: relative;
+        height: 418px !important;
+        margin-bottom: 15px !important;
+    }
+
+    .spor-row-2 > div {
+        width: 48.5%;
+        margin-bottom: 15px;
+    }
+
+    .spor-row-2 > div:last-child{
+        display: none;
+    }
+
+    .spor-row-2 {
+        margin: 20px 0 0;
+    }
+
+    .sport-mini-card {
+        width: 85%;
+    }
+
+    .sport-mini-card p {
+        font-size: 24px;
+        letter-spacing: -0.5px;
+    }
+    .sport-mini-card .news-card-bottom {
+        font-size: 17px;
+    }
+
+    .sport-title .card-bottom-date {
+        padding: 0;
+    }
+
+    .sport-title p {
+        margin: 15px 0 0;
+    }
+}
+
+@media screen and (max-width: 768px){
+    .spor-slide {
+        height: 288px !important;
+        margin-bottom: 15px !important;
+    }
+
+    .sport-card-slider-slide-caption {
+        width: 70%;
+        padding: 98px 0 0 21px;
+    }
+
+    .sport-text-caption {
+        font-size: 20px;
+        line-height: 26px;
+        letter-spacing: -1px;
+    }
+
+    .sport-card-bottom-date {
+    font-size: 11px;
+    margin-top: 10px;
+}
+    
+    .sport-card-slider-controls {
+        bottom: 19px;
+        left: 22px;
+    }
+    
+    .spor-2box {
+        width: 48.5%;
+        height: 230px;
+        position: relative !important;
+    }
+    
+    .sport {
+        padding-bottom: 120px;
+        border-width: 3px;
+    }
+
+    .sport-5box {
+        width: 48.5% !important;
+    }
+    
+    .sport-5box .news-img {padding-bottom: 114px;}
+    
+    .sport-mini-card {
+        top: 94px;
+        width: 85%;
+        padding: 5px 0 0 6px;
+    }
+    
+    .sport-mini-card p {
+        font-size: 15px;
+        line-height: 18px;
+        letter-spacing: -0.75px;
+        height: 70px;
+    }
+
+    .sport-mini-card .news-card-bottom {
+        font-size: 10px;
+    }
+
+    .sport-title .card-bottom-date {
+        position: relative;
+        bottom: 0;
+        font-size: 11px;
+    }
+
+    .spor-2box {
+        height: auto !important;
+    }
+    
+
+    .spor-row-2 > div:last-child{
+        display: none;
+    }
+
+
+    .spor-row-2 > div {height: 210px;}
+
+    .sport-title p {
+        font-size: 17px;
+        line-height: 21px;
+        letter-spacing: -0.85px;
+        margin: 11px 0 30px 0px;
+        height: 61px;
+        -webkit-line-clamp: 4;
+    }
+    
+    .row.spor-row-1{
+        height: auto;
+    }
+
+    .spor-row-2 {
+        margin-top: 22px;
+    }
+
+    .sport-5box .card{
+        height: 100%;
+    }
+
+    .sport-card-slider-controls > div {
+        width: 24px;
+        height: 24px;
+        font-size: 14px;
+    }
 }

@@ -1,44 +1,33 @@
 <section id="section-sirket-haberleri">
     <div class="container">
-        <div class="section-header d-flex text-dark-blue">
+        <div class="section-header d-flex">
             <div class="section-title">ŞİRKET HABERLERİ</div>
-            <div class="d-none d-md-block section-right"><a
-                    href="{{route('home_article.index',['type' => 'sirket-haberleri'])}}">Tüm Şirket Haberlerini
+            <div class="d-none d-md-block section-right"><a href="https://parafesor.net/kategori/sirket-haberleri">Tüm
+                    Şirket Haberlerini
                     Gör</a>
             </div>
         </div>
-        <div class=" d-sm-block d-md-none section-right-sm text-dark-blue"><a
-                href="{{route('home_article.index',['type' => 'sirket-haberleri'])}}">Tüm Şirket Haberlerini Gör</a>
+        <div class=" d-sm-block d-md-none section-right-sm "><a href="https://parafesor.net/kategori/sirket-haberleri">Tüm
+                Şirket Haberlerini Gör</a>
         </div>
-
-        <div class="row mt-3">
+        <div class="row s-row-1">
             @foreach($articles["Şirket Haberleri"][\App\Parafesor\Constants\CategorySectionTypes::MAIN_SLIDER]->take(1) as $article)
-                <div class="col-xl-13 mb-5">
-                    <a href="{{route('article.show',['slug' => $article->slug ])}}">
+                <div class="col-xl-13 corporate2">
+                    <a href="https://parafesor.net/ford-otosan-piyasa-degerine-kimse-yetisemiyor-14-01-2022">
                         <div class="card news-card news-card-big" id="corporate-new-showcase">
                             <div class="news-card-img-container bg-white lazy">
-                                <div style="background-image: url({{asset($article->image_path)}})" alt=""
-                                     class="news-img"></div>
-                                <div class="news-card-img-text text-dark-blue big-title"
-                                     style="max-width: 60%">{{$article->title}}
+                                <div
+                                    style="background-image: url({{asset($article->image_path)}})"
+                                    alt="" class="news-img"></div>
+                                <div class="corporate-big-img-text">
+                                    <p>{{$article->title}}</p>
                                 </div>
                             </div>
                         </div>
                     </a>
                 </div>
             @endforeach
-            {{--<div class="col-xl-13 mb-5">
-                <div class="card news-card news-card-big ">
-                    <div class="news-card-img-container bg-white">
-                        <div style="background-image: url({{asset("modules/home/sample/img/news/s1n1.webp")}})" alt=""
-                             class="news-img"></div>
-                        <div class="news-card-img-text text-dark-blue">Polat Enerji'nin Tamamının Satışı İçin
-                            Ortaklar Barclays'i Yetkilendirdi
-                        </div>
-                    </div>
-                </div>
-            </div>--}}
-            <div class="col-xl-11">
+            <div class="col-xl-11 corporate3">
                 <div class="row">
                     @php
                         $i = 1;
@@ -46,18 +35,18 @@
                     @foreach($articles["Şirket Haberleri"][\App\Parafesor\Constants\CategorySectionTypes::NORMAL]->take(3) as $article)
                         <div class="col-sm-24">
                             <a href="{{route('article.show',['slug' => $article->slug ])}}">
-                                <div class="corporate-news-numbers text-dark-blue">{{$i}}</div>
+                                <div class="corporate-news-numbers ">{{$i}}</div>
                                 <div class="corporate-news-img">
                                     <div class="image-card-16x10 border bg-white lazy"
                                          style="background-image: url({{asset($article->image_path)}})"></div>
                                 </div>
                                 <div class="corporate-news-text">
-                                    <p class="text-dark-blue">
-                                        {{ $article->title }}
+                                   <p>
+                                        {{$article->title}}
                                     </p>
                                     <div class="corporate-news-text-bottom">
-                               <span
-                                   class="">{{ Date::parse($article->created_at)->format('j F')}}</span><span> • {{ Carbon\Carbon::parse($article->created_at)->format('H:i')}} • parafesor</span>
+                                        <span>{{ Date::parse($article->created_at)->format('j F') }}</span>
+                                        • {{ Carbon\Carbon::parse($article->created_at)->format('H:i')}} • parafesor
                                     </div>
                                 </div>
                             </a>
@@ -69,22 +58,20 @@
                 </div>
             </div>
         </div>
-
-        <div style="width:100%; height: 1px;" class="bg-dark-blue my-3"></div>
-        <div class="row">
+        <div class="corporate-divider"></div>
+        <div class="row s-row-2">
             @foreach($articles["Şirket Haberleri"][\App\Parafesor\Constants\CategorySectionTypes::NORMAL]->slice(3)->take(8) as $article)
-                <div class="col-24 col-md-12 col-lg-6 mt-3">
+                <div class="col-24 col-md-12 col-lg-6">
                     <a href="{{route('article.show',['slug' => $article->slug ])}}">
                         <div class="card">
                             <div class="corporate-triangle"></div>
                             <div class="company-image lazy"
-                                 style="background-image: url({{asset($article->image_path)}}); background-position: left; margin-left: 5%; "></div>
-                            <div class="company-text" style="padding-left: 5%;">
-                                <p>{{$article->summary}}</p>
+                                 style="background-image: url({{asset($article->image_path)}})"></div>
+                            <div class="company-text company-below-section">
+                                <p>{{$article->title}}</p>
                             </div>
                             <div class="company-bottom">
-                          <span
-                              class="text-dark-blue">{{ Date::parse($article->created_at)->format('j F') }}</span><span> • {{ Carbon\Carbon::parse($article->created_at)->format('H:i')}} • parafesor</span>
+                                <span>{{ Date::parse($article->created_at)->format('j F') }}</span> • {{ Carbon\Carbon::parse($article->created_at)->format('H:i')}} • parafesor
                             </div>
                         </div>
                     </a>

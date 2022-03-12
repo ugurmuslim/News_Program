@@ -1,4 +1,8 @@
-
+#section-crypto .section-title,
+#section-crypto .section-right-sm,
+#section-crypto div:nth-child(2) a{
+    color: #FFC21C;
+}
 
 .crypto {
     height: 0px;
@@ -10,13 +14,12 @@
     color:#F5F5F5;
 }
 
-
 .crypto-lg {
     padding-bottom: 75%;
 }
 
 .crypto-news-box-caption {
-    font-family: MillerTextBold;
+    font-family: "MillerTextBold";
     padding: 10px;
     font-size: 23px;
     height: 55%;
@@ -26,16 +29,15 @@
 
 .crypto-second-image-caption {
     position: absolute;
-    bottom: 20%;
-    padding-left: 10px;
-    width: 20%;
-    font-size: 23px;
+    padding: 0 10px;
+    font-size: 27px;
+    line-height: 33px;
     color:#fff;
-    font-family: MillerTextBold;
+    font-family: "MillerTextBold";
 }
 
 .crypto-md {
-    border-bottom: solid 8px #f2b01b;
+    border-bottom: solid 7px #f2b01b;
 }
 
 .crypto-sm {
@@ -52,34 +54,31 @@
     background-repeat: no-repeat;
     background-position: center;
 }
-.crypto-text-bottom {
-    /*position: absolute;*/
-    bottom:-10px;
-    font-family: MillerTextRoman;
-    color:#555555;
-    font-size:14px;
 
-}
 .crypto-text-bottom-sm {
-
-    font-family: MillerTextRoman;
-    color:#555555;
-    font-size:14px;
-    padding-top: 25%;
+    font-family: "MillerTextRoman";
+    font-size:16px;
 }
+
+.crypto-wide-section .crypto-text-bottom-sm{
+    position: absolute;
+    bottom: 22px;
+}
+
 .crypto-title {
-    font-family: MillerTextBold;
-    font-size: 22px;
-    height: 120px;
+    position: relative;
+    font-family: "MillerTextBold";
+    font-size: 27px;
+    line-height: 27px;
     color:#F5F5F5;
     padding-top: 10px;
-    padding-bottom: 10px;
+    height: 105px;
 }
 
 .crypto-first-title {
-    font-family: MillerTextBold;
-    font-size: 28px;
-    height: 120px;
+    font-family: "MillerTextBold";
+    font-size: 25px;
+    line-height: 28px;
     padding-top: 15px;
     color:#F5F5F5;
 }
@@ -92,7 +91,7 @@
     top:60%;
     right: 5px;
     font-size: 1.4em;
-    font-family: MillerTextBold;
+    font-family: "MillerTextBold";
     padding: 5px;
     white-space:normal;
     height: 120px;
@@ -120,7 +119,6 @@
     overflow:hidden; width: 100%; height: 420px; overflow-x: scroll; white-space: nowrap;
 }
 
-
 .crypto-slider ::-webkit-scrollbar {
     width: 5px;
     height: 5px;
@@ -138,13 +136,17 @@
     background-size: cover;
 }
 .crypto-card-slider-slide-caption {
+    background-color: #F2B01B;
+    color: #242424;
     font-family: MillerTextBold;
-    width: 65%;
-    height: 100%;
-    font-size: 33px;
-    text-align: left;
-    z-index: 2;
     position: absolute;
+    padding:20px 20px 12px 40px;
+    width: 70%;
+    bottom: 97px;
+    font-size: 27px;
+    line-height: 32px;
+    letter-spacing: -1.1px;
+    z-index: 2;
 }
 
 .crypto-paper-card {
@@ -153,7 +155,7 @@
 }
 
 .crypto-wide-section {
-    height: 300px;
+    height: 287px;
     padding: 30px;
 }
 
@@ -163,10 +165,663 @@
 }
 
 .crypto-card-slider-controls {
+    width: 80px;
+    height: 60px;
+    padding-top: 13px;
     display: flex;
+    justify-content: center;
     position: absolute;
     bottom: 0;
-    right: 0;
+    left: 40px;
     z-index: 5;
-    padding: 20px;
+}
+
+.crypto-card-slider-controls .news-card-slider-control{
+    color: #696969;
+    border-color: #696969;
+}
+
+.crypto-card-slider-controls .news-card-slider-control:hover{
+    color: #242424;
+    border-color: #242424;
+}
+
+.c-box-1 {
+    height: 350px;
+}
+
+.c-box-2{
+    position: relative;
+}
+
+.c-box-3 .tech-news-box-image{
+    height: 100% !important;
+    position: relative;
+}
+
+.c-box-3 .crypto-second-image-caption{
+    width: 100%;
+    height: 186px;
+    bottom: 0;
+    background-image: linear-gradient(360deg, black,rgba(0,0,0,0.6), transparent);
+}
+
+.crypto-text-bottom{
+    font-size: 16px;
+    line-height: 20px !important;
+}
+
+.crypto-text-bottom div{
+    font-family: "MillerTextRoman";
+    color:#9A9A9A;
+    font-size:16px;
+    position: absolute;
+    bottom: 10px;
+}
+
+.crypto-text-bottom span{
+    color: #FFC21C;
+}
+
+.c-row-1 > div{
+    height: auto;
+}
+
+.crypto-wide-section{
+    width: 50%;
+    position: relative;
+}
+
+.crypto-wide-section *{
+    color: #222222;
+}
+
+.c-row-1 .col-14 {
+    background-size: cover;
+    background-position: center;
+    width: 50%;
+    border: 3px solid #404040;
+}
+
+.c-row-1 .col-14:first-child{
+    border-right: none;
+}
+
+.c-row-1 .col-14:last-child{
+    border-left: none;
+}
+
+.c-row-2{
+    position: relative;
+}
+
+@media screen and (min-width: 1510px){
+
+    .c-row{
+        margin-top: 45px !important;
+    }
+
+    .c-box-1{
+        width: 822px !important;
+        height: 442px !important;
+        padding: 0;
+    }
+
+    .c-row-1 {
+        margin: 33px 0 47px 0;
+    }
+
+    .c-box-2, .c-box-3{
+        width: 317px !important;
+        height: 442px !important;
+        padding: 0;
+        margin-left: auto;
+    }
+
+    .c-box-2 .crypto{
+        padding-bottom: 261px;
+    }
+
+    .c-box-3 .crypto-second-image-caption{
+        padding: 0 20px;
+        height: 173px;
+    }
+
+    .crypto-card-slider-slide-caption {
+        padding:20px 20px 12px 40px;
+        width: 65%;
+        bottom: 97px;
+        font-size: 32px;
+        line-height: 39px;
+        letter-spacing: -1.6px;
+    }
+
+    .crypto-card-slider-controls {
+        width: 94px;
+        height: 69px;
+        padding-top: 16px;
+        left: 34px;
+    }
+
+    .crypto-first-title{
+        padding-top: 23px;
+        font-size: 27px;
+        line-height: 33px;
+        letter-spacing: -1.35px;
+    }
+
+    .crypto-text-bottom div{
+        font-size:16px;
+        bottom: 20px;
+    }
+
+    .crypto-wide-section{
+        padding: 38px 34px 0 30px;
+    }
+
+    .crypto-title{
+        font-size: 27px;
+        line-height: 33px;
+        letter-spacing: -1.35px;
+        height: 165px;
+    }
+
+    .crypto-title div *,
+    .crypto-first-title div *{
+        letter-spacing: 0 !important;
+    }
+
+    .c-row-1 > div{
+        width: 735px;
+    }
+
+    .c-row-1 > div:last-child{
+        margin-left: 27px;
+    }
+
+    .c-row-2 .crypto-md{
+        height: 253px !important;
+    }
+
+    .c-row-2 .col-24{
+        width: 352px;
+    }
+
+}
+
+@media screen and (min-width: 1366px) and (max-width: 1509px){
+
+    .c-row{
+        margin-top: 41px !important;
+    }
+
+    .c-box-1{
+        width: 729px !important;
+        height: 379px !important;
+    }
+
+    .c-row-1 {
+        margin: 28px 0 40px 0;
+    }
+
+    .c-box-2, .c-box-3{
+        width: 291px !important;
+        height: 379px !important;
+    }
+
+    .c-box-2 .crypto{
+        padding-bottom: 223px;
+    }
+
+    .crypto-card-slider-slide-caption {
+        padding:14px 17px 7px 34px;
+        width: 479px;
+        bottom: 84px;
+        font-size: 29px;
+        line-height: 34px;
+        letter-spacing: -1.45px;
+    }
+
+    .crypto-card-slider-controls {
+        width: 80px;
+        height: 59px;
+        padding-top: 13px;
+        left: 34px;
+    }
+
+    .crypto-first-title{
+        padding-top: 19px;
+        font-size: 22px;
+        line-height: 27px;
+        letter-spacing: -1.1px;
+    }
+
+    .crypto-text-bottom div{
+        font-size: 15px;
+        bottom: 11px;
+    }
+
+    .c-box-3 .crypto-second-image-caption{
+        height: 148px;
+        padding: 0 16px;
+    }
+
+    .crypto-wide-section{
+        padding: 32px 29px 0 25px;
+        height: 246px;
+        width: 268px;
+    }
+
+    .c-row-1 .col-14{
+        width: calc(100% - 268px);
+    }
+
+    .crypto-text-bottom-sm{
+        font-size: 15px;
+    }
+
+    .crypto-title{
+        font-size: 22px;
+        line-height: 27px;
+        letter-spacing: -1.1px;
+        height: 140px;
+    }
+
+    .crypto-title div *,
+    .crypto-first-title div *{
+        letter-spacing: 0 !important;
+    }
+
+    .c-row-1 > div{
+        width: 631px;
+    }
+
+    .c-row-1 > div:last-child{
+        margin-left: 25px;
+    }
+
+    .c-row-2 .crypto-md{
+        height: 217px;
+        width: 301px;
+    }
+
+
+}
+
+@media screen and (min-width: 1201px) and (max-width: 1365px){
+
+    #section-crypto .container{
+        padding: 0;
+    }
+
+    .c-row{
+        margin-top: 41px !important;
+    }
+
+    .c-box-1{
+        width: 681px !important;
+        height: 354px !important;
+    }
+
+    .c-row-1 {
+        margin: 26px 0 37px 0;
+    }
+
+    .c-box-2{
+        margin-left: 6px;
+    }
+    .c-box-3{
+        margin-left: 19px;
+    }
+
+    .c-box-2, .c-box-3{
+        width: 253px !important;
+        height: 354px !important;
+        padding: 0;
+    }
+
+    .c-box-2 .crypto{
+        padding-bottom: 214px;
+    }
+
+    .crypto-card-slider-slide-caption {
+        padding: 13px 16px 6px 32px;
+        width: 447px;
+        bottom: 78px;
+        font-size: 27px;
+        line-height: 32px;
+        letter-spacing: -1.35px;
+    }
+
+    .crypto-card-slider-controls {
+        width: 75px;
+        height: 55px;
+        padding-top: 13px;
+        left: 31px;
+    }
+
+    .crypto-card-slider-controls .news-card-slider-control{
+        width: 21px;
+        height: 21px;
+        font-size: 13px;
+        line-height: 16px;
+    }
+
+    .crypto-first-title{
+        padding-top: 18px;
+        font-size: 20px;
+        line-height: 26px;
+        letter-spacing: -1px;
+    }
+
+    .crypto-text-bottom div{
+        font-size: 13px;
+        bottom: 10px;
+    }
+
+    .c-box-3 .crypto-second-image-caption{
+        height: 133px;
+        padding: 0 15px;
+    }
+
+    .crypto-wide-section{
+        padding: 30px 27px 0 24px;
+        height: 229px;
+        width: 251px;
+    }
+
+    .c-row-1 .col-14{
+        width: calc(100% - 251px);
+    }
+
+    .crypto-text-bottom-sm{
+        font-size: 15px;
+    }
+
+    .crypto-title{
+        font-size: 20px;
+        line-height: 26px;
+        letter-spacing: -1px;
+        height: 130px;
+    }
+
+    .crypto-title div *,
+    .crypto-first-title div *{
+        letter-spacing: 0 !important;
+    }
+
+    .c-row-1 > div{
+        width: 588px;
+    }
+
+    .c-row-1 > div:last-child{
+        margin-left: 23px;
+    }
+
+    .c-row-2 .crypto-md{
+        height: 202px;
+        width: 281px;
+    }
+
+    .crypto-md{
+        border-width: 5px;
+    }
+}
+
+@media screen and (min-width: 992px) and (max-width: 1200px){
+    .crypto-wide-section{
+        padding: 13px !important;
+    }
+
+    .crypto-wide-section .crypto-title{
+        font-size: 25px !important;
+        line-height: 26px !important;
+    }
+    .crypto-text-bottom-sm{
+        font-size: 15px !important;
+    }
+    .crypto-wide-section{
+        height: 238px !important;
+    }
+
+}
+
+@media screen and (min-width:768px) and (max-width: 1200px){
+
+    .c-box-1{
+        width: 100%;
+        margin: 25px 0 !important;
+    }
+
+    .c-row-1 > div{
+        margin-bottom: 20px;
+        padding: 0 24px;
+    }
+
+    .c-row-2{
+        padding:0 12px;
+    }
+
+    .c-box-2, .c-box-3{
+        width: 50%;
+        margin-bottom: 20px;
+    }
+
+    .c-box-2 .crypto{
+        padding-bottom: 214px;
+    }
+
+    .crypto-wide-section .crypto-title{
+        font-size: 28px;
+        line-height: 29px;
+    }
+
+    .crypto-text-bottom-sm{
+        font-size: 18px;
+    }
+
+    .c-row-2 > div{
+        width: 50%;
+    }
+
+    .crypto-title{
+        font-size: 20px;
+        height: 112px;
+    }
+
+    .c-row-2 > div:nth-child(odd) {
+        padding-left: 0;
+    }
+
+    .c-row-2 > div:nth-child(even) {
+        padding-right: 0;
+    }
+
+    .c-box-3 .crypto-second-image-caption{
+        height: 128px;
+    }
+
+}
+
+@media screen and (max-width: 767px) {
+    .c-box-1{
+        margin-top: 20px;
+        height: 225px;
+    }
+
+    .c-row-1{
+        padding: 0 12px !important;
+    }
+
+    .c-row-1 > div {
+        margin-bottom: 20px;
+    }
+
+    .c-row-2 > div{
+        width: 50%;
+    }
+
+    .col-sm-24 .crypto-title{
+        font-size: 16px;
+        line-height: 19px;
+    }
+
+    .crypto-text-bottom div{
+        font-size: 14px;
+    }
+
+    .crypto-md{
+        border-width: 3px;
+    }
+
+    .crypto-card-slider-slide-caption{
+        font-size: 20px;
+        line-height: 26px;
+        bottom: 75px;
+        padding: 7px 9px 0 17px;
+    }
+
+    .crypto-card-slider-controls{
+        width: 86px;
+        height: 63px;
+        padding-top: 15px;
+        left: 17px;
+    }
+
+    .news-card-slider-control{
+        width: 24px;
+        height: 24px;
+    }
+
+    .c-box-2,.c-box-3,
+    .c-box-2 .match,.c-box-3 .match{
+        height: 325px !important;
+    }
+
+    .c-box-3 .crypto-second-image-caption{
+        height: 158px;
+    }
+
+    .crypto-first-title{
+        font-size: 23px;
+    }
+
+    .crypto-wide-section{
+        width: 220px;
+        height: 180px;
+        padding: 15px 13px 0 11px;
+    }
+
+    .c-row-1 .col-14{
+        width: calc(100% - 220px);
+    }
+
+    .crypto-wide-section .crypto-text-bottom-sm{
+        display: none;
+    }
+
+    .c-row-1 .crypto-title{
+        font-size: 22px;
+    }
+
+}
+
+@media screen and (max-width: 500px){
+
+    .section-title{
+        font-size: 19px;
+        padding-bottom: 2px;
+    }
+
+    .section-right-sm{
+        font-size: 11px;
+        padding-top: 6px;
+    }
+
+    .c-box-1{
+        margin-top: 15px;
+    }
+
+    .c-box-2{
+        padding-right: 5px;
+    }
+    .c-box-3{
+        padding-left: 5px;
+    }
+
+    .crypto-first-title{
+        font-size: 17px;
+        line-height: 21px;
+        letter-spacing: -0.85px;
+    }
+
+    .c-box-2, .c-box-3,
+    .c-box-3 .match{
+        height: 244px !important;
+    }
+
+    .c-box-2, .c-box-3{
+        margin-bottom: 15px;
+    }
+
+    .c-box-2 .crypto{
+        bottom: 144px;
+        height: 135px;
+    }
+
+    .crypto-text-bottom div{
+        font-size: 11px;
+        letter-spacing: 0;
+    }
+
+    .c-box-3 .crypto-second-image-caption{
+        height: auto;
+        padding: 0 5px;
+        top: 135px;
+    }
+
+    .crypto-wide-section{
+        width: 150px;
+        height: 136px;
+        padding: 18px 16px 0 14px;
+    }
+
+    .crypto-wide-section .crypto-title{
+        font-size: 17px;
+        line-height: 21px;
+        letter-spacing: -0.85px;
+        padding: 0;
+        -webkit-line-clamp: 5;
+        overflow: hidden;
+    }
+
+    .crypto-wide-section .crypto-text-bottom-sm{
+        display: none;
+    }
+
+    .c-row-1 .col-14{
+        width: calc(100% - 150px);
+    }
+
+    .c-row-2 > div:nth-child(odd){
+        padding-right: 5px;
+    }
+    .c-row-2 > div:nth-child(even){
+        padding-left: 5px;
+    }
+
+    .c-row-2 .crypto-title{
+        font-size: 17px;
+        line-height: 21px;
+        letter-spacing: -0.85px;
+        height: 128px;
+    }
+
+}
+
+@media screen and (width: 500px) {
+    .c-box-3 .crypto-second-image-caption{
+        height: 88px;
+        top: auto;
+    }
 }

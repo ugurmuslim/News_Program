@@ -2,39 +2,35 @@
     <div class="container">
         <div class="section-header d-flex text-primary">
             <div class="section-title">SPOR</div>
-            <div class="d-none d-md-block section-right"><a
-                    href="{{route('home_article.index', ['type'=>'spor'])}}">Tüm
-                    Spor Haberlerini Gör</a></div>
+            <div class="d-none d-md-block section-right"><a href="https://parafesor.net/kategori/spor">Tüm Spor
+                    Haberlerini Gör</a></div>
         </div>
-        <div class=" d-sm-block d-md-none section-right-sm text-red"><a
-                href="{{route('home_article.index', ['type'=>'spor'])}}">Tüm Spor Dakika Haberlerini Gör</a></div>
+        <div class=" d-sm-block d-md-none section-right-sm text-red"><a href="https://parafesor.net/kategori/spor">Tüm
+                Spor Dakika Haberlerini Gör</a></div>
     </div>
-    <div class="container">
-        <div class="row" style="position: relative">
-            <div class="col-lg-12 col-md-24 mt-1">
-                <div class="card news-card news-card-big  cardSlider" currentSlide="0" style="height: 400px;">
+    <div class="container spor-container-2">
+        <div class="row spor-row-1">
+            <div class="col-lg-12 col-md-24 spor-slide">
+                <div class="card news-card news-card-big cardSlider" currentSlide="" id="sport-slider">
                     <div></div>
                     <div class="news-card-slider-container">
-                        @foreach($articles["Spor"][\App\Parafesor\Constants\CategorySectionTypes::MAIN_SLIDER]->take(4) as $article)
-                            <a href="{{route('article.show',['slug' => $article->slug ])}}">
-                                <div class="news-card-slider-slide">
-                                    <div class="sport-card-slider-slide-img text-white lazy"
+                        <div class="news-card-slider-slide">
+                            @foreach($articles["Spor"][\App\Parafesor\Constants\CategorySectionTypes::MAIN_SLIDER]->take(4) as $article)
+                                <a href="{{route('article.show',['slug' => $article->slug ])}}">
+                                    <div class="life-card-slider-slide-img text-white lazy"
                                          style="background-image: url({{asset($article->image_path)}})">
-                                        <div class="blueOverlay90"></div>
-
                                         <div class="sport-card-slider-slide-caption">
-                                            <p>{{$article->title}}</p>
-                                            <div class=" sport-text-bottom-sm">
-
-                                                    <span
-                                                        class="text-white">{{ Date::parse($article->article_date)->format('j F')}}</span><span
-                                                    class="text-white">  {{Carbon\Carbon::parse($article->article_date)->format('H:i')}} • parafesor</span>
+                                            <div class="sport-text-caption">
+                                                <p>{{ $article->title }}</p>
+                                            </div>
+                                            <div class="sport-card-bottom-date">
+                                                <span>{{ Date::parse($article->article_date)->format('j F')}} • {{ Carbon\Carbon::parse($article->article_date)->format('H:i')}} • parafesor</span>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                            </a>
-                        @endforeach
+                                </a>
+                            @endforeach
+                        </div>
                     </div>
                     <div class="sport-card-slider-controls">
                         <div class="news-card-slider-control" direction="previous">❮</div>
@@ -42,87 +38,43 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-6 col-md-12 mt-1" id="sport-first-row-anchor">
-                @php
-                    $sporArticles = $articles["Spor"][\App\Parafesor\Constants\CategorySectionTypes::NORMAL]->take(1);
-                    $sporArticlesSecond = $articles["Spor"][\App\Parafesor\Constants\CategorySectionTypes::NORMAL]->slice(1)->take(1);
-                    $sporArticlesBelow = $articles["Spor"][\App\Parafesor\Constants\CategorySectionTypes::NORMAL]->slice(2)->take(5);
-                @endphp
-
-                @foreach($sporArticles as $article)
+            @php
+                $sporArticles = $articles["Spor"][\App\Parafesor\Constants\CategorySectionTypes::NORMAL]->take(2);
+                $sporArticlesBelow = $articles["Spor"][\App\Parafesor\Constants\CategorySectionTypes::NORMAL]->slice(2)->take(5);
+            @endphp
+            @foreach($sporArticles as $article)
+                <div class="col-lg-6 col-md-12 spor-2box">
                     <a href="{{route('article.show',['slug' => $article->slug ])}}">
-                        <div class="col-24 sport sport-md lazy"
-                             style="background-image: url({{asset($article->image_path)}})"></div>
+                        <div class="col-24 sport sport-md lazy" style="background-image: url({{asset($article->image_path)}})"></div>
                         <div class="sport-title">
                             <p>{{ $article->title }}</p>
                             <div class="card-bottom-date">
-                                     <span
-                                         class="text-light-blue">{{ Date::parse($article->article_date)->format('j F')}}</span><span> • {{ Carbon\Carbon::parse($article->article_date)->format('H:i')}} • parafesor</span></span>
-                            </div>
-                        </div>
-                    </a>
-                @endforeach
-            </div>
-            @foreach($sporArticlesSecond as $article)
-                <div class="col-lg-6 col-md-12 mt-1">
-                    <a href="{{route('article.show',['slug' => $article->slug ])}}">
-                        <div class="col-24 sport sport-md lazy"
-                             style="background-image: url({{asset($article->image_path)}})"></div>
-                        <div class="sport-title">
-                            <p>{{ $article->title}}</p>
-                            <div class="card-bottom-date">
-                            <span
-                                class="text-light-blue">{{ Date::parse($article->article_date)->format('j F')}}</span><span> • {{ Carbon\Carbon::parse($article->article_date)->format('H:i')}} • parafesor</span></span>
+                                <span>{{ Date::parse($article->article_date)->format('j F')}}</span> • {{ Carbon\Carbon::parse($article->article_date)->format('H:i')}} • parafesor
                             </div>
                         </div>
                     </a>
                 </div>
             @endforeach
-
         </div>
-        {{--      <div class="row mt-3">
-                  <div class="col-lg-6 mt-3">
-                      <div class="card sport-paper-card">
-                          <div class="card-body">Fb</div>
-                      </div>
-                  </div>
-                  <div class="col-lg-6 mt-3">
-                      <div class="card sport-paper-card">
-                          <div class="card-body">Fb</div>
-                      </div>
-                  </div>
-                  <div class="col-lg-6 mt-3">
-                      <div class="card sport-paper-card">
-                          <div class="card-body">Fb</div>
-                      </div>
-                  </div>
-                  <div class="col-lg-6 mt-3">
-                      <div class="card sport-paper-card">
-                          <div class="card-body">Fb</div>
-                      </div>
-                  </div>
-              </div>--}}
-
-        <div class="row mt-3">
+        <div class="row spor-row-2">
             @foreach($sporArticlesBelow as $article)
-                <div class="col-sm-12 col-md-8 col-lg-percent-20">
-                    <a href="{{route('article.show',['slug' => $article->slug ])}}">
-                        <div class="card news-card news-card-small mt-4 ">
-                            <div class="news-card-img-container bg-white lazy">
-                                <div style="background: url({{asset($article->image_path)}})" alt=""
-                                     class="news-img"></div>
-                                <div class="news-card-img-text small-text">
-                                    <p>{{ $article->title }}</p>
-
+            <div class="sport-5box">
+                <a href="{{route('article.show',['slug' => $article->slug ])}}">
+                    <div class="card news-card news-card-small">
+                        <div class="news-card-img-container bg-white">
+                            <div style="background-image: url({{asset($article->image_path)}})" alt=""
+                                 class="news-img lazy"></div>
+                            <div class="sport-mini-card">
+                                <p>{{ $article->title }}</p>
+                                <div class="news-card-bottom">
+                                    <span>{{ Date::parse($article->article_date)->format('j F')}}</span> • {{ Carbon\Carbon::parse($article->article_date)->format('H:i')}} • parafesor
                                 </div>
                             </div>
-                            <div class="news-card-bottom" style="padding-left: 10%; margin-bottom: 10px;">
-                            <span
-                                class="text-light-blue">{{ Date::parse($article->article_date)->format('j F')}}</span><span> • {{ Carbon\Carbon::parse($article->article_date)->format('H:i')}} • parafesor</span></span>
-                            </div>
                         </div>
-                    </a>
-                </div>
+
+                    </div>
+                </a>
+            </div>
             @endforeach
         </div>
     </div>

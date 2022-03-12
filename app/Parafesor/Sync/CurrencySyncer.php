@@ -79,7 +79,7 @@ class CurrencySyncer
             $change = 0;
             $currency = Currency::where('currency', $fiatCurrency)->first();
             if ($currency) {
-                $change = ( $values['Buying'] - $currency->yesterday_buying ) / 100;
+                $change = ( $values['Buying'] - $currency->yesterday_buying ) / $values['Buying'] * 100;
             }
 
             Currency::updateOrCreate(
