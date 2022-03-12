@@ -222,6 +222,7 @@ class ArticleHelper
                     'article_type_id' => ArticleTypes::KoseYazilari,
                     'title'           => $article->title,
                     'body'            => $body,
+                    'summary'            => $body,
                     'original_link'   => $article->original_link,
                     'status'          => ArticleStatus::PUBLISHED,
                     'image_path'      => $article->image_path,
