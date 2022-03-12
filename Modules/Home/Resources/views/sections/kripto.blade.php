@@ -107,7 +107,7 @@
                                 </div>
                             </div>
                             <div class="col-14 lazy"
-                                 style="background-image:  url({{asset($article->image_path)}};"></div>
+                                 style="background-image:  url({{asset($article->image_path)}});"></div>
                         </div>
                     </a>
                 </div>
@@ -117,7 +117,7 @@
                     <a href="{{route('article.show',['slug' => $article->slug ])}}">
                         <div class="row">
                             <div class="col-14 lazy"
-                                 style="background-image: url({{asset($article->image_path)}}; "></div>
+                                 style="background-image: url({{asset($article->image_path)}}); "></div>
                             <div class="col-10 bg-orange crypto-wide-section">
                                 <div class="crypto-title">
                                     <p> {{$article->title}}</p>
@@ -139,7 +139,7 @@
                     <div class="col-24">
                         <div class="col-sm-24 ">
                             <div class="col-24 crypto crypto-md lazy"
-                                 style="background-image: url({{asset($article->image_path)}}; "></div>
+                                 style="background-image: url({{asset($article->image_path)}}); "></div>
                             <div class="crypto-title">
                                 <p> {{$article->title}}</p>
                                 <div class="crypto-text-bottom">
