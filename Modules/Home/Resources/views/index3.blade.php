@@ -106,9 +106,8 @@
     @include('home::sections.son-dakika')
     @include('home::sections.en-cok-okunanlar')
 
-    <section id="section-stil" style="background-color: #ffead5;padding-top: 20px; padding-bottom: 15px;">
-
-        <div style="font-family: MillerTextItalic; font-size:56px; padding-left:100px; font-weight: bold">Stil</div>
+    <section id="section-stil">
+        <div class="container">Stil</div>
     </section>
 
     @include('home::sections.spor')
