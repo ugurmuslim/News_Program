@@ -60,7 +60,7 @@
                 @endforeach
             </div>
             <div class="col-md-5 match mt-3" matchTo="life-slider">
-                @foreach($yasamArticles as $article)
+                @foreach($yasamArticlesSecond as $article)
                     <div class="col-md-24 match" matchTo="life-slider" style="border-bottom: 8px solid orange;">
                         <a href="{{route('article.show',['slug' => $article->slug ])}}">
                             <div class="col-md-24 bg-white  h-100 tech-box">
