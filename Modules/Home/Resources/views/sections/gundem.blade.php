@@ -14,7 +14,7 @@
                         <div class="card news-card news-card-big cardSlider" currentSlide="0" id="firstCardSlide">
                             <div class=""></div>
                             <div class="news-card-slider-container">
-                                @foreach($articles["Gündem"][\App\Parafesor\Constants\CategorySectionTypes::SECOND_SLIDER]->take(6) as $article)
+                                @foreach($articles["Gündem"][\App\Parafesor\Constants\CategorySectionTypes::SECOND_SLIDER]->take(3) as $article)
                                     <a href="{{route('article.show',['slug' => $article->slug ])}}">
                                         <div class="card news-card news-card-big ">
                                             <div class="news-card-img-container bg-light-grey">

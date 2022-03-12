@@ -173,5 +173,79 @@
         })
 
     </script>
+    <script>
 
+        // SON DAKİKA SLİDER
+        var next = document.getElementById('lastSlideNext');
+        next.onclick = function () {
+            var width = itemCount();
+            var container = document.getElementById('last-min-slider');
+            sideScroll(container,'right',10,width,20);
+        };
+
+        var back = document.getElementById('lastSlideBack');
+        back.onclick = function () {
+            var width = itemCount();
+            var container = document.getElementById('last-min-slider');
+            sideScroll(container,'left',10,width,20);
+
+        };
+
+        function itemCount(){
+            var numbers = /^[0-9]+$/;
+
+            const items = document.querySelectorAll('.last-min-sm');
+            const oneItem = items[1].currentStyle || window.getComputedStyle(items[1])
+            const width = Number(oneItem.width.replace(/[^0-9]/g, ''));
+            const value = Number(oneItem.marginRight.replace(/[^0-9]/g, ''));
+            console.log("Width: " + width + "value : " + value);
+            return (width + value);
+        }
+
+        function sideScroll(element,direction,speed,distance,step){
+            scrollAmount = 0;
+            var slideTimer = setInterval(function(){
+                if(direction == 'left'){
+                    element.scrollLeft -= step;
+                } else {
+                    element.scrollLeft += step;
+                }
+                scrollAmount += step;
+                if(scrollAmount >= distance){
+                    window.clearInterval(slideTimer);
+                }
+            }, speed);
+        }
+
+        //Drag to Scroll
+        const slider = document.querySelector('.last-min-slider');
+        let isDown = false;
+        let startX;
+        let scrollLeft;
+
+        slider.addEventListener('mousedown', (e) => {
+            isDown = true;
+            slider.classList.add('active');
+            startX = e.pageX - slider.offsetLeft;
+            scrollLeft = slider.scrollLeft;
+        });
+        slider.addEventListener('mouseleave', () => {
+            isDown = false;
+            slider.classList.remove('active');
+        });
+        slider.addEventListener('mouseup', () => {
+            isDown = false;
+            slider.classList.remove('active');
+        });
+        slider.addEventListener('mousemove', (e) => {
+            if(!isDown) return;
+            e.preventDefault();
+            const x = e.pageX - slider.offsetLeft;
+            const walk = (x - startX);
+            slider.scrollLeft = scrollLeft - walk;
+        });
+
+        // SON DAKİKA SLİDER SON
+
+    </script>
 @endsection
