@@ -71,7 +71,7 @@ body {
 }
 
 ::-webkit-scrollbar {
-    width: 5px;
+    width: 15px;
     height: 5px;
 }
 
@@ -80,15 +80,23 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-    background: #f1f1f1;
+    background: #fafafa;
+    border-radius: 20px;
 }
 
 ::-webkit-scrollbar-thumb {
-    background: #888;
+    border-radius: 20px;
+    border: 3px solid transparent;
+    border-radius: 100px;
+    background-color: #c1c1c1;
+    background-clip: content-box;
 }
 
 ::-webkit-scrollbar-thumb:hover {
     background: #555;
+    border: 3px solid transparent;
+    border-radius: 100px;
+    background-clip: content-box;
 }
 
 section {
@@ -230,6 +238,13 @@ a:hover {
     -webkit-line-clamp: 4 !important;
 }
 
+#section-stil{
+    background-color: #ffead5;
+    font-family: MillerTextItalic;
+    font-size:56px;
+    font-weight: bold;
+    padding-top: 20px;
+}
 
 /* @media screen and (min-width: 1366px) {
     .col-lg-percent-20 {
