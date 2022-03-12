@@ -14,8 +14,8 @@
                 <div class="card news-card news-card-big cardSlider" currentSlide="" id="sport-slider">
                     <div></div>
                     <div class="news-card-slider-container">
-                        <div class="news-card-slider-slide">
-                            @foreach($articles["Spor"][\App\Parafesor\Constants\CategorySectionTypes::MAIN_SLIDER]->take(4) as $article)
+                        @foreach($articles["Spor"][\App\Parafesor\Constants\CategorySectionTypes::MAIN_SLIDER]->take(4) as $article)
+                            <div class="news-card-slider-slide">
                                 <a href="{{route('article.show',['slug' => $article->slug ])}}">
                                     <div class="life-card-slider-slide-img text-white lazy"
                                          style="background-image: url({{asset($article->image_path)}})">
@@ -29,8 +29,8 @@
                                         </div>
                                     </div>
                                 </a>
-                            @endforeach
-                        </div>
+                            </div>
+                        @endforeach
                     </div>
                     <div class="sport-card-slider-controls">
                         <div class="news-card-slider-control" direction="previous">❮</div>
@@ -45,11 +45,13 @@
             @foreach($sporArticles as $article)
                 <div class="col-lg-6 col-md-12 spor-2box">
                     <a href="{{route('article.show',['slug' => $article->slug ])}}">
-                        <div class="col-24 sport sport-md lazy" style="background-image: url({{asset($article->image_path)}})"></div>
+                        <div class="col-24 sport sport-md lazy"
+                             style="background-image: url({{asset($article->image_path)}})"></div>
                         <div class="sport-title">
                             <p>{{ $article->title }}</p>
                             <div class="card-bottom-date">
-                                <span>{{ Date::parse($article->article_date)->format('j F')}}</span> • {{ Carbon\Carbon::parse($article->article_date)->format('H:i')}} • parafesor
+                                <span>{{ Date::parse($article->article_date)->format('j F')}}</span>
+                                • {{ Carbon\Carbon::parse($article->article_date)->format('H:i')}} • parafesor
                             </div>
                         </div>
                     </a>
@@ -58,23 +60,24 @@
         </div>
         <div class="row spor-row-2">
             @foreach($sporArticlesBelow as $article)
-            <div class="sport-5box">
-                <a href="{{route('article.show',['slug' => $article->slug ])}}">
-                    <div class="card news-card news-card-small">
-                        <div class="news-card-img-container bg-white">
-                            <div style="background-image: url({{asset($article->image_path)}})" alt=""
-                                 class="news-img lazy"></div>
-                            <div class="sport-mini-card">
-                                <p>{{ $article->title }}</p>
-                                <div class="news-card-bottom">
-                                    <span>{{ Date::parse($article->article_date)->format('j F')}}</span> • {{ Carbon\Carbon::parse($article->article_date)->format('H:i')}} • parafesor
+                <div class="sport-5box">
+                    <a href="{{route('article.show',['slug' => $article->slug ])}}">
+                        <div class="card news-card news-card-small">
+                            <div class="news-card-img-container bg-white">
+                                <div style="background-image: url({{asset($article->image_path)}})" alt=""
+                                     class="news-img lazy"></div>
+                                <div class="sport-mini-card">
+                                    <p>{{ $article->title }}</p>
+                                    <div class="news-card-bottom">
+                                        <span>{{ Date::parse($article->article_date)->format('j F')}}</span>
+                                        • {{ Carbon\Carbon::parse($article->article_date)->format('H:i')}} • parafesor
+                                    </div>
                                 </div>
                             </div>
-                        </div>
 
-                    </div>
-                </a>
-            </div>
+                        </div>
+                    </a>
+                </div>
             @endforeach
         </div>
     </div>
