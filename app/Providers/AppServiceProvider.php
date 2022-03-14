@@ -7,7 +7,6 @@ use Cache;
 use Carbon\Carbon;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\ServiceProvider;
-use Modules\Admin\Entities\Menu;
 use View;
 
 class AppServiceProvider extends ServiceProvider
@@ -32,8 +31,10 @@ class AppServiceProvider extends ServiceProvider
 				Paginator::useBootstrap();
 				Carbon::setLocale(config('app.locale'));
 
-				$headerMenu = Cache::get(CacheConst::MENU . 'Header', Menu::orderBy('sort', 'asc')->get());
+				$headerMenu = Cache::get(CacheConst::MENU . 'Header');
+				$megaMenu = Cache::get(CacheConst::MENU . 'Mega');
+
 				View::share('headerMenu', $headerMenu);
-				//testcommit
+				View::share('megaMenu', $megaMenu);
 		}
 }
