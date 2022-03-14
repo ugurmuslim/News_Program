@@ -113,7 +113,7 @@
                     $assignedCount = \Modules\Admin\Entities\Article::where('editor_id', \Illuminate\Support\Facades\Auth::user()->id)->where('status', \App\Parafesor\Constants\ArticleStatus::ASSIGNED)->count()
                 @endphp
                 <span
-                    class="badge  navbar-badge {{$assignedCount > 0 ? 'badge-danger' : 'badge-success'}} text-sm ">{{$assignedCount}}</span>
+                        class="badge  navbar-badge {{$assignedCount > 0 ? 'badge-danger' : 'badge-success'}} text-sm ">{{$assignedCount}}</span>
             </a>
         </li>
         <li class="nav-item">
@@ -173,187 +173,199 @@
                      with font-awesome or any other icon font library -->
                 <li class="nav-item menu-open">
                 <li class="nav-item">
-                    <a href="{{route('admin.index')}}" class="nav-link active">
+                    <a href="{{route('admin.index')}}"
+                       class="nav-link {{request()->routeIs('admin.index') ? 'active' : ''}}">
                         <p>Genel</p>
                     </a>
                 </li>
                 <li class="nav-item">
-                  {{--  <a href="#" class="nav-link">
-                        <i class="nav-icon fas fa-tachometer-alt"></i>
-                        <p>
-                            Haberler
-                            <i class="right fas fa-angle-left"></i>
-                        </p>
-                    </a>--}}
-{{--                    <ul class="nav nav-treeview">--}}
-                        @can('assign articles')
-                            <li class="nav-item">
-                                <a href="{{route('article.index')}}" class="nav-link ">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Haberler</p>
-                                </a>
-                            </li>
-                        @endcan
-                        <li class="nav-item">
-                            <a href="{{route('article.postUpdate')}}" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Yaz</p>
-                            </a>
-                        </li>
-                        @can('edit articles')
-                            <li class="nav-item">
-                                <a href="{{route('article.index',['status' => "PUBLISHED","database" => "maria"])}}"
-                                   class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Yayınladıklarım</p>
-                                </a>
-                            </li>
-                        @endcan
-                        @can('edit articles')
-                            <li class="nav-item">
-                                <a href="{{route('article.index',['status' => "ASSIGNED","database" => "maria"])}}"
-                                   class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Bekleyenler</p>
-                                </a>
-                            </li>
-                        @endcan
-                        @can('assign articles')
-                            <li class="nav-item">
-                                <a href="{{route('article.index',['status' => "ASSIGNED","database" => "maria",'editor' => 'all'])}}"
-                                   class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Atananlar</p>
-                                </a>
-                            </li>
-                        @endcan
-{{--                    </ul>--}}
-                </li>
-                    <hr style="border-top: 1px solid #fff;  margin: 1em 0;">
+                {{--  <a href="#" class="nav-link">
+                      <i class="nav-icon fas fa-tachometer-alt"></i>
+                      <p>
+                          Haberler
+                          <i class="right fas fa-angle-left"></i>
+                      </p>
+                  </a>--}}
+                {{--                    <ul class="nav nav-treeview">--}}
+                @can('assign articles')
+                    <li class="nav-item">
+                        <a href="{{route('article.index')}}"
+                           class="nav-link {{request()->routeIs('article.index') ? 'active' : ''}}">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>Haberler</p>
+                        </a>
+                    </li>
+                @endcan
                 <li class="nav-item">
-                   {{-- <a href="#" class="nav-link">
-                        <i class="nav-icon fas fa-tachometer-alt"></i>
-                        <p>
-                            Borsa Tube
-                            <i class="right fas fa-angle-left"></i>
-                        </p>
-                    </a>--}}
-{{--                    <ul class="nav nav-treeview">--}}
-                        <li class="nav-item">
-                            <a href="{{route('stockTube.index')}}" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Video Rapor</p>
-                            </a>
-
-                            <a href="{{route('stockTube.index',['channel'=> true])}}" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Kanal Rapor</p>
-                            </a>
-                        </li>
-{{--                    </ul>--}}
+                    <a href="{{route('article.postUpdate')}}"
+                       class="nav-link {{request()->routeIs('article.postUpdate') ? 'active' : ''}}">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Yaz</p>
+                    </a>
                 </li>
-                    <hr style="border-top: 1px solid #fff;  margin: 1em 0;">
-
-                @can('assign articles')
+                @can('edit articles')
                     <li class="nav-item">
-                      {{--  <a href="#" class="nav-link">
-                            <i class="nav-icon fas fa-tachometer-alt"></i>
-                            <p>
-                                Bot Raporları
-                                <i class="right fas fa-angle-left"></i>
-                            </p>
-                        </a>--}}
-{{--                        <ul class="nav nav-treeview">--}}
-                            <li class="nav-item">
-                                <a href="{{route('bot.index')}}" class="nav-link">
-                                    <i class="nav-icon fas fa-tree"></i>
-                                    <p>
-                                        Bot Rapor
-                                    </p>
-                                </a>
-                                <a href="{{route('bot.report', [\Carbon\Carbon::now()->format('Y-m-d'),\Carbon\Carbon::yesterday()->format('Y-m-d')])}}"
-                                   class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Bot Performans</p>
-                                </a>
-                                <form action="{{route('bot.run')}}">
-                                    <button class="btn btn-success btn-sm nav-link" style="font-weight: bold; color: black;">Çalıştır</button>
-                                </form>
-                            </li>
-
-{{--                        </ul>--}}
+                        <a href="{{route('article.index',['status' => "PUBLISHED","database" => "maria"])}}"
+                           class="nav-link">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>Yayınladıklarım</p>
+                        </a>
                     </li>
                 @endcan
-                    <hr style="border-top: 1px solid #fff;  margin: 1em 0;">
-
-
-                @can('assign articles')
+                @can('edit articles')
                     <li class="nav-item">
-                     {{--   <a href="#" class="nav-link">
-                            <i class="nav-icon fas fa-tachometer-alt"></i>
-                            <p>
-                                Editor Raporları
-                                <i class="right fas fa-angle-left"></i>
-                            </p>
-                        </a>--}}
-{{--                        <ul class="nav nav-treeview">--}}
-                            <li class="nav-item">
-                                <a href="{{route('editor.report')}}" class="nav-link">
-                                    <i class="nav-icon fas fa-tree"></i>
-                                    <p>
-                                        Editor Genel Rapor
-                                    </p>
-                                </a>
-                                <a href="{{route('editor.log')}}" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Editor Log</p>
-                                </a>
-                            </li>
-
-{{--                        </ul>--}}
+                        <a href="{{route('article.index',['status' => "ASSIGNED","database" => "maria"])}}"
+                           class="nav-link">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>Bekleyenler</p>
+                        </a>
                     </li>
                 @endcan
-                    <hr style="border-top: 1px solid #fff;  margin: 1em 0;">
-
+                @can('assign articles')
                     <li class="nav-item">
-                  {{--  <a href="#" class="nav-link">
-                        <i class="nav-icon fas fa-tachometer-alt"></i>
-                        <p>
-                            Sistem
-                            <i class="right fas fa-angle-left"></i>
-                        </p>
-                    </a>--}}
-{{--                    <ul class="nav nav-treeview">--}}
-                        <li class="nav-item">
-                            @can('assign articles')
-                                <a href="{{route('articleType.index')}}" class="nav-link">
-                                    <i class="nav-icon fas fa-tree"></i>
-                                    <p>
-                                        Kategoriler
-                                    </p>
-                                </a>
-                                <a href="{{route('system_user.index')}}" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Kullanıcılar</p>
-                                </a>
-                                <a href="{{route('system.menu.index')}}" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Menu</p>
-                                </a>
-                                <a href="{{route('system.download.sitemap')}}" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>SiteMap Indir</p>
-                                </a>
-                            @endcan
-                            <a href="{{route('system.company.index')}}" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Şirketler</p>
-                            </a>
-
-
-                        </li>
-{{--                    </ul>--}}
+                        <a href="{{route('article.index',['status' => "ASSIGNED","database" => "maria",'editor' => 'all'])}}"
+                           class="nav-link">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>Atananlar</p>
+                        </a>
+                    </li>
+                @endcan
+                {{--                    </ul>--}}
+                <hr style="border-top: 1px solid #fff;  margin: 1em 0;">
+                {{--                <li class="nav-item">--}}
+                {{-- <a href="#" class="nav-link">
+                     <i class="nav-icon fas fa-tachometer-alt"></i>
+                     <p>
+                         Borsa Tube
+                         <i class="right fas fa-angle-left"></i>
+                     </p>
+                 </a>--}}
+                {{--                    <ul class="nav nav-treeview">--}}
+                <li class="nav-item">
+                    <a href="{{route('stockTube.index')}}"
+                       class="nav-link {{request()->routeIs('stockTube.index') ? 'active' : ''}}">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Video Rapor</p>
+                    </a>
                 </li>
+                <li class="nav-item">
+                    <a href="{{route('stockTube.index',['channel'=> true])}}" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Kanal Rapor</p>
+                    </a>
+                </li>
+                {{--                    </ul>--}}
+                <hr style="border-top: 1px solid #fff;  margin: 1em 0;">
+                @can('assign articles')
+                    <li class="nav-item">
+                        <a href="{{route('bot.index')}}"
+                           class="nav-link {{request()->routeIs('bot.index') ? 'active' : ''}}">
+                            <i class="nav-icon fas fa-tree"></i>
+                            <p>
+                                Bot Rapor
+                            </p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{route('bot.report', [\Carbon\Carbon::now()->format('Y-m-d'),\Carbon\Carbon::yesterday()->format('Y-m-d')])}}"
+                           class="nav-link {{request()->routeIs('bot.report*') ? 'active' : ''}}">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>Bot Performans</p>
+                        </a>
+                        <form action="{{route('bot.run')}}">
+                            <button class="btn btn-success btn-sm nav-link" style="font-weight: bold; color: black;">
+                                Çalıştır
+                            </button>
+                        </form>
+                    </li>
+                @endcan
+                <hr style="border-top: 1px solid #fff;  margin: 1em 0;">
+                @can('assign articles')
+                    {{--                    <li class="nav-item">--}}
+                    {{--   <a href="#" class="nav-link">
+                           <i class="nav-icon fas fa-tachometer-alt"></i>
+                           <p>
+                               Editor Raporları
+                               <i class="right fas fa-angle-left"></i>
+                           </p>
+                       </a>--}}
+                    {{--                        <ul class="nav nav-treeview">--}}
+                    <li class="nav-item">
+                        <a href="{{route('editor.report')}}"
+                           class="nav-link {{request()->routeIs('editor.report') ? 'active' : ''}}">
+                            <i class="nav-icon fas fa-tree"></i>
+                            <p>
+                                Editor Genel Rapor
+                            </p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{route('editor.log')}}"
+                           class="nav-link {{request()->routeIs('editor.log') ? 'active' : ''}}">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>Editor Log</p>
+                        </a>
+                    </li>
+
+                    {{--                        </ul>--}}
+                @endcan
+                <hr style="border-top: 1px solid #fff;  margin: 1em 0;">
+
+                {{--                <li class="nav-item">--}}
+                {{--  <a href="#" class="nav-link">
+                      <i class="nav-icon fas fa-tachometer-alt"></i>
+                      <p>
+                          Sistem
+                          <i class="right fas fa-angle-left"></i>
+                      </p>
+                  </a>--}}
+                {{--                    <ul class="nav nav-treeview">--}}
+                @can('assign articles')
+                    <li class="nav-item">
+                        <a href="{{route('articleType.index')}}"
+                           class="nav-link {{request()->routeIs('articleType.*') ? 'active' : ''}}">
+                            <i class="nav-icon fas fa-tree"></i>
+                            <p>
+                                Kategoriler
+                            </p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{route('system_user.index')}}"
+                           class="nav-link {{request()->routeIs('system_user.*') ? 'active' : ''}}">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>Kullanıcılar</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{route('system.menu.index')}}"
+                           class="nav-link {{request()->routeIs('system.menu.*') ? 'active' : ''}}">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>Menu</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{route('system.mega-menu.index')}}"
+                           class="nav-link {{request()->routeIs('system.mega-menu.*') ? 'active' : ''}}">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>Mega Menü</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{route('system.download.sitemap')}}"
+                           class="nav-link {{request()->routeIs('system.download.sitemap') ? 'active' : ''}}">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>SiteMap Indir</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{route('system.company.index')}}"
+                           class="nav-link {{request()->routeIs('system.company.*') ? 'active' : ''}}">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>Şirketler</p>
+                        </a>
+                    </li>
+                @endcan
             </ul>
         </nav>
         <!-- /.sidebar-menu -->
