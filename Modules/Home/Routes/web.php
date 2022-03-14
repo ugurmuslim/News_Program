@@ -11,11 +11,6 @@
 |
 */
 
-use App\Models\User;
-use Illuminate\Support\Facades\DB;
-use Spatie\Permission\Models\Permission;
-use Spatie\Permission\Models\Role;
-
 Route::get('/', 'HomeController@indexTest')
     ->name('home.indextest');
 
