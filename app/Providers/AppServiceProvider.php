@@ -2,11 +2,11 @@
 
 namespace App\Providers;
 
-use App\Parafesor\Constants\CacheConst;
-use Cache;
 use Carbon\Carbon;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\ServiceProvider;
+use Modules\Admin\Entities\MegaMenu;
+use Modules\Admin\Entities\Menu;
 use View;
 
 class AppServiceProvider extends ServiceProvider
@@ -31,8 +31,8 @@ class AppServiceProvider extends ServiceProvider
 				Paginator::useBootstrap();
 				Carbon::setLocale(config('app.locale'));
 
-				$headerMenu = Cache::get(CacheConst::MENU . 'Header');
-				$megaMenu = Cache::get(CacheConst::MENU . 'Mega');
+				$headerMenu = Menu::orderBy('sort', 'asc')->get();
+				$megaMenu = MegaMenu::where('active', 1)->orderBy('sort', 'asc')->get();
 
 				View::share('headerMenu', $headerMenu);
 				View::share('megaMenu', $megaMenu);

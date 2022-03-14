@@ -12,6 +12,7 @@
                               action={{route('system.mega-menu.update',$megaMenu->id)}} >
                             @method('PUT')
                             @csrf
+                            <input type="hidden" name="id" value="{{$megaMenu->id}}">
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-md-6">
