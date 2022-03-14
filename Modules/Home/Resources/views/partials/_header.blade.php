@@ -46,7 +46,7 @@
                         <div class="nav__menu__item {{$loop->index<5 ? '--bottom-line' : ''}}">
                             @foreach($chunks as $menu)
                                 <a href="{{$menu->url}}"
-                                   {{$menu->external ? 'target="_blank"' : ''}} class="title {{$menu->uppercase ? 'text-uppercase': ''}} {{$menu->bold ? 'font-weight-bold': ''}}">{{$menu->title}}</a>
+                                   {{$menu->external ? 'target="_blank"' : ''}} class="{{$menu->uppercase ? 'text-uppercase': ''}} {{$menu->bold ? 'title': 'sub-title'}}">{{$menu->title}}</a>
                             @endforeach
                         </div>
                     @endforeach
