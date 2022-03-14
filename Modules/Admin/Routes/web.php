@@ -197,20 +197,23 @@ Route::prefix('admin')->group(function () {
 					->name('editor.log');
 		});
 
-		Route::prefix('system')->group(function () {
+		Route::prefix('system')->middleware('auth')->group(function () {
 				Route::get('/menu', [\Modules\Admin\Http\Controllers\SystemController::class, 'menuIndex'])
-					->middleware('auth')
 					->name('system.menu.index');
 
 				Route::get('/menu/postUpdate/{id?}', [\Modules\Admin\Http\Controllers\SystemController::class, 'menuPostUpdate'])
-					->middleware('auth')
 					->name('system.menu.postUpdate');
 
 				Route::post('/menu/postUpdate/{id?}', [\Modules\Admin\Http\Controllers\SystemController::class, 'menuStore'])
-					->middleware('auth')
 					->name('system.menu.store');
 
-				Route::resource('/mega-menu', \Modules\Admin\Http\Controllers\MegaMenuController::class);
+				//Resource route olmuyor.
+				Route::get('/mega-menu', [\Modules\Admin\Http\Controllers\MegaMenuController::class,'index'])->name('system.mega-menu.index');
+				Route::get('/mega-menu/create', [\Modules\Admin\Http\Controllers\MegaMenuController::class,'create'])->name('system.mega-menu.create');
+				Route::post('/mega-menu', [\Modules\Admin\Http\Controllers\MegaMenuController::class,'store'])->name('system.mega-menu.store');
+				Route::get('/mega-menu/{megaMenu}/edit', [\Modules\Admin\Http\Controllers\MegaMenuController::class,'edit'])->name('system.mega-menu.edit');
+				Route::put('/mega-menu/{megaMenu}/update', [\Modules\Admin\Http\Controllers\MegaMenuController::class,'update'])->name('system.mega-menu.update');
+				Route::get('/mega-menu/{megaMenu}', [\Modules\Admin\Http\Controllers\MegaMenuController::class,'destroy'])->name('system.mega-menu.delete');
 		});
 
 		Route::prefix('system-user')->group(function () {

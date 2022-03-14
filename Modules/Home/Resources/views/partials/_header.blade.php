@@ -42,49 +42,14 @@
             </div>
             <div id="large-nav-menu" class="nav__menu__container">
                 <div class="nav__menu__container--left">
-                    <div class="nav__menu__item --bottom-line">
-                        <p class="title">BORSA HABERLERİ</p>
-                        <a href="/kategori/twitter" class="title">TWITTER YAZILARI</a>
-                        <p class="title">BORSA RAPORLARI</p>
-                        <a href="/kategori/kose-yazilari" class="title">KÖŞE YAZILARI</a>
-                        <a href="/kategori/egitim" class="title">EĞİTİM</a>
-                    </div>
-                    <div class="nav__menu__item --bottom-line">
-                        <p class="title">SON DAKİKA</p>
-                        <p class="title">HİSSE ÖNERİLERİ</p>
-                        <p class="sub-title">Hisse Raporları</p>
-                        <p class="sub-title">Aracı Kurum Tavsiyeleri</p>
-                    </div>
-                    <div class="nav__menu__item --bottom-line">
-                        <p class="title">EN ÇOK OKUNANLAR</p>
-                        <p class="title">HALKA ARZ</p>
-                        <p class="sub-title">Bitcoin</p>
-                        <p class="sub-title">Ethereum</p>
-                        <p class="sub-title">Litecoin</p>
-                    </div>
-                    <div class="nav__menu__item --bottom-line">
-                        <p class="sub-title">Sterlin</p>
-                        <p class="sub-title">Yen</p>
-                        <p class="sub-title">Dolar</p>
-                        <p class="sub-title">Euro</p>
-                        <p class="sub-title">Türk Lirası</p>
-                    </div>
-                    <div class="nav__menu__item --bottom-line">
-                        <p class="sub-title">Bist</p>
-                        <p class="sub-title">Viop</p>
-                        <p class="sub-title">Faiz</p>
-                        <p class="sub-title">Altın</p>
-                        <p class="sub-title">Gümüş</p>
-                        <p class="sub-title">Petrol</p>
-                    </div>
-                    <div class="nav__menu__item">
-                        <p class="sub-title">Bist</p>
-                        <p class="sub-title">Viop</p>
-                        <p class="sub-title">Faiz</p>
-                        <p class="sub-title">Altın</p>
-                        <p class="sub-title">Gümüş</p>
-                        <p class="sub-title">Petrol</p>
-                    </div>
+                    @foreach($megaMenu->chunk(5) as $chunks)
+                        <div class="nav__menu__item {{$loop->index<5 ? '--bottom-line' : ''}}">
+                            @foreach($chunks as $menu)
+                                <a href="{{$menu->url}}"
+                                   {{$menu->external ? 'target="_blank"' : ''}} class="title {{$menu->uppercase ? 'text-uppercase': ''}} {{$menu->bold ? 'font-weight-bold': ''}}">{{$menu->title}}</a>
+                            @endforeach
+                        </div>
+                    @endforeach
                 </div>
                 <div class="nav__menu__container--right">
                     <div class="title__container">
@@ -128,49 +93,49 @@
                 <div class="top">
                     <div class="list__container">
                         @foreach($headerMenu as $menu)
-                            <h1 class="title"> <a href="{{$menu->url}}">{{$menu->title}}</a></h1>
+                            <h1 class="title"><a href="{{$menu->url}}">{{$menu->title}}</a></h1>
                         @endforeach
                     </div>
-{{--                    <div class="list__container">--}}
-{{--                        <h1 class="title">--}}
-{{--                            <a href="/home#" onclick="toggleDrawerNav(event)">Borsa Raporları</a>--}}
-{{--                        </h1>--}}
-{{--                        <h2 class="sub-title">--}}
-{{--                            <a href="/home#" onclick="toggleDrawerNav(event)">Bist</a>--}}
-{{--                        </h2>--}}
-{{--                        <h2 class="sub-title">--}}
-{{--                            <a href="/home#" onclick="toggleDrawerNav(event)">Döviz</a>--}}
-{{--                        </h2>--}}
-{{--                        <h2 class="sub-title">--}}
-{{--                            <a href="/home#" onclick="toggleDrawerNav(event)">Coin</a>--}}
-{{--                        </h2>--}}
-{{--                        <h2 class="sub-title">--}}
-{{--                            <a href="/home#" onclick="toggleDrawerNav(event)">Emtia</a>--}}
-{{--                        </h2>--}}
-{{--                        <h2 class="sub-title">--}}
-{{--                            <a href="/home#" onclick="toggleDrawerNav(event)">Parite</a>--}}
-{{--                        </h2>--}}
-{{--                    </div>--}}
-{{--                    <div class="list__container">--}}
-{{--                        <h1 class="title">--}}
-{{--                            <a href="/home#" onclick="toggleDrawerNav(event)">Faiz</a>--}}
-{{--                        </h1>--}}
-{{--                        <h2 class="sub-title">--}}
-{{--                            <a href="/home#" onclick="toggleDrawerNav(event)">Veniam</a>--}}
-{{--                        </h2>--}}
-{{--                        <h2 class="sub-title">--}}
-{{--                            <a href="/home#" onclick="toggleDrawerNav(event)">Vel</a>--}}
-{{--                        </h2>--}}
-{{--                        <h2 class="sub-title">--}}
-{{--                            <a href="/home#" onclick="toggleDrawerNav(event)">Delectus</a>--}}
-{{--                        </h2>--}}
-{{--                        <h2 class="sub-title">--}}
-{{--                            <a href="/home#" onclick="toggleDrawerNav(event)">Natus</a>--}}
-{{--                        </h2>--}}
-{{--                        <h2 class="sub-title">--}}
-{{--                            <a href="/home#" onclick="toggleDrawerNav(event)">Quia</a>--}}
-{{--                        </h2>--}}
-{{--                    </div>--}}
+                    {{--                    <div class="list__container">--}}
+                    {{--                        <h1 class="title">--}}
+                    {{--                            <a href="/home#" onclick="toggleDrawerNav(event)">Borsa Raporları</a>--}}
+                    {{--                        </h1>--}}
+                    {{--                        <h2 class="sub-title">--}}
+                    {{--                            <a href="/home#" onclick="toggleDrawerNav(event)">Bist</a>--}}
+                    {{--                        </h2>--}}
+                    {{--                        <h2 class="sub-title">--}}
+                    {{--                            <a href="/home#" onclick="toggleDrawerNav(event)">Döviz</a>--}}
+                    {{--                        </h2>--}}
+                    {{--                        <h2 class="sub-title">--}}
+                    {{--                            <a href="/home#" onclick="toggleDrawerNav(event)">Coin</a>--}}
+                    {{--                        </h2>--}}
+                    {{--                        <h2 class="sub-title">--}}
+                    {{--                            <a href="/home#" onclick="toggleDrawerNav(event)">Emtia</a>--}}
+                    {{--                        </h2>--}}
+                    {{--                        <h2 class="sub-title">--}}
+                    {{--                            <a href="/home#" onclick="toggleDrawerNav(event)">Parite</a>--}}
+                    {{--                        </h2>--}}
+                    {{--                    </div>--}}
+                    {{--                    <div class="list__container">--}}
+                    {{--                        <h1 class="title">--}}
+                    {{--                            <a href="/home#" onclick="toggleDrawerNav(event)">Faiz</a>--}}
+                    {{--                        </h1>--}}
+                    {{--                        <h2 class="sub-title">--}}
+                    {{--                            <a href="/home#" onclick="toggleDrawerNav(event)">Veniam</a>--}}
+                    {{--                        </h2>--}}
+                    {{--                        <h2 class="sub-title">--}}
+                    {{--                            <a href="/home#" onclick="toggleDrawerNav(event)">Vel</a>--}}
+                    {{--                        </h2>--}}
+                    {{--                        <h2 class="sub-title">--}}
+                    {{--                            <a href="/home#" onclick="toggleDrawerNav(event)">Delectus</a>--}}
+                    {{--                        </h2>--}}
+                    {{--                        <h2 class="sub-title">--}}
+                    {{--                            <a href="/home#" onclick="toggleDrawerNav(event)">Natus</a>--}}
+                    {{--                        </h2>--}}
+                    {{--                        <h2 class="sub-title">--}}
+                    {{--                            <a href="/home#" onclick="toggleDrawerNav(event)">Quia</a>--}}
+                    {{--                        </h2>--}}
+                    {{--                    </div>--}}
                 </div>
                 <div class="stil">
                     <div class="list__container">
@@ -179,19 +144,19 @@
                         </h1>
 
                         <h2 class="sub-title">
-                        <a href="/kategori/spor" class="list__item">Spor</a>
+                            <a href="/kategori/spor" class="list__item">Spor</a>
                         </h2>
                         <h2 class="sub-title">
-                        <a href="/kategori/teknoloji" class="list__item">Teknoloji</a>
+                            <a href="/kategori/teknoloji" class="list__item">Teknoloji</a>
                         </h2>
                         <h2 class="sub-title">
-                        <a href="/kategori/yasam" class="list__item">Yaşam</a>
+                            <a href="/kategori/yasam" class="list__item">Yaşam</a>
                         </h2>
                         <h2 class="sub-title">
-                        <a href="/kategori/netkolik" class="list__item">Netkolik</a>
+                            <a href="/kategori/netkolik" class="list__item">Netkolik</a>
                         </h2>
                         <h2 class="sub-title">
-                        <a href="/kategori/otomobil" class="list__item">Otomobil</a>
+                            <a href="/kategori/otomobil" class="list__item">Otomobil</a>
                         </h2>
                     </div>
                 </div>

@@ -3,77 +3,97 @@
 namespace Modules\Admin\Http\Controllers;
 
 use Illuminate\Contracts\Support\Renderable;
-use Illuminate\Http\Request;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Routing\Controller;
+use Illuminate\Support\Facades\Session;
+use Modules\Admin\Entities\MegaMenu;
+use Modules\Admin\Http\Requests\MegaMenuStoreRequest;
+use Modules\Admin\Http\Requests\MegaMenuUpdateRequest;
 
 class MegaMenuController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     * @return Renderable
-     */
-    public function index()
-    {
-        return view('admin::index');
-    }
+		/**
+		 * Display a listing of the resource.
+		 * @return Renderable
+		 */
+		public function index()
+		{
+				$menu = MegaMenu::orderBy('sort')->get();
 
-    /**
-     * Show the form for creating a new resource.
-     * @return Renderable
-     */
-    public function create()
-    {
-        return view('admin::create');
-    }
+				return view('admin::System.MegaMenu.index', compact('menu'));
+		}
 
-    /**
-     * Store a newly created resource in storage.
-     * @param Request $request
-     * @return Renderable
-     */
-    public function store(Request $request)
-    {
-        //
-    }
+		/**
+		 * Show the form for creating a new resource.
+		 * @return Renderable
+		 */
+		public function create()
+		{
+				$last = MegaMenu::max('sort');
 
-    /**
-     * Show the specified resource.
-     * @param int $id
-     * @return Renderable
-     */
-    public function show($id)
-    {
-        return view('admin::show');
-    }
+				return view('admin::System.MegaMenu.create', compact('last'));
+		}
 
-    /**
-     * Show the form for editing the specified resource.
-     * @param int $id
-     * @return Renderable
-     */
-    public function edit($id)
-    {
-        return view('admin::edit');
-    }
+		/**
+		 * Store a newly created resource in storage.
+		 * @param MegaMenuStoreRequest $request
+		 * @return RedirectResponse
+		 */
+		public function store(MegaMenuStoreRequest $request)
+		{
+				MegaMenu::create($request->validated());
 
-    /**
-     * Update the specified resource in storage.
-     * @param Request $request
-     * @param int $id
-     * @return Renderable
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
+				Session::flash('success', "İşlem Başarı ile Gerçekleştirildi");
 
-    /**
-     * Remove the specified resource from storage.
-     * @param int $id
-     * @return Renderable
-     */
-    public function destroy($id)
-    {
-        //
-    }
+				return back();
+		}
+
+		/**
+		 * Show the specified resource.
+		 * @param int $id
+		 * @return Renderable
+		 */
+		public function show($id)
+		{
+				return view('admin::show');
+		}
+
+		/**
+		 * Show the form for editing the specified resource.
+		 * @param MegaMenu $megaMenu
+		 * @return Renderable
+		 */
+		public function edit(MegaMenu $megaMenu)
+		{
+				return view('admin::System.MegaMenu.edit', compact('megaMenu'));
+		}
+
+		/**
+		 * Update the specified resource in storage.
+		 * @param MegaMenuUpdateRequest $request
+		 * @param MegaMenu $megaMenu
+		 * @return RedirectResponse
+		 */
+		public function update(MegaMenuUpdateRequest $request, MegaMenu $megaMenu)
+		{
+				$megaMenu->update($request->validated());
+
+				Session::flash('success', "İşlem Başarı ile Gerçekleştirildi");
+
+				return back();
+		}
+
+		/**
+		 * Remove the specified resource from storage.
+		 * @param MegaMenu $megaMenu
+		 * @return RedirectResponse
+		 */
+		public function destroy(MegaMenu $megaMenu)
+		{
+				$megaMenu->delete();
+
+				Session::flash('success', "İşlem Başarı ile Gerçekleştirildi");
+
+				return back();
+		}
 }

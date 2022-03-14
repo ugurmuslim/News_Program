@@ -338,11 +338,17 @@
                         </a>
                     </li>
                     <li class="nav-item">
-
-                        <a href="{{route('system.menu.index')}} {{request()->routeIs('system.menu.*') ? 'active' : ''}}"
-                           class="nav-link">
+                        <a href="{{route('system.menu.index')}}"
+                           class="nav-link {{request()->routeIs('system.menu.*') ? 'active' : ''}}">
                             <i class="far fa-circle nav-icon"></i>
                             <p>Menu</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{route('system.mega-menu.index')}}"
+                           class="nav-link {{request()->routeIs('system.mega-menu.*') ? 'active' : ''}}">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>Mega Menü</p>
                         </a>
                     </li>
                     <li class="nav-item">
@@ -351,7 +357,6 @@
                             <i class="far fa-circle nav-icon"></i>
                             <p>SiteMap Indir</p>
                         </a>
-
                     </li>
                     <li class="nav-item">
                         <a href="{{route('system.company.index')}}"
