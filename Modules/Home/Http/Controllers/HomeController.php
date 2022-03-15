@@ -47,11 +47,13 @@ class HomeController extends Controller
 		 */
 		public function indexTest()
 		{
+				$articles = [];
+//
 //        $sliders = Cache::get(CacheConst::ARTICLE . 'Slider');
 				$articleTypes = ArticleType::all();
 				$mostReads = Cache::get(CacheConst::MOST_READ_ARTICLE . 'Articles');
 				$mainSliders = Cache::get(CacheConst::ARTICLE . CategorySectionTypes::HEADER_SLIDER);
-				$articles = [];
+
 				foreach ($articleTypes as $articleType) {
 						$articles[$articleType->title][CategorySectionTypes::MAIN_SLIDER] = Cache::get(CacheConst::ARTICLE . $articleType->title . ":" . CategorySectionTypes::MAIN_SLIDER);
 						$articles[$articleType->title][CategorySectionTypes::NORMAL] = Cache::get(CacheConst::ARTICLE . $articleType->title . ":" . CategorySectionTypes::NORMAL);
@@ -60,6 +62,7 @@ class HomeController extends Controller
 				}
 				$currencies['Crypto'] = Cache::get(CacheConst::CURRENCIES . 'CRYPTO');
 				$currencies['Fiat'] = Cache::get(CacheConst::CURRENCIES . 'FIAT');
+
 				return view('home::index3')
 					->with('mainSliders', $mainSliders)
 					->with('articles', $articles)
