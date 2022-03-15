@@ -7,6 +7,7 @@ use Illuminate\Console\Command;
 use Modules\Admin\Entities\Article;
 use Spatie\Sitemap\Sitemap;
 use Spatie\Sitemap\Tags\Url;
+use Spatie\Sitemap\SitemapGenerator;
 
 class SiteMapCreator extends Command
 {
@@ -42,18 +43,22 @@ class SiteMapCreator extends Command
 		public function handle()
 		{
 				$now = Carbon::now();
-				$sitemap = Sitemap::create();
-				$articles = Article::all();
 
-				foreach ($articles as $article) {
-						$sitemap->add(Url::create(url($article->slug))
-							->setChangeFrequency(Url::CHANGE_FREQUENCY_HOURLY));
-				}
-
-				$sitemap->writeToFile(public_path('/sitemaps/' . $now->year . '-' . $now->month . '.xml'));
-
-
-				Sitemap::create()->add(Url::create('/sitemaps/' . $now->year . '-' . $now->month . '.xml'))
-					->writeToFile(public_path('sitemap.xml'));
+//				SitemapGenerator::create(config('app.url'))
+//					->maxTagsPerSitemap(10)
+//					->writeToFile(public_path('sitemap.xml'));
+//				$sitemap = Sitemap::create()->maxTagsPerSitemap(2);
+//				$articles = Article::all();
+//
+//				foreach ($articles as $article) {
+//						$sitemap->add(Url::create(url($article->slug))
+//							->setChangeFrequency(Url::CHANGE_FREQUENCY_HOURLY));
+//				}
+//
+//				$sitemap->writeToFile(public_path('/sitemaps/' . $now->year . '-' . $now->month . '.xml'));
+//
+//
+//				Sitemap::create()->add(Url::create('/sitemaps/' . $now->year . '-' . $now->month . '.xml'))
+//					->writeToFile(public_path('sitemap.xml'));
 		}
 }
