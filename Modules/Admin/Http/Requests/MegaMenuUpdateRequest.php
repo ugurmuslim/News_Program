@@ -16,7 +16,7 @@ class MegaMenuUpdateRequest extends FormRequest
 				$id = $this->get('id');
 				return [
 						'title'     => ['required', 'unique:mega_menu,title,' . $id, 'max:255'],
-						'url'       => ['required', 'url'],
+						'url'       => ['required'],
 						'sort'      => ['required', 'numeric'],
 						'bold'      => ['boolean'],
 						'uppercase' => ['boolean'],
