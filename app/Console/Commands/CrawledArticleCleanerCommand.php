@@ -39,6 +39,6 @@ class CrawledArticleCleanerCommand extends Command
      */
     public function handle()
     {
-        CrawledArticle::where('pub_date','<', Carbon::now()->subDays(2))->delete();
+        CrawledArticle::where('pub_date','<', Carbon::now()->subDays(1))->delete();
     }
 }
