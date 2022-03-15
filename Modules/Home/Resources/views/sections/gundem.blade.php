@@ -19,7 +19,7 @@
                                         <div class="card news-card news-card-big ">
                                             <div class="news-card-img-container bg-light-grey">
                                                 <div
-                                                    style="background: url({{asset($article->image_path)}}); height: 330px;"
+                                                    style="background: url({{asset($article->image_path)}});
                                                     alt="" class="news-img lazy"></div>
                                                 <div class="news-card-img-text big-title"><p>{{$article->title}}</p>
                                                 </div>

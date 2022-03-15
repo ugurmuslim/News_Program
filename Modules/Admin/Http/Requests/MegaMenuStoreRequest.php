@@ -15,7 +15,7 @@ class MegaMenuStoreRequest extends FormRequest
 		{
 				return [
 						'title'     => ['required', 'unique:mega_menu', 'max:255'],
-						'url'       => ['required', 'url'],
+						'url'       => ['required'],
 						'sort'      => ['required', 'numeric'],
 						'bold'      => ['boolean'],
 						'uppercase' => ['boolean'],

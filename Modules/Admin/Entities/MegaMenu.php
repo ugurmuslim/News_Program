@@ -13,7 +13,7 @@ class MegaMenu extends Model
 
 		protected $table = 'mega_menu';
 
-		protected $fillable = ['title', 'url', 'sort', 'bold', 'active', 'external', 'right_menu'];
+		protected $fillable = ['title', 'url', 'sort', 'bold', 'active', 'external', 'right_menu','uppercase'];
 
 		protected static function booted()
 		{

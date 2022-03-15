@@ -12,6 +12,7 @@
                               action={{route('system.mega-menu.update',$megaMenu->id)}} >
                             @method('PUT')
                             @csrf
+                            <input type="hidden" name="id" value="{{$megaMenu->id}}">
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-md-6">
@@ -25,7 +26,7 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="url" class="col-form-label">Tam Link</label>
-                                            <input type="url" class="form-control" name="url" required id="url"
+                                            <input type="text" class="form-control" name="url" required id="url"
                                                    value="{{$megaMenu->url}}">
                                         </div>
                                     </div>
