@@ -469,7 +469,10 @@ class ArticleController extends Controller
 				$article->delete();
 				ArticleHelper::updateCache([$articleTypeId]);
 
+				dispatch(new FreshArticleSiteMapJob($article));
+
 				Session::flash('success', "Başarı ile silindi");
+
 				return back();
 
 		}
