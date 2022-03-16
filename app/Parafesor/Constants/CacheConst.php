@@ -10,4 +10,5 @@ class CacheConst
 		const MOST_READ_ARTICLE = 'MostReadArticle:';
 		const CURRENCIES = 'Currencies:';
 		const MENU = 'Menu:';
+		const SITE_CRAWL = 'System:SiteCrawl';
 }
