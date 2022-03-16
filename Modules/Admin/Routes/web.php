@@ -19,7 +19,25 @@ use App\Http\Controllers\Auth\NewPasswordController;
 use App\Http\Controllers\Auth\PasswordResetLinkController;
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\Auth\VerifyEmailController;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Route;
+
+Route::get('deneme', function () {
+//		$article = \Modules\Admin\Entities\Article::latest()->first();
+		$now = Carbon::now();
+//		$sitemap = Sitemap::create();
+//
+//		$sitemapGenerator = SitemapGenerator::create(config('app.url'));
+//
+//		$sitemapGenerator->getSitemap()
+//			->add(Url::create($article->slug)
+//				->setLastModificationDate($article->updated_at));
+//
+//		$sitemap->writeToFile(public_path('sitemaps/' . $now->month . '-' . $now->year . '-news.xml'));
+
+		Artisan::call('sitemap.index');
+		dispatch(new \App\Jobs\FreshArticleSiteMapJob(\Modules\Admin\Entities\Article::news()->first()));
+});
 
 Route::prefix('admin')->group(function () {
 		Route::get('/', 'AdminController@index')
@@ -208,12 +226,12 @@ Route::prefix('admin')->group(function () {
 					->name('system.menu.store');
 
 				//Resource route olmuyor.
-				Route::get('/mega-menu', [\Modules\Admin\Http\Controllers\MegaMenuController::class,'index'])->name('system.mega-menu.index');
-				Route::get('/mega-menu/create', [\Modules\Admin\Http\Controllers\MegaMenuController::class,'create'])->name('system.mega-menu.create');
-				Route::post('/mega-menu', [\Modules\Admin\Http\Controllers\MegaMenuController::class,'store'])->name('system.mega-menu.store');
-				Route::get('/mega-menu/{megaMenu}/edit', [\Modules\Admin\Http\Controllers\MegaMenuController::class,'edit'])->name('system.mega-menu.edit');
-				Route::put('/mega-menu/{megaMenu}/update', [\Modules\Admin\Http\Controllers\MegaMenuController::class,'update'])->name('system.mega-menu.update');
-				Route::get('/mega-menu/{megaMenu}', [\Modules\Admin\Http\Controllers\MegaMenuController::class,'destroy'])->name('system.mega-menu.delete');
+				Route::get('/mega-menu', [\Modules\Admin\Http\Controllers\MegaMenuController::class, 'index'])->name('system.mega-menu.index');
+				Route::get('/mega-menu/create', [\Modules\Admin\Http\Controllers\MegaMenuController::class, 'create'])->name('system.mega-menu.create');
+				Route::post('/mega-menu', [\Modules\Admin\Http\Controllers\MegaMenuController::class, 'store'])->name('system.mega-menu.store');
+				Route::get('/mega-menu/{megaMenu}/edit', [\Modules\Admin\Http\Controllers\MegaMenuController::class, 'edit'])->name('system.mega-menu.edit');
+				Route::put('/mega-menu/{megaMenu}/update', [\Modules\Admin\Http\Controllers\MegaMenuController::class, 'update'])->name('system.mega-menu.update');
+				Route::get('/mega-menu/{megaMenu}', [\Modules\Admin\Http\Controllers\MegaMenuController::class, 'destroy'])->name('system.mega-menu.delete');
 		});
 
 		Route::prefix('system-user')->group(function () {
