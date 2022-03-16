@@ -20,3 +20,6 @@ public/modules
 storage/*.log
 composer.lock
 nginx/conf.d/app.conf
+
+public/sitemaps/
+public/sitemap.xml
