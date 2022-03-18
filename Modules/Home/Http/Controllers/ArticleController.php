@@ -128,12 +128,16 @@ class ArticleController extends Controller
      *
      * @param int $id
      *
-     * @return Renderable
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function show($slug)
     {
 
         $article = Article::where('slug', $slug)->first();
+
+        if(!isset($article->articleType->title)) {
+            return back();
+        }
 
         $relatedArticles = Cache::get(CacheConst::ARTICLE . $article->articleType->title . ":" . CategorySectionTypes::NORMAL);
 
