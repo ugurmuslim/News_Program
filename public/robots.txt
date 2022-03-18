@@ -1,2 +1,3 @@
 User-agent: *
 Disallow:
+Sitemap: https://parefesor.net/sitemap.xml
