@@ -16,7 +16,6 @@ class SiteCrawl
 {
     public static function siteCrawl($siteTitle = null, $test = false)
     {
-        Cache::forget(CacheConst::SITE_CRAWL);
         $siteCrawl = Cache::get(CacheConst::SITE_CRAWL);
 
         if ($siteCrawl) {
