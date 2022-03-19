@@ -363,7 +363,8 @@ class ArticleController extends Controller
 						//Sitemap index.
 						dispatch(new FreshArticleSiteMapJob($article));
 						if (Request::input('ArticleId')) {
-								Artisan::call('sitemap:index', ['month' => $article->article_date->month, 'year' => $article->article_date->year]);
+                                $articleDate = new Carbon($article->article_date);
+								Artisan::call('sitemap:index', ['month' => $articleDate->month, 'year' => $articleDate->year]);
 						}
 
 						ArticleHelper::updateCache([$articleType->id]);
