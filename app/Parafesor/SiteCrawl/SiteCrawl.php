@@ -22,7 +22,7 @@ class SiteCrawl
             return;
         }
 
-        Cache::put(CacheConst::SITE_CRAWL, true,5);
+        Cache::put(CacheConst::SITE_CRAWL, true,10);
         if (!$siteTitle) {
             $sites = SitesToCrawl::where('crawl_type', CrawlTypes::SITE)
                 ->where('status', 1)
