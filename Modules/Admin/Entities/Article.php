@@ -109,7 +109,6 @@ class Article extends Model
 			'site_name'        => 'string',
 			'start_date'       => 'date',
 			'end_date'         => 'date',
-			'article_date'     => 'date',
 		];
 
 
