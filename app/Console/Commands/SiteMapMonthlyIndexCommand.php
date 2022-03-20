@@ -36,7 +36,6 @@ class SiteMapMonthlyIndexCommand extends Command
 								$sitemapIndex->add(Sitemap::create($month['name'])
 									->setLastModificationDate($month['last_modification_date']));
 						}
-
 						$sitemapIndex->writeToFile(public_path('sitemap.xml'));
 				}
 		}
