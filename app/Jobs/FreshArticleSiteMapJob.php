@@ -32,15 +32,15 @@ class FreshArticleSiteMapJob implements ShouldQueue
         $articleDate = $this->article->article_date;
         $articleDate = new Carbon($articleDate);
         $articles = Article::whereDate('article_date', $articleDate->month)
-            ->news()
-            ->get();
+          ->news()
+          ->orderBy('article_date', 'desc')
+          ->get();
 
         $sitemap = Sitemap::create();
         foreach ($articles as $article) {
             $sitemap->add(Url::create($article->slug)
-                ->setLastModificationDate($article->updated_at));
+              ->setLastModificationDate($article->updated_at));
         }
-
-        $sitemap->writeToFile(public_path('sitemaps/' . $articleDate->month . '-' . $articleDate->year . '-news.xml'));
+        $sitemap->writeToFile(public_path('sitemaps/'.$articleDate->month.'-'.$articleDate->year.'-news.xml'));
     }
 }

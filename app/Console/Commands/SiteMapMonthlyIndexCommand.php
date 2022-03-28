@@ -33,10 +33,9 @@ class SiteMapMonthlyIndexCommand extends Command
 
 						$sitemapIndex = SitemapIndex::create();
 						foreach ($formattedDateAndNames as $month) {
-								$sitemapIndex->add(Sitemap::create($month['name'])
+								$sitemapIndex->add(Sitemap::create(url($month['name']))
 									->setLastModificationDate($month['last_modification_date']));
 						}
-
 						$sitemapIndex->writeToFile(public_path('sitemap.xml'));
 				}
 		}
