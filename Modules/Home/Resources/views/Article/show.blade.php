@@ -40,6 +40,7 @@
                 </div>
             </div>
         </div>
+        <p class="articleId" style="display: none;">{{$article->id}}</p>
     </div>
     <div class="container other-news">
         <div class="col">

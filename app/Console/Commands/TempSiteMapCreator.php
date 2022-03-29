@@ -64,6 +64,7 @@ class TempSiteMapCreator extends Command
 		public function sitemap(Sitemap $sitemap, Carbon $date)
 		{
 				$articles = Article::whereMonth('article_date', $date->month)
+          ->orderBy('article_date','desc')
 					->whereNotNull('slug')
 					->get();
 

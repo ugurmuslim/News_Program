@@ -292,7 +292,7 @@ class Enclosure
 	 * Get a single caption
 	 *
 	 * @param int $key
-	 * @return SimplePie_Caption|null
+	 * @return Caption|null
 	 */
 	public function get_caption($key = 0)
 	{
@@ -308,7 +308,7 @@ class Enclosure
 	/**
 	 * Get all captions
 	 *
-	 * @return array|null Array of {@see SimplePie_Caption} objects
+	 * @return array|null Array of {@see Caption} objects
 	 */
 	public function get_captions()
 	{

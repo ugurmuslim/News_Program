@@ -13,7 +13,7 @@
         <div class="row s-row-1">
             @foreach($articles["Şirket Haberleri"][\App\Parafesor\Constants\CategorySectionTypes::MAIN_SLIDER]->take(1) as $article)
                 <div class="col-xl-13 corporate2">
-                    <a href="https://parafesor.net/ford-otosan-piyasa-degerine-kimse-yetisemiyor-14-01-2022">
+                    <a href="{{route('article.show',['slug' => $article->slug ])}}">
                         <div class="card news-card news-card-big" id="corporate-new-showcase">
                             <div class="news-card-img-container bg-white lazy">
                                 <div

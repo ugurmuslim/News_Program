@@ -74,7 +74,7 @@ class Registry
         'Author' => 'SimplePie_Author',
         'Category' => 'SimplePie_Category',
         'Enclosure' => '\App\Parafesor\SimplePie\SimplePie\Enclosure',
-        'Caption' => 'SimplePie_Caption',
+        'Caption' => '\App\Parafesor\SimplePie\SimplePie\Caption',
         'Copyright' => 'SimplePie_Copyright',
         'Credit' => '\App\Parafesor\SimplePie\SimplePie\Credit',
         'Rating' => '\App\Parafesor\SimplePie\SimplePie\Rating',

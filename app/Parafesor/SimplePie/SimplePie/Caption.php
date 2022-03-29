@@ -40,6 +40,9 @@
  * @link http://simplepie.org/ SimplePie
  * @license http://www.opensource.org/licenses/bsd-license.php BSD License
  */
+namespace App\Parafesor\SimplePie\SimplePie;
+
+use App\Parafesor\SimplePie\SimplePie\Registry as SimplePie_Registry;
 
 
 /**
@@ -52,7 +55,7 @@
  * @package SimplePie
  * @subpackage API
  */
-class SimplePie_Caption
+class Caption
 {
 	/**
 	 * Content type
