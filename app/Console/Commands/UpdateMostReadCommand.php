@@ -3,7 +3,6 @@
 namespace App\Console\Commands;
 
 use App\Jobs\UpdateMostRead;
-use App\Parafesor\Helper\ArticleHelper;
 use Illuminate\Console\Command;
 
 class UpdateMostReadCommand extends Command

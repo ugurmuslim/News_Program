@@ -4,7 +4,6 @@ namespace App\Console\Commands;
 
 use App\Parafesor\Constants\CacheConst;
 use App\Parafesor\Constants\CategorySectionTypes;
-use App\Parafesor\Youtube\YoutubeCrawler;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Cache;
 use Ramsey\Collection\CollectionInterface;

@@ -5,9 +5,9 @@ namespace App\Parafesor\Youtube;
 use App\Parafesor\Constants\ArticleTypes;
 use App\Parafesor\Constants\CrawlTypes;
 use Carbon\Carbon;
-use Modules\Admin\Entities\CrawledArticle;
-use Modules\Admin\Entities\SitesToCrawl;
-use Modules\Admin\Entities\StockTube;
+use App\Models\CrawledArticle;
+use App\Models\SitesToCrawl;
+use App\Models\StockTube;
 
 class YoutubeCrawler
 {

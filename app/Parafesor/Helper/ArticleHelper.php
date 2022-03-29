@@ -13,10 +13,10 @@ use Exception;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Request;
-use Modules\Admin\Entities\Article;
-use Modules\Admin\Entities\ArticleType;
-use Modules\Admin\Entities\CrawledArticle;
-use Modules\Admin\Entities\StockTube;
+use App\Models\Article;
+use App\Models\ArticleType;
+use App\Models\CrawledArticle;
+use App\Models\StockTube;
 
 class ArticleHelper
 {

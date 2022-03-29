@@ -5,8 +5,8 @@ namespace App\Providers;
 use Carbon\Carbon;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\ServiceProvider;
-use Modules\Admin\Entities\MegaMenu;
-use Modules\Admin\Entities\Menu;
+use App\Models\MegaMenu;
+use App\Models\Menu;
 use View;
 
 class AppServiceProvider extends ServiceProvider

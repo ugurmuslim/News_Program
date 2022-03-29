@@ -2,9 +2,9 @@
 
 namespace App\Parafesor\SiteCrawl;
 
-use Modules\Admin\Entities\CrawledArticle;
-use Modules\Admin\Entities\CrawledArticleTestLog;
-use Modules\Admin\Entities\SitesToCrawl;
+use App\Models\CrawledArticle;
+use App\Models\CrawledArticleTestLog;
+use App\Models\SitesToCrawl;
 use Psr\Http\Message\UriInterface;
 use Spatie\Crawler\CrawlProfiles\CrawlProfile;
 

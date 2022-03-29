@@ -2,11 +2,11 @@
 
 namespace App\Console\Commands;
 
+use App\Models\Article;
 use Artisan;
 use Carbon\Carbon;
 use File;
 use Illuminate\Console\Command;
-use Modules\Admin\Entities\Article;
 use Spatie\Sitemap\Sitemap;
 use Spatie\Sitemap\Tags\Url;
 
