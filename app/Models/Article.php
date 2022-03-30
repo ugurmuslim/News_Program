@@ -107,7 +107,7 @@ class Article extends Model
       'site_name'        => 'string',
     ];
 
-    protected $dates = ['article_date', 'start_date', 'end_date'];
+    protected $dates = ['article_date', 'start_date', 'end_date','created_at', 'updated_at'];
 
     /**
      * Get External User
