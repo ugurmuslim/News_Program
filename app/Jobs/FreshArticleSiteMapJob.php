@@ -30,7 +30,7 @@ class FreshArticleSiteMapJob implements ShouldQueue
     public function handle()
     {
         $articleDate = $this->article->article_date;
-        $articleDate = new Carbon($articleDate);
+//        $articleDate = new Carbon($articleDate);
         $articles = Article::whereDate('article_date', $articleDate->month)
           ->news()
           ->orderBy('article_date', 'desc')

@@ -1,4 +1,4 @@
-FROM php:7.4-fpm
+FROM php:8.1-fpm
 
 # Copy composer.lock and composer.json
 
@@ -36,7 +36,7 @@ RUN docker-php-ext-install dom
 RUN docker-php-ext-install xml
 RUN docker-php-ext-enable sockets
 RUN docker-php-ext-install soap
-RUN pecl install redis-5.1.0 && \
+RUN pecl install redis && \
 	docker-php-ext-enable redis
 RUN apt-get update && apt-get install -y libpq-dev && docker-php-ext-install pdo pdo_pgsql
 
