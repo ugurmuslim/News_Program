@@ -1,7 +1,5 @@
 <?php
 
-use Illuminate\Support\Str;
-
 return [
 
     /*
@@ -118,23 +116,23 @@ return [
     */
 
     'redis' => [
-        'client' => 'predis',
-        'cluster' => env('REDIS_CLUSTER', false),
+      'client'  => 'predis',
+      'cluster' => env('REDIS_CLUSTER', false),
 
-        'default' => [
-            'scheme'   => env('REDIS_SCHEME', 'tls'),
-            'host' => env('REDIS_HOST', 'localhost'),
-            'password' => env('REDIS_PASSWORD', null),
-            'port' => env('REDIS_PORT', 6379),
-            'database' => 0,
-        ],
+      'default' => [
+        'scheme'   => env('REDIS_SCHEME', 'tls'),
+        'host'     => env('REDIS_HOST', 'localhost'),
+        'password' => env('REDIS_PASSWORD', null),
+        'port'     => env('REDIS_PORT', 6379),
+        'database' => 0,
+      ],
 
-        'options' => [
-            'parameters' => ['password' => env('REDIS_PASSWORD', null)],
-        ],
+      'options' => [
+        'parameters' => ['password' => env('REDIS_PASSWORD', null)],
+      ],
 
       'cache' => [
-          'scheme'   => env('REDIS_SCHEME', 'tls'),
+        'scheme'   => env('REDIS_SCHEME', 'tls'),
         'url'      => env('REDIS_URL'),
         'host'     => env('REDIS_HOST', '127.0.0.1'),
         'password' => env('REDIS_PASSWORD', null),
