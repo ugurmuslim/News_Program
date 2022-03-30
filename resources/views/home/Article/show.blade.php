@@ -18,15 +18,16 @@
             <p>PARAFESÖR / {{mb_strtoupper($article->articleType->title, 'UTF-8')}}</p>
             <h1>{{$article->title}}</h1>
             <div class="news-card-bottom mt-3">
-                <span>{{ Date::parse($article->article_date)->format('j F')}} • {{ Carbon\Carbon::parse($article->article_date)->format('H:i')}} • parafesor</span>
+                <span>{{ Date::parse($article->article_date)->format('j F')}}
+                    • {{ Carbon\Carbon::parse($article->article_date)->format('H:i')}} • parafesor</span>
             </div>
         </div>
         <div class="container">
             <div class="col mt-4">
                 <div class="row summary ">
-                <span>
-                             {!! $article->summary !!}
-                </span>
+                    <span>
+                        {!! $article->summary !!}
+                    </span>
                 </div>
             </div>
         </div>
@@ -54,10 +55,13 @@
                             <div class="card news-card news-card-small ">
                                 <div class="news-card-img-container">
                                     <div style="background: url({{asset($article->image_path)}})"
-                                        alt="" class="news-img"></div>
+                                         alt="" class="news-img"></div>
                                     <div class="news-card-img-text small-text">
                                         <p>{{$article->title}}</p>
-                                        <div class="news-card-bottom"><span class="text-danger">{{ Date::parse($article->article_date)->format('j F')}} </span> <span> • {{ Carbon\Carbon::parse($article->article_date)->format('H:i')}} • parafesor</span>
+                                        <div class="news-card-bottom"><span
+                                                    class="text-danger">{{ Date::parse($article->article_date)->format('j F')}} </span>
+                                            <span> • {{ Carbon\Carbon::parse($article->article_date)->format('H:i')}} •
+                                                parafesor</span>
                                         </div>
                                     </div>
                                 </div>
@@ -69,4 +73,35 @@
         </div>
     </div>
     @include('home.partials._footer')
+@endsection
+@section('extra_scripts')
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "{{url()->current()}}"
+  },
+  "headline": "{{$article->title}}",
+  "image": "{{asset($article->image_path)}}",
+  "author": {
+    "@type": "Organization",
+    "name": "Parafesor",
+    "url": "{{url('/')}}"
+    }
+    },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Parafesor",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "{{asset('assets/home/sample/img/logo-dark.svg')}}"
+    }
+  },
+  "datePublished": "{{$article->article_date->format('Y-m-d')}}",
+  "dateModified": "{{$article->updated_at}}",
+}
+
+    </script>
 @endsection
