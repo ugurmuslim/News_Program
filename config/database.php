@@ -118,27 +118,23 @@ return [
     */
 
     'redis' => [
-      'client'             => env('REDIS_CLIENT', 'phpredis'),
-      'read_write_timeout' => 0,
-      'timeout'            => 0,
+        'client' => 'predis',
+        'cluster' => env('REDIS_CLUSTER', false),
 
-      'options' => [
-        'cluster' => env('REDIS_CLUSTER', 'redis'),
-        'prefix'  => env('REDIS_PREFIX', Str::slug(env('APP_NAME', 'laravel'), '_').'_database_'),
-      ],
+        'default' => [
+            'scheme'   => env('REDIS_SCHEME', 'tls'),
+            'host' => env('REDIS_HOST', 'localhost'),
+            'password' => env('REDIS_PASSWORD', null),
+            'port' => env('REDIS_PORT', 6379),
+            'database' => 0,
+        ],
 
-      'default' => [
-        'scheme' => 'tls',
-        'host' => env('REDIS_HOST', '127.0.0.1'),
-        'password' => env('REDIS_PASSWORD', null),
-        'port' => env('REDIS_PORT', 6379),
-        'database' => env('REDIS_DB', 0),
-        'read_timeout' => 60,
-        'timeout' => 5,
-      ],
+        'options' => [
+            'parameters' => ['password' => env('REDIS_PASSWORD', null)],
+        ],
 
       'cache' => [
-//        'scheme' => 'tls',
+          'scheme'   => env('REDIS_SCHEME', 'tls'),
         'url'      => env('REDIS_URL'),
         'host'     => env('REDIS_HOST', '127.0.0.1'),
         'password' => env('REDIS_PASSWORD', null),
