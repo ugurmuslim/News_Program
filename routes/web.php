@@ -40,7 +40,7 @@ Route::get('/dashboard', function () {
 })->middleware(['auth'])->name('dashboard');
 
 
-Route::get('/', [HomeController::class, 'index'])->name('home.indextest');
+Route::get('/', [HomeController::class, 'indexTest'])->name('home.indextest');
 
 
 Route::prefix('home')->group(function () {
