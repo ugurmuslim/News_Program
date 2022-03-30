@@ -17,7 +17,6 @@
         "laravel/helpers": "^1.4",
         "laravel/sanctum": "^2.11",
         "laravel/tinker": "^2.5",
-        "nwidart/laravel-modules": "^8.2",
         "predis/predis": "^1.1",
         "spatie/browsershot": "^3.52",
         "spatie/crawler": "^7.0",
