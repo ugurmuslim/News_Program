@@ -33,7 +33,7 @@ class HomeController extends Controller
         $currencies['Crypto'] = Cache::get(CacheConst::CURRENCIES.'CRYPTO');
         $currencies['Fiat'] = Cache::get(CacheConst::CURRENCIES.'FIAT');
 
-        return view('home::index4')
+        return view('home.index4')
           ->with('articles', $articles)
           ->with('slider', $slider)
           ->with('currencies', $currencies)

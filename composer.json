@@ -71,12 +71,6 @@
         "preferred-install": "dist",
         "sort-packages": true
     },
-    "autoload": {
-        "psr-4": {
-            "App\\": "app/",
-            "Modules\\": "Modules/"
-        }
-    },
     "minimum-stability": "dev",
     "prefer-stable": true
 }
