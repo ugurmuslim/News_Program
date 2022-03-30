@@ -21,32 +21,6 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $slider = Cache::get(CacheConst::ARTICLE.'Slider');
-
-        $articleTypes = ArticleType::all();
-        $mostReads = Cache::get(CacheConst::MOST_READ_ARTICLE.'Articles');
-        $articles = [];
-        foreach ($articleTypes as $articleType) {
-            $articles[$articleType->title]["Normal"] = Cache::get(CacheConst::ARTICLE.$articleType->title.":"."Normal");
-            $articles[$articleType->title]["ShowCase"] = Cache::get(CacheConst::ARTICLE.$articleType->title.":"."ShowCase");
-        }
-        $currencies['Crypto'] = Cache::get(CacheConst::CURRENCIES.'CRYPTO');
-        $currencies['Fiat'] = Cache::get(CacheConst::CURRENCIES.'FIAT');
-
-        return view('home.index4')
-          ->with('articles', $articles)
-          ->with('slider', $slider)
-          ->with('currencies', $currencies)
-          ->with('mostReads', $mostReads);
-    }
-
-    /**
-     * Display a listing of the resource.
-     *
-     * @return Renderable
-     */
-    public function indexTest()
-    {
         $articles = [];
 //
 //        $sliders = Cache::get(CacheConst::ARTICLE . 'Slider');
