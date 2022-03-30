@@ -2,12 +2,10 @@
 
 namespace App\Console\Commands;
 
-use App\Parafesor\Youtube\YoutubeCrawler;
+use App\Models\ArticleType;
+use App\Models\Company;
 use Illuminate\Console\Command;
-use Illuminate\Support\Facades\Request;
 use Intervention\Image\Facades\Image;
-use Modules\Admin\Entities\ArticleType;
-use Modules\Admin\Entities\Company;
 
 class CompanyUploadCommand extends Command
 {

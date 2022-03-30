@@ -2,14 +2,12 @@
 
 namespace App\Console\Commands;
 
+use App\Models\Article;
+use App\Models\ArticleType;
 use App\Parafesor\Constants\ArticleTypes;
 use App\Parafesor\Helper\ArticleHelper;
-use App\Parafesor\Youtube\YoutubeCrawler;
 use Carbon\Carbon;
-use Faker\Provider\Lorem;
 use Illuminate\Console\Command;
-use Modules\Admin\Entities\Article;
-use Modules\Admin\Entities\ArticleType;
 
 class MockDataCreator extends Command
 {

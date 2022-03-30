@@ -10,10 +10,10 @@ use App\Parafesor\SimplePie\SimplePie;
 use App\Parafesor\SimplePie\SimplePie\Item;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Http;
-use Modules\Admin\Entities\Article;
-use Modules\Admin\Entities\CrawledArticle;
-use Modules\Admin\Entities\CrawledArticleTestLog;
-use Modules\Admin\Entities\SitesToCrawl;
+use App\Models\Article;
+use App\Models\CrawledArticle;
+use App\Models\CrawledArticleTestLog;
+use App\Models\SitesToCrawl;
 use SebastianBergmann\CodeCoverage\Report\PHP;
 
 class FeedParserHelper

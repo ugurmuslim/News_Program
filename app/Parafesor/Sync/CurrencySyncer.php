@@ -2,21 +2,22 @@
 
 namespace App\Parafesor\Sync;
 
+use App\Models\Currency;
 use App\Parafesor\Altinkaynak\Altinkaynak;
 use App\Parafesor\Constants\AltinParaConst;
 use App\Parafesor\Constants\Currency as CurrencyConst;
 use Carbon\Carbon;
+use Exception;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Http;
-use Modules\Currency\Entities\Currency;
 
 class CurrencySyncer
 {
     public static function UpdateCurrencies()
     {
-        ( new CurrencySyncer )->updateForeignCurrencies();
-        ( new CurrencySyncer )->updateCryptoCurrencies();
-        ( new CurrencySyncer )->updateGoldCurrencies();
+        (new CurrencySyncer())->updateForeignCurrencies();
+        (new CurrencySyncer())->updateCryptoCurrencies();
+        (new CurrencySyncer())->updateGoldCurrencies();
 //        ( new CurrencySyncer )->getStockCurrencies();
 
     }
@@ -28,15 +29,15 @@ class CurrencySyncer
 
         try {
             $todaysCurrencies = simplexml_load_file('http://www.tcmb.gov.tr/kurlar/today.xml');
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             $todaysCurrencies = null;
         }
 
 
         try {
             $yesterdaysCurrencies = simplexml_load_file('http://www.tcmb.gov.tr/kurlar/'
-                . $yesterdayDate . '/' . $yesterdayDateDetailed . '.xml');
-        } catch (\Exception $e) {
+              .$yesterdayDate.'/'.$yesterdayDateDetailed.'.xml');
+        } catch (Exception $e) {
             $yesterdaysCurrencies = null;
         }
         if (!$todaysCurrencies) {
@@ -48,55 +49,55 @@ class CurrencySyncer
         }
 
         $fiatCurrencies['USD'] = [
-            'Buying'           => $todaysCurrencies->Currency[0]->BanknoteBuying,
-            'Selling'          => $todaysCurrencies->Currency[0]->BanknoteSelling,
-            'YesterdayBuying'  => $yesterdaysCurrencies ? $yesterdaysCurrencies->Currency[0]->BanknoteSelling : null,
-            'YesterdaySelling' => $yesterdaysCurrencies ? $yesterdaysCurrencies->Currency[0]->BanknoteSelling : null,
+          'Buying'           => $todaysCurrencies->Currency[0]->BanknoteBuying,
+          'Selling'          => $todaysCurrencies->Currency[0]->BanknoteSelling,
+          'YesterdayBuying'  => $yesterdaysCurrencies ? $yesterdaysCurrencies->Currency[0]->BanknoteSelling : null,
+          'YesterdaySelling' => $yesterdaysCurrencies ? $yesterdaysCurrencies->Currency[0]->BanknoteSelling : null,
         ];
 
         $fiatCurrencies['EURO'] = [
-            'Buying'           => $todaysCurrencies->Currency[3]->BanknoteBuying,
-            'Selling'          => $todaysCurrencies->Currency[3]->BanknoteSelling,
-            'YesterdayBuying'  => $yesterdaysCurrencies->Currency[3]->BanknoteBuying,
-            'YesterdaySelling' => $yesterdaysCurrencies->Currency[3]->BanknoteSelling,
+          'Buying'           => $todaysCurrencies->Currency[3]->BanknoteBuying,
+          'Selling'          => $todaysCurrencies->Currency[3]->BanknoteSelling,
+          'YesterdayBuying'  => $yesterdaysCurrencies->Currency[3]->BanknoteBuying,
+          'YesterdaySelling' => $yesterdaysCurrencies->Currency[3]->BanknoteSelling,
         ];
 
         $fiatCurrencies['STERLIN'] = [
-            'Buying'           => $todaysCurrencies->Currency[4]->BanknoteBuying,
-            'Selling'          => $todaysCurrencies->Currency[4]->BanknoteSelling,
-            'YesterdayBuying'  => $yesterdaysCurrencies->Currency[4]->BanknoteBuying,
-            'YesterdaySelling' => $yesterdaysCurrencies->Currency[4]->BanknoteSelling,
+          'Buying'           => $todaysCurrencies->Currency[4]->BanknoteBuying,
+          'Selling'          => $todaysCurrencies->Currency[4]->BanknoteSelling,
+          'YesterdayBuying'  => $yesterdaysCurrencies->Currency[4]->BanknoteBuying,
+          'YesterdaySelling' => $yesterdaysCurrencies->Currency[4]->BanknoteSelling,
         ];
 
         $fiatCurrencies['YEN'] = [
-            'Buying'           => $todaysCurrencies->Currency[11]->BanknoteBuying,
-            'Selling'          => $todaysCurrencies->Currency[11]->BanknoteSelling,
-            'YesterdayBuying'  => $yesterdaysCurrencies->Currency[11]->BanknoteBuying,
-            'YesterdaySelling' => $yesterdaysCurrencies->Currency[11]->BanknoteSelling,
+          'Buying'           => $todaysCurrencies->Currency[11]->BanknoteBuying,
+          'Selling'          => $todaysCurrencies->Currency[11]->BanknoteSelling,
+          'YesterdayBuying'  => $yesterdaysCurrencies->Currency[11]->BanknoteBuying,
+          'YesterdaySelling' => $yesterdaysCurrencies->Currency[11]->BanknoteSelling,
         ];
 
         foreach ($fiatCurrencies as $fiatCurrency => $values) {
             $change = 0;
             $currency = Currency::where('currency', $fiatCurrency)->first();
             if ($currency) {
-                $change = ( $values['Buying'] - $currency->yesterday_buying ) / $values['Buying'] * 100;
+                $change = ($values['Buying'] - $currency->yesterday_buying) / $values['Buying'] * 100;
             }
 
             Currency::updateOrCreate(
-                [
-                    'type'     => \App\Parafesor\Constants\Currency::FIAT,
-                    'currency' => $fiatCurrency,
-                ],
-                [
-                    'buying'            => $values['Buying'] ? : $currency->buying,
-                    'selling'           => $values['Selling'] ? : $currency->selling,
-                    'yesterday_buying'  => $values['YesterdayBuying'] ? : $currency->yesterday_buying,
-                    'yesterday_selling' => $values['YesterdaySelling'] ? : $currency->yesterday_selling,
-                    'change'            => $change,
-                ]);
+              [
+                'type'     => CurrencyConst::FIAT,
+                'currency' => $fiatCurrency,
+              ],
+              [
+                'buying'            => $values['Buying'] ?: $currency->buying,
+                'selling'           => $values['Selling'] ?: $currency->selling,
+                'yesterday_buying'  => $values['YesterdayBuying'] ?: $currency->yesterday_buying,
+                'yesterday_selling' => $values['YesterdaySelling'] ?: $currency->yesterday_selling,
+                'change'            => $change,
+              ]);
         }
-        $currencies = Currency::where('type', \App\Parafesor\Constants\Currency::FIAT)->get();
-        Cache::put('Currencies:' . \App\Parafesor\Constants\Currency::FIAT, $currencies);
+        $currencies = Currency::where('type', CurrencyConst::FIAT)->get();
+        Cache::put('Currencies:'.CurrencyConst::FIAT, $currencies);
     }
 
     private function updateCryptoCurrencies()
@@ -117,9 +118,9 @@ class CurrencySyncer
             if ($value['denominatorSymbol'] !== 'TRY') {
                 continue;
             }
-            $currency = Currency::where('type',CurrencyConst::CRYPTO)->
+            $currency = Currency::where('type', CurrencyConst::CRYPTO)->
             where('currency', $value['numeratorSymbol'])->first();
-            if(!$currency) {
+            if (!$currency) {
                 continue;
             }
             $currency->buying = $value['bid'];
@@ -129,20 +130,20 @@ class CurrencySyncer
             $currency->save();
         }
 
-      /*  foreach ($response['data'] as $value) {
-            Currency::updateOrCreate(
-                [
-                    'type'     => \App\Parafesor\Constants\Currency::CRYPTO,
-                    'currency' => $value['symbol'],
-                ],
-                [
-                    'buying'  => $value['quote']['TRY']['price'],
-                    'selling' => null,
-                    'change'  => $value['quote']['TRY']['percent_change_24h'],
-                ]);
-        }*/
-        $currencies = Currency::where('type', \App\Parafesor\Constants\Currency::CRYPTO)->get();
-        Cache::put('Currencies:' . \App\Parafesor\Constants\Currency::CRYPTO, $currencies);
+        /*  foreach ($response['data'] as $value) {
+              Currency::updateOrCreate(
+                  [
+                      'type'     => \App\Parafesor\Constants\Currency::CRYPTO,
+                      'currency' => $value['symbol'],
+                  ],
+                  [
+                      'buying'  => $value['quote']['TRY']['price'],
+                      'selling' => null,
+                      'change'  => $value['quote']['TRY']['percent_change_24h'],
+                  ]);
+          }*/
+        $currencies = Currency::where('type', CurrencyConst::CRYPTO)->get();
+        Cache::put('Currencies:'.CurrencyConst::CRYPTO, $currencies);
     }
 
     private function updateGoldCurrencies()
@@ -154,19 +155,17 @@ class CurrencySyncer
             }
 
             Currency::updateOrCreate(
-                [
-                    'type'     => \App\Parafesor\Constants\Currency::FIAT,
-                    'currency' => AltinParaConst::Altın[$response->code],
-                ],
-                [
-                    'buying'  => $response->buying,
-                    'selling' => $response->selling,
-                    'change'  => 0,
-                ]);
+              [
+                'type'     => CurrencyConst::FIAT,
+                'currency' => AltinParaConst::Altın[$response->code],
+              ],
+              [
+                'buying'  => $response->buying,
+                'selling' => $response->selling,
+                'change'  => 0,
+              ]);
         }
-        $currencies = Currency::where('type', \App\Parafesor\Constants\Currency::FIAT)->get();
-        Cache::put('Currencies:' . \App\Parafesor\Constants\Currency::FIAT, $currencies);
-
-
+        $currencies = Currency::where('type', CurrencyConst::FIAT)->get();
+        Cache::put('Currencies:'.CurrencyConst::FIAT, $currencies);
     }
 }

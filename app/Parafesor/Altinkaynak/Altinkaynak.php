@@ -25,215 +25,237 @@
 namespace App\Parafesor\Altinkaynak;
 
 use App\Parafesor\Altinkaynak\Request\Request;
-use App\Parafesor\Altinkaynak\Response\GetCurrencyResponse;
 use App\Parafesor\Altinkaynak\Response\Currency;
+use App\Parafesor\Altinkaynak\Response\GetCurrencyResponse;
+use SimpleXMLElement;
+use SoapClient;
+use SoapHeader;
+use stdClass;
 
-class Altinkaynak{
+class Altinkaynak
+{
 
-	private $service_address 	= 'http://data.altinkaynak.com/DataService.asmx?WSDL';
-	private $service_username 	= 'AltinkaynakWebServis';
-	private $service_password	= 'AltinkaynakWebServis';
-	private $service_namespace 	= 'http://data.altinkaynak.com/';
+    private $service_address = 'http://data.altinkaynak.com/DataService.asmx?WSDL';
+    private $service_username = 'AltinkaynakWebServis';
+    private $service_password = 'AltinkaynakWebServis';
+    private $service_namespace = 'http://data.altinkaynak.com/';
 
-	/**
-	 *
-	 * @var \SoapClient
-	 */
-	private $Service = null;
+    /**
+     *
+     * @var SoapClient
+     */
+    private $Service = null;
 
-	/**
-	 *
-	 * @param string|null $username
-	 * @param string|null $password
-	 * @param string|null $url
-	 */
-	public function __construct($username = null, $password = null, $url = null){
-		if(!empty($username)){ $this->setUsername($username); }
-		if(!empty($password)){ $this->setPassword($password); }
-		if(!empty($url)){ $this->setServiceURL($url); }
-	}
+    /**
+     *
+     * @param  string|null  $username
+     * @param  string|null  $password
+     * @param  string|null  $url
+     */
+    public function __construct($username = null, $password = null, $url = null)
+    {
+        if (!empty($username)) {
+            $this->setUsername($username);
+        }
+        if (!empty($password)) {
+            $this->setPassword($password);
+        }
+        if (!empty($url)) {
+            $this->setServiceURL($url);
+        }
+    }
 
-	/**
-	 * Get Currency
-	 * Instant exchange rate information
-	 *
-	 * @return \Altinkaynak\Response\Currency[]
-	 */
-	public function GetCurrency(){
-		$SoapResponse = $this->ServiceCall('GetCurrency');
+    /**
+     * Set Webservice Username
+     *
+     * @param  string  $username
+     */
+    public function setUsername($username)
+    {
+        $this->service_username = $username;
+        $this->Service = null;
+    }
 
-		$Response = new \SimpleXMLElement($SoapResponse->GetCurrencyResult);
+    /**
+     * Set Webservice Password
+     *
+     * @param  string  $password
+     */
+    public function setPassword($password)
+    {
+        $this->service_password = $password;
+        $this->Service = null;
+    }
 
-		$GetCurrencyResponse = new GetCurrencyResponse(null);
+    /**
+     * Set Webservice Address
+     *
+     * @param  string  $url
+     */
+    public function setServiceURL($url)
+    {
+        $this->service_address = $url;
+        $this->Service = null;
+    }
 
-		$GetCurrencyResponse->Currencies = [];
+    /**
+     * Get Currency
+     * Instant exchange rate information
+     *
+     * @return \Altinkaynak\Response\Currency[]
+     */
+    public function GetCurrency()
+    {
+        $SoapResponse = $this->ServiceCall('GetCurrency');
 
-		if(isset($Response->Kur) && !empty($Response->Kur)){
-			foreach ($Response->Kur as $Kur) {
-				$Currency = new Currency(null);
-				$Currency->code			= $Kur->Kod->__toString();
-				$Currency->desc			= $Kur->Aciklama->__toString();
-				$Currency->buying		= floatval($Kur->Alis->__toString());
-				$Currency->selling		= floatval($Kur->Satis->__toString());
-				$Currency->update_time	= $Kur->GuncellenmeZamani->__toString();
-				array_push($GetCurrencyResponse->Currencies, $Currency);
-			}
-		}
+        $Response = new SimpleXMLElement($SoapResponse->GetCurrencyResult);
 
-		return $GetCurrencyResponse->Currencies;
-	}
+        $GetCurrencyResponse = new GetCurrencyResponse(null);
 
-	/**
-	 * Get Gold
-	 * Instant gold rate information
-	 *
-	 * @return \Altinkaynak\Response\Currency[]
-	 */
-	public function GetGold(){
-		$SoapResponse = $this->ServiceCall('GetGold');
+        $GetCurrencyResponse->Currencies = [];
 
-		$Response = new \SimpleXMLElement($SoapResponse->GetGoldResult);
+        if (isset($Response->Kur) && !empty($Response->Kur)) {
+            foreach ($Response->Kur as $Kur) {
+                $Currency = new Currency(null);
+                $Currency->code = $Kur->Kod->__toString();
+                $Currency->desc = $Kur->Aciklama->__toString();
+                $Currency->buying = floatval($Kur->Alis->__toString());
+                $Currency->selling = floatval($Kur->Satis->__toString());
+                $Currency->update_time = $Kur->GuncellenmeZamani->__toString();
+                array_push($GetCurrencyResponse->Currencies, $Currency);
+            }
+        }
 
-		$GetCurrencyResponse = new GetCurrencyResponse(null);
+        return $GetCurrencyResponse->Currencies;
+    }
 
-		$GetCurrencyResponse->Currencies = [];
+    /**
+     *
+     * @param  string  $method
+     * @param  Request  $Request
+     * @return mixed
+     */
+    private function ServiceCall($method, $Request = null)
+    {
+        if ($Request === null) {
+            $Request = new Request();
+        }
 
-		if(isset($Response->Kur) && !empty($Response->Kur)){
-			foreach ($Response->Kur as $Kur) {
-				$Currency = new Currency(null);
-				$Currency->code			= $Kur->Kod->__toString();
-				$Currency->desc			= $Kur->Aciklama->__toString();
-				$Currency->buying		= floatval($Kur->Alis->__toString());
-				$Currency->selling		= floatval($Kur->Satis->__toString());
-				$Currency->update_time	= $Kur->GuncellenmeZamani->__toString();
-				array_push($GetCurrencyResponse->Currencies, $Currency);
-			}
-		}
+        return $this->getService()->__soapCall($method, [$method => $Request]);
+    }
 
-		return $GetCurrencyResponse->Currencies;
-	}
+    /**
+     *
+     * @return SoapClient
+     */
+    private function getService()
+    {
+        if ($this->Service === null) {
+            $this->Service = new SoapClient($this->getServiceURL(), [
+              "trace"     => 1,
+              "exception" => 1
+            ]);
 
-	/**
-	 * Get Main
-	 * Instantly selected exchange rate, gold rate and parity information
-	 *
-	 * @return \Altinkaynak\Response\Currency[]
-	 */
-	public function GetMain(){
-		$SoapResponse = $this->ServiceCall('GetMain');
+            $AuthHeader = new stdClass();
+            $AuthHeader->Username = $this->getUsername();
+            $AuthHeader->Password = $this->getPassword();
 
-		$Response = new \SimpleXMLElement($SoapResponse->GetMainResult);
+            $Header = new SoapHeader($this->service_namespace, 'AuthHeader', $AuthHeader, false);
 
-		$GetCurrencyResponse = new GetCurrencyResponse(null);
+            $this->Service->__setSoapHeaders($Header);
+        }
+        return $this->Service;
+    }
 
-		$GetCurrencyResponse->Currencies = [];
+    /**
+     * Get Current Webserice Address
+     *
+     * @return string
+     */
+    public function getServiceURL()
+    {
+        return $this->service_address;
+    }
 
-		if(isset($Response->Kur) && !empty($Response->Kur)){
-			foreach ($Response->Kur as $Kur) {
-				$Currency = new Currency(null);
-				$Currency->code			= $Kur->Kod->__toString();
-				$Currency->desc			= $Kur->Aciklama->__toString();
-				$Currency->buying		= floatval($Kur->Alis->__toString());
-				$Currency->selling		= floatval($Kur->Satis->__toString());
-				$Currency->update_time	= $Kur->GuncellenmeZamani->__toString();
-				array_push($GetCurrencyResponse->Currencies, $Currency);
-			}
-		}
+    /**
+     * Get Current Webservice Username
+     *
+     * @return string
+     */
+    public function getUsername()
+    {
+        return $this->service_username;
+    }
 
-		return $GetCurrencyResponse->Currencies;
-	}
+    /**
+     * Get Current Webservice Password
+     *
+     * @return string
+     */
+    public function getPassword()
+    {
+        return $this->service_password;
+    }
 
-	/**
-	 *
-	 * @param string $method
-	 * @param Request $Request
-	 * @return mixed
-	 */
-	private function ServiceCall($method, $Request = null){
+    /**
+     * Get Gold
+     * Instant gold rate information
+     *
+     * @return \Altinkaynak\Response\Currency[]
+     */
+    public function GetGold()
+    {
+        $SoapResponse = $this->ServiceCall('GetGold');
 
-		if($Request === null){
-			$Request = new Request();
-		}
+        $Response = new SimpleXMLElement($SoapResponse->GetGoldResult);
 
-		return $this->getService()->__soapCall($method, [$method=>$Request]);
-	}
+        $GetCurrencyResponse = new GetCurrencyResponse(null);
 
-	/**
-	 *
-	 * @return \SoapClient
-	 */
-	private function getService(){
-		if($this->Service === null){
-			$this->Service = new \SoapClient($this->getServiceURL(), [
-				"trace" 	=> 1,
-				"exception" => 1
-			]);
+        $GetCurrencyResponse->Currencies = [];
 
-			$AuthHeader = new \stdClass();
-			$AuthHeader->Username	= $this->getUsername();
-			$AuthHeader->Password	= $this->getPassword();
+        if (isset($Response->Kur) && !empty($Response->Kur)) {
+            foreach ($Response->Kur as $Kur) {
+                $Currency = new Currency(null);
+                $Currency->code = $Kur->Kod->__toString();
+                $Currency->desc = $Kur->Aciklama->__toString();
+                $Currency->buying = floatval($Kur->Alis->__toString());
+                $Currency->selling = floatval($Kur->Satis->__toString());
+                $Currency->update_time = $Kur->GuncellenmeZamani->__toString();
+                array_push($GetCurrencyResponse->Currencies, $Currency);
+            }
+        }
 
-			$Header = new \SoapHeader($this->service_namespace, 'AuthHeader', $AuthHeader, false);
+        return $GetCurrencyResponse->Currencies;
+    }
 
-			$this->Service->__setSoapHeaders($Header);
-		}
-		return $this->Service;
-	}
+    /**
+     * Get Main
+     * Instantly selected exchange rate, gold rate and parity information
+     *
+     * @return \Altinkaynak\Response\Currency[]
+     */
+    public function GetMain()
+    {
+        $SoapResponse = $this->ServiceCall('GetMain');
 
-	/**
-	 * Set Webservice Username
-	 *
-	 * @param string $username
-	 */
-	public function setUsername($username){
-		$this->service_username = $username;
-		$this->Service = null;
-	}
+        $Response = new SimpleXMLElement($SoapResponse->GetMainResult);
 
-	/**
-	 * Set Webservice Password
-	 *
-	 * @param string $password
-	 */
-	public function setPassword($password){
-		$this->service_password = $password;
-		$this->Service = null;
-	}
+        $GetCurrencyResponse = new GetCurrencyResponse(null);
 
-	/**
-	 * Set Webservice Address
-	 *
-	 * @param string $url
-	 */
-	public function setServiceURL($url){
-		$this->service_address = $url;
-		$this->Service = null;
-	}
+        $GetCurrencyResponse->Currencies = [];
 
-	/**
-	 * Get Current Webservice Username
-	 *
-	 * @return string
-	 */
-	public function getUsername(){
-		return $this->service_username;
-	}
+        if (isset($Response->Kur) && !empty($Response->Kur)) {
+            foreach ($Response->Kur as $Kur) {
+                $Currency = new Currency(null);
+                $Currency->code = $Kur->Kod->__toString();
+                $Currency->desc = $Kur->Aciklama->__toString();
+                $Currency->buying = floatval($Kur->Alis->__toString());
+                $Currency->selling = floatval($Kur->Satis->__toString());
+                $Currency->update_time = $Kur->GuncellenmeZamani->__toString();
+                array_push($GetCurrencyResponse->Currencies, $Currency);
+            }
+        }
 
-	/**
-	 * Get Current Webservice Password
-	 *
-	 * @return string
-	 */
-	public function getPassword(){
-		return $this->service_password;
-	}
-
-	/**
-	 * Get Current Webserice Address
-	 *
-	 * @return string
-	 */
-	public function getServiceURL(){
-		return $this->service_address;
-	}
+        return $GetCurrencyResponse->Currencies;
+    }
 }

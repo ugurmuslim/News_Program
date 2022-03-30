@@ -2,9 +2,9 @@
 
 namespace App\Console\Commands;
 
+use App\Models\CrawledArticle;
 use Carbon\Carbon;
 use Illuminate\Console\Command;
-use Modules\Admin\Entities\CrawledArticle;
 
 class CrawledArticleCleanerCommand extends Command
 {

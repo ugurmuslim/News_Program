@@ -2,7 +2,6 @@
 
 namespace App\Console\Commands;
 
-use App\Parafesor\FeedParser\FeedParserHelper;
 use Illuminate\Console\Command;
 
 class SiteCrawl extends Command
