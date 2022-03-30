@@ -105,11 +105,9 @@ class Article extends Model
       'seo_keywords'     => 'string',
       'show_case'        => 'string',
       'site_name'        => 'string',
-      'start_date'       => 'date',
-      'end_date'         => 'date',
-      'article_date'     => 'datetime',
     ];
 
+    protected $dates = ['article_date', 'start_date', 'end_date'];
 
     /**
      * Get External User
