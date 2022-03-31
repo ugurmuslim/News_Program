@@ -58,6 +58,11 @@ class FeedParserHelper
                 $desc_dom = $item->get_description();
 
                 $doc = new \DOMDocument();
+
+                if(!$desc_dom) {
+                    continue;
+                }
+
                 @$doc->loadHTML($desc_dom);
 
                 $image = null;
