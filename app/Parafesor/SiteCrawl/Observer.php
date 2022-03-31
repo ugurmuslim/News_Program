@@ -69,7 +69,7 @@ class Observer extends CrawlObserver
 
         echo $url . " is being crawled" . PHP_EOL;
         $doc = new DOMDocument();
-        if(!$response->getBody()) {
+        if($response->getBody() == '' || $response->getBody() == null) {
             echo "response body is empty" . PHP_EOL;
             return;
         }
