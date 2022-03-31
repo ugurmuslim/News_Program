@@ -71,7 +71,7 @@ class Observer extends CrawlObserver
         $doc = new DOMDocument();
         if(!$response->getBody()) {
             echo "response body is empty" . PHP_EOL;
-            continue;
+            return;
         }
         @$doc->loadHTML($response->getBody());
         $finder = new DomXPath($doc);
