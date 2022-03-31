@@ -43,10 +43,10 @@ Route::get('/dashboard', function () {
 Route::get('/', [HomeController::class, 'indexTest'])->name('home.indextest');
 
 
-Route::prefix('home')->group(function () {
+/*Route::prefix('home')->group(function () {
     Route::get('/sliders', 'HomeController@mainSliders')
       ->name('home.mainSliders');
-});
+});*/
 
 Route::get('/sample', [SystemController::class, 'sample'])
   ->name('systemFront.sample');

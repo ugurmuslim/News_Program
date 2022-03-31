@@ -73,7 +73,7 @@ class HomeController extends Controller
     }
 
 
-    public function mainSliders()
+    /*public function mainSliders()
     {
         $sliders = Cache::get(CacheConst::ARTICLE.CategorySectionTypes::HEADER_SLIDER);
 
@@ -89,5 +89,5 @@ class HomeController extends Controller
         }
 
         return Response::json($sliderArray);
-    }
+    }*/
 }
