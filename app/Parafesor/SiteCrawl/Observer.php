@@ -69,6 +69,10 @@ class Observer extends CrawlObserver
 
         echo $url . " is being crawled" . PHP_EOL;
         $doc = new DOMDocument();
+        if(!$response->getBody()) {
+            echo "response body is empty" . PHP_EOL;
+            continue;
+        }
         @$doc->loadHTML($response->getBody());
         $finder = new DomXPath($doc);
 //        $nodeList = $finder->query('//div[starts-with(@class, "dtail")]');
