@@ -13,7 +13,10 @@
                      id="life-slider" style="height: 450px;">
                     <div class=""></div>
                     <div class="news-card-slider-container">
-                        @foreach($articles["Yaşam"][\App\Parafesor\Constants\CategorySectionTypes::MAIN_SLIDER]->take(4) as $article)
+                        @foreach(array_slice($articles["Yaşam"][\App\Parafesor\Constants\CategorySectionTypes::MAIN_SLIDER],0,4) as $article)
+                            @php
+                                $article = (object) $article;
+                            @endphp
                             <div class="news-card-slider-slide">
                                 <a href="{{route('article.show',['slug' => $article->slug ])}}">
                                     <div class="life-card-slider-slide-img text-white lazy"
@@ -39,12 +42,15 @@
                 </div>
             </div>
             @php
-                $yasamArticles = $articles["Yaşam"][\App\Parafesor\Constants\CategorySectionTypes::NORMAL]->take(1);
-                $yasamArticlesSecond = $articles["Yaşam"][\App\Parafesor\Constants\CategorySectionTypes::NORMAL]->slice(1)->take(1);
-                $yasamArticlesBelow = $articles["Yaşam"][\App\Parafesor\Constants\CategorySectionTypes::NORMAL]->slice(2)->take(4);
+                $yasamArticles = array_slice($articles["Yaşam"][\App\Parafesor\Constants\CategorySectionTypes::NORMAL],0,1);
+                $yasamArticlesSecond = array_slice($articles["Yaşam"][\App\Parafesor\Constants\CategorySectionTypes::NORMAL],1,1);
+                $yasamArticlesBelow = array_slice($articles["Yaşam"][\App\Parafesor\Constants\CategorySectionTypes::NORMAL],2,4);
             @endphp
             <div class="col-md-5 match mt-3" matchTo="life-slider">
                 @foreach($yasamArticles as $article)
+                    @php
+                        $article = (object) $article;
+                    @endphp
                     <div class="col-md-24  match" matchTo="life-slider">
                         <a href="{{route('article.show',['slug' => $article->slug ])}}">
                             <div class="col-md-24 bg-white  h-100 tech-box">
@@ -61,6 +67,9 @@
             </div>
             <div class="col-md-5 match mt-3" matchTo="life-slider">
                 @foreach($yasamArticlesSecond as $article)
+                    @php
+                        $article = (object) $article;
+                    @endphp
                     <div class="col-md-24 match" matchTo="life-slider" style="border-bottom: 8px solid orange;">
                         <a href="{{route('article.show',['slug' => $article->slug ])}}">
                             <div class="col-md-24 bg-white  h-100 tech-box">
@@ -119,6 +128,9 @@
         </div>
         <div class="row mb-4 mt-2">
             @foreach($yasamArticlesBelow as $article)
+                @php
+                    $article = (object) $article;
+                @endphp
                 <div class="col-sm-24 col-md-12 col-lg-6 mt-3">
                     <a href="{{route('article.show',['slug' => $article->slug ])}}">
                         <div class="col-24 life life-md lazy"

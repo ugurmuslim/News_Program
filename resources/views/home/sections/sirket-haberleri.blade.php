@@ -11,7 +11,10 @@
                 Şirket Haberlerini Gör</a>
         </div>
         <div class="row s-row-1">
-            @foreach($articles["Şirket Haberleri"][\App\Parafesor\Constants\CategorySectionTypes::MAIN_SLIDER]->take(1) as $article)
+            @foreach(array_slice($articles["Şirket Haberleri"][\App\Parafesor\Constants\CategorySectionTypes::MAIN_SLIDER],0,1) as $article)
+                @php
+                    $article = (object) $article;
+                @endphp
                 <div class="col-xl-13 corporate2">
                     <a href="{{route('article.show',['slug' => $article->slug ])}}">
                         <div class="card news-card news-card-big" id="corporate-new-showcase">
@@ -32,7 +35,10 @@
                     @php
                         $i = 1;
                     @endphp
-                    @foreach($articles["Şirket Haberleri"][\App\Parafesor\Constants\CategorySectionTypes::NORMAL]->take(3) as $article)
+                    @foreach(array_slice($articles["Şirket Haberleri"][\App\Parafesor\Constants\CategorySectionTypes::NORMAL],0,3) as $article)
+                        @php
+                            $article = (object) $article;
+                        @endphp
                         <div class="col-sm-24">
                             <a href="{{route('article.show',['slug' => $article->slug ])}}">
                                 <div class="corporate-news-numbers ">{{$i}}</div>
@@ -45,8 +51,8 @@
                                         {{$article->title}}
                                     </p>
                                     <div class="corporate-news-text-bottom">
-                                        <span>{{ Date::parse($article->created_at)->format('j F') }}</span>
-                                        • {{ Carbon\Carbon::parse($article->created_at)->format('H:i')}} • parafesor
+                                        <span>{{ Date::parse($article->article_date)->format('j F') }}</span>
+                                        • {{ Carbon\Carbon::parse($article->article_date)->format('H:i')}} • parafesor
                                     </div>
                                 </div>
                             </a>
@@ -60,7 +66,10 @@
         </div>
         <div class="corporate-divider"></div>
         <div class="row s-row-2">
-            @foreach($articles["Şirket Haberleri"][\App\Parafesor\Constants\CategorySectionTypes::NORMAL]->slice(3)->take(8) as $article)
+            @foreach(array_slice($articles["Şirket Haberleri"][\App\Parafesor\Constants\CategorySectionTypes::NORMAL],3,8) as $article)
+                @php
+                    $article = (object) $article;
+                @endphp
                 <div class="col-24 col-md-12 col-lg-6">
                     <a href="{{route('article.show',['slug' => $article->slug ])}}">
                         <div class="card">
@@ -71,7 +80,7 @@
                                 <p>{{$article->title}}</p>
                             </div>
                             <div class="company-bottom">
-                                <span>{{ Date::parse($article->created_at)->format('j F') }}</span> • {{ Carbon\Carbon::parse($article->created_at)->format('H:i')}} • parafesor
+                                <span>{{ Date::parse($article->article_date)->format('j F') }}</span> • {{ Carbon\Carbon::parse($article->article_date)->format('H:i')}} • parafesor
                             </div>
                         </div>
                     </a>

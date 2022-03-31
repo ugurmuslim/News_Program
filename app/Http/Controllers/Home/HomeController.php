@@ -60,6 +60,7 @@ class HomeController extends Controller
             $articles[$articleType->title][CategorySectionTypes::SECOND_SLIDER] = Cache::get(CacheConst::ARTICLE.$articleType->title.":".CategorySectionTypes::SECOND_SLIDER);
             $articles[$articleType->title][CategorySectionTypes::CHANNEL] = Cache::get(CacheConst::ARTICLE.$articleType->title.":".CategorySectionTypes::CHANNEL);
         }
+
         $currencies['Crypto'] = Cache::get(CacheConst::CURRENCIES.'CRYPTO');
         $currencies['Fiat'] = Cache::get(CacheConst::CURRENCIES.'FIAT');
 

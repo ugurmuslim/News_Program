@@ -27,7 +27,7 @@
                                      style="background-image: url({{asset($article->image_path)}});">
                                     <div class="post-inner">
                                         <h2 class="entry-title"><a
-                                                    href="{{route('article.show',['slug' => $article->slug ])}}">{{$article->title}}</a>
+                                                href="{{route('article.show',['slug' => $article->slug ])}}">{{$article->title}}</a>
                                         </h2>
                                         <ul class="post-meta"><span>son dakika</span>
                                             <li>{{ Date::parse($article->article_date)->format('j F')}}</li>
@@ -45,9 +45,9 @@
             </div>
             <div class="glide__arrows" data-glide-el="controls">
                 <button class="glide__arrow glide__arrow--left" data-glide-dir="<"><span>ÖNCEKİ</span><i
-                            class="fas fa-arrow-left"></i></button>
+                        class="fas fa-arrow-left"></i></button>
                 <button class="glide__arrow glide__arrow--right" data-glide-dir=">"><span>SONRAKİ</span><i
-                            class="fas fa-arrow-right"></i></button>
+                        class="fas fa-arrow-right"></i></button>
             </div>
             <div class="slide-control-div">
                 <div class="slider__bullets glide__bullets" data-glide-el="controls[nav]">

@@ -11,7 +11,10 @@
     </div>
     <div class="container texts">
         <div class="row">
-            @foreach($articles["Köşe Yazıları"][\App\Parafesor\Constants\CategorySectionTypes::NORMAL]->take(12) as $article)
+            @foreach(array_slice($articles["Köşe Yazıları"][\App\Parafesor\Constants\CategorySectionTypes::NORMAL],0,12) as $article)
+                @php
+                    $article = (object) $article;
+                @endphp
                 <div class="col-xl-8 col-md-12 article">
                     <a href="{{$article->original_link}}" class="non-decoration">
                         <div class="row">
@@ -25,8 +28,9 @@
                                     <p>{{ $article->summary }}</p>
                                 </div>
                                 <div class="article-logo-bottom">
-{{--                                    <span class="author-date">Ege Cansen | 16 Şub 2022</span>--}}
-                                    <img src="{{asset('assets/home/sample/img/newspaper-logos/sozcu.svg')}}" alt="Gateze İsmi">
+                                    {{--                                    <span class="author-date">Ege Cansen | 16 Şub 2022</span>--}}
+                                    <img src="{{asset('assets/home/sample/img/newspaper-logos/sozcu.svg')}}"
+                                         alt="Gateze İsmi">
                                 </div>
                             </div>
                         </div>

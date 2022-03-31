@@ -17,7 +17,10 @@
                      id="auto-slider" style="min-height: 440px">
                     <div></div>
                     <div class="news-card-slider-container">
-                        @foreach ($articles['Otomobil'][\App\Parafesor\Constants\CategorySectionTypes::MAIN_SLIDER]->take(4) as $article)
+                        @foreach (array_slice($articles['Otomobil'][\App\Parafesor\Constants\CategorySectionTypes::MAIN_SLIDER],0,4) as $article)
+                            @php
+                                $article = (object) $article;
+                            @endphp
                             <div class="news-card-slider-slide">
                                 <a href="{{ route('article.show', ['slug' => $article->slug]) }}">
                                     <div class="life-card-slider-slide-img text-white lazy"
@@ -48,12 +51,15 @@
                 </div>
             </div>
             @php
-                $otomobilArticles = $articles['Otomobil'][\App\Parafesor\Constants\CategorySectionTypes::NORMAL]->take(1);
-                $otomobilArticlesBelow = $articles['Otomobil'][\App\Parafesor\Constants\CategorySectionTypes::NORMAL]->slice(1)->take(3);
-                $otomobilArticlesFooterLeft = $articles['Otomobil'][\App\Parafesor\Constants\CategorySectionTypes::NORMAL]->slice(4)->take(1);
-                $otomobilArticlesFooterRight = $articles['Otomobil'][\App\Parafesor\Constants\CategorySectionTypes::NORMAL]->slice(5)->take(1);
+                $otomobilArticles = array_slice($articles['Otomobil'][\App\Parafesor\Constants\CategorySectionTypes::NORMAL],0,1);
+                $otomobilArticlesBelow = array_slice($articles['Otomobil'][\App\Parafesor\Constants\CategorySectionTypes::NORMAL],1,3);
+                $otomobilArticlesFooterLeft = array_slice($articles['Otomobil'][\App\Parafesor\Constants\CategorySectionTypes::NORMAL],4,1);
+                $otomobilArticlesFooterRight = array_slice($articles['Otomobil'][\App\Parafesor\Constants\CategorySectionTypes::NORMAL],5,1);
             @endphp
             @foreach ($otomobilArticles as $article)
+                @php
+                    $article = (object) $article;
+                @endphp
                 <div class="col-md-9 ">
                     <a href="{{ route('article.show', ['slug' => $article->slug]) }}">
                         <div class="col-24 bg-dark">
@@ -76,6 +82,9 @@
         </div>
         <div class="row mt-5 mb-5">
             @foreach ($otomobilArticlesBelow as $article)
+                @php
+                    $article = (object) $article;
+                @endphp
                 <div class="col-md-8">
                     <a href="{{ route('article.show', ['slug' => $article->slug]) }}">
                         <div class="col-24  bg-dark">
@@ -98,6 +107,9 @@
         </div>
         <div class="row mt-4">
             @foreach ($otomobilArticlesFooterLeft as $article)
+                @php
+                    $article = (object) $article;
+                @endphp
                 <div class="col-md-24 col-lg-12 p-4 ">
                     <a href="{{ route('article.show', ['slug' => $article->slug]) }}">
                         <div class="row">
@@ -119,7 +131,9 @@
                 </div>
             @endforeach
             @foreach ($otomobilArticlesFooterRight as $article)
-
+                    @php
+                        $article = (object) $article;
+                    @endphp
                 <div class="col-md-24 col-lg-12 p-4 ">
                     <a href="{{ route('article.show', ['slug' => $article->slug]) }}">
                         <div class="row">

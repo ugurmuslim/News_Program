@@ -16,7 +16,10 @@
                      id="internet-slider">
                     <div></div>
                     <div class="news-card-slider-container">
-                        @foreach($articles["Netkolik"][\App\Parafesor\Constants\CategorySectionTypes::MAIN_SLIDER]->take(4) as $article)
+                        @foreach(array_slice($articles["Netkolik"][\App\Parafesor\Constants\CategorySectionTypes::MAIN_SLIDER],0,4) as $article)
+                            @php
+                                $article = (object) $article;
+                            @endphp
                             <a href="{{route('article.show',['slug' => $article->slug ])}}">
                                 <div class="news-card-slider-slide">
                                     <div class="life-card-slider-slide-img lazy"
@@ -36,14 +39,16 @@
                 </div>
             </div>
             @php
-                $netkolikArticles = $articles["Netkolik"][\App\Parafesor\Constants\CategorySectionTypes::NORMAL]->take(1);
-                               $netkolikArticlesBelowFirst = $articles["Netkolik"][\App\Parafesor\Constants\CategorySectionTypes::NORMAL]->slice(1)->take(1);
-                $netkolikArticlesBelowSecond = $articles["Netkolik"][\App\Parafesor\Constants\CategorySectionTypes::NORMAL]->slice(2)->take(3);
-                $netkolikArticlesFooter = $articles["Netkolik"][\App\Parafesor\Constants\CategorySectionTypes::NORMAL]->slice(5)->take(3);
+                $netkolikArticles = array_slice($articles["Netkolik"][\App\Parafesor\Constants\CategorySectionTypes::NORMAL],0,1);
+                               $netkolikArticlesBelowFirst = array_slice($articles["Netkolik"][\App\Parafesor\Constants\CategorySectionTypes::NORMAL],1,1);
+                $netkolikArticlesBelowSecond = array_slice($articles["Netkolik"][\App\Parafesor\Constants\CategorySectionTypes::NORMAL],2,3);
+                $netkolikArticlesFooter = array_slice($articles["Netkolik"][\App\Parafesor\Constants\CategorySectionTypes::NORMAL],5,3);
             @endphp
             <div class="col-md-10 net-col-2">
                 @foreach($netkolikArticles as $article)
-                    <a href="{{route('article.show',['slug' => $article->slug ])}}">
+                    @php
+                        $article = (object) $article;
+                    @endphp <a href="{{route('article.show',['slug' => $article->slug ])}}">
                         <div class="col-lg-24 col-md-24">
                             <div class="card news-card news-card-big match" id="internet-second-row"
                                  matchTo="internet-slider">
@@ -70,6 +75,9 @@
         <div class="row net-row-2">
             <div class="col-md-5">
                 @foreach($netkolikArticlesBelowFirst as $article)
+                    @php
+                        $article = (object) $article;
+                    @endphp
                     <div class="col-md-24 bg-dark-orange match" matchTo="internet-second-row">
                         <a href="{{route('article.show',['slug' => $article->slug ])}}">
                             <div class="col-md-24 bg-dark-orange h-100 internet-box">
@@ -89,6 +97,9 @@
             <div class="col-md-19">
                 <div class="row">
                     @foreach($netkolikArticlesBelowSecond as $article)
+                        @php
+                            $article = (object) $article;
+                        @endphp
                         <div class="col-md-8">
                             <a href="{{route('article.show',['slug' => $article->slug ])}}">
                                 <div class="col-24">
@@ -112,6 +123,9 @@
         </div>
         <div class="row net-row-3">
             @foreach($netkolikArticlesFooter as $article)
+                @php
+                    $article = (object) $article;
+                @endphp
                 <div class="col-md-8">
                     <a href="{{route('article.show',['slug' => $article->slug ])}}">
                         <div class="col-24">

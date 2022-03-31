@@ -14,13 +14,18 @@
                         <div class="card news-card news-card-big cardSlider" currentSlide="0" id="firstCardSlide">
                             <div class=""></div>
                             <div class="news-card-slider-container">
-                                @foreach($articles["Gündem"][\App\Parafesor\Constants\CategorySectionTypes::SECOND_SLIDER]->take(3) as $article)
+                                @foreach(array_slice($articles["Gündem"][\App\Parafesor\Constants\CategorySectionTypes::SECOND_SLIDER],0,3) as $article)
+                                    @php
+                                        $article = (object) $article;
+                                    @endphp
                                     <a href="{{route('article.show',['slug' => $article->slug ])}}">
                                         <div class="card news-card news-card-big ">
                                             <div class="news-card-img-container bg-light-grey">
                                                 <div
-                                                    style="background: url({{asset($article->image_path)}});
-                                                    alt="" class="news-img lazy"></div>
+                                                    style="background: url({{asset($article->image_path)}});"
+                                                    alt=""
+                                                    class="news-img lazy">
+                                                </div>
                                                 <div class="news-card-img-text big-title"><p>{{$article->title}}</p>
                                                 </div>
                                             </div>
@@ -30,7 +35,6 @@
                                                     class="text-danger">{{ Date::parse($article->article_date)->format('j F')}} </span>
                                                 <span> • {{ Carbon\Carbon::parse($article->article_date)->format('H:i')}} • parafesor</span>
                                             </div>
-
                                         </div>
                                     </a>
                                 @endforeach
@@ -47,7 +51,10 @@
                         <div class="card news-card news-card-big cardSlider" id="secondCardSlide" currentSlide="0">
                             <div class=""></div>
                             <div class="news-card-slider-container">
-                                @foreach($articles["Gündem"][\App\Parafesor\Constants\CategorySectionTypes::MAIN_SLIDER]->take(6) as $article)
+                                @foreach(array_slice($articles["Gündem"][\App\Parafesor\Constants\CategorySectionTypes::MAIN_SLIDER],0,6) as $article)
+                                    @php
+                                        $article = (object) $article;
+                                    @endphp
                                     <a href="{{route('article.show',['slug' => $article->slug ])}}">
                                         <div class="news-card-slider-slide">
                                             <div class="news-card-slider-slide-img lazy"
@@ -71,7 +78,10 @@
                         </div>
                     </div>
 
-                    @foreach($articles["Gündem"][\App\Parafesor\Constants\CategorySectionTypes::NORMAL]->take(4) as $article)
+                    @foreach(array_slice($articles["Gündem"][\App\Parafesor\Constants\CategorySectionTypes::NORMAL],0,4) as $article)
+                        @php
+                            $article = (object) $article;
+                        @endphp
                         <div class="col-lg-6 col-sm-12 col-12 g-box-4">
                             <a href="{{route('article.show',['slug' => $article->slug ])}}">
                                 <div class="card news-card news-card-small ">
@@ -120,7 +130,8 @@
                                     <div class="col-8"><span class="value-down">-2,55%</span></div>
                                 </div>
                             </li>
-   --}}                         <div>
+    --}}
+                            <div>
                                 <span>Kurlar</span>
                                 <a href="#"><span>Tümünü Gör</span></a>
                             </div>
@@ -132,7 +143,9 @@
                                         <div class="col-5"><span
                                                 class="{{$fiat->change > 0 ? 'value-up' : 'value-down' }}">{{ \Illuminate\Support\Str::limit($fiat->buying, 6, $end='') }}</span>
                                         </div>
-                                        <div class="col-8"><span class="{{$fiat->change > 0 ? 'value-up' : 'value-down' }}">{{ number_format($fiat->change,2) }}%</span></div>
+                                        <div class="col-8"><span
+                                                class="{{$fiat->change > 0 ? 'value-up' : 'value-down' }}">{{ number_format($fiat->change,2) }}%</span>
+                                        </div>
                                     </div>
                                 </li>
                             @endforeach
@@ -150,8 +163,12 @@
                                             $numberFormat = 0;
     }
                                         @endphp
-                                        <div class="col-5"><span class="{{$crypto->change > 0 ? 'value-up' : 'value-down' }}">{{ number_format($crypto->buying, $numberFormat) }}</span></div>
-                                        <div class="col-8"><span class="{{$crypto->change > 0 ? 'value-up' : 'value-down' }}">{{ number_format($crypto->change,2) }}%</span></div>
+                                        <div class="col-5"><span
+                                                class="{{$crypto->change > 0 ? 'value-up' : 'value-down' }}">{{ number_format($crypto->buying, $numberFormat) }}</span>
+                                        </div>
+                                        <div class="col-8"><span
+                                                class="{{$crypto->change > 0 ? 'value-up' : 'value-down' }}">{{ number_format($crypto->change,2) }}%</span>
+                                        </div>
                                     </div>
                                 </li>
                             @endforeach

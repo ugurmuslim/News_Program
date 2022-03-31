@@ -53,7 +53,10 @@
                 <div class="row h-row-4">
                     <div class="col">
                         <div class="row">
-                            @foreach($articles["Hisse"][\App\Parafesor\Constants\CategorySectionTypes::MAIN_SLIDER]->take(2) as $article)
+                            @foreach(array_slice($articles["Hisse"][\App\Parafesor\Constants\CategorySectionTypes::MAIN_SLIDER],0,2) as $article)
+                                @php
+                                    $article = (object) $article;
+                                @endphp
                                 <div class="col-lg-12 col-md-24">
                                     <a href="{{route('article.show',['slug'=> $article->slug])}}">
                                         <div class="col-md-24 h-100 tech-box">
@@ -81,7 +84,10 @@
                 </div>
                 <div class="col-xl-10 hisse-4haber">
                     <div class="row">
-                        @foreach($articles["Hisse"][\App\Parafesor\Constants\CategorySectionTypes::NORMAL]->take(4) as $article)
+                        @foreach(array_slice($articles["Hisse"][\App\Parafesor\Constants\CategorySectionTypes::NORMAL],0,4) as $article)
+                            @php
+                                $article = (object) $article;
+                            @endphp
                             <div class="col-sm-24">
                                 <a href="{{route('article.show',['slug'=> $article->slug])}}">
                                     <div class="share-recommendation-news-img">
@@ -102,7 +108,10 @@
                     </div>
                 </div>
                 <div class="row h-row-5">
-                    @foreach($articles["Hisse"][\App\Parafesor\Constants\CategorySectionTypes::NORMAL]->slice(3)->take(8) as $article)
+                    @foreach(array_slice($articles["Hisse"][\App\Parafesor\Constants\CategorySectionTypes::NORMAL],3,8) as $article)
+                        @php
+                            $article = (object) $article;
+                        @endphp
                         <div class="col-24 col-md-12 col-lg-6">
                             <a href="{{route('article.show',['slug'=> $article->slug])}}">
                                 <div class="card">
@@ -134,7 +143,10 @@
                 <div class="row h-row-4">
                     <div class="col">
                         <div class="row">
-                            @foreach($articles["Hisse"][\App\Parafesor\Constants\CategorySectionTypes::MAIN_SLIDER]->take(2) as $article)
+                            @foreach(array_slice($articles["Hisse"][\App\Parafesor\Constants\CategorySectionTypes::MAIN_SLIDER],0,2) as $article)
+                                @php
+                                    $article = (object) $article;
+                                @endphp
                                 <div class="col-lg-12 col-md-24">
                                     <a href="{{route('article.show',['slug'=> $article->slug])}}">
                                         <div class="col-md-24 h-100 tech-box">
@@ -162,7 +174,10 @@
                 </div>
                 <div class="col-xl-10 hisse-4haber">
                     <div class="row">
-                        @foreach($articles["Hisse"][\App\Parafesor\Constants\CategorySectionTypes::NORMAL]->take(4) as $article)
+                        @foreach(array_slice($articles["Hisse"][\App\Parafesor\Constants\CategorySectionTypes::NORMAL],0,4) as $article)
+                            @php
+                                $article = (object) $article;
+                            @endphp
                             <div class="col-sm-24">
                                 <a href="{{route('article.show',['slug'=> $article->slug])}}">
                                     <div class="share-recommendation-news-img">
@@ -183,7 +198,10 @@
                     </div>
                 </div>
                 <div class="row h-row-5">
-                    @foreach($articles["Hisse"][\App\Parafesor\Constants\CategorySectionTypes::NORMAL]->slice(3)->take(8) as $article)
+                    @foreach(array_slice($articles["Hisse"][\App\Parafesor\Constants\CategorySectionTypes::NORMAL],3,8) as $article)
+                        @php
+                            $article = (object) $article;
+                        @endphp
                         <div class="col-24 col-md-12 col-lg-6">
                             <a href="{{route('article.show',['slug'=> $article->slug])}}">
                                 <div class="card">

@@ -14,7 +14,10 @@
                 <div class="card news-card news-card-big cardSlider" currentSlide="" id="sport-slider">
                     <div></div>
                     <div class="news-card-slider-container">
-                        @foreach($articles["Spor"][\App\Parafesor\Constants\CategorySectionTypes::MAIN_SLIDER]->take(4) as $article)
+                        @foreach(array_slice($articles["Spor"][\App\Parafesor\Constants\CategorySectionTypes::MAIN_SLIDER],0,4) as $article)
+                            @php
+                                $article = (object) $article;
+                            @endphp
                             <div class="news-card-slider-slide">
                                 <a href="{{route('article.show',['slug' => $article->slug ])}}">
                                     <div class="life-card-slider-slide-img text-white lazy"
@@ -39,10 +42,13 @@
                 </div>
             </div>
             @php
-                $sporArticles = $articles["Spor"][\App\Parafesor\Constants\CategorySectionTypes::NORMAL]->take(2);
-                $sporArticlesBelow = $articles["Spor"][\App\Parafesor\Constants\CategorySectionTypes::NORMAL]->slice(2)->take(5);
+                $sporArticles = array_slice($articles["Spor"][\App\Parafesor\Constants\CategorySectionTypes::NORMAL],0,2);
+                $sporArticlesBelow = array_slice($articles["Spor"][\App\Parafesor\Constants\CategorySectionTypes::NORMAL],2,5);
             @endphp
             @foreach($sporArticles as $article)
+                @php
+                    $article = (object) $article;
+                @endphp
                 <div class="col-lg-6 col-md-12 spor-2box">
                     <a href="{{route('article.show',['slug' => $article->slug ])}}">
                         <div class="col-24 sport sport-md lazy"
@@ -60,6 +66,9 @@
         </div>
         <div class="row spor-row-2">
             @foreach($sporArticlesBelow as $article)
+                @php
+                    $article = (object) $article;
+                @endphp
                 <div class="sport-5box">
                     <a href="{{route('article.show',['slug' => $article->slug ])}}">
                         <div class="card news-card news-card-small">
