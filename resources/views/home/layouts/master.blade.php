@@ -53,7 +53,7 @@
     <!--    <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/headers/">-->
     <!-- Bootstrap core CSS -->
     <link href="{{ asset('assets/home/sample/css/bootstrap.css') }}" rel="stylesheet" type="text/css" />
-    <link href="{{ asset('assets/home/sample/css/main.css') }}?v=12" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('assets/home/sample/css/main.css') }}?v=13" rel="stylesheet" type="text/css" />
     {{-- Header Resources - Start --}}
     <link href="{{ asset('assets/home/sample/css/header.css') }}" rel="stylesheet" type="text/css" />
     {{-- Header Resources - End --}}
