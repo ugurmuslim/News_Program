@@ -36,7 +36,7 @@
                         </a>
                     </div>
                 @endforeach
-                @foreach(array_slice($articles["Son Dakika"][\App\Parafesor\Constants\CategorySectionTypes::NORMAL],0,1) as $article)
+                @foreach(array_slice($articles["Son Dakika"][\App\Parafesor\Constants\CategorySectionTypes::NORMAL],1,1) as $article)
                     @php
                         $article = (object) $article;
                     @endphp
@@ -83,7 +83,7 @@
 
             </div>
             <div class="last-min-slider" id="last-min-slider">
-                @foreach(array_slice($articles["Son Dakika"][\App\Parafesor\Constants\CategorySectionTypes::NORMAL],2,10) as $article)
+                @foreach(array_slice($articles["Son Dakika"][\App\Parafesor\Constants\CategorySectionTypes::NORMAL],3,10) as $article)
                     @php
                         $article = (object) $article;
                     @endphp
