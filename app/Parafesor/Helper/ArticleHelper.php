@@ -133,7 +133,7 @@ class ArticleHelper
             ->where('articles.article_type_id', '!=', ArticleTypes::SirketHaberleri)
             ->where('start_date', '<', Carbon::now())
             ->orderby('articles.created_at', 'DESC')
-            ->limit(7)
+            ->limit(15)
             ->get()
             ->toArray();
 
