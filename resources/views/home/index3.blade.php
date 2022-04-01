@@ -22,6 +22,9 @@
                 <div class="glide__track" data-glide-el="track">
                     <div class="glide__slides">
                         @foreach($mainSliders as $article)
+                            @php
+                                $article = (object) $article;
+                            @endphp
                             <article class="glide__slide" data-glide-autoplay="4000">
                                 <div class="cm-slide-item"
                                      style="background-image: url({{asset($article->image_path)}});">

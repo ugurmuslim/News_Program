@@ -123,7 +123,8 @@ class ArticleHelper
             ->where('articles.header_slider', 1)
             ->orderby('articles.created_at', 'DESC')
             ->limit(10)
-            ->get();
+            ->get()
+            ->toArray();
 
         $lastMinute = Article::where('articles.status', ArticleStatus::PUBLISHED)
             ->select('title', 'original_link', 'image_path', 'summary', 'slug', 'article_date')
