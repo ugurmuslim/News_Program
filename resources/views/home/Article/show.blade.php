@@ -49,7 +49,10 @@
                 <h4>DİĞER {{strtoupper($article->articleType->title)}} HABERLERİ</h4>
             </div>
             <div class="row">
-                @foreach($relatedArticles->take(8) as $article)
+                @foreach(array_slice($relatedArticles,0,8) as $article)
+                    @php
+                        $article = (object) $article;
+                    @endphp
                     <div class="col-lg-6 col-sm-12 col-12 mt-4">
                         <a href="{{route('article.show',['slug' => $article->slug ])}}">
                             <div class="card news-card news-card-small ">
@@ -59,7 +62,7 @@
                                     <div class="news-card-img-text small-text">
                                         <p>{{$article->title}}</p>
                                         <div class="news-card-bottom"><span
-                                                    class="text-danger">{{ Date::parse($article->article_date)->format('j F')}} </span>
+                                                class="text-danger">{{ Date::parse($article->article_date)->format('j F')}} </span>
                                             <span> • {{ Carbon\Carbon::parse($article->article_date)->format('H:i')}} •
                                                 parafesor</span>
                                         </div>
@@ -99,9 +102,10 @@
       "url": "{{asset('assets/home/sample/img/logo-dark.svg')}}"
     }
   },
-  "datePublished": "{{$article->article_date->format('Y-m-d')}}",
-  "dateModified": "{{$article->updated_at}}",
+{{--  "datePublished": "{{$article->article_date->format('Y-m-d')}}",--}}
+{{--  "dateModified": "{{$article->updated_at}}",--}}
 }
+
 
     </script>
 @endsection
