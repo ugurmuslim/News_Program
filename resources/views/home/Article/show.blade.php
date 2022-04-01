@@ -1,4 +1,4 @@
-@extends('home.layouts.detail')
+@extends('home.layouts.master')
 @section('extra_css')
     <link href="{{ asset('assets/home/sample/css/detail.css') }}" rel="stylesheet" type="text/css"/>
     <link href="{{ asset('assets/home/sample/css/footer.css') }}" rel="stylesheet" type="text/css"/>
