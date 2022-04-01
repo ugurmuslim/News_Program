@@ -49,21 +49,21 @@
                 <h4>DİĞER {{strtoupper($article->articleType->title)}} HABERLERİ</h4>
             </div>
             <div class="row">
-                @foreach(array_slice($relatedArticles,0,8) as $article)
+                @foreach(array_slice($relatedArticles,0,8) as $relatedArticle)
                     @php
-                        $article = (object) $article;
+                        $relatedArticle = (object) $relatedArticle;
                     @endphp
                     <div class="col-lg-6 col-sm-12 col-12 mt-4">
-                        <a href="{{route('article.show',['slug' => $article->slug ])}}">
+                        <a href="{{route('article.show',['slug' => $relatedArticle->slug ])}}">
                             <div class="card news-card news-card-small ">
                                 <div class="news-card-img-container">
-                                    <div style="background: url({{asset($article->image_path)}})"
+                                    <div style="background: url({{asset($relatedArticle->image_path)}})"
                                          alt="" class="news-img"></div>
                                     <div class="news-card-img-text small-text">
-                                        <p>{{$article->title}}</p>
+                                        <p>{{$relatedArticle->title}}</p>
                                         <div class="news-card-bottom"><span
-                                                class="text-danger">{{ Date::parse($article->article_date)->format('j F')}} </span>
-                                            <span> • {{ Carbon\Carbon::parse($article->article_date)->format('H:i')}} •
+                                                class="text-danger">{{ Date::parse($relatedArticle->article_date)->format('j F')}} </span>
+                                            <span> • {{ Carbon\Carbon::parse($relatedArticle->article_date)->format('H:i')}} •
                                                 parafesor</span>
                                         </div>
                                     </div>
@@ -76,6 +76,7 @@
         </div>
     </div>
     @include('home.partials._footer')
+
 @endsection
 @section('extra_scripts')
     <script type="application/ld+json">
@@ -102,8 +103,8 @@
       "url": "{{asset('assets/home/sample/img/logo-dark.svg')}}"
     }
   },
-{{--  "datePublished": "{{$article->article_date->format('Y-m-d')}}",--}}
-{{--  "dateModified": "{{$article->updated_at}}",--}}
+  "datePublished": "{{$article->article_date->format('Y-m-d')}}",
+  "dateModified": "{{$article->updated_at}}",
 }
 
 
