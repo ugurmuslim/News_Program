@@ -61,10 +61,11 @@
     <link rel="shortcut icon" type="image/jpg" href="{{ asset('assets/home/sample/img/logo-icon.svg') }}"/>
     <link href="{{ asset('assets/home/sample/css/bootstrap.css') }}" rel="stylesheet" type="text/css"/>
     <link href="{{ asset('assets/home/sample/css/main.css') }}?v=13" rel="stylesheet" type="text/css"/>
-    {{-- Header Resources - Start --}}
     <link href="{{ asset('assets/home/sample/css/header.css') }}" rel="stylesheet" type="text/css"/>
+    <link href="{{ asset('assets/home/sample/css/common.css') }}" rel="stylesheet" type="text/css"/>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/simplebar@latest/dist/simplebar.css"/>
     {{--    <script src="{{ asset('assets/home/sample/js/font-awesome/all.min.js') }}"></script>--}}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"
             referrerpolicy="no-referrer"></script>
@@ -74,6 +75,5 @@
 @yield('content')
 @yield('extra_scripts')
 <script src="{{asset('assets/home/sample/js/header.js')}}"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/js/fontawesome.min.js"></script>
 </body>
 </html>
