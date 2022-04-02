@@ -58,7 +58,7 @@
                             <div class="card news-card news-card-small ">
                                 <div class="news-card-img-container">
                                     <div style="background: url({{asset($relatedArticle->image_path)}})"
-                                         alt="" class="news-img lazy"></div>
+                                         alt="" class="news-img"></div>
                                     <div class="news-card-img-text small-text">
                                         <p>{{$relatedArticle->title}}</p>
                                         <div class="news-card-bottom"><span
