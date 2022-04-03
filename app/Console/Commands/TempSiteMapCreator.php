@@ -12,68 +12,67 @@ use Spatie\Sitemap\Tags\Url;
 
 class TempSiteMapCreator extends Command
 {
-		/**
-		 * The name and signature of the console command.
-		 *
-		 * @var string
-		 */
-		protected $signature = 'sitemap:temp-create';
+    /**
+     * The name and signature of the console command.
+     *
+     * @var string
+     */
+    protected $signature = 'sitemap:temp-create';
 
-		/**
-		 * The console command description.
-		 *
-		 * @var string
-		 */
-		protected $description = 'Geçici bir temp. SİLİNECEK TODO';
+    /**
+     * The console command description.
+     *
+     * @var string
+     */
+    protected $description = 'Geçici bir temp. SİLİNECEK TODO';
 
-		/**
-		 * Create a new command instance.
-		 *
-		 * @return void
-		 */
-		public function __construct()
-		{
-				parent::__construct();
-		}
+    /**
+     * Create a new command instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        parent::__construct();
+    }
 
-		/**
-		 * Execute the console command.
-		 *
-		 * @return int
-		 */
-		public function handle()
-		{
-				if (!File::exists(public_path('sitemaps'))) {
-						File::makeDirectory(public_path('sitemaps'));
-				}
+    /**
+     * Execute the console command.
+     *
+     * @return int
+     */
+    public function handle()
+    {
+        if (!File::exists(public_path('sitemaps'))) {
+            File::makeDirectory(public_path('sitemaps'));
+        }
 
-				for ($i = 0; $i < 3; $i++) {
-						$sitemap = Sitemap::create();
-						if ($i == 0) {
-								$date = Carbon::now();
-						} else {
-								$date = Carbon::now()->subMonths($i); //Now da dahil.
-						}
+//				for ($i = 0; $i < 4; $i++) {
+//						$sitemap = Sitemap::create();
+//						if ($i == 0) {
+//								$date = Carbon::now();
+//						} else {
+//								$date = Carbon::now()->subMonths($i); //Now da dahil.
+//						}
+//
+//						$this->sitemap($sitemap, $date);
+//				}
+        $this->sitemap(Sitemap::create(), Carbon::now());
+        Artisan::call('sitemap:index');
+    }
 
-						$this->sitemap($sitemap, $date);
-				}
+    public function sitemap(Sitemap $sitemap, Carbon $date)
+    {
+        $articles = Article::whereMonth('article_date', $date->month)
+          ->orderBy('article_date', 'desc')
+          ->whereNotNull('slug')
+          ->get();
 
-				Artisan::call('sitemap:index');
-		}
-
-		public function sitemap(Sitemap $sitemap, Carbon $date)
-		{
-				$articles = Article::whereMonth('article_date', $date->month)
-          ->orderBy('article_date','desc')
-					->whereNotNull('slug')
-					->get();
-
-				foreach ($articles as $article) {
-
-						$sitemap->add(Url::create($article->slug)
-							->setLastModificationDate($article->updated_at));
-				}
-				$sitemap->writeToFile(public_path('sitemaps/' . $date->month . '-' . $date->year . '-news.xml'));
-		}
+        foreach ($articles as $article) {
+            $sitemap->add(Url::create($article->slug)
+              ->setLastModificationDate($article->updated_at));
+        }
+        $sitemap->writeToFile(public_path('sitemaps/'.$date->month.'-'.$date->year.'-news.xml'));
+    }
 }
 
