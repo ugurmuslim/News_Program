@@ -2,15 +2,12 @@
 
 namespace App\Http\Controllers\Home;
 
+use App\Models\ArticleType;
 use App\Parafesor\Constants\CacheConst;
 use App\Parafesor\Constants\CategorySectionTypes;
-use Carbon\Carbon;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Cache;
-use Illuminate\Support\Facades\Response;
-use Jenssegers\Date\Date;
-use App\Models\ArticleType;
 
 class HomeController extends Controller
 {
@@ -70,7 +67,6 @@ class HomeController extends Controller
           'mostReads'   => $mostReads,
           'mainSliders' => $mainSliders
         ]);
-
     }
 
 
