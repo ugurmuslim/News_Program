@@ -2,17 +2,15 @@
 
 namespace App\Jobs;
 
-use Carbon\Carbon;
+use App\Models\Article;
 use Illuminate\Bus\Queueable;
-use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
-use App\Models\Article;
 use Spatie\Sitemap\Sitemap;
 use Spatie\Sitemap\Tags\Url;
 
-class FreshArticleSiteMapJob implements ShouldQueue
+class FreshArticleSiteMapJob
 {
     use Dispatchable;
     use InteractsWithQueue;
@@ -30,9 +28,8 @@ class FreshArticleSiteMapJob implements ShouldQueue
     public function handle()
     {
         $articleDate = $this->article->article_date;
-//        $articleDate = new Carbon($articleDate);
-        $articles = Article::whereDate('article_date', $articleDate->month)
-          ->news()
+        $articles = Article::news()
+          ->whereDate('article_date', $articleDate->month)
           ->orderBy('article_date', 'desc')
           ->get();
 
