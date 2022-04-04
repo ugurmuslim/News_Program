@@ -108,7 +108,7 @@ class Article extends Model
       'site_name'        => 'string',
     ];
 
-    protected $dates = ['article_date', 'start_date', 'end_date','created_at', 'updated_at'];
+    protected $dates = ['article_date', 'start_date', 'end_date', 'created_at', 'updated_at'];
 
     /**
      * Get External User
@@ -147,14 +147,14 @@ class Article extends Model
     /**
      * Prepare a date for array / JSON serialization.
      *
-     * @param  \DateTimeInterface  $date
+     * @param  DateTimeInterface  $date
      * @return string
      */
 
     /**
      * Prepare a date for array / JSON serialization.
      *
-     * @param  \DateTimeInterface  $date
+     * @param  DateTimeInterface  $date
      * @return string
      */
     protected function serializeDate(DateTimeInterface $date)

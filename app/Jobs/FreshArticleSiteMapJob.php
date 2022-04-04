@@ -28,8 +28,8 @@ class FreshArticleSiteMapJob
     public function handle()
     {
         $articleDate = $this->article->article_date;
-        $articles = Article::news()
-          ->whereDate('article_date', $articleDate->month)
+        $articles = Article::whereMonth('article_date', $articleDate->month)
+          ->whereNotNull('slug')
           ->orderBy('article_date', 'desc')
           ->get();
 
