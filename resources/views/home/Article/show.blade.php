@@ -51,7 +51,7 @@
             <div class="row">
                 @foreach(array_slice($relatedArticles,0,8) as $relatedArticle)
                     @php
-                        $relatedArticle = (object) $relatedArticle;
+                        $relatedArticle = (object) $relatedArticle
                     @endphp
                     <div class="col-lg-6 col-sm-12 col-12 mt-4">
                         <a href="{{route('article.show',['slug' => $relatedArticle->slug ])}}">
@@ -62,8 +62,10 @@
                                     <div class="news-card-img-text small-text">
                                         <p>{{$relatedArticle->title}}</p>
                                         <div class="news-card-bottom"><span
-                                                class="text-danger">{{ Date::parse($relatedArticle->article_date)->format('j F')}} </span>
-                                            <span> • {{ Carbon\Carbon::parse($relatedArticle->article_date)->format('H:i')}} •
+                                                    class="text-danger">{{ Date::parse($relatedArticle->article_date)->format('j F')}} </span>
+                                            <span>
+                                                • {{ Carbon\Carbon::parse($relatedArticle->article_date)->format('H:i')}}
+                                                •
                                                 parafesor</span>
                                         </div>
                                     </div>
@@ -107,6 +109,23 @@
   "dateModified": "{{$article->updated_at}}",
 }
 
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "name": " {{mb_strtoupper($article->articleType->title, 'UTF-8')}}",
+        "item": "{{url('/kategori/'.$article->articleType->slug)}}"
+      },{
+        "@type": "ListItem",
+        "position": 2,
+        "name": "{{$article->title}}",
+        "item": "{{url($article->slug)}}"
+      }]
+    }
 
     </script>
 @endsection

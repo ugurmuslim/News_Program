@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Home;
 
+use App\Jobs\FreshArticleSiteMapJob;
+use App\Models\Article;
 use App\Models\ArticleType;
 use App\Parafesor\Constants\CacheConst;
 use App\Parafesor\Constants\CategorySectionTypes;
@@ -45,7 +47,8 @@ class HomeController extends Controller
     public function indexTest()
     {
         $articles = [];
-//
+// dispatch(new FreshArticleSiteMapJob(Article::latest()->first()));
+// dd(3);
 //        $sliders = Cache::get(CacheConst::ARTICLE . 'Slider');
         $articleTypes = ArticleType::all();
         $mostReads = Cache::get(CacheConst::MOST_READ_ARTICLE.'Articles');

@@ -4,7 +4,7 @@
     color: #2f2f2f;
 }
 
-.container.detail a{
+.container.detail a {
     color: #cd1925;
 }
 
@@ -12,9 +12,9 @@
     max-width: 100%;
 }
 
-.container.detail span, 
+.container.detail span,
 .container.detail p,
-.container.detail h4{
+.container.detail h4 {
     padding: 0;
 }
 
@@ -22,13 +22,13 @@
 .container.detail h3,
 .container.detail h4,
 .container.detail h5,
-.container.detail h6{
+.container.detail h6 {
     font-family: 'MontserratBold';
     margin: 20px 0;
 }
 
 .detail-title {
-    border-bottom: 1px solid #242424; 
+    border-bottom: 1px solid #242424;
 }
 
 .detail-title p {
@@ -70,7 +70,7 @@
     margin-bottom: 50px;
 }
 
-.other-news h4{
+.other-news h4 {
     font-family: 'HelveticaNeueBold';
     font-size: 25px;
     line-height: 30px;
@@ -78,11 +78,11 @@
     margin-bottom: 20px;
 }
 
-.other-news .news-card-img-text.small-text{
+.other-news .news-card-img-text.small-text {
     background: #fff;
 }
 
-.other-news .news-card-img-text.small-text p{
+.other-news .news-card-img-text.small-text p {
     font-size: 20px !important;
     line-height: 26px;
     letter-spacing: -1px;
@@ -92,28 +92,36 @@
     font-size: 16px !important;
 }
 
-.container.other-news .news-card{
+.container.other-news .news-card {
     overflow: hidden;
 }
 
-.container.detail img{
+.container.detail img {
     display: block;
     margin: 0 auto;
 }
 
-.container.detail img{
-    width: 100%;
-    height: 100%;
+/*.container.detail img{*/
+/*    width: 100%;*/
+.container.detail img {
+    max-width: 100%;
+    height: auto;
 }
 
-@media screen and (max-width: 768px){
+@media (max-width: 768px) {
+    .container.detail img {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 768px) {
 
     .detail-title h1 {
         font-size: 35px;
         line-height: 43px;
     }
-    
-    .other-news h4{
+
+    .other-news h4 {
         font-size: 20px;
     }
 
@@ -127,22 +135,22 @@
         height: clamp(160px, 30vw + 40px, 250px);
     }
 
-    .other-news .news-card-img-text.small-text .news-card-bottom span{
+    .other-news .news-card-img-text.small-text .news-card-bottom span {
         font-size: 11px !important;
     }
 
-    .other-news .news-card-small{
+    .other-news .news-card-small {
         height: clamp(170px, 30vw + 70px, 220px);
     }
 
-    .other-news .news-card-img-text.small-text p{
+    .other-news .news-card-img-text.small-text p {
         font-size: 15px !important;
         line-height: 18px;
         letter-spacing: -0.75px;
         -webkit-line-clamp: 4;
     }
 
-    .container.other-news{
+    .container.other-news {
         margin-top: 28px !important;
     }
 
