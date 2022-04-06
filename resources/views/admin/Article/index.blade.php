@@ -4,17 +4,54 @@
 @endsection
 @section('content')
     <div class="wrapper">
-        <div class="content-wrapper">
+        <div class="container">
             <div class="row mt-5">
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-header">
                             <h3 class="card-title">Haberler</h3>
+                            <form class="mb-15" id="advanced-filter">
+                                <div class="row mb-6">
+
+                                    <div class="col-lg-3 mb-lg-0 mb-6">
+                                        <label>Kategori:</label>
+                                        <select class="form-control" name="ArticleTypeId" required="required"--}}
+                                                id="category">
+                                            @if(request()->query('SiteName'))
+                                                <option
+                                                        value="{{request()->query('SiteName')}}">{{request()->query('SiteName')}}</option>
+                                            @endif
+
+                                            @foreach($articleTypes as $type)
+                                                <option value={{$type->id}}>{{$type->title }}</option>
+                                            @endforeach
+
+                                        </select>
+                                    </div>
+                                    <div class="col-lg-3 mb-lg-0 mb-6">
+                                        <label>Tarih:</label>
+                                        <button class="btn btn-primary btn-primary--icon" id="kt_search">
+                                            <span>
+                                                <i class="la la-search"></i>
+                                                <span>Ara</span>
+                                            </span>
+                                        </button>&#160;&#160;
+                                        <button class="btn btn-secondary btn-secondary--icon" id="kt_reset">
+                                            <span>
+                                                <i class="la la-close"></i>
+                                                <span>Sıfırla</span>
+                                            </span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+
                         </div>
 
 
                         <!-- /.card-header -->
                         <div class="card-body">
+
                             {{--                            <form id="form" method="get" data-parsley-validate--}}
                             {{--                                  action={{route('article.index')}} enctype="multipart/form-data">--}}
                             {{--                                @csrf--}}
@@ -71,7 +108,7 @@
                                     <th>Resim</th>
                                     <th>Başlık</th>
                                     <th>Özet</th>
-                                    <th>Okunma</th>
+{{--                                    <th>Okunma</th>--}}
                                     <th>Yazar</th>
                                     <th>Atayan</th>
                                     <th style="width: 15%">Zaman</th>
@@ -222,7 +259,7 @@
                     {data: 'image_path', name: 'image_path'},
                     {data: 'title', name: 'title'},
                     {data: 'summary', name: 'summary'},
-                    {data: 'read', name: 'read'},
+                    // {data: 'read', name: 'read'},
                     {data: 'editor_id', name: 'editor_id', orderable: false},
                     {data: 'assigner_id', name: 'assigner_id', orderable: false},
                     {data: 'date', name: 'date'},

@@ -102,14 +102,14 @@ class ArticleController extends Controller
           ->editColumn('assigner_id', function ($article) {
               return $article->assigner_id ? $article->assigner->name : '-';
           })
-          ->editColumn('date', function ($article) {
+          ->addColumn('date', function ($article) {
               return $article->pub_date ? $article->pub_date->format('d.m.Y') : $article->article_date;
           })
-          ->editColumn('read', function ($article) use ($database) {
-              if ($database != "maria") {
-                  return $article->read;
-              }
-          })
+//          ->editColumn('read', function ($article) use ($database) {
+//              if ($database != "maria") {
+//                  return $article->read;
+//              }
+//          })
           ->addColumn('action', function ($article) use ($database, $user) {
               $action = '<div class="btn-group">';
               if ($user->can('assign articles')) {
@@ -148,6 +148,8 @@ class ArticleController extends Controller
           ->filterColumn('date', function ($query, $keyword) {
               if (isset($query->pub_date)) {
                   $query->where('pub_date', 'like', "%{$keyword}%");
+              } else {
+                  $query->where('article_date', 'like', "%{$keyword}%");
               }
           })
           ->rawColumns(['image_path', 'action'])
