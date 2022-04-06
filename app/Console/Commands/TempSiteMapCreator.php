@@ -47,17 +47,16 @@ class TempSiteMapCreator extends Command
             File::makeDirectory(public_path('sitemaps'));
         }
 
-//				for ($i = 0; $i < 4; $i++) {
-//						$sitemap = Sitemap::create();
-//						if ($i == 0) {
-//								$date = Carbon::now();
-//						} else {
-//								$date = Carbon::now()->subMonths($i); //Now da dahil.
-//						}
-//
-//						$this->sitemap($sitemap, $date);
-//				}
-        $this->sitemap(Sitemap::create(), Carbon::now());
+        for ($i = 0; $i < 4; $i++) {
+            $sitemap = Sitemap::create();
+            if ($i == 0) {
+                $date = Carbon::now();
+            } else {
+                $date = Carbon::now()->subMonths($i); //Now da dahil.
+            }
+
+            $this->sitemap($sitemap, $date);
+        }
         Artisan::call('sitemap:index');
     }
 
@@ -70,7 +69,7 @@ class TempSiteMapCreator extends Command
 
         foreach ($articles as $article) {
             $sitemap->add(Url::create($article->slug)
-              ->setLastModificationDate($article->updated_at));
+              ->setLastModificationDate($article->article_date));
         }
         $sitemap->writeToFile(public_path('sitemaps/'.$date->month.'-'.$date->year.'-news.xml'));
     }
