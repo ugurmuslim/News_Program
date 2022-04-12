@@ -1,271 +1,283 @@
 @extends('admin.layouts.master')
 @section('style')
     <link rel="stylesheet" href="//cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
+    <style>
+        .dataTables_wrapper .dataTables_filter {
+            float: left;
+        }
+
+        .dataTables_wrapper .dataTables_length {
+            float: right;
+        }
+
+        .dataTables_filter input {
+            max-width: 600px !important;
+        }
+    </style>
 @endsection
 @section('content')
-    <div class="wrapper">
-        <div class="container">
-            <div class="row mt-5">
-                <div class="col-md-12">
-                    <div class="card">
-                        <div class="card-header">
-                            <h3 class="card-title">Haberler</h3>
-                            <form class="mb-15" id="advanced-filter">
-                                <div class="row mb-6">
 
-                                    <div class="col-lg-3 mb-lg-0 mb-6">
-                                        <label>Kategori:</label>
-                                        <select class="form-control" name="ArticleTypeId" required="required"--}}
-                                                id="category">
-                                            @if(request()->query('SiteName'))
-                                                <option
-                                                        value="{{request()->query('SiteName')}}">{{request()->query('SiteName')}}</option>
-                                            @endif
+    <div class="content-wrapper">
+        <section class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-12 mt-3">
+                        <div class="card">
+                            <div class="card-header">
+                                <form id="form" method="get" data-parsley-validate
+                                      action={{route('article.index')}} enctype="multipart/form-data">
 
-                                            @foreach($articleTypes as $type)
-                                                <option value={{$type->id}}>{{$type->title }}</option>
-                                            @endforeach
+                                    <div class="form-row">
+                                        @csrf
+                                        <div class="col">
+                                            <input name="status" type="text" class="form-control"
+                                                   value="{{ app('request')->input('status') }}"
+                                                   hidden/>
 
-                                        </select>
+                                            <input name="database" type="text" class="form-control"
+                                                   value="{{ app('request')->input('database') }}"
+                                                   hidden/>
+                                            <select class="form-control" name="ArticleTypeId" required="required"
+                                                    id="category">
+                                                @if(request()->query('ArticleTypeId'))
+                                                    <option
+                                                            value="{{request()->query('ArticleTypeId')}}">
+                                                        Filtre: {{\App\Models\ArticleType::find(request()->query('ArticleTypeId'))->title}}</option>
+                                                @endif
+
+                                                @foreach($articleTypes as $type)
+                                                    <option value={{$type->id}}>{{$type->title }}</option>
+                                                @endforeach
+
+                                            </select>
+                                        </div>
+
+                                        <div class="col">
+                                            <button type="submit" class="btn btn-success block">Kategoriye göre
+                                                filtrele
+                                            </button>
+                                        </div>
                                     </div>
-                                    <div class="col-lg-3 mb-lg-0 mb-6">
-                                        <label>Tarih:</label>
-                                        <button class="btn btn-primary btn-primary--icon" id="kt_search">
-                                            <span>
-                                                <i class="la la-search"></i>
-                                                <span>Ara</span>
-                                            </span>
-                                        </button>&#160;&#160;
-                                        <button class="btn btn-secondary btn-secondary--icon" id="kt_reset">
-                                            <span>
-                                                <i class="la la-close"></i>
-                                                <span>Sıfırla</span>
-                                            </span>
-                                        </button>
-                                    </div>
+                                </form>
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table id="example" class="table table-condensed table-bordered">
+                                        <thead>
+                                        <tr>
+                                            <th>Kategori</th>
+                                            <th>Site</th>
+                                            <th>Resim</th>
+                                            <th>Başlık</th>
+                                            <th>Özet</th>
+                                            {{--                                    <th>Okunma</th>--}}
+                                            <th>Yazar</th>
+                                            <th>Atayan</th>
+                                            <th style="width: 15%">Zaman</th>
+                                            <th>Aksiyon</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        {{--                                @foreach($newsAll as $news)--}}
+                                        {{--                                    --}}{{--<tr style="background-color: {{$news->body ? "" : "pink"}}">--}}
+                                        {{--                                    <tr>--}}
+                                        {{--                                        <td>{{ $news->articleType->title}}</td>--}}
+                                        {{--                                        <td>{{ $news->site_name ? $news->site_name : ""}}</td>--}}
+                                        {{--                                        <td style="font-weight: bold">--}}
+                                        {{--                                            --}}{{--<img--}}
+                                        {{--                                                src="{{ $news->image_path  }}"--}}
+                                        {{--                                                style="max-width:100px;" alt="">--}}
+                                        {{--                                            <img--}}
+                                        {{--                                                    src="{{asset($news->image_path)}}" loading="lazy"--}}
+                                        {{--                                                    style="max-width:100px;" alt=""></td>--}}
+                                        {{--                                        <td style="font-weight: bold"><a--}}
+                                        {{--                                                    href="{{$news->original_link}}"--}}
+                                        {{--                                                    target="_blank">{{$news->title}}</a></td>--}}
+                                        {{--                                        <td>{!! strip_tags($news->summary) !!}</td>--}}
+                                        {{--                                        <td>{!! $news->read ?? ""!!}</td>--}}
+                                        {{--                                        <td>{{isset($news->editor_id) ? $news->editor->name : null}}</td>--}}
+                                        {{--                                        <td>{{isset($news->assigner_id) ? $news->assigner->name : null}}</td>--}}
+                                        {{--                                        <td>--}}
+                                        {{--                                            <div class="col-md-9">--}}
+
+                                        {{--                                                @if(isset($news->pub_date))--}}
+                                        {{--                                                    <p>{{$news->pub_date}}</p>--}}
+                                        {{--                                                @else--}}
+                                        {{--                                                    <p>{{$news->article_date}}</p>--}}
+                                        {{--                                                @endif--}}
+
+                                        {{--                                                @if(isset($news->created_at) && isset($news->status) && $news->status == 'ASSIGNED')--}}
+                                        {{--                                                    <?php--}}
+                                        {{--                                                    $passedMinutes = \Carbon\Carbon::now()->diffInMinutes(new \Carbon\Carbon($news->created_at));--}}
+                                        {{--                                                    $passed = $passedMinutes > 20;--}}
+                                        {{--                                                    ?>--}}
+                                        {{--                                                    <button--}}
+                                        {{--                                                            class="btn  {{$passed ? "btn-danger" : "btn-success" }}">{{ $passedMinutes }}--}}
+                                        {{--                                                        Dakika--}}
+                                        {{--                                                    </button>--}}
+                                        {{--                                                @endif--}}
+                                        {{--                                            </div>--}}
+                                        {{--                                        </td>--}}
+                                        {{--                                        <td>--}}
+
+                                        {{--                                            <div class="col-md-3">--}}
+                                        {{--                                                @can('assign articles')--}}
+                                        {{--                                                    <a href="{{route('article.assign',['id' => $news->id])}}"--}}
+                                        {{--                                                       class="btn btn-primary">Atama</a>--}}
+                                        {{--                                                @endcan--}}
+                                        {{--                                                @can('assign articles')--}}
+                                        {{--                                                    <form method="post"--}}
+                                        {{--                                                          action={{route('article.destroy', ['id' => $news->id])}}>--}}
+                                        {{--                                                        {{ csrf_field() }}--}}
+                                        {{--                                                        {{ method_field('DELETE') }}--}}
+                                        {{--                                                        <button class="btn btn-danger">Sil</button>--}}
+                                        {{--                                                    </form>--}}
+                                        {{--                                                @endcan--}}
+                                        {{--                                                @can('edit articles')--}}
+                                        {{--                                                    <a href="{{route('article.postUpdate',['id' => $news->id])}}"--}}
+                                        {{--                                                       class="btn btn-primary">Düzenle</a>--}}
+                                        {{--                                                @endcan--}}
+                                        {{--                                            </div>--}}
+                                        {{--                                        </td>--}}
+
+                                        {{--                                    </tr>--}}
+                                        {{--                                @endforeach--}}
+                                        </tbody>
+                                        <tfoot>
+                                        <tr>
+                                            <th>Kategori</th>
+                                            <th>Site</th>
+                                            <th>Resim</th>
+                                            <th>Başlık</th>
+                                            <th>Özet</th>
+                                            <th>Yazar</th>
+                                            <th>Atayan</th>
+                                            <th style="width: 15%">Zaman</th>
+                                            <th>Aksiyon</th>
+                                        </tr>
+                                        </tfoot>
+                                    </table>
                                 </div>
-                            </form>
+
+                            </div>
 
                         </div>
-
-
-                        <!-- /.card-header -->
-                        <div class="card-body">
-
-                            {{--                            <form id="form" method="get" data-parsley-validate--}}
-                            {{--                                  action={{route('article.index')}} enctype="multipart/form-data">--}}
-                            {{--                                @csrf--}}
-                            {{--                                <div class="row">--}}
-                            {{--                                    <div class="col-md-6">--}}
-                            {{--                                        <input name="status" type="text" class="form-control"--}}
-                            {{--                                               value="{{ app('request')->input('status') }}"--}}
-                            {{--                                               hidden/>--}}
-
-                            {{--                                        <input name="database" type="text" class="form-control"--}}
-                            {{--                                               value="{{ app('request')->input('database') }}"--}}
-                            {{--                                               hidden/>--}}
-
-                            {{--                                        <label class="form-text">Kategori</label>--}}
-                            {{--                                        <select class="form-control" name="ArticleTypeId" required="required"--}}
-                            {{--                                                id="category">--}}
-                            {{--                                            @if(request()->query('SiteName'))--}}
-                            {{--                                                <option--}}
-                            {{--                                                        value="{{request()->query('SiteName')}}">{{request()->query('SiteName')}}</option>--}}
-                            {{--                                            @endif--}}
-
-                            {{--                                            @foreach($articleTypes as $type)--}}
-                            {{--                                                <option value={{$type->id}}>{{$type->title }}</option>--}}
-                            {{--                                            @endforeach--}}
-
-                            {{--                                        </select>--}}
-
-                            {{--                                        --}}{{-- <label class="form-text">Site</label>--}}
-                            {{--                                         <select class="form-control" name="ArticleTypeId" required="required"--}}
-                            {{--                                                 id="category">--}}
-                            {{--                                             @if(request()->query('ArticleTypeId'))--}}
-                            {{--                                                 <option--}}
-                            {{--                                                     value="{{request()->query('ArticleTypeId')}}">{{\App\Models\ArticleType::find(request()->query('ArticleTypeId'))->title}}</option>--}}
-                            {{--                                             @endif--}}
-
-                            {{--                                             @foreach($articleTypes as $type)--}}
-                            {{--                                                 <option value={{$type->id}}>{{$type->title }}</option>--}}
-                            {{--                                             @endforeach--}}
-
-                            {{--                                         </select>--}}
-                            {{--                                    </div>--}}
-                            {{--                                </div>--}}
-                            {{--                                <div class="row">--}}
-                            {{--                                    <div class="col-md-6">--}}
-                            {{--                                        <button type="submit" class="btn btn-success block">Ara</button>--}}
-                            {{--                                    </div>--}}
-                            {{--                                </div>--}}
-                            {{--                            </form>--}}
-                            <table class="table table-bordered mt-5">
-                                <thead>
-                                <tr>
-                                    <th>Kategori</th>
-                                    <th>Site</th>
-                                    <th>Resim</th>
-                                    <th>Başlık</th>
-                                    <th>Özet</th>
-{{--                                    <th>Okunma</th>--}}
-                                    <th>Yazar</th>
-                                    <th>Atayan</th>
-                                    <th style="width: 15%">Zaman</th>
-                                    <th>Aksiyon</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                {{--                                @foreach($newsAll as $news)--}}
-                                {{--                                    --}}{{--<tr style="background-color: {{$news->body ? "" : "pink"}}">--}}
-                                {{--                                    <tr>--}}
-                                {{--                                        <td>{{ $news->articleType->title}}</td>--}}
-                                {{--                                        <td>{{ $news->site_name ? $news->site_name : ""}}</td>--}}
-                                {{--                                        <td style="font-weight: bold">--}}
-                                {{--                                            --}}{{--<img--}}
-                                {{--                                                src="{{ $news->image_path  }}"--}}
-                                {{--                                                style="max-width:100px;" alt="">--}}
-                                {{--                                            <img--}}
-                                {{--                                                    src="{{asset($news->image_path)}}" loading="lazy"--}}
-                                {{--                                                    style="max-width:100px;" alt=""></td>--}}
-                                {{--                                        <td style="font-weight: bold"><a--}}
-                                {{--                                                    href="{{$news->original_link}}"--}}
-                                {{--                                                    target="_blank">{{$news->title}}</a></td>--}}
-                                {{--                                        <td>{!! strip_tags($news->summary) !!}</td>--}}
-                                {{--                                        <td>{!! $news->read ?? ""!!}</td>--}}
-                                {{--                                        <td>{{isset($news->editor_id) ? $news->editor->name : null}}</td>--}}
-                                {{--                                        <td>{{isset($news->assigner_id) ? $news->assigner->name : null}}</td>--}}
-                                {{--                                        <td>--}}
-                                {{--                                            <div class="col-md-9">--}}
-
-                                {{--                                                @if(isset($news->pub_date))--}}
-                                {{--                                                    <p>{{$news->pub_date}}</p>--}}
-                                {{--                                                @else--}}
-                                {{--                                                    <p>{{$news->article_date}}</p>--}}
-                                {{--                                                @endif--}}
-
-                                {{--                                                @if(isset($news->created_at) && isset($news->status) && $news->status == 'ASSIGNED')--}}
-                                {{--                                                    <?php--}}
-                                {{--                                                    $passedMinutes = \Carbon\Carbon::now()->diffInMinutes(new \Carbon\Carbon($news->created_at));--}}
-                                {{--                                                    $passed = $passedMinutes > 20;--}}
-                                {{--                                                    ?>--}}
-                                {{--                                                    <button--}}
-                                {{--                                                            class="btn  {{$passed ? "btn-danger" : "btn-success" }}">{{ $passedMinutes }}--}}
-                                {{--                                                        Dakika--}}
-                                {{--                                                    </button>--}}
-                                {{--                                                @endif--}}
-                                {{--                                            </div>--}}
-                                {{--                                        </td>--}}
-                                {{--                                        <td>--}}
-
-                                {{--                                            <div class="col-md-3">--}}
-                                {{--                                                @can('assign articles')--}}
-                                {{--                                                    <a href="{{route('article.assign',['id' => $news->id])}}"--}}
-                                {{--                                                       class="btn btn-primary">Atama</a>--}}
-                                {{--                                                @endcan--}}
-                                {{--                                                @can('assign articles')--}}
-                                {{--                                                    <form method="post"--}}
-                                {{--                                                          action={{route('article.destroy', ['id' => $news->id])}}>--}}
-                                {{--                                                        {{ csrf_field() }}--}}
-                                {{--                                                        {{ method_field('DELETE') }}--}}
-                                {{--                                                        <button class="btn btn-danger">Sil</button>--}}
-                                {{--                                                    </form>--}}
-                                {{--                                                @endcan--}}
-                                {{--                                                @can('edit articles')--}}
-                                {{--                                                    <a href="{{route('article.postUpdate',['id' => $news->id])}}"--}}
-                                {{--                                                       class="btn btn-primary">Düzenle</a>--}}
-                                {{--                                                @endcan--}}
-                                {{--                                            </div>--}}
-                                {{--                                        </td>--}}
-
-                                {{--                                    </tr>--}}
-                                {{--                                @endforeach--}}
-                                </tbody>
-                            </table>
-                        </div>
-                        <!-- /.card-body -->
 
                     </div>
-                    <!-- /.card -->
-                {{--                {{ $newsAll->appends(request()->input())->links() }}--}}
 
-                <!-- /.card -->
                 </div>
-
-                {{-- @foreach($newsAll as $news)
-
-
-
-                         <div class="col-md-3 d-flex align-items-stretch">
-                             <div class="card">
-                                 <div class="card-header">
-                                     <h5>{{$news->title}}</h5>
-                                     <div class="card-body">
-                                         <p>{!! Str::limit($news->summary ,100)!!}</p>
-                                     </div>
-                                 </div>
-                                 <div class="card-footer">
-                                         <div class="row" style="position:relative; top: 5%; right; 0">
-                                             <div class="col-md-9">
-                                                 @if(isset($news->pubDate))
-                                                     <p>{{$news->pubDate}}</p>
-                                                 @else
-                                                     <p>{{$news->article_date}}</p>
-                                                 @endif
-                                                 @if(isset($news->created_at) && isset($news->status) && $news->status == 'ASSIGNED')
-                                                     <?php
-                                                     $passedMinutes = \Carbon\Carbon::now()->diffInMinutes(new \Carbon\Carbon($news->created_at));
-                                                     $passed = $passedMinutes > 20;
-                                                     ?>
-                                                     <button
-                                                         class="btn  {{$passed ? "btn-danger" : "btn-success" }}">{{ $passedMinutes }}
-                                                         Dakika
-                                                     </button>
-                                                 @endif
-                                             </div>
-                                             <div class="col-md-3">
-                                                 @can('assign articles')
-                                                     <a href="{{route('article.assign',['id' => $news->id])}}"
-                                                        class="btn btn-primary">Atama</a>
-                                                 @endcan
-                                                 @can('edit articles')
-                                                     <a href="{{route('article.postUpdate',['id' => $news->id])}}"
-                                                        class="btn btn-primary">Düzenle</a>
-                                                 @endcan
-                                             </div>
-                                         </div>
-                                     </div>
-                             </div>
-                         </div>
-                     @endforeach--}}
             </div>
-            {{--{{ $newsAll->links() }}--}}
-        </div>
+        </section>
     </div>
 @endsection
 @section('extra_scripts')
     <script src="//cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+    <script src="{{asset('assets/admin/plugins/sweetalert2/sweetalert2.all.min.js')}}"></script>
+    <script src="{{asset('assets/admin/plugins/jquery.blockUI.js')}}"></script>
     <script>
         $(document).ready(function () {
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+            function block() {
+                $.blockUI({
+                    css: {
+                        border: 'none',
+                        backgroundColor: 'none',
+                        color: 'darkred'
+                    },
+                    baseZ: 2000,
+                    message: '<div class="page-loader-logo">' +
+                        '    <img alt="Logo" class="img-fluid" style="max-height: 150px !important;" src="/assets/home/sample/img/logo-icon.svg">' +
+                        '   <h6 style="color: #fff !important;"> Lütfen bekleyiniz..</h6>' +
+                        '</div>'
+                });
+            }
+
+            function unblock() {
+                $.unblockUI();
+            }
+
             $('table').DataTable({
                 "language": {
                     "url": "//cdn.datatables.net/plug-ins/1.10.19/i18n/Turkish.json"
                 },
+                processing: true,
                 serverSide: true,
                 ajax: '{!! url()->full() !!}',
+                "dom": "<'row'<'col-lg-10 col-md-10 col-xs-12'f><'col-lg-2 col-md-2 col-xs-12'l>>" +
+                    "<'row'<'col-sm-12'tr>>" +
+                    "<'row'<'col-sm-12 col-md-5'i><'col-sm-12 col-md-7'p>>",
                 columns: [
                     {data: 'article_type.title', name: 'title'},
                     {data: 'site_name', name: 'site_name'},
-                    {data: 'image_path', name: 'image_path'},
-                    {data: 'title', name: 'title'},
-                    {data: 'summary', name: 'summary'},
+                    {data: 'image_path', name: 'image_path', orderable: false, searchable: false},
+                    {data: 'title', name: 'title', orderable: false},
+                    {data: 'summary', name: 'summary', orderable: false,},
                     // {data: 'read', name: 'read'},
-                    {data: 'editor_id', name: 'editor_id', orderable: false},
-                    {data: 'assigner_id', name: 'assigner_id', orderable: false},
-                    {data: 'date', name: 'date'},
-                    {data: 'action', name: 'action'}
-                ]
+                    {data: 'editor_id', name: 'editor_id', searchable: true},
+                    {data: 'assigner_id', name: 'assigner_id'},
+                    {data: 'article_date', name: 'article_date'},
+                    {data: 'action', name: 'action', orderable: false, searchable: false}
+
+                ],
             });
+
+            $("body").on('click', '.rows-delete', function (e) {
+                e.preventDefault();
+                let $this = $(this),
+                    url = $this.data("link"),
+                    title = $this.data('title') ? "<b>" + $this.data('title') + "</b> - silinecek. " : '';
+                swal.fire({
+                    title: "Emin misiniz?",
+                    html: title + "Eğer bu işlemi yaparsanız geri alamazsınız.",
+                    icon: "warning",
+                    buttons: true,
+                    dangerMode: true,
+                    showCancelButton: true,
+                    confirmButtonText: 'Evet, eminim sil!',
+                    cancelButtonText: 'Vazgeç'
+                }).then(function (result) {
+                    block();
+                    if (result.value) {
+                        $.ajax({
+                            url: url,
+                            data: {},
+                            method: "DELETE",
+                            success: function (msg) {
+                                unblock();
+                                if (msg.redirect) {
+                                    window.redirectTo(msg.redirect, 200);
+                                } else {
+                                    if (msg.table) {
+                                        $this.closest('tr').remove();
+                                    } else {
+                                        $("table").dataTable().api().ajax.reload(function () {
+                                            window.notify('Başarıyla Silindi', "success");
+                                        }, false);
+                                    }
+                                    swal.fire(
+                                        'Bilgilendirme',
+                                        'Başarıyla Silindi',
+                                        'success'
+                                    )
+                                }
+                            }, error: function (errors) {
+                                unblock();
+                                swal.fire(
+                                    'Uyarı',
+                                    errors.responseJSON.message,
+                                    'error'
+                                )
+                            }
+                        });
+                    }
+                });
+
+            });
+
         });
     </script>
 @endsection

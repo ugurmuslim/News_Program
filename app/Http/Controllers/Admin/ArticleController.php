@@ -19,6 +19,7 @@ use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Auth;
@@ -65,11 +66,11 @@ class ArticleController extends Controller
         $status = $request->input('status');
         $database = $request->input('database');
 
-        if ($database != "maria") {
+        if ($database == "maria") {
+            $query = Article::query();
+        } else {
             $query = CrawledArticle::query();
             $query = $query->where('assigned', false);
-        } else {
-            $query = Article::query();
         }
 
         $editorAssign = $editorId && $database == "maria" && ($request->input('editor') != 'all') && !$user->can('assign articles');
@@ -102,14 +103,32 @@ class ArticleController extends Controller
           ->editColumn('assigner_id', function ($article) {
               return $article->assigner_id ? $article->assigner->name : '-';
           })
-          ->addColumn('date', function ($article) {
-              return $article->pub_date ? $article->pub_date->format('d.m.Y') : $article->article_date;
+          ->editColumn('article_date', function ($article) use ($database) {
+              if (isset($article->pub_date)) {
+                  $date = '<span class="badge badge-dark">'.$article->pub_date.'</span>';
+              } else {
+                  $date = '<span class="badge badge-dark">'.$article->article_date.'</span>';
+              }
+              return $date;
           })
-//          ->editColumn('read', function ($article) use ($database) {
-//              if ($database != "maria") {
-//                  return $article->read;
-//              }
-//          })
+          ->orderColumn('article_date', function ($query, $order) use ($database) {
+              if (isset($article->pub_date)) {
+                  $query->orderBy('pub_date', $order);
+              } elseif (isset($article->article_date)) {
+                  $query->orderBy('article_date', $order);
+              } else {
+                  $query->orderBy('created_at', $order);
+              }
+          })
+          ->filterColumn('article_date', function ($query, $keyword) use ($database) {
+              if (isset($article->pub_date)) {
+                  $query->where('pub_date', 'like', "%{$keyword}%");
+              } elseif (isset($article->article_date)) {
+                  $query->where('article_date', 'like', "%{$keyword}%");
+              } else {
+                  $query->where('created_at', 'like', "%{$keyword}%");
+              }
+          })
           ->addColumn('action', function ($article) use ($database, $user) {
               $action = '<div class="btn-group">';
               if ($user->can('assign articles')) {
@@ -120,14 +139,18 @@ class ArticleController extends Controller
                   $action .= '&nbsp;<a href="'.route('article.postUpdate',
                       $article->id).'" class="btn btn-xs btn-info">Düzenle</a>';
               }
-              if ($user->can('assign articles')) {
-                  $action .= '&nbsp;<form method="post" action="'.route('article.destroy', $article->id).'">
-                            <input type="hidden" name="_token" value="'.csrf_token().'">
-                            <input type="hidden" name="_method" value="DELETE">
-                            <input type="hidden" name="id" value="'.$article->id.'">
-                            <button type="submit" class="btn btn-xs btn-danger"> Sil</button>
-                        </form>';
+              if ($user->can('assign articles') && $database == "maria") {
+                  $action .= '&nbsp;<button data-link="'.route('article.destroy',
+                      $article->id).'" class="btn btn-xs btn-danger rows-delete">Sil</button>';
               }
+//            if ($user->can('assign articles')) {
+//                $action .= '&nbsp;<form method="post" action="'.route('article.destroy', $article->id).'">
+//                            <input type="hidden" name="_token" value="'.csrf_token().'">
+//                            <input type="hidden" name="_method" value="DELETE">
+//                            <input type="hidden" name="id" value="'.$article->id.'">
+//                            <button type="submit" class="btn btn-xs btn-danger"> Sil</button>
+//                        </form>';
+//            }
               $action .= '</div>';
               return $action;
           })
@@ -145,15 +168,8 @@ class ArticleController extends Controller
                   });
               }
           })
-          ->filterColumn('date', function ($query, $keyword) {
-              if (isset($query->pub_date)) {
-                  $query->where('pub_date', 'like', "%{$keyword}%");
-              } else {
-                  $query->where('article_date', 'like', "%{$keyword}%");
-              }
-          })
-          ->rawColumns(['image_path', 'action'])
-          ->make(true);
+          ->rawColumns(['image_path', 'action', 'article_date'])
+          ->make();
     }
 
     /**
@@ -289,7 +305,7 @@ class ArticleController extends Controller
      *
      * @return RedirectResponse
      */
-    public function store(Request $request): RedirectResponse
+    public function store(): RedirectResponse
     {
         Log::debug(json_encode([
           'type'    => 'Article Object',
@@ -510,30 +526,28 @@ class ArticleController extends Controller
      *
      * @param  int  $id
      *
-     * @return Renderable
+     * @return JsonResponse
      */
     public function destroy($id)
     {
         /**
          * @var $article Article
          */
-        $article = Article::find($id);
-        if (!$article) {
-            Session::flash('error', "Haber bulunamadı");
-            return back();
-        }
+        $article = Article::findOrFail($id);
         $articleTypeId = $article->article_type_id;
         $article->delete();
+
         ArticleHelper::updateCache([$articleTypeId]);
 
         dispatch(new FreshArticleSiteMapJob($article));
 
         Session::flash('success', "Başarı ile silindi");
 
-        return back();
+        return response()->json(['success' => true]);
     }
 
-    public function editorImageUpload()
+    public
+    function editorImageUpload()
     {
         $imagePath = "images/".uniqid().'.webp';
         Log::debug("EditorImageUpload Started");
@@ -545,8 +559,10 @@ class ArticleController extends Controller
         return response()->json(['location' => url('/')."/".$imagePath]);
     }
 
-    public function imageDownload($id)
-    {
+    public
+    function imageDownload(
+      $id
+    ) {
         $article = Article::find($id);
         $pieces = explode(" ", $article->title);
         $slug = str_slug(implode(" ", array_splice($pieces, 0, 5)));
@@ -555,5 +571,4 @@ class ArticleController extends Controller
 
         return Response::download(public_path($img))->deleteFileAfterSend(true);
     }
-
 }
