@@ -207,6 +207,7 @@
                 order: [[7, "asc"]],
                 processing: true,
                 serverSide: true,
+                stateSave: true,
                 ajax: '{!! url()->full() !!}',
                 "dom": "<'row'<'col-lg-10 col-md-10 col-xs-12'f><'col-lg-2 col-md-2 col-xs-12'l>>" +
                     "<'row'<'col-sm-12'tr>>" +
