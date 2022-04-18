@@ -204,6 +204,7 @@
                 "language": {
                     "url": "//cdn.datatables.net/plug-ins/1.10.19/i18n/Turkish.json"
                 },
+                order: [[7, "asc"]],
                 processing: true,
                 serverSide: true,
                 ajax: '{!! url()->full() !!}',

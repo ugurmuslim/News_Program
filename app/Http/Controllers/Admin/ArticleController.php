@@ -87,7 +87,7 @@ class ArticleController extends Controller
             })
             ->where('article_type_id', '!=', ArticleTypes::Twitter)
             ->where('article_type_id', '!=', ArticleTypes::KoseYazilari)
-            ->orderBy('id','DESC')
+//            ->orderBy('id','DESC')
             ->with(['articleType']);
 
         if ($editorAssign) {
