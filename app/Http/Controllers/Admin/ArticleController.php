@@ -87,12 +87,17 @@ class ArticleController extends Controller
             })
             ->where('article_type_id', '!=', ArticleTypes::Twitter)
             ->where('article_type_id', '!=', ArticleTypes::KoseYazilari)
-            ->orderBy('id', 'DESC')
             ->with(['articleType']);
 
         if ($editorAssign) {
             Log::debug($editorId);
             $query = $query->where('editor_id', $editorId);
+        }
+
+        if ($database == "maria") {
+            $query = $query->orderBy('created_at', 'DESC');
+        } else {
+            $query = $query->orderBy('pub_date', 'DESC');
         }
 
         return Datatables::of($query)
@@ -128,7 +133,7 @@ class ArticleController extends Controller
 
                 return $date;
             })
-            ->orderColumn('article_date', function ($query, $order) use ($database) {
+            /*->orderColumn('article_date', function ($query, $order) use ($database) {
                 if (isset($article->pub_date)) {
                     $query->orderBy('pub_date', $order);
                 } elseif (isset($article->article_date)) {
@@ -136,8 +141,8 @@ class ArticleController extends Controller
                 } else {
                     $query->orderBy('created_at', $order);
                 }
-            })
-            ->filterColumn('article_date', function ($query, $keyword) use ($database) {
+            })*/
+           /* ->filterColumn('article_date', function ($query, $keyword) use ($database) {
                 if (isset($article->pub_date)) {
                     $query->where('pub_date', 'like', "%{$keyword}%");
                 } elseif (isset($article->article_date)) {
@@ -145,7 +150,7 @@ class ArticleController extends Controller
                 } else {
                     $query->where('created_at', 'like', "%{$keyword}%");
                 }
-            })
+            })*/
             ->addColumn('action', function ($article) use ($database, $user) {
                 $action = '<div class="btn-group">';
                 if ($user->can('assign articles')) {

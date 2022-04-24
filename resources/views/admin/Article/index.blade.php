@@ -78,70 +78,7 @@
                                         </tr>
                                         </thead>
                                         <tbody>
-                                        {{--                                @foreach($newsAll as $news)--}}
-                                        {{--                                    --}}{{--<tr style="background-color: {{$news->body ? "" : "pink"}}">--}}
-                                        {{--                                    <tr>--}}
-                                        {{--                                        <td>{{ $news->articleType->title}}</td>--}}
-                                        {{--                                        <td>{{ $news->site_name ? $news->site_name : ""}}</td>--}}
-                                        {{--                                        <td style="font-weight: bold">--}}
-                                        {{--                                            --}}{{--<img--}}
-                                        {{--                                                src="{{ $news->image_path  }}"--}}
-                                        {{--                                                style="max-width:100px;" alt="">--}}
-                                        {{--                                            <img--}}
-                                        {{--                                                    src="{{asset($news->image_path)}}" loading="lazy"--}}
-                                        {{--                                                    style="max-width:100px;" alt=""></td>--}}
-                                        {{--                                        <td style="font-weight: bold"><a--}}
-                                        {{--                                                    href="{{$news->original_link}}"--}}
-                                        {{--                                                    target="_blank">{{$news->title}}</a></td>--}}
-                                        {{--                                        <td>{!! strip_tags($news->summary) !!}</td>--}}
-                                        {{--                                        <td>{!! $news->read ?? ""!!}</td>--}}
-                                        {{--                                        <td>{{isset($news->editor_id) ? $news->editor->name : null}}</td>--}}
-                                        {{--                                        <td>{{isset($news->assigner_id) ? $news->assigner->name : null}}</td>--}}
-                                        {{--                                        <td>--}}
-                                        {{--                                            <div class="col-md-9">--}}
 
-                                        {{--                                                @if(isset($news->pub_date))--}}
-                                        {{--                                                    <p>{{$news->pub_date}}</p>--}}
-                                        {{--                                                @else--}}
-                                        {{--                                                    <p>{{$news->article_date}}</p>--}}
-                                        {{--                                                @endif--}}
-
-                                        {{--                                                @if(isset($news->created_at) && isset($news->status) && $news->status == 'ASSIGNED')--}}
-                                        {{--                                                    <?php--}}
-                                        {{--                                                    $passedMinutes = \Carbon\Carbon::now()->diffInMinutes(new \Carbon\Carbon($news->created_at));--}}
-                                        {{--                                                    $passed = $passedMinutes > 20;--}}
-                                        {{--                                                    ?>--}}
-                                        {{--                                                    <button--}}
-                                        {{--                                                            class="btn  {{$passed ? "btn-danger" : "btn-success" }}">{{ $passedMinutes }}--}}
-                                        {{--                                                        Dakika--}}
-                                        {{--                                                    </button>--}}
-                                        {{--                                                @endif--}}
-                                        {{--                                            </div>--}}
-                                        {{--                                        </td>--}}
-                                        {{--                                        <td>--}}
-
-                                        {{--                                            <div class="col-md-3">--}}
-                                        {{--                                                @can('assign articles')--}}
-                                        {{--                                                    <a href="{{route('article.assign',['id' => $news->id])}}"--}}
-                                        {{--                                                       class="btn btn-primary">Atama</a>--}}
-                                        {{--                                                @endcan--}}
-                                        {{--                                                @can('assign articles')--}}
-                                        {{--                                                    <form method="post"--}}
-                                        {{--                                                          action={{route('article.destroy', ['id' => $news->id])}}>--}}
-                                        {{--                                                        {{ csrf_field() }}--}}
-                                        {{--                                                        {{ method_field('DELETE') }}--}}
-                                        {{--                                                        <button class="btn btn-danger">Sil</button>--}}
-                                        {{--                                                    </form>--}}
-                                        {{--                                                @endcan--}}
-                                        {{--                                                @can('edit articles')--}}
-                                        {{--                                                    <a href="{{route('article.postUpdate',['id' => $news->id])}}"--}}
-                                        {{--                                                       class="btn btn-primary">Düzenle</a>--}}
-                                        {{--                                                @endcan--}}
-                                        {{--                                            </div>--}}
-                                        {{--                                        </td>--}}
-
-                                        {{--                                    </tr>--}}
-                                        {{--                                @endforeach--}}
                                         </tbody>
                                         <tfoot>
                                         <tr>
@@ -169,6 +106,10 @@
             </div>
         </section>
     </div>
+    {{--
+        Datatable javascript object
+    order: [[7, "asc"]],
+    --}}
 @endsection
 @section('extra_scripts')
     <script src="//cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
@@ -204,7 +145,6 @@
                 "language": {
                     "url": "//cdn.datatables.net/plug-ins/1.10.19/i18n/Turkish.json"
                 },
-                order: [[7, "asc"]],
                 processing: true,
                 serverSide: true,
                 stateSave: true,
@@ -221,7 +161,7 @@
                     // {data: 'read', name: 'read'},
                     {data: 'editor_id', name: 'editor_id', searchable: true},
                     {data: 'assigner_id', name: 'assigner_id'},
-                    {data: 'article_date', name: 'article_date'},
+                    {data: 'article_date', name: 'article_date', orderable: false},
                     {data: 'action', name: 'action', orderable: false, searchable: false}
 
                 ],
