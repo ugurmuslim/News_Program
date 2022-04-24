@@ -142,7 +142,7 @@ class ArticleController extends Controller
                     $query->orderBy('created_at', $order);
                 }
             })*/
-           /* ->filterColumn('article_date', function ($query, $keyword) use ($database) {
+            ->filterColumn('article_date', function ($query, $keyword) use ($database) {
                 if (isset($article->pub_date)) {
                     $query->where('pub_date', 'like', "%{$keyword}%");
                 } elseif (isset($article->article_date)) {
@@ -150,7 +150,7 @@ class ArticleController extends Controller
                 } else {
                     $query->where('created_at', 'like', "%{$keyword}%");
                 }
-            })*/
+            })
             ->addColumn('action', function ($article) use ($database, $user) {
                 $action = '<div class="btn-group">';
                 if ($user->can('assign articles')) {
