@@ -106,19 +106,19 @@
                         @if($megaMenu)
                             @foreach($megaMenu->chunk(5) as $chunks)
                                 @foreach($chunks as $menu)
-                                    <h2 class="sub-title">
+                                    <span class="sub-title">
                                         <a href="{{$menu->url}}"
                                            {{$menu->external ? 'target="_blank"' : ''}} class="{{$menu->uppercase ? 'text-uppercase': ''}}">{{$menu->title}}</a>
-                                    </h2>
+                                    </span>
                                 @endforeach
                             @endforeach
                         @endif
                     </div>
                     <div class="stil">
                         <div class="list__container">
-                            <h1 class="title">
+                            <span class="title">
                                 <a href="/home#" onclick="toggleDrawerNav(event)">Stil</a>
-                            </h1>
+                            </span>
 
                             <h2 class="sub-title">
                                 <a href="/kategori/spor" class="list__item">Spor</a>
