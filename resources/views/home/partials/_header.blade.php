@@ -120,21 +120,21 @@
                                 <a href="/home#" onclick="toggleDrawerNav(event)">Stil</a>
                             </span>
 
-                            <h2 class="sub-title">
+                            <span class="sub-title">
                                 <a href="/kategori/spor" class="list__item">Spor</a>
-                            </h2>
-                            <h2 class="sub-title">
+                            </span>
+                            <span class="sub-title">
                                 <a href="/kategori/teknoloji" class="list__item">Teknoloji</a>
-                            </h2>
-                            <h2 class="sub-title">
+                            </span>
+                            <span class="sub-title">
                                 <a href="/kategori/yasam" class="list__item">Yaşam</a>
-                            </h2>
-                            <h2 class="sub-title">
+                            </span>
+                            <span class="sub-title">
                                 <a href="/kategori/netkolik" class="list__item">Netkolik</a>
-                            </h2>
-                            <h2 class="sub-title">
+                            </span>
+                            <span class="sub-title">
                                 <a href="/kategori/otomobil" class="list__item">Otomobil</a>
-                            </h2>
+                            </span>
                         </div>
                     </div>
                 </div>
