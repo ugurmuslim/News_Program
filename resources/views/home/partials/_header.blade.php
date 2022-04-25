@@ -98,7 +98,7 @@
                     <div class="list__container">
                         @if(!is_null($headerMenu))
                             @foreach($headerMenu as $menu)
-                                <h1 class="title"><a href="{{$menu->url}}">{{$menu->title}}</a></h1>
+                                <span class="title h1"><a href="{{$menu->url}}">{{$menu->title}}</a></span>
                             @endforeach
                         @endif
                     </div>
@@ -106,10 +106,10 @@
                         @if($megaMenu)
                             @foreach($megaMenu->chunk(5) as $chunks)
                                 @foreach($chunks as $menu)
-                                    <h2 class="sub-title">
+                                    <span class="sub-title h2">
                                         <a href="{{$menu->url}}"
                                            {{$menu->external ? 'target="_blank"' : ''}} class="{{$menu->uppercase ? 'text-uppercase': ''}}">{{$menu->title}}</a>
-                                    </h2>
+                                    </span>
                                 @endforeach
                             @endforeach
                         @endif
