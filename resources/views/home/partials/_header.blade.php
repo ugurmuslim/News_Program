@@ -98,7 +98,7 @@
                     <div class="list__container">
                         @if(!is_null($headerMenu))
                             @foreach($headerMenu as $menu)
-                                <h1 class="title"><a href="{{$menu->url}}">{{$menu->title}}</a></h1>
+                                <span class="title"><a href="{{$menu->url}}">{{$menu->title}}</a></span>
                             @endforeach
                         @endif
                     </div>
