@@ -147,6 +147,7 @@ class ArticleController extends Controller
                 $article->ip_addresses)) {
                 Log::debug('ip => '.\Illuminate\Support\Facades\Request::header('x-forwarded-for').'Read for the first time');
                 $article->read = $article->read + 1;
+                $article->timestamps = false;
                 $ipArray = $article->ip_addresses;
 
                 if (!$ipArray) {
@@ -156,7 +157,7 @@ class ArticleController extends Controller
                 $ipArray[] = \Illuminate\Support\Facades\Request::header('x-forwarded-for');
                 $article->ip_addresses = $ipArray;
                 try {
-                    $article->save();
+                    $article->save([]);
                 } catch (Exception $e) {
                     Log::debug('error in Article show => '.$e->getMessage());
                 }
