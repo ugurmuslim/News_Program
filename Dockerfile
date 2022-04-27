@@ -34,13 +34,15 @@ RUN docker-php-ext-install gd
 RUN docker-php-ext-install sockets
 RUN docker-php-ext-install dom
 RUN docker-php-ext-install xml
+RUN docker-php-ext-install opcache
+RUN docker-php-ext-configure opcache --enable-opcache
 RUN docker-php-ext-enable sockets
 RUN docker-php-ext-install soap
 RUN pecl install redis && \
 	docker-php-ext-enable redis
 RUN apt-get update && apt-get install -y libpq-dev && docker-php-ext-install pdo pdo_pgsql
 
-
+COPY php/opcache.ini /usr/local/etc/php/conf.d/opcache.ini
 
 
 # Install composer
