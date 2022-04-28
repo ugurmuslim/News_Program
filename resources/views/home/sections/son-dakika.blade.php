@@ -17,7 +17,7 @@
                     @endphp
                     <div class="col-lg-7 col-md-12 last-middle">
                         <a href="{{route('article.show',['slug' => $article->slug ])}}">
-                            <div class="col-24 last-min last-min-md"
+                            <div class="col-24 last-min last-min-md lazy"
                                  style="background-image: url({{asset($article->image_path)}})">
                                 <div class="last-min-sm-top">
                             <span class="clock-brand">
@@ -42,7 +42,7 @@
                     @endphp
                     <div class="d-lg-block col-lg-10 last-big">
                         <a href="{{route('article.show',['slug' => $article->slug ])}}">
-                            <div class="col-24 last-min last-min-lg"
+                            <div class="col-24 last-min last-min-lg lazy"
                                  style="background-image: url({{asset($article->image_path)}})">
                                 <div class="last-min-sm-top"><span class="clock-brand" style="z-index: 999"><i
                                             class="far fa-clock"></i> {{Carbon\Carbon::parse($article->article_date)->format('H:i')}}</span>
@@ -62,7 +62,7 @@
                     @endphp
                     <div class="col-lg-7 col-md-12 last-middle">
                         <a href="{{route('article.show',['slug' => $article->slug ])}}">
-                            <div class="col-24 last-min last-min-md"
+                            <div class="col-24 last-min last-min-md lazy"
                                  style="background-image: url({{asset($article->image_path)}})">
                                 <div class="last-min-sm-top">
                             <span class="clock-brand">
@@ -93,7 +93,7 @@
                                 <span><i class="far fa-clock"></i> {{Carbon\Carbon::parse($article->article_date)->format('H:i')}}</span>
                                 <div class="last-min-top-line"></div>
                             </div>
-                            <div class="col-24 last-min-sm-img"
+                            <div class="col-24 last-min-sm-img lazy"
                                  style="background-image: url({{asset($article->image_path)}})">
                             </div>
                             <div class="last-min-sm-title small-text">
