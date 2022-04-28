@@ -123,7 +123,7 @@
                                     • {{ Carbon\Carbon::parse($article->article_date)->format('H:i') }} • parafesor</span>
                                 </div>
                             </div>
-                            <div class="col-10"
+                            <div class="col-10 lazy"
                                  style="background-image: url({{ asset($article->image_path) }}); background-size: 100% 100%;">
                             </div>
                         </div>
