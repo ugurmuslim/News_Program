@@ -25,7 +25,7 @@
                                     <div class="card tweet-card tweet-card-small bg-white">
                                         <div class="tweet-top">
                                             <div class="tweet-user-image">
-                                                <img class="image-twitter"
+                                                <img class="image-twitter" loading="lazy"
                                                      src="{{$article->image}}">
                                             </div>
                                             <div class="tweet-user">
@@ -57,7 +57,7 @@
                         <div class="card tweet-card tweet-card-small bg-white">
                             <div class="tweet-top">
                                 <div class="tweet-user-image">
-                                    <img class="image-twitter"
+                                    <img class="image-twitter" loading="lazy"
                                          src="{{$article->image}}">
                                 </div>
                                 <div class="tweet-user">
