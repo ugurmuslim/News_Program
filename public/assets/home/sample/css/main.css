@@ -3,6 +3,14 @@
     background-image: none !important;
 }
 
+#section-netkolik
+#section-crypto
+#section-otomobil
+#section-crypto
+{
+    content-visibility: auto;
+}
+
 html{
     overflow-x: hidden;
 }
