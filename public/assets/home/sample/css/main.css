@@ -3,12 +3,12 @@
     background-image: none !important;
 }
 
-#section-netkolik
-#section-crypto
-#section-otomobil
-#section-crypto
-#section-son-dakika
-#section-gundem
+#section-netkolik,
+#section-crypto,
+#section-otomobil,
+#section-crypto,
+#section-son-dakika,
+#section-gundem,
 #section-egitim
 {
     content-visibility: auto;
