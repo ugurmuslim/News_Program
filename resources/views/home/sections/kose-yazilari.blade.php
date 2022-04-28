@@ -18,7 +18,7 @@
                 <div class="col-xl-8 col-md-12 article">
                     <a href="{{$article->original_link}}" class="non-decoration">
                         <div class="row">
-                            <div class="article-image"
+                            <div class="article-image lazy"
                                  style="background-image: url({{$article->image_path}})"></div>
                             <div class="article-text">
                                 <div class="article-text-title">
