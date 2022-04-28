@@ -26,7 +26,7 @@
                                 $article = (object) $article;
                             @endphp
                             <article class="glide__slide" data-glide-autoplay="4000">
-                                <div class="cm-slide-item"
+                                <div class="cm-slide-item lazy"
                                      style="background-image: url({{asset($article->image_path)}});">
                                     <div class="post-inner">
                                         <h2 class="entry-title"><a
