@@ -176,13 +176,13 @@ class ArticleController extends Controller
                 $action .= '</div>';
                 return $action;
             })
-            ->filterColumn('editor_id', function ($query, $keyword) {
+            /*->filterColumn('editor_id', function ($query, $keyword) {
                 if (isset($query->editor_id)) {
                     $query->whereHas('editor', function ($query) use ($keyword) {
                         $query->where('name', 'like', "%{$keyword}%");
                     });
                 }
-            })
+            })*/
             ->filterColumn('assigner_id', function ($query, $keyword) {
                 if (isset($query->assigner_id)) {
                     $query->whereHas('assigner', function ($query) use ($keyword) {
