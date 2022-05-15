@@ -157,9 +157,9 @@
                     {data: 'site_name', name: 'site_name'},
                     {data: 'image_path', name: 'image_path', orderable: false, searchable: false},
                     {data: 'title', name: 'title', orderable: false},
-                    {data: 'summary', name: 'summary', orderable: false,},
+                    {data: 'summary', name: 'summary', orderable: false},
                     // {data: 'read', name: 'read'},
-                    {data: 'editor_id', name: 'editor_id', searchable: true, orderable: true},
+                    {data: 'editor_id', name: 'editor_id', searchable: true, orderable: false},
                     {data: 'assigner_id', name: 'assigner_id',orderable: false},
                     {data: 'article_date', name: 'article_date', orderable: false},
                     {data: 'action', name: 'action', orderable: false, searchable: false}
