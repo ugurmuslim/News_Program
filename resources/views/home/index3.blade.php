@@ -44,6 +44,23 @@
                     <button class="slider__bullet glide__bullet glide__bullet--active" data-glide-dir="=0"></button>
                     <button class="slider__bullet glide__bullet" data-glide-dir="=1"></button>
                     <button class="slider__bullet glide__bullet" data-glide-dir="=2"></button>
+                    <button class="slider__bullet glide__bullet" data-glide-dir="=3"></button>
+                    <button class="slider__bullet glide__bullet" data-glide-dir="=4"></button>
+                    <button class="slider__bullet glide__bullet" data-glide-dir="=5"></button>
+                    <button class="slider__bullet glide__bullet" data-glide-dir="=6"></button>
+                    <button class="slider__bullet glide__bullet" data-glide-dir="=7"></button>
+                    <button class="slider__bullet glide__bullet" data-glide-dir="=8"></button>
+                    <button class="slider__bullet glide__bullet" data-glide-dir="=9"></button>
+                    <button class="slider__bullet glide__bullet" data-glide-dir="=10"></button>
+                    <button class="slider__bullet glide__bullet" data-glide-dir="=11"></button>
+                    <button class="slider__bullet glide__bullet" data-glide-dir="=12"></button>
+                    <button class="slider__bullet glide__bullet" data-glide-dir="=13"></button>
+                    <button class="slider__bullet glide__bullet" data-glide-dir="=14"></button>
+                    <button class="slider__bullet glide__bullet" data-glide-dir="=15"></button>
+                    <button class="slider__bullet glide__bullet" data-glide-dir="=16"></button>
+                    <button class="slider__bullet glide__bullet" data-glide-dir="=17"></button>
+                    <button class="slider__bullet glide__bullet" data-glide-dir="=18"></button>
+                    <button class="slider__bullet glide__bullet" data-glide-dir="=19"></button>
                 </div>
             </div>
         </div>

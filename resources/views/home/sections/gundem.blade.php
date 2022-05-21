@@ -14,7 +14,7 @@
                         <div class="card news-card news-card-big cardSlider" currentSlide="0" id="firstCardSlide">
                             <div class=""></div>
                             <div class="news-card-slider-container">
-                                @foreach(array_slice($articles["Gündem"][\App\Parafesor\Constants\CategorySectionTypes::SECOND_SLIDER],0,3) as $article)
+                                @foreach(array_slice($articles["Gündem"][\App\Parafesor\Constants\CategorySectionTypes::SECOND_SLIDER],0,7) as $article)
                                     @php
                                         $article = (object) $article;
                                     @endphp
@@ -43,7 +43,7 @@
                                 <div class="news-card-slider-control" direction="previous">❮</div>
                                 <div class="news-card-slider-control" direction="next">❯</div>
                             </div>
-                            <div class="total-slide"><span>1</span>/3</div>
+                            <div class="total-slide"><span>1</span>/7</div>
                         </div>
                     </div>
 

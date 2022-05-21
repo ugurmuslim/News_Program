@@ -63,7 +63,7 @@ class ArticleHelper
                 ->where('show_case', '=', CategorySectionTypes::SECOND_SLIDER)
                 ->where('start_date', '<', Carbon::now())
                 ->orderby('articles.article_date', 'DESC')
-                ->limit(6)
+                ->limit(7)
                 ->get()
                 ->toArray();
 
@@ -122,7 +122,7 @@ class ArticleHelper
             ->select('title', 'original_link', 'image_path', 'summary', 'created_at', 'slug', 'article_date')
             ->where('articles.header_slider', 1)
             ->orderby('articles.created_at', 'DESC')
-            ->limit(10)
+            ->limit(20)
             ->get()
             ->toArray();
 
