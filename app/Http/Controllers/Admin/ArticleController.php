@@ -73,9 +73,8 @@ class ArticleController extends Controller
             $query = CrawledArticle::query();
             $query = $query->where('assigned', false);
         }
-
+        Log::debug(print_r($request->all(), true));
         $editorAssign = $editorId && $database == "maria" && ($request->input('editor') != 'all') && !$user->can('assign articles');
-        Log::debug($editorId);
         $query->when($status, function ($query, $status) {
             return $query->where('status', $status);
         })
