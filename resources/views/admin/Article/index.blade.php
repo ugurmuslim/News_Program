@@ -159,7 +159,7 @@
                     {data: 'title', name: 'title', orderable: false},
                     {data: 'summary', name: 'summary', orderable: false},
                     // {data: 'read', name: 'read'},
-                    {data: 'editor_id', name: 'editor_id', searchable: true, orderable: false},
+                    {data: 'editor_id', name: 'editor_id', searchable: false, orderable: false},
                     {data: 'assigner_id', name: 'assigner_id',orderable: false},
                     {data: 'article_date', name: 'article_date', orderable: false},
                     {data: 'action', name: 'action', orderable: false, searchable: false}
