@@ -90,7 +90,7 @@ class ArticleController extends Controller
             ->with(['articleType']);
 
         if ($editorAssign) {
-            Log::debug($editorId);
+            Log::debug("Edıtor can assign artiles");
             $query = $query->where('editor_id', $editorId);
         }
 
