@@ -163,7 +163,7 @@
             var numbers = /^[0-9]+$/;
 
             const items = document.querySelectorAll('.last-min-sm');
-            const oneItem = items[1].currentStyle || window.getComputedStyle(items[1])
+            const oneItem = items[1].currentStyle || window.getComputedStyle(items[1]);
             const width = Number(oneItem.width.replace(/[^0-9]/g, ''));
             const value = Number(oneItem.marginRight.replace(/[^0-9]/g, ''));
             console.log("Width: " + width + "value : " + value);
