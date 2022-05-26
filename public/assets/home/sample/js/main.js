@@ -1,5 +1,5 @@
 var mainSlider;
-console.log("fwefsdfsdfdsfdsf");
+console.log("11111111");
 class MainSlider {
 
     currentImage = 0;
@@ -189,7 +189,7 @@ var cardSlider;
 class CardSlider {
     configureSliders() {
         cardSlider = this;
-        Array.from(document.getElementsByClassName("cardSlider")).forEach((s) => {
+        document.getElementsByClassName("cardSlider").forEach((s) => {
             s.attributes.currentSlide.value = -1;
             this.controlSlider(s, "next")
             s.children[2].children.forEach(c => {
