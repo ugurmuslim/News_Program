@@ -189,7 +189,7 @@ var cardSlider;
 class CardSlider {
     configureSliders() {
         cardSlider = this;
-        document.getElementsByClassName("cardSlider").forEach((s) => {
+        Array.from(document.getElementsByClassName("cardSlider")).forEach((s) => {
             s.attributes.currentSlide.value = -1;
             this.controlSlider(s, "next")
             s.children[2].children.forEach(c => {
