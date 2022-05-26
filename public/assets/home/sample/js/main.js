@@ -1,5 +1,5 @@
 var mainSlider;
-
+console.log("fwefsdfsdfdsfdsf");
 class MainSlider {
 
     currentImage = 0;
