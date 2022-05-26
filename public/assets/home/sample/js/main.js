@@ -1,5 +1,4 @@
 var mainSlider;
-console.log("11111111");
 class MainSlider {
 
     currentImage = 0;
@@ -189,10 +188,12 @@ var cardSlider;
 class CardSlider {
     configureSliders() {
         cardSlider = this;
-        document.getElementsByClassName("cardSlider").forEach((s) => {
+        var a = document.getElementsByClassName("cardSlider");
+        Array.prototype.forEach.call(a, function(s) {
             s.attributes.currentSlide.value = -1;
-            this.controlSlider(s, "next")
-            s.children[2].children.forEach(c => {
+            cardSlider.controlSlider(s, "next");
+            var d = s.children[2].children;
+            Array.prototype.forEach.call(d, function(c) {
                 if (c.attributes.direction.value == "next") {
                     c.addEventListener("click", function() {
                         cardSlider.controlSlider(s, "next")
@@ -222,8 +223,8 @@ class CardSlider {
                 if(slider.attributes.id.value == "firstCardSlide" || slider.attributes.id.value == "secondCardSlide"){
                     slider.lastElementChild.firstElementChild.textContent = current + 1;
                 }
-
-                slider.children[i].children.forEach((s) => {
+                let b = slider.children[i].children;
+                Array.prototype.forEach.call(b, function(s) {
                     s.classList.add("d-none")
                 })
                 slider.children[i].children[current].classList.remove("d-none");

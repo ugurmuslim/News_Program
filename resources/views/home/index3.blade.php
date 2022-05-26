@@ -143,7 +143,6 @@
     </script>
     <script>
 
-        // SON DAKİKA SLİDER
         var next = document.getElementById('lastSlideNext');
         next.onclick = function () {
             var width = itemCount();
@@ -213,7 +212,6 @@
             slider.scrollLeft = scrollLeft - walk;
         });
 
-        // SON DAKİKA SLİDER SON
 
     </script>
 @endsection
