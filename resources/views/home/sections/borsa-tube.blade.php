@@ -47,7 +47,7 @@
                 <div class="col-md-8 mt-3">
                     <a href="{{$article->original_link}}" target="_blank">
                         <div class="image-card image-card-16x8 image-cover image-card-bordered lazy"
-                             style="background-image: url({{asset($article->image_path)}})">test
+                             style="background-image: url({{asset($article->image_path)}})">
                         </div>
                     </a>
                 </div>

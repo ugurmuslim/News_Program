@@ -31,6 +31,7 @@ class StockTubeController extends Controller
         if ($channel == 0) {
             $articles = StockTube::where('status', ArticleStatus::PUBLISHED)
                 ->whereIn('show_case', [ CategorySectionTypes::NORMAL, CategorySectionTypes::MAIN_SLIDER ])
+                ->orderby('id', 'DESC')
                 ->paginate(15);
         }
 
