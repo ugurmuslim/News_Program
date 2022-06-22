@@ -70,7 +70,7 @@
     @include('home.sections.hisse')
     @include('home.sections.borsa-tube')
     @include('home.sections.sirket-haberleri')
-    @include('home.sections.kose-yazilari')
+{{--    @include('home.sections.kose-yazilari')--}}
     @include('home.sections.twitter')
     @include('home.sections.son-dakika')
     @include('home.sections.en-cok-okunanlar')
