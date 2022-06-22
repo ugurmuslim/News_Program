@@ -63,13 +63,22 @@ class YoutubeCrawler
                         if($crawled) {
                             continue;
                         }
+
+                         $mains = StockTube::where('show_case', 'MainSlider')->get();
+
+                         foreach ($mains as $main) {
+                             $main->show_case = "NORMAL";
+                             $main->save();
+                         }
+
                         StockTube::create([
                             'title'         => $video['snippet']['title'],
                             'original_link' => 'https://www.youtube.com/watch?v=' . $video['id']['videoId'],
                             'image_path'    => $video['snippet']['thumbnails']['high']['url'],
-                            'show_case'     => 'NORMAL',
+                            'show_case'     => 'MainSlider',
                             'status'        => 'PUBLISHED',
                         ]);
+
                     }
                 } catch (\Exception $e) {
                     echo $e->getMessage() . PHP_EOL;
